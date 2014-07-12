@@ -12,6 +12,7 @@ opt = lapp[[
 p = xlua.Profiler()
 torch.setnumthreads(opt.threads)
 torch.manualSeed(1)
+torch.setdefaulttensortype('torch.FloatTensor')
  
 if opt.type == 'cuda' then
    require 'cunn'
