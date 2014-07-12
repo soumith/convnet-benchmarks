@@ -8,7 +8,7 @@ Machine
 - 6-core Intel(R) Core(TM) i7-3930K CPU @ 3.20GHz
 - NVIDIA Titan Black @ 2880 CUDA cores
 
-###Convolution layers
+###Convolution layer
 
 
 #####Configuration: Input: 128x128 Batch-size 128, Feature maps: 3->96,  Kernel Size 11x11
