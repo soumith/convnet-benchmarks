@@ -1,0 +1,51 @@
+./caffe/build/tools/net_speed_benchmark.bin conv.prototxt 1 GPU
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+E0714 13:22:44.630727  6464 net_speed_benchmark.cpp:35] Testing for 1Iterations.
+E0714 13:22:44.630813  6464 net_speed_benchmark.cpp:38] Using GPU
+E0714 13:22:44.630822  6464 net_speed_benchmark.cpp:43] Using Device_id=0
+I0714 13:22:44.856416  6464 net.cpp:39] Initializing net from parameters:
+name: "ConvLayer_3x96x11x11"
+layers {
+  bottom: "data"
+  top: "conv1"
+  name: "conv1"
+  type: CONVOLUTION
+  blobs_lr: 1
+  blobs_lr: 2
+  convolution_param {
+    num_output: 96
+    kernel_size: 11
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+input: "data"
+input_dim: 128
+input_dim: 3
+input_dim: 128
+input_dim: 128
+I0714 13:22:44.856555  6464 net.cpp:189] Input 0 -> data
+I0714 13:22:44.856585  6464 net.cpp:67] Creating Layer conv1
+I0714 13:22:44.856593  6464 net.cpp:226] conv1 <- data
+I0714 13:22:44.856605  6464 net.cpp:187] conv1 -> conv1
+I0714 13:22:44.856896  6464 net.cpp:84] Top shape: 128 96 118 118 (171098112)
+I0714 13:22:44.856915  6464 net.cpp:121] conv1 needs backward computation.
+I0714 13:22:44.856923  6464 net.cpp:148] This network produces output conv1
+I0714 13:22:44.856935  6464 net.cpp:295] Collecting Learning Rate and Weight Decay.
+I0714 13:22:44.856943  6464 net.cpp:159] Network initialization done.
+I0714 13:22:44.856950  6464 net.cpp:160] Memory required for data: 25165824
+E0714 13:22:44.856961  6464 net_speed_benchmark.cpp:55] Performing Forward
+E0714 13:22:44.867671  6464 net_speed_benchmark.cpp:60] Initial loss: 0
+E0714 13:22:44.867703  6464 net_speed_benchmark.cpp:61] Performing Backward
+E0714 13:22:45.192266  6464 net_speed_benchmark.cpp:69] *** Benchmark begins ***
+E0714 13:22:45.293459  6464 net_speed_benchmark.cpp:81] conv1   forward: 98.6386 milli seconds.
+E0714 13:22:45.293493  6464 net_speed_benchmark.cpp:84] Forward pass: 98.6863 milli seconds.
+E0714 13:22:45.487925  6464 net_speed_benchmark.cpp:95] conv1   backward: 194.4 milli seconds.
+E0714 13:22:45.487957  6464 net_speed_benchmark.cpp:98] Backward pass: 194.437 milli seconds.
+E0714 13:22:45.487978  6464 net_speed_benchmark.cpp:100] Total Time: 293.17 milli seconds.
+E0714 13:22:45.487989  6464 net_speed_benchmark.cpp:102] *** Benchmark ends ***
