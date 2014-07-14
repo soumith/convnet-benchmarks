@@ -1,11 +1,14 @@
 
 Clone nnForge
 -------------
+```
 git clone https://github.com/milakov/nnForge.git
 cd nnForge
+```
 
 Modify Settings.mk
 ------------------
+```
 --- a/Settings.mk
 +++ b/Settings.mk
 @@ -1,18 +1,18 @@
@@ -30,8 +33,10 @@ Modify Settings.mk
 -NNFORGE_WORKING_DATA_PATH=/home/max/nnforge/working_data
 +NNFORGE_INPUT_DATA_PATH=./nnforge/input_data
 +NNFORGE_WORKING_DATA_PATH=./nnforge/working_data
-
+```
 
 Compile nnForge
 ---------------
+```
 ./make_all.sh
+```
