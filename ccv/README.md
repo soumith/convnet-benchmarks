@@ -1,6 +1,8 @@
 Clone ccv
 --------
 ```
+sudo apt-get install libgsl0-dev
+
 git clone https://github.com/liuliu/ccv.git
 cd ccv
 cd lib
@@ -9,4 +11,3 @@ cd ../bin/cuda
 make
 ```
 
-current errors out on my machine, reached out to liuliu
