@@ -18,7 +18,8 @@ Modify Settings.mk
 -CPP11COMPILER=no
 +ENABLE_CUDA_PROFILING=yes
 +CPP11COMPILER=yes
- BOOST_PATH=/usr/local
+-BOOST_PATH=/usr/local
++BOOST_PATH=/usr/
  OPENCV_PATH=/usr/local
 -NETCDF_INSTALLED=yes
 +NETCDF_INSTALLED=no
