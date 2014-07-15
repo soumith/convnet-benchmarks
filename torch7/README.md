@@ -5,5 +5,5 @@ curl -s https://raw.githubusercontent.com/torch/ezinstall/master/install-all | b
 
 Run the benchmark using:
 ```bash
-th benchmark.lua -type cuda
+th benchmark.lua
 ```
