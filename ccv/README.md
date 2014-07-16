@@ -1,4 +1,4 @@
-Clone ccv
+Build ccv
 --------
 ```
 sudo apt-get install libgsl0-dev
@@ -9,5 +9,9 @@ cd lib
 ./configure
 cd ../bin/cuda
 make
+cd ../../../
 ```
 
+Run cwc-bench
+-------------
+ccv/bin/cuda/cwc-bench list.txt
