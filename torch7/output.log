@@ -1,0 +1,18 @@
+> torch benchmark.lua
+Torch 7.0  Copyright (C) 2001-2011 Idiap, NEC Labs, NYU
+
+CONFIG: input = 3x128x128 * ker = 3x96x11x11 (bs = 128, stride = 1)
+nn.SpatialConvolutionCUDA: 929.17856162749 GFLOP/s (tm = 0.13368499279022)
+nn.SpatialConvolutionMM: 1151.2443085135 GFLOP/s (tm = 0.10789823532104)
+
+CONFIG: input = 64x64x64 * ker = 64x128x9x9 (bs = 128, stride = 1)
+nn.SpatialConvolutionCUDA: 1264.9917943362 GFLOP/s (tm = 0.42111748456955)
+nn.SpatialConvolutionMM: 2223.7676785148 GFLOP/s (tm = 0.23955297470093)
+
+CONFIG: input = 128x32x32 * ker = 128x128x9x9 (bs = 128, stride = 1)
+nn.SpatialConvolutionCUDA: 1286.3152392828 GFLOP/s (tm = 0.15213179588318)
+nn.SpatialConvolutionMM: 1171.4807943478 GFLOP/s (tm = 0.16704452037811)
+
+CONFIG: input = 128x16x16 * ker = 128x128x7x7 (bs = 128, stride = 1)
+nn.SpatialConvolutionCUDA: 1196.2947741919 GFLOP/s (tm = 0.017179787158966)
+nn.SpatialConvolutionMM: 510.0564726487 GFLOP/s (tm = 0.040293753147125)

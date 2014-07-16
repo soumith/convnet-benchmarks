@@ -15,6 +15,7 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 | Library       | Class/Function         | Device | Input Config| GFlop/s   | Code URL       |
 |:-------------:|:----------------------:|:-----------:|:-----------:|:---------:|:--------------:|
 | Caffe         | ConvolutionLayer\<Dtype>   |GPU| BDHW | 1258.70  | [Link](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu) |
-| Torch-7       | nn.SpatialConvolutionCUDA |GPU| DHWB | 844.72  | [Link](https://github.com/torch/cunn/blob/master/SpatialConvolutionCUDA/updateOutput.cu) |
+| Torch-7       | nn.SpatialConvolutionMM |GPU| BDHW |  1151.24 | [Link](https://github.com/torch/cunn/blob/spatialconvmm/SpatialConvolutionMM.cu) |
+| Torch-7       | nn.SpatialConvolutionCUDA |GPU| DHWB | 929.17  | [Link](https://github.com/torch/cunn/blob/master/SpatialConvolutionCUDA/updateOutput.cu) |
 
 
