@@ -14,5 +14,7 @@ cd ../../../
 
 Run the modified cwc-bench
 -------------
+```
 make
 ./cwc-bench list.txt
+```
