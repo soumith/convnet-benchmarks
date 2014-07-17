@@ -90,7 +90,6 @@ for i in range(4):
    del fprop
    del sharedX
    del conv
-   del sharedX
    del sharedY
    
    tm = (time.time()-start)/steps
