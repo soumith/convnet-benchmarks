@@ -86,11 +86,11 @@ for i in range(4):
    for i in range(steps):
       fprop()
    theano.sandbox.cuda.synchronize()
+   tm = (time.time()-start)/steps
    
    del fprop
    del sharedX
    del conv
    del sharedY
    
-   tm = (time.time()-start)/steps
    print 'pylearn2.models.mlp.ConvElemwise:', (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) /dw/dh * bs * ops / tm / 1e9) , 'GFLOP/s ( tm =', tm, ')'
