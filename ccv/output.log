@@ -1,0 +1,29 @@
+> ./cwc-bench list.txt
+4 8 32, elapsed time for layer 1 fprop: 121.286140 milliseconds
+elapsed time for layer 2 fprop: 19.383200 milliseconds
+elapsed time for layer 3 fprop: 6.401920 milliseconds
+4 8 32, elapsed time for layer 4 fprop: 0.001504 milliseconds
+elapsed time for layer 5 fprop: 1.136352 milliseconds
+elapsed time for layer 6 fprop: 0.372864 milliseconds
+4 8 32, elapsed time for layer 7 fprop: 3.879328 milliseconds
+4 8 32, elapsed time for layer 8 fprop: 0.001504 milliseconds
+4 8 32, elapsed time for layer 9 fprop: 0.001536 milliseconds
+elapsed time for layer 10 fprop: 0.103872 milliseconds
+elapsed time for layer 11 fprop: 0.309696 milliseconds
+elapsed time for layer 12 fprop: 0.052160 milliseconds
+elapsed time for layer 13 fprop: 0.052000 milliseconds
+forward pass 153.266693 milliseconds
+elapsed time for layer 13 bprop: 0.209408 milliseconds
+elapsed time for layer 12 bprop: 0.091104 milliseconds
+elapsed time for layer 11 bprop: 0.303360 milliseconds
+elapsed time for layer 10 bprop: 0.271392 milliseconds
+8 4 32, 4 8 32, elapsed time for layer 9 bprop: 0.580800 milliseconds
+8 3 32, 4 8 32, elapsed time for layer 8 bprop: 0.589216 milliseconds
+8 3 32, 4 8 32, elapsed time for layer 7 bprop: 9.354368 milliseconds
+elapsed time for layer 6 bprop: 1.038336 milliseconds
+elapsed time for layer 5 bprop: 2.149376 milliseconds
+4 4 16, 4 6 24, elapsed time for layer 4 bprop: 80.361565 milliseconds
+elapsed time for layer 3 bprop: 16.919041 milliseconds
+elapsed time for layer 2 bprop: 34.578785 milliseconds
+1 3 1, 0 0 0, elapsed time for layer 1 bprop: 208.231903 milliseconds
+backward pass 354.965607 milliseconds

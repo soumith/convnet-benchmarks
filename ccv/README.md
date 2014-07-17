@@ -12,6 +12,9 @@ make
 cd ../../../
 ```
 
-Run cwc-bench
+Run the modified cwc-bench
 -------------
-ccv/bin/cuda/cwc-bench list.txt
+```
+make
+./cwc-bench list.txt
+```

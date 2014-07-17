@@ -6,26 +6,25 @@ Input shape: (128, 128)
 Detector space: (118, 118)
 Output space: (118, 118)
 96 128 128 128 201326592
-pylearn2.models.mlp.ConvElemwise: 197.67214624 GFLOP/s ( tm = 0.628400266171 )
+pylearn2.models.mlp.ConvElemwise: 298.14829122 GFLOP/s ( tm = 0.416629016399 )
 
 CONFIG: input = 64 x 64 x 64 * ker = 64 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
 Input shape: (64, 64)
 Detector space: (56, 56)
 Output space: (56, 56)
 128 64 64 128 67108864
-pylearn2.models.mlp.ConvElemwise: 146.753354457 GFLOP/s ( tm = 3.62996923923 )
+pylearn2.models.mlp.ConvElemwise: 231.331996148 GFLOP/s ( tm = 2.30279499292 )
 
 CONFIG: input = 128 x 32 x 32 * ker = 128 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
 Input shape: (32, 32)
 Detector space: (24, 24)
 Output space: (24, 24)
 128 32 32 128 16777216
-pylearn2.models.mlp.ConvElemwise: 186.654790971 GFLOP/s ( tm = 1.04840302467 )
+pylearn2.models.mlp.ConvElemwise: 291.087373568 GFLOP/s ( tm = 0.672270476818 )
 
 CONFIG: input = 128 x 16 x 16 * ker = 128 x 128 x 7 x 7 ( bs = 128 , stride = 1 )
 Input shape: (16, 16)
 Detector space: (10, 10)
 Output space: (10, 10)
 128 16 16 128 4194304
-pylearn2.models.mlp.ConvElemwise: 111.740326364 GFLOP/s ( tm = 0.183927237988 )
-
+pylearn2.models.mlp.ConvElemwise: 235.760045394 GFLOP/s ( tm = 0.0871737599373 )
