@@ -1,7 +1,10 @@
+import time
+import gc
 import numpy as np
 import theano
 import pylearn2
-from pylearn2.models.mlp import ConvElemwise, ConvNonlinearity
+from pylearn2.models.mlp import ConvElemwise, ConvNonlinearity, MLP
+from pylearn2.space import Conv2DSpace
 
  
 steps = 4 # nb of steps in loop to average perf
@@ -59,26 +62,36 @@ for i in range(4):
    # params for run:
    ni,no,kw,kh,bs,iw,ih,dw,dh = run['ni'],run['no'],run['kw'],run['kh'],run['bs'],run['iw'],run['ih'],run['dw'],run['dh']
    print ''
-   print 'CONFIG: input =',ni,'x',iw,'x',ih,'* ker =',ni,'x',no,'x',kw,'x',kh,'(bs =',bs,', stride =',dw,')'
+   print 'CONFIG: input =',ni,'x',iw,'x',ih,'* ker =',ni,'x',no,'x',kw,'x',kh,'( bs =',bs,', stride =',dw,')'
 
-   conv = ConvElemwise(no,(kw,kh),'ConvTest', ConvNonlinearity())
+   conv = MLP(
+      batch_size=bs,
+      input_space=Conv2DSpace((ih,iw), num_channels=ni, axes=['c', 0, 1, 'b']),
+      layers=[ConvElemwise(no,(kw,kh),'ConvTest',ConvNonlinearity(),irange=0.1)]
+   )
 
-   inputBatch = np.rand.randn(bs, ni, ih, iw)
-   sharedX = theano.sandbox.cuda.shared(x)
-   sharedX:set_value(inputBatch)
-   
-   params = conv:get_params()
+   inputBatch = np.random.randn(ni, ih, iw, bs)
+   sharedX = theano.shared(inputBatch.astype('float32'))
+   print no, ih, iw, bs, no*ih*iw*bs
+   sharedY = theano.shared(np.random.randn(no, ih, iw, bs).astype('float32'))
    
    X = theano.tensor.tensor4()
    
    Y=conv.fprop(X)
    
-   fprop = theano.function(X,Y,givens=[(X,sharedX)])
-
-   sys.tic()
+   fprop = theano.function([],[],givens=[(X,sharedX)],updates=[(sharedY,Y)])
+   
+   theano.sandbox.cuda.synchronize()
+   start = time.time()
    for i in range(steps):
-      o1 = fprop(X)
+      fprop()
+   theano.sandbox.cuda.synchronize()
    
+   del fprop
+   del sharedX
+   del conv
+   del sharedX
+   del sharedY
    
-   tm = sys.toc()/steps
-   print('pylearn2.models.mlp.ConvElemwise: ' .. (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) /dw/dh * bs * ops / tm / 1e9) .. ' GFLOP/s (tm = ' .. tm .. ')')
+   tm = (time.time()-start)/steps
+   print 'pylearn2.models.mlp.ConvElemwise:', (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) /dw/dh * bs * ops / tm / 1e9) , 'GFLOP/s ( tm =', tm, ')'
