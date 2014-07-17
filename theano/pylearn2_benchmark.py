@@ -66,11 +66,11 @@ for i in range(4):
 
    conv = MLP(
       batch_size=bs,
-      input_space=Conv2DSpace((ih,iw), num_channels=ni, axes=['c', 0, 1, 'b']),
+      input_space=Conv2DSpace((ih,iw), num_channels=ni, axes=('b', 'c', 0, 1)),
       layers=[ConvElemwise(no,(kw,kh),'ConvTest',ConvNonlinearity(),irange=0.1)]
    )
 
-   inputBatch = np.random.randn(ni, ih, iw, bs)
+   inputBatch = np.random.randn(bs, ni, ih, iw)
    sharedX = theano.shared(inputBatch.astype('float32'))
    print no, ih, iw, bs, no*ih*iw*bs
    sharedY = theano.shared(np.random.randn(no, ih, iw, bs).astype('float32'))
