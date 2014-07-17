@@ -63,7 +63,7 @@ for i in range(4):
    ni,no,kw,kh,bs,iw,ih,dw,dh = run['ni'],run['no'],run['kw'],run['kh'],run['bs'],run['iw'],run['ih'],run['dw'],run['dh']
    print ''
    print 'CONFIG: input =',ni,'x',iw,'x',ih,'* ker =',ni,'x',no,'x',kw,'x',kh,'( bs =',bs,', stride =',dw,')'
-
+  
    conv = MLP(
       batch_size=bs,
       input_space=Conv2DSpace((ih,iw), num_channels=ni, axes=('b', 'c', 0, 1)),
@@ -72,14 +72,13 @@ for i in range(4):
 
    inputBatch = np.random.randn(bs, ni, ih, iw)
    sharedX = theano.shared(inputBatch.astype('float32'))
-   print no, ih, iw, bs, no*ih*iw*bs
-   sharedY = theano.shared(np.random.randn(no, ih, iw, bs).astype('float32'))
+   sharedY = theano.shared(np.random.randn(bs, no, (ih-kh)/dh+1, (iw-kw)/dw+1).astype('float32'))
    
    X = theano.tensor.tensor4()
    
    Y=conv.fprop(X)
    
-   fprop = theano.function([],[],givens=[(X,sharedX)],updates=[(sharedY,Y)])
+   fprop = theano.function([],[],givens=[(X,sharedX)],updates=[(sharedY,Y)],on_unused_input='ignore')
    
    theano.sandbox.cuda.synchronize()
    start = time.time()
