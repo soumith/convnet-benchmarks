@@ -1,14 +1,9 @@
-Install
--------
-```
-sudo apt-get install python-dev python-numpy python-scipy python-magic python-matplotlib libatlas-base-dev libjpeg-dev libopencv-dev git
-git clone https://code.google.com/p/cuda-convnet2/
-cd cuda-convnet2
-sh build.sh
-```
+After a brief email exchange with Alex, he suggested that the easiest way 
+to do benchmarking is to write a small C/C++ wrapper around cudaconv3 (where all the kernels are).
+I took this route, except that I wrote a Torch wrapper around the kernels, the repository can be found at 
+https://github.com/soumith/cuda-convnet2.torch
 
-Run Benchmark
--------------
-```
-python convnet.py --layer-def=../bench1.cfg --layer-params=../bench1-params.cfg --data-provider=dummy-labeled-49152 --check-grads=1 --gpu 1
-```
+Assuming torch is already installed, it can be installed with
+luarocks install https://raw.githubusercontent.com/soumith/cuda-convnet2.torch/master/ccn2-scm-1.rockspec
+
+The benchmark will be added to [benchmark.lua in the torch7 folder](https://github.com/soumith/convnet-benchmarks/tree/master/torch7)
