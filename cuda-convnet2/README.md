@@ -2,6 +2,7 @@ After a brief email exchange with Alex, he suggested that the easiest way to do 
 I took this route, except that I wrote a Torch/FFI wrapper around the kernels (instead of C/C++), the repository can be found at 
 https://github.com/soumith/cuda-convnet2.torch
 
+For details on installing torch, look at the README.md in the [torch7 folder](https://github.com/soumith/convnet-benchmarks/tree/master/torch7)
 Assuming torch is already installed, it can be installed with
 ```bash
 luarocks install https://raw.githubusercontent.com/soumith/cuda-convnet2.torch/master/ccn2-scm-1.rockspec
@@ -14,4 +15,4 @@ The benchmark can be run with the command:
 th benchmark.lua
 ```
 
-For details on installing torch, look at the README.md in the [torch7 folder](https://github.com/soumith/convnet-benchmarks/tree/master/torch7)
+
