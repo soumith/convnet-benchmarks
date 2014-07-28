@@ -12,6 +12,7 @@ ops = 2 -- ops per point
 
 runs = {
    {
+      -- first layer
       ni = 3,
       no = 96,
       kw = 11,
@@ -23,6 +24,7 @@ runs = {
       dh = 1,
    },
    {
+      -- second layer
       ni = 64,
       no = 128,
       kw = 9,
@@ -34,6 +36,7 @@ runs = {
       dh = 1,
    },
    {
+      -- third layer
       ni = 128,
       no = 128,
       kw = 9,
@@ -45,12 +48,24 @@ runs = {
       dh = 1,
    },
    {
+      -- fourth layer
       ni = 128,
       no = 128,
       kw = 7,
       kh = 7,
       iw = 16,
       ih = 16,
+      bs = 128,
+      dw = 1,
+      dh = 1,
+   },
+   {  -- layers with small inputs/kernels, seen at the lower ends of the network
+      ni = 384,
+      no = 384,
+      kw = 3,
+      kh = 3,
+      iw = 13,
+      ih = 13,
       bs = 128,
       dw = 1,
       dh = 1,
