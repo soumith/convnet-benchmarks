@@ -26,6 +26,7 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 A * indicates that the library was tested with Torch bindings of the specific kernels.
 
 Since this repository is getting a little attention, quickly adding some more results without making them pretty:
+```
 CONFIG: input = 3x128x128 * ker = 3x96x11x11 (bs = 128, stride = 1)
 cuda-convnet: 942.8129891143 GFLOP/s (tm = 0.13175171613693)
 Caffe/nn.SpatialConvolutionMM: 1179.3990140955 GFLOP/s (tm = 0.10532248020172)
@@ -50,3 +51,4 @@ CONFIG: input = 384x13x13 * ker = 384x384x3x3 (bs = 128, stride = 1)
 cuda-convnet: 976.73603963865 GFLOP/s (tm = 0.042087495326996)
 Caffe/nn.SpatialConvolutionMM: 739.60915914596 GFLOP/s (tm = 0.055581212043762)
 cuda-convnet2: 2289.1113239623 GFLOP/s (tm = 0.017958223819733)
+```
