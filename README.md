@@ -25,8 +25,8 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 
 A * indicates that the library was tested with Torch bindings of the specific kernels.
 
-Since this repository is getting a little attention, quickly adding some more results without making them pretty:
-cuda-convnet2 blows the competition out of the water by a huge margin!
+**Since this repository is getting a little attention, quickly adding some more results without making them pretty:
+cuda-convnet2 blows the competition out of the water by a huge margin!**
 ```
 -- layer 1
 CONFIG: input = 3x128x128 * ker = 3x96x11x11 (bs = 128, stride = 1)
