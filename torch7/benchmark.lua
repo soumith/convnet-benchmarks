@@ -1,6 +1,7 @@
 require 'nn'
 require 'sys'
 require 'cunn'
+require 'ccn2'
  
 torch.manualSeed(1)
 torch.setdefaulttensortype('torch.FloatTensor')
@@ -64,12 +65,15 @@ for i,run in ipairs(runs) do
 
    n1 = nn.SpatialConvolutionCUDA(ni,no,kw,kh,dw,dh):cuda()
    n2 = nn.SpatialConvolutionMM(ni,no,kw,kh,dw,dh):cuda()
+   n3 = ccn2.SpatialConvolution(ni,no,kw,dw):cuda()
 
    i1 = torch.randn(ni, ih, iw, bs):cuda()
    i2 = torch.randn(bs, ni, ih, iw):cuda()
+   i3 = torch.randn(ni, ih, iw, bs):cuda()
 
    o1 = n1:forward(i1)
    o2 = n2:forward(i2)
+   o3 = n2:forward(i3)
 
    cutorch.synchronize()
    sys.tic()
@@ -88,6 +92,15 @@ for i,run in ipairs(runs) do
    cutorch.synchronize()
    tm = sys.toc()/steps
    print('nn.SpatialConvolutionMM: ' .. (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) /dw/dh * bs * ops / tm / 1e9) .. ' GFLOP/s (tm = ' .. tm .. ')')
+
+   cutorch.synchronize()
+   sys.tic()
+   for t = 1,steps do
+      o3 = n3:updateOutput(i3)
+   end
+   cutorch.synchronize()
+   tm = sys.toc()/steps
+   print('ccn2.SpatialConvolution: ' .. (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) /dw/dh * bs * ops / tm / 1e9) .. ' GFLOP/s (tm = ' .. tm .. ')')
 
    collectgarbage()
 end
