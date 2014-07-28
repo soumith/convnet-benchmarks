@@ -8,7 +8,7 @@ Assuming torch is already installed, it can be installed with
 luarocks install https://raw.githubusercontent.com/soumith/cuda-convnet2.torch/master/ccn2-scm-1.rockspec
 ```
 
-The benchmark will be added to [benchmark.lua in the torch7 folder](https://github.com/soumith/convnet-benchmarks/tree/master/torch7)
+The benchmark is included with [benchmark.lua in the torch7 folder](https://github.com/soumith/convnet-benchmarks/tree/master/torch7)
 
 The benchmark can be run with the command:
 ```bash
