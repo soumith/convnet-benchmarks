@@ -16,9 +16,9 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 #####:forward()
 | Library         | Class/Function                      | Device | Input Config   | GFlop/s   | Code URL       |
 |:-------------:  |:-----------------------------------:|:------:|:--------------:|:---------:|:--------------:|
-| cuda-convnet2 * | ConvLayer                           |GPU     | DHWB           | 1642.15 | [Link](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu) |
+| cuda-convnet2 * | ConvLayer                           |GPU     | DHWB           | 1779.29 | [Link](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu) |
 | Caffe           | ConvolutionLayer\<Dtype>            |GPU     | BDHW           | 1258.70 | [Link](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu) |
-| Torch-7         | nn.SpatialConvolutionMM             |GPU     | BDHW           | 1151.24 | [Link](https://github.com/torch/cunn/blob/spatialconvmm/SpatialConvolutionMM.cu) |
+| Torch-7         | nn.SpatialConvolutionMM             |GPU     | BDHW           | 1177.78 | [Link](https://github.com/torch/cunn/blob/spatialconvmm/SpatialConvolutionMM.cu) |
 | ccv             | ccv_convnet_layer                   |GPU     | BDHW           | 1024.16 | [Link](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu) |
 | cuda-convnet *  | ConvLayer                           |GPU     | DHWB           | 929.17  | [Link](https://github.com/torch/cunn/blob/master/SpatialConvolutionCUDA/updateOutput.cu) |
 | Theano/pylearn2 | pylearn2.models.mlp.ConvElemwise  |GPU     | BDHW           | 298.14  | [Link](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/models/mlp.py#L3080) |
@@ -30,31 +30,31 @@ cuda-convnet2 blows the competition out of the water by a huge margin!**
 ```
 -- layer 1
 CONFIG: input = 3x128x128 * ker = 3x96x11x11 (bs = 128, stride = 1)
-cuda-convnet: 942.8129891143 GFLOP/s (tm = 0.13175171613693)
-Caffe/nn.SpatialConvolutionMM: 1179.3990140955 GFLOP/s (tm = 0.10532248020172)
-cuda-convnet2: 1654.2947261421 GFLOP/s (tm = 0.07508772611618)
+cuda-convnet: 944.68789645199 GFLOP/s (tm = 0.1314902305603)
+Caffe/nn.SpatialConvolutionMM: 1177.7879871761 GFLOP/s (tm = 0.10546654462814)
+cuda-convnet2: 1779.2908234941 GFLOP/s (tm = 0.069812774658203)
 
 -- layer 2
 CONFIG: input = 64x64x64 * ker = 64x128x9x9 (bs = 128, stride = 1)
-cuda-convnet: 1260.0636701749 GFLOP/s (tm = 0.42276448011398)
-Caffe/nn.SpatialConvolutionMM: 2221.9725336101 GFLOP/s (tm = 0.23974651098251)
-cuda-convnet2: 2202.7792345295 GFLOP/s (tm = 0.24183547496796)
+cuda-convnet: 1260.782333477 GFLOP/s (tm = 0.42252349853516)
+Caffe/nn.SpatialConvolutionMM: 2219.3736959591 GFLOP/s (tm = 0.24002724885941)
+cuda-convnet2: 2197.8168036727 GFLOP/s (tm = 0.24238151311874)
 
 -- layer 3
 CONFIG: input = 128x32x32 * ker = 128x128x9x9 (bs = 128, stride = 1)
-cuda-convnet: 1263.7233233216 GFLOP/s (tm = 0.15485149621964)
-Caffe/nn.SpatialConvolutionMM: 1170.9672895372 GFLOP/s (tm = 0.16711777448654)
-cuda-convnet2: 2231.4079892349 GFLOP/s (tm = 0.087697744369507)
+cuda-convnet: 1259.195897222 GFLOP/s (tm = 0.15540826320648)
+Caffe/nn.SpatialConvolutionMM: 1164.72445476 GFLOP/s (tm = 0.16801351308823)  
+cuda-convnet2: 2244.3954637671 GFLOP/s (tm = 0.087190270423889)
 
 -- layer 4
 CONFIG: input = 128x16x16 * ker = 128x128x7x7 (bs = 128, stride = 1)
-cuda-convnet: 1193.9667318945 GFLOP/s (tm = 0.01721328496933)
-Caffe/nn.SpatialConvolutionMM: 509.81966887597 GFLOP/s (tm = 0.040312469005585)
-cuda-convnet2: 2141.0058210269 GFLOP/s (tm = 0.0095992684364319)
+cuda-convnet: 1204.6621963356 GFLOP/s (tm = 0.017060458660126)
+Caffe/nn.SpatialConvolutionMM: 490.99599360714 GFLOP/s (tm = 0.041857957839966)
+cuda-convnet2: 2108.8329876002 GFLOP/s (tm = 0.009745717048645)
 
 -- layers with small inputs/kernels, seen at the lower ends of the network
 CONFIG: input = 384x13x13 * ker = 384x384x3x3 (bs = 128, stride = 1)
-cuda-convnet: 976.73603963865 GFLOP/s (tm = 0.042087495326996)
-Caffe/nn.SpatialConvolutionMM: 739.60915914596 GFLOP/s (tm = 0.055581212043762)
-cuda-convnet2: 2289.1113239623 GFLOP/s (tm = 0.017958223819733)
+cuda-convnet: 983.54876028249 GFLOP/s (tm = 0.041795969009399)
+Caffe/nn.SpatialConvolutionMM: 735.82546939461 GFLOP/s (tm = 0.05586701631546)
+cuda-convnet2: 2283.9565044269 GFLOP/s (tm = 0.01799875497818)
 ```
