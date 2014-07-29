@@ -18,10 +18,8 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 * L3 - Input: `32x32`   Batch-size `128`, Feature maps: `128->128`,  Kernel Size:   `9x9`,  Stride: `1x1`
 * L4 - Input: `16x16`   Batch-size `128`, Feature maps: `128->128`,  Kernel Size:   `7x7`,  Stride: `1x1`
 * L5 - Input: `13x13`   Batch-size `128`, Feature maps: `384->384`,  Kernel Size:   `3x3`,  Stride: `1x1`
-
 * All times are in miliseconds.
 * The table is ranked according to the total time (L1 + L2 + L3 + L4 + L5)
-
 #####:forward()
 | Original Library         | Class/Function Benchmarked                                                                                                        | Device  |  L1 |  L2 |  L3 |  L4 | L5  | Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:|:-------:|:---:|:----:|:---:|:--:|:---:|:-----:|
@@ -38,36 +36,3 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 * ** indicates that the library was tested with Pylearn2 bindings. 
 * *** This is an experimental module which used FFT to calculate convolutions. [It uses a lot of memory according to @benanne](https://github.com/soumith/convnet-benchmarks/pull/5#issuecomment-50548946)
 
-**Since this repository is getting a little attention, quickly adding some more results without making them pretty:
-cuda-convnet2 blows the competition out of the water by a huge margin!**
-```
--- layer 1
-CONFIG: input = 3x128x128 * ker = 3x96x11x11 (bs = 128, stride = 1)
-cuda-convnet: 944.68789645199 GFLOP/s (tm = 0.1314902305603)
-Caffe/nn.SpatialConvolutionMM: 1177.7879871761 GFLOP/s (tm = 0.10546654462814)
-cuda-convnet2: 1779.2908234941 GFLOP/s (tm = 0.069812774658203)
-
--- layer 2
-CONFIG: input = 64x64x64 * ker = 64x128x9x9 (bs = 128, stride = 1)
-cuda-convnet: 1260.782333477 GFLOP/s (tm = 0.42252349853516)
-Caffe/nn.SpatialConvolutionMM: 2219.3736959591 GFLOP/s (tm = 0.24002724885941)
-cuda-convnet2: 2197.8168036727 GFLOP/s (tm = 0.24238151311874)
-
--- layer 3
-CONFIG: input = 128x32x32 * ker = 128x128x9x9 (bs = 128, stride = 1)
-cuda-convnet: 1259.195897222 GFLOP/s (tm = 0.15540826320648)
-Caffe/nn.SpatialConvolutionMM: 1164.72445476 GFLOP/s (tm = 0.16801351308823)  
-cuda-convnet2: 2244.3954637671 GFLOP/s (tm = 0.087190270423889)
-
--- layer 4
-CONFIG: input = 128x16x16 * ker = 128x128x7x7 (bs = 128, stride = 1)
-cuda-convnet: 1204.6621963356 GFLOP/s (tm = 0.017060458660126)
-Caffe/nn.SpatialConvolutionMM: 490.99599360714 GFLOP/s (tm = 0.041857957839966)
-cuda-convnet2: 2108.8329876002 GFLOP/s (tm = 0.009745717048645)
-
--- layers with small inputs/kernels, seen at the lower ends of the network
-CONFIG: input = 384x13x13 * ker = 384x384x3x3 (bs = 128, stride = 1)
-cuda-convnet: 983.54876028249 GFLOP/s (tm = 0.041795969009399)
-Caffe/nn.SpatialConvolutionMM: 735.82546939461 GFLOP/s (tm = 0.05586701631546)
-cuda-convnet2: 2283.9565044269 GFLOP/s (tm = 0.01799875497818)
-```
