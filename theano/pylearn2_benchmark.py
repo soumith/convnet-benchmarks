@@ -3,8 +3,14 @@ import gc
 import numpy as np
 import theano
 import pylearn2
+
+import theano.tensor as T
+
 from pylearn2.models.mlp import ConvElemwise, ConvNonlinearity, MLP
 from pylearn2.space import Conv2DSpace
+
+from pylearn2.sandbox.cuda_convnet.filter_acts import FilterActs
+from theano.sandbox.cuda.basic_ops import gpu_contiguous
 
  
 steps = 4 # nb of steps in loop to average perf
@@ -93,3 +99,34 @@ for i in range(4):
    del sharedY
    
    print 'pylearn2.models.mlp.ConvElemwise:', (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) /dw/dh * bs * ops / tm / 1e9) , 'GFLOP/s ( tm =', tm, ')'
+   
+   ### pylearn2 work-around for using cuda-convnet (http://benanne.github.io/2014/04/03/faster-convolutions-in-theano.html) ###
+   
+   #(channels, rows, columns, batch_size)
+   inputBatch = np.random.randn(ni, ih, iw, bs)
+   sharedX = theano.shared(inputBatch.astype('float32'))
+   sharedY = theano.shared(np.random.randn(no, (ih-kh)/dh+1, (iw-kw)/dw+1, bs).astype('float32'))
+   # (channels, rows, columns, number of filters)
+   sharedW = theano.shared(np.random.randn(ni, kh, kw, no).astype('float32'))
+   
+   conv_op = FilterActs()
+   contiguous_input = gpu_contiguous(sharedX)
+   contiguous_filters = gpu_contiguous(sharedW)
+   Y = conv_op(contiguous_input, contiguous_filters)
+   
+   fprop = theano.function([],[],givens=[(X,sharedX)],updates=[(sharedY,Y)],on_unused_input='ignore')
+   
+   theano.sandbox.cuda.synchronize()
+   start = time.time()
+   for i in range(steps):
+      fprop()
+   theano.sandbox.cuda.synchronize()
+   tm = (time.time()-start)/steps
+   
+   del fprop
+   del sharedX
+   del conv_op
+   del sharedY
+   del sharedW
+   
+   print ' pylearn2.sandbox.cuda_convnet:', (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) /dw/dh * bs * ops / tm / 1e9) , 'GFLOP/s ( tm =', tm, ')'
