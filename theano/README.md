@@ -23,9 +23,8 @@ sudo python setup.py install
 
 Install scikits.cuda:
 ```
-wget -c https://pypi.python.org/packages/source/s/scikits.cuda/scikits.cuda-0.042.tar.gz#md5=09e57379fe1108ab67187a0c0905f6da
-tar -xvf scikits.cuda-0.042.tar.gz 
-cd scikits.cuda-0.042
+git clone https://github.com/lebedov/scikits.cuda.git
+cd scikits.cuda
 sudo python setup.py install
 ```
 

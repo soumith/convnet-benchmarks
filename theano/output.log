@@ -1,30 +1,44 @@
--> THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python pylearn2_benchmark.py
+THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python pylearn2_benchmark.py
 Using gpu device 0: GeForce GTX TITAN Black
 
 CONFIG: input = 3 x 128 x 128 * ker = 3 x 96 x 11 x 11 ( bs = 128 , stride = 1 )
 Input shape: (128, 128)
 Detector space: (118, 118)
 Output space: (118, 118)
-pylearn2.models.mlp.ConvElemwise: 299.480080245 GFLOP/s ( tm = 0.414776265621 )
- pylearn2.sandbox.cuda_convnet: 1202.65348093 GFLOP/s ( tm = 0.103285968304 )
+pylearn2.models.mlp.ConvElemwise: 299.74149507 GFLOP/s ( tm = 0.414414525032 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise: 595.44122732 GFLOP/s ( tm = 0.208613753319 )
+ pylearn2.sandbox.cuda_convnet: 1354.6420678 GFLOP/s ( tm = 0.0916974544525 )
 
 CONFIG: input = 64 x 64 x 64 * ker = 64 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
 Input shape: (64, 64)
 Detector space: (56, 56)
 Output space: (56, 56)
-pylearn2.models.mlp.ConvElemwise: 230.496357496 GFLOP/s ( tm = 2.31114351749 )
- pylearn2.sandbox.cuda_convnet: 1313.34991623 GFLOP/s ( tm = 0.405611753464 )
+pylearn2.models.mlp.ConvElemwise: 231.801779702 GFLOP/s ( tm = 2.29812800884 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise: 7107.96639394 GFLOP/s ( tm = 0.0749455094337 )
+ pylearn2.sandbox.cuda_convnet: 1293.04849717 GFLOP/s ( tm = 0.411980032921 )
 
 CONFIG: input = 128 x 32 x 32 * ker = 128 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
 Input shape: (32, 32)
 Detector space: (24, 24)
 Output space: (24, 24)
-pylearn2.models.mlp.ConvElemwise: 291.36050078 GFLOP/s ( tm = 0.671640276909 )
- pylearn2.sandbox.cuda_convnet: 1315.88668826 GFLOP/s ( tm = 0.148712992668 )
+pylearn2.models.mlp.ConvElemwise: 290.348195806 GFLOP/s ( tm = 0.673981964588 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise: 6960.19531133 GFLOP/s ( tm = 0.0281155109406 )
+ pylearn2.sandbox.cuda_convnet: 1312.32787224 GFLOP/s ( tm = 0.149116277695 )
 
 CONFIG: input = 128 x 16 x 16 * ker = 128 x 128 x 7 x 7 ( bs = 128 , stride = 1 )
 Input shape: (16, 16)
 Detector space: (10, 10)
 Output space: (10, 10)
-pylearn2.models.mlp.ConvElemwise: 235.874391493 GFLOP/s ( tm = 0.0871315002441 )
- pylearn2.sandbox.cuda_convnet: 1221.23391219 GFLOP/s ( tm = 0.0168289542198 )
+pylearn2.models.mlp.ConvElemwise: 230.029337812 GFLOP/s ( tm = 0.0893455147743 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise: 2253.27133782 GFLOP/s ( tm = 0.00912100076675 )
+ pylearn2.sandbox.cuda_convnet: 1205.70265917 GFLOP/s ( tm = 0.0170457363129 )
+-------------------------------------------------------------------
+PyCUDA ERROR: The context stack was not empty upon module cleanup.
+-------------------------------------------------------------------
+A context was still active when the context stack was being
+cleaned up. At this point in our execution, CUDA may already
+have been deinitialized, so there is no way we can finish
+cleanly. The program will be aborted now.
+Use Context.pop() to avoid this problem.
+-------------------------------------------------------------------
+Aborted (core dumped)
