@@ -16,13 +16,17 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 #####:forward()
 | Library         | Class/Function                      | Device | Input Config   | GFlop/s   | Code URL       |
 |:-------------:  |:-----------------------------------:|:------:|:--------------:|:---------:|:--------------:|
-| cuda-convnet2 * | ConvLayer                           |GPU     | DHWB           | 1779.29 | [Link](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu) |
-| Caffe           | ConvolutionLayer\<Dtype>            |GPU     | BDHW           | 1258.70 | [Link](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu) |
-| Torch-7         | nn.SpatialConvolutionMM             |GPU     | BDHW           | 1177.78 | [Link](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu) |
-| ccv             | ccv_convnet_layer                   |GPU     | BDHW           | 1024.16 | [Link](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu) |
-| cuda-convnet *  | ConvLayer                           |GPU     | DHWB           | 929.17  | [Link](https://github.com/torch/cunn/blob/master/SpatialConvolutionCUDA/updateOutput.cu) |
+| cuda-convnet2 *    | ConvLayer                           |GPU     | DHWB           | 1779.29 | [Link](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu) |
+| Caffe              | ConvolutionLayer\<Dtype>            |GPU     | BDHW           | 1258.70 | [Link](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu) |
+| cuda-convnet**     | pylearn2..cuda_convnet/ConvLayer     |GPU     | DHWB           | 1202.65 | [Link](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu) |
+| Torch-7            | nn.SpatialConvolutionMM             |GPU     | BDHW           | 1177.78 | [Link](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu) |
+| ccv                | ccv_convnet_layer                   |GPU     | BDHW           | 1024.16 | [Link](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu) |
+| pylearn2/Theano*** | pylearn2..mlp.ConvElemwise    |GPU     | BDHW           | 299.48  | [Link](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/models/mlp.py#L3080) |
 
-A * indicates that the library was tested with Torch bindings of the specific kernels.
+
+* indicates that the library was tested with Torch bindings of the specific kernels.
+** indicates that the library was tested with Pylearn2 bindings. 
+*** Ian Goodfellow from LISA Lab informs me that they usually use the cuda-convnet binding, and this kernel was only kept around for non-standard shapes that cuda-convnet does not support
 
 **Since this repository is getting a little attention, quickly adding some more results without making them pretty:
 cuda-convnet2 blows the competition out of the water by a huge margin!**
