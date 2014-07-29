@@ -20,6 +20,7 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 * L5 - Input: `13x13`   Batch-size `128`, Feature maps: `384->384`,  Kernel Size:   `3x3`,  Stride: `1x1`
 * All times are in miliseconds.
 * The table is ranked according to the total time (L1 + L2 + L3 + L4 + L5)
+
 #####:forward()
 | Original Library         | Class/Function Benchmarked                                                                                                        | Device  |  L1 |  L2 |  L3 |  L4 | L5  | Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:|:-------:|:---:|:----:|:---:|:--:|:---:|:-----:|
@@ -30,6 +31,7 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 | Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       |  GPU    | 105 | 240  | 168 | 41 | 55  |   609 |
 | ccv                      |[ccv_convnet_layer](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu)                                           |  GPU    | 153 |      |     |    |     |       |
 | Theano (legacy)**        | [pylearn2.mlp.ConvElemwise](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/models/mlp.py#L3080)                        |  GPU    | 418 | 2299 | 672 | 88 | 272 |  3749 |
+
 
 * \* indicates that the library was tested with Torch bindings of the specific kernels.
 * ** indicates that the library was tested with Pylearn2 bindings. 
