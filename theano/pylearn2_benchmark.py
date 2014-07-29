@@ -93,12 +93,28 @@ for i in range(4):
     theano.sandbox.cuda.synchronize()
     tm = (time.time()-start)/steps
 
+    print 'pylearn2.models.mlp.ConvElemwise:', (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) / dw/dh * bs * ops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+
+    # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_fft_valid:conv_fft_full
+    mode = theano.compile.get_default_mode()
+    mode = mode.including('conv_fft_valid', 'conv_fft_full')
+    fprop = theano.function([], [], givens=[(X, sharedX)],
+                            updates=[(sharedY, Y)],
+                            on_unused_input='ignore', mode=mode)
+
+    theano.sandbox.cuda.synchronize()
+    start = time.time()
+    for i in range(steps):
+        fprop()
+    theano.sandbox.cuda.synchronize()
+    tm = (time.time()-start)/steps
+
     del fprop
     del sharedX
     del conv
     del sharedY
 
-    print 'pylearn2.models.mlp.ConvElemwise:', (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) / dw/dh * bs * ops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print '(fft experimental) pylearn2.models.mlp.ConvElemwise:', (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) / dw/dh * bs * ops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
     ### pylearn2 work-around for using cuda-convnet (http://benanne.github.io/2014/04/03/faster-convolutions-in-theano.html) ###
 
