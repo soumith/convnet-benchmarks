@@ -31,8 +31,7 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 | ccv                      |[ccv_convnet_layer](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu)                                           |  GPU    | 153 |      |     |    |     |       |
 | Theano (legacy)**        | [pylearn2.mlp.ConvElemwise](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/models/mlp.py#L3080)                        |  GPU    | 418 | 2299 | 672 | 88 | 272 |  3749 |
 
-
-* * indicates that the library was tested with Torch bindings of the specific kernels.
+* \* indicates that the library was tested with Torch bindings of the specific kernels.
 * ** indicates that the library was tested with Pylearn2 bindings. 
 * *** This is an experimental module which used FFT to calculate convolutions. [It uses a lot of memory according to @benanne](https://github.com/soumith/convnet-benchmarks/pull/5#issuecomment-50548946)
 
