@@ -21,7 +21,6 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 | Torch-7         | nn.SpatialConvolutionMM             |GPU     | BDHW           | 1177.78 | [Link](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu) |
 | ccv             | ccv_convnet_layer                   |GPU     | BDHW           | 1024.16 | [Link](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu) |
 | cuda-convnet *  | ConvLayer                           |GPU     | DHWB           | 929.17  | [Link](https://github.com/torch/cunn/blob/master/SpatialConvolutionCUDA/updateOutput.cu) |
-| Theano/pylearn2 | pylearn2.models.mlp.ConvElemwise  |GPU     | BDHW           | 298.14  | [Link](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/models/mlp.py#L3080) |
 
 A * indicates that the library was tested with Torch bindings of the specific kernels.
 
