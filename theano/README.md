@@ -12,6 +12,23 @@ cd pylearn2
 sudo python setup.py develop
 ```
 
+Install pycuda:
+```
+wget -c https://pypi.python.org/packages/source/p/pycuda/pycuda-2013.1.1.tar.gz#md5=acf9319ab2970d9700ed6486aa87b708
+tar -xvf pycuda-2013.1.1.tar.gz
+cd pycuda-2013.1.1
+./configure.py
+sudo python setup.py install
+```
+
+Install scikits.cuda:
+```
+wget -c https://pypi.python.org/packages/source/s/scikits.cuda/scikits.cuda-0.042.tar.gz#md5=09e57379fe1108ab67187a0c0905f6da
+tar -xvf scikits.cuda-0.042.tar.gz 
+cd scikits.cuda-0.042
+sudo python setup.py install
+```
+
 Launch the script:
 ```
 THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python pylearn2_benchmark.py 
