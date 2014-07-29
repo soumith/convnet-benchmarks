@@ -21,7 +21,7 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 | cuda-convnet**     | pylearn2, Torch7 | [pylearn2.cuda_convnet/ConvLayer](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu)     |GPU     | DHWB           | 1202.65 |
 | Torch-7            |                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)             |GPU     | BDHW           | 1177.78 |
 | ccv                |                  |[ccv_convnet_layer](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu)                   |GPU     | BDHW           | 1024.16 |
-| Theano (legacy)*** | Pylearn2 | [pylearn2..mlp.ConvElemwise](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/models/mlp.py#L3080)    |GPU     | BDHW           | 299.48  |
+| Theano (legacy)*** | Pylearn2 | [pylearn2.mlp.ConvElemwise](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/models/mlp.py#L3080)    |GPU     | BDHW           | 299.48  |
 
 
 * * indicates that the library was tested with Torch bindings of the specific kernels.
