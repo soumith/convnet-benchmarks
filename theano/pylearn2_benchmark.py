@@ -60,10 +60,21 @@ runs = [
       'bs': 128,
       'dw': 1,
       'dh': 1,
+   },
+   {
+      'ni': 384,
+      'no': 384,
+      'kw': 3,
+      'kh': 3,
+      'iw': 13,
+      'ih': 13,
+      'bs': 128,
+      'dw': 1,
+      'dh': 1,
    }
 ]
 
-for i in range(4):
+for i in range(5):
     run = runs[i]
     # params for run:
     ni, no, kw, kh, bs, iw, ih, dw, dh = run['ni'], run['no'], run['kw'], run['kh'], run['bs'], run['iw'], run['ih'], run['dw'], run['dh']
