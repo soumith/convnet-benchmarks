@@ -24,9 +24,9 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 | pylearn2/Theano*** | pylearn2..mlp.ConvElemwise    |GPU     | BDHW           | 299.48  | [Link](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/models/mlp.py#L3080) |
 
 
-* indicates that the library was tested with Torch bindings of the specific kernels.
-** indicates that the library was tested with Pylearn2 bindings. 
-*** Ian Goodfellow from LISA Lab informs me that they usually use the cuda-convnet binding, and this kernel was only kept around for non-standard shapes that cuda-convnet does not support
+* * indicates that the library was tested with Torch bindings of the specific kernels.
+* ** indicates that the library was tested with Pylearn2 bindings. 
+* *** Ian Goodfellow from LISA Lab informs me that for pylearn2/Theano, they usually use the cuda-convnet binding (the entry with **), and this kernel was only kept around for non-standard shapes that cuda-convnet does not support
 
 **Since this repository is getting a little attention, quickly adding some more results without making them pretty:
 cuda-convnet2 blows the competition out of the water by a huge margin!**
