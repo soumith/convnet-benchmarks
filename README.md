@@ -1,6 +1,12 @@
 convnet-benchmarks
 ==================
 
+**Work in progress** We are missing many benchmarks. Don't use this to
+  mean anything about any of the software! Many software have many
+  convolution implementation and we don't yet benchmark all of
+  them. Also, they will probably update them to use the faster version
+  shortly, once we have some benchmark results!
+
 Easy benchmarking of all public open-source implementations of convnets.
 A summary is provided in the section below.
 
