@@ -14,6 +14,7 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 ###Spatial Convolution layer (3D input 3D output)
 #####:forward()
 Columns L1, L2, L3, L4, L5, Total are times in miliseconds.
+
 | Original Library         | Class/Function Benchmarked                                                                                                        | Device  |  L1 |  L2 |  L3 |  L4 | L5  | Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:|:-------:|:---:|:----:|:---:|:--:|:---:|:-----:|
 | Theano (experimental)*** | [pylearn2.mlp.ConvElemwise](https://github.com/Theano/Theano/blob/master/theano/sandbox/cuda/fftconv.py)                          |  GPU    | 205 | 75   |  28 |  9 | 5   |   322 |
