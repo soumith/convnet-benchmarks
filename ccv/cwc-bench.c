@@ -94,7 +94,7 @@ int main(int argc, char** argv)
 				.convolutional = {
 					.count = 128,
 					.strides = 1,
-					.border = 1,
+					.border = 0,
 					.rows = 9,
 					.cols = 9,
 					.channels = 128,
@@ -119,7 +119,7 @@ int main(int argc, char** argv)
 				.convolutional = {
 					.count = 128,
 					.strides = 1,
-					.border = 1,
+					.border = 0,
 					.rows = 7,
 					.cols = 7,
 					.channels = 128,
@@ -144,7 +144,7 @@ int main(int argc, char** argv)
 				.convolutional = {
 					.count = 384,
 					.strides = 1,
-					.border = 1,
+					.border = 0,
 					.rows = 3,
 					.cols = 3,
 					.channels = 384,
