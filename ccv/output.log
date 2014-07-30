@@ -1,7 +1,6 @@
-./cwc-bench list.txt
-4 8 32, elapsed time for layer 1 fprop: 121.275009 milliseconds
-4 8 32, elapsed time for layer 2 fprop: 452.149841 milliseconds
-4 8 32, elapsed time for layer 3 fprop: 182.837753 milliseconds
-4 8 32, elapsed time for layer 4 fprop: 23.201183 milliseconds
-4 8 32, elapsed time for layer 5 fprop: 44.627422 milliseconds
-forward pass 824.270142 milliseconds
+-> ./cwc-bench list.txt
+4 8 32, elapsed time for layer 1 fprop: 121.213440 milliseconds
+4 8 32, elapsed time for layer 2 fprop: 437.119415 milliseconds
+4 8 32, elapsed time for layer 3 fprop: 182.529343 milliseconds
+4 8 32, elapsed time for layer 4 fprop: 23.569664 milliseconds
+4 8 32, elapsed time for layer 5 fprop: 44.416992 milliseconds
