@@ -1,24 +1,67 @@
-CONFIG: input = 3x128x128 * ker = 3x96x11x11 (bs = 128, stride = 1)
-nn.SpatialConvolutionCUDA: 944.68789645199 GFLOP/s (tm = 0.1314902305603)
-nn.SpatialConvolutionMM: 1177.7879871761 GFLOP/s (tm = 0.10546654462814)
-ccn2.SpatialConvolution: 1779.2908234941 GFLOP/s (tm = 0.069812774658203)
-
-CONFIG: input = 64x64x64 * ker = 64x128x9x9 (bs = 128, stride = 1)
-nn.SpatialConvolutionCUDA: 1260.782333477 GFLOP/s (tm = 0.42252349853516)
-nn.SpatialConvolutionMM: 2219.3736959591 GFLOP/s (tm = 0.24002724885941)
-ccn2.SpatialConvolution: 2197.8168036727 GFLOP/s (tm = 0.24238151311874)
-
-CONFIG: input = 128x32x32 * ker = 128x128x9x9 (bs = 128, stride = 1)
-nn.SpatialConvolutionCUDA: 1259.195897222 GFLOP/s (tm = 0.15540826320648)
-nn.SpatialConvolutionMM: 1164.72445476 GFLOP/s (tm = 0.16801351308823)  
-ccn2.SpatialConvolution: 2244.3954637671 GFLOP/s (tm = 0.087190270423889)
-
-CONFIG: input = 128x16x16 * ker = 128x128x7x7 (bs = 128, stride = 1)
-nn.SpatialConvolutionCUDA: 1204.6621963356 GFLOP/s (tm = 0.017060458660126)
-nn.SpatialConvolutionMM: 490.99599360714 GFLOP/s (tm = 0.041857957839966)
-ccn2.SpatialConvolution: 2108.8329876002 GFLOP/s (tm = 0.009745717048645)
-
-CONFIG: input = 384x13x13 * ker = 384x384x3x3 (bs = 128, stride = 1)
-nn.SpatialConvolutionCUDA: 983.54876028249 GFLOP/s (tm = 0.041795969009399)
-nn.SpatialConvolutionMM: 735.82546939461 GFLOP/s (tm = 0.05586701631546)
-ccn2.SpatialConvolution: 2283.9565044269 GFLOP/s (tm = 0.01799875497818)
+Torch 7.0  Copyright (C) 2001-2011 Idiap, NEC Labs, NYU
+	
+CONFIG: input = 3x128x128 * ker = 3x96x11x11 (bs = 128, stride = 1)	
+cuda-convnet1:updateOutput():        (tm = 0.13316601514816)	
+SpatialConvolutionMM:updateOutput(): (tm = 0.10538876056671)	
+cuda-convnet2:updateOutput():        (tm = 0.069801986217499)	
+	
+cuda-convnet1:updateGradInput():        (tm = 0.12939476966858)	
+SpatialConvolutionMM:updateGradInput(): (tm = 0.0910285115242)	
+cuda-convnet2:updateGradInput():        (tm = 0.15490573644638)	
+	
+cuda-convnet1:accGradParameters():       (tm = 0.6316049695015)	
+SpatialConvoltionMM:accGradParameters(): (tm = 0.18812745809555)	
+cuda-convnet2:accGradParameters():       FAILED!	
+	
+CONFIG: input = 64x64x64 * ker = 64x128x9x9 (bs = 128, stride = 1)	
+cuda-convnet1:updateOutput():        (tm = 0.42210102081299)	
+SpatialConvolutionMM:updateOutput(): (tm = 0.24029022455215)	
+cuda-convnet2:updateOutput():        (tm = 0.242327272892)	
+	
+cuda-convnet1:updateGradInput():        (tm = 0.55357879400253)	
+SpatialConvolutionMM:updateGradInput(): (tm = 0.30249828100204)	
+cuda-convnet2:updateGradInput():        (tm = 0.29793000221252)	
+	
+cuda-convnet1:accGradParameters():       (tm = 0.70622551441193)	
+SpatialConvoltionMM:accGradParameters(): (tm = 0.37161153554916)	
+cuda-convnet2:accGradParameters():       (tm = 0.34380626678467)	
+	
+CONFIG: input = 128x32x32 * ker = 128x128x9x9 (bs = 128, stride = 1)	
+cuda-convnet1:updateOutput():        (tm = 0.15290349721909)	
+SpatialConvolutionMM:updateOutput(): (tm = 0.16824620962143)	
+cuda-convnet2:updateOutput():        (tm = 0.087006032466888)	
+	
+cuda-convnet1:updateGradInput():        (tm = 0.20594370365143)	
+SpatialConvolutionMM:updateGradInput(): (tm = 0.1282644867897)	
+cuda-convnet2:updateGradInput():        (tm = 0.11034047603607)	
+	
+cuda-convnet1:accGradParameters():       (tm = 0.24257552623749)	
+SpatialConvoltionMM:accGradParameters(): (tm = 0.14106625318527)	
+cuda-convnet2:accGradParameters():       (tm = 0.106664955616)	
+	
+CONFIG: input = 128x16x16 * ker = 128x128x7x7 (bs = 128, stride = 1)	
+cuda-convnet1:updateOutput():        (tm = 0.017921268939972)	
+SpatialConvolutionMM:updateOutput(): (tm = 0.042562305927277)	
+cuda-convnet2:updateOutput():        (tm = 0.0098309516906738)	
+	
+cuda-convnet1:updateGradInput():        (tm = 0.020512759685516)	
+SpatialConvolutionMM:updateGradInput(): (tm = 0.022980749607086)	
+cuda-convnet2:updateGradInput():        (tm = 0.011389255523682)	
+	
+cuda-convnet1:accGradParameters():       (tm = 0.026358246803284)	
+SpatialConvoltionMM:accGradParameters(): (tm = 0.023937523365021)	
+cuda-convnet2:accGradParameters():       (tm = 0.011647284030914)	
+	
+CONFIG: input = 384x13x13 * ker = 384x384x3x3 (bs = 128, stride = 1)	
+cuda-convnet1:updateOutput():        (tm = 0.039550304412842)	
+SpatialConvolutionMM:updateOutput(): (tm = 0.055456519126892)	
+cuda-convnet2:updateOutput():        (tm = 0.018330216407776)	
+	
+cuda-convnet1:updateGradInput():        (tm = 0.042094528675079)	
+SpatialConvolutionMM:updateGradInput(): (tm = 0.027319252490997)	
+cuda-convnet2:updateGradInput():        (tm = 0.022830963134766)	
+	
+cuda-convnet1:accGradParameters():       (tm = 0.065353512763977)	
+SpatialConvoltionMM:accGradParameters(): (tm = 0.050522267818451)	
+cuda-convnet2:accGradParameters():       (tm = 0.021577715873718)	
+	
