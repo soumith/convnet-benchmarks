@@ -1,45 +1,90 @@
-THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python pylearn2_benchmark.py
 Using gpu device 0: GeForce GTX TITAN Black
 
 CONFIG: input = 3 x 128 x 128 * ker = 3 x 96 x 11 x 11 ( bs = 128 , stride = 1 )
 Input shape: (128, 128)
 Detector space: (118, 118)
 Output space: (118, 118)
-pylearn2.models.mlp.ConvElemwise: 297.016760354 GFLOP/s ( tm = 0.418216228485 )
-(fft experimental) pylearn2.models.mlp.ConvElemwise: 605.203449015 GFLOP/s ( tm = 0.205248713493 )
- pylearn2.sandbox.cuda_convnet: 1261.09531958 GFLOP/s ( tm = 0.0984994769096 )
+pylearn2.models.mlp.ConvElemwise fprop: 299.277001004 GFLOP/s ( tm = 0.415057718754 )
+pylearn2.models.mlp.ConvElemwise bprop weights: 0.0 GFLOP/s ( tm = 0.668935775757 )
+pylearn2.models.mlp.ConvElemwise bprop inputs: 0.0 GFLOP/s ( tm = 54.1663759947 )
+pylearn2.models.mlp.ConvElemwise bprop both: 0.0 GFLOP/s ( tm = 56.5885179639 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise fprop: 597.455187574 GFLOP/s ( tm = 0.20791053772 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise bprop weights: 0.0 GFLOP/s ( tm = 0.20298576355 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise bprop inputs: 0.0 GFLOP/s ( tm = 0.71566426754 )
+pylearn2.sandbox.cuda_convnet fprop: 1193.67363815 GFLOP/s ( tm = 0.104062974453 )
+pylearn2.sandbox.cuda_convnet bprop weights: 0.0 GFLOP/s ( tm = 0.463260293007 )
+pylearn2.sandbox.cuda_convnet bprop inputs: 0.0 GFLOP/s ( tm = 0.15493875742 )
 
 CONFIG: input = 64 x 64 x 64 * ker = 64 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
 Input shape: (64, 64)
 Detector space: (56, 56)
 Output space: (56, 56)
-pylearn2.models.mlp.ConvElemwise: 231.6977578 GFLOP/s ( tm = 2.29915976524 )
-(fft experimental) pylearn2.models.mlp.ConvElemwise: 7100.55173277 GFLOP/s ( tm = 0.0750237703323 )
- pylearn2.sandbox.cuda_convnet: 1315.86483872 GFLOP/s ( tm = 0.404836535454 )
+pylearn2.models.mlp.ConvElemwise fprop: 229.833351039 GFLOP/s ( tm = 2.31781053543 )
+pylearn2.models.mlp.ConvElemwise bprop weights: 0.0 GFLOP/s ( tm = 7.32694602013 )
+pylearn2.models.mlp.ConvElemwise bprop inputs: 0.0 GFLOP/s ( tm = 2.69747120142 )
+pylearn2.models.mlp.ConvElemwise bprop both: 0.0 GFLOP/s ( tm = 10.2451527715 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise fprop: 6785.83568365 GFLOP/s ( tm = 0.0785032510757 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise bprop weights: 0.0 GFLOP/s ( tm = 0.113280296326 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise bprop inputs: 0.0 GFLOP/s ( tm = 0.259720742702 )
+pylearn2.sandbox.cuda_convnet fprop: 1297.09278827 GFLOP/s ( tm = 0.410695493221 )
+pylearn2.sandbox.cuda_convnet bprop weights: 0.0 GFLOP/s ( tm = 0.656696021557 )
+pylearn2.sandbox.cuda_convnet bprop inputs: 0.0 GFLOP/s ( tm = 0.65693551302 )
 
 CONFIG: input = 128 x 32 x 32 * ker = 128 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
 Input shape: (32, 32)
 Detector space: (24, 24)
 Output space: (24, 24)
-pylearn2.models.mlp.ConvElemwise: 291.167272187 GFLOP/s ( tm = 0.672086000443 )
-(fft experimental) pylearn2.models.mlp.ConvElemwise: 6954.32755138 GFLOP/s ( tm = 0.0281392335892 )
- pylearn2.sandbox.cuda_convnet: 1309.29871155 GFLOP/s ( tm = 0.149461269379 )
+pylearn2.models.mlp.ConvElemwise fprop: 258.820056019 GFLOP/s ( tm = 0.756083011627 )
+pylearn2.models.mlp.ConvElemwise bprop weights: 0.0 GFLOP/s ( tm = 1.18798053265 )
+pylearn2.models.mlp.ConvElemwise bprop inputs: 0.0 GFLOP/s ( tm = 1.02525347471 )
+pylearn2.models.mlp.ConvElemwise bprop both: 0.0 GFLOP/s ( tm = 2.33139175177 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise fprop: 5856.86479298 GFLOP/s ( tm = 0.0334119796753 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise bprop weights: 0.0 GFLOP/s ( tm = 0.0391685366631 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise bprop inputs: 0.0 GFLOP/s ( tm = 0.108204960823 )
+pylearn2.sandbox.cuda_convnet fprop: 1232.7343471 GFLOP/s ( tm = 0.158744215965 )
+pylearn2.sandbox.cuda_convnet bprop weights: 0.0 GFLOP/s ( tm = 0.23452848196 )
+pylearn2.sandbox.cuda_convnet bprop inputs: 0.0 GFLOP/s ( tm = 0.22856926918 )
 
 CONFIG: input = 128 x 16 x 16 * ker = 128 x 128 x 7 x 7 ( bs = 128 , stride = 1 )
 Input shape: (16, 16)
 Detector space: (10, 10)
 Output space: (10, 10)
-pylearn2.models.mlp.ConvElemwise: 231.257542864 GFLOP/s ( tm = 0.0888710021973 )
-(fft experimental) pylearn2.models.mlp.ConvElemwise: 2248.71586051 GFLOP/s ( tm = 0.00913947820663 )
- pylearn2.sandbox.cuda_convnet: 1219.13109101 GFLOP/s ( tm = 0.0168579816818 )
+pylearn2.models.mlp.ConvElemwise fprop: 208.757244889 GFLOP/s ( tm = 0.0984497070312 )
+pylearn2.models.mlp.ConvElemwise bprop weights: 0.0 GFLOP/s ( tm = 0.134233236313 )
+pylearn2.models.mlp.ConvElemwise bprop inputs: 0.0 GFLOP/s ( tm = 0.169658303261 )
+pylearn2.models.mlp.ConvElemwise bprop both: 0.0 GFLOP/s ( tm = 0.304158747196 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise fprop: 2126.11434711 GFLOP/s ( tm = 0.00966650247574 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise bprop weights: 0.0 GFLOP/s ( tm = 0.0102164745331 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise bprop inputs: 0.0 GFLOP/s ( tm = 0.0330212712288 )
+pylearn2.sandbox.cuda_convnet fprop: 1069.86185302 GFLOP/s ( tm = 0.0192100405693 )
+pylearn2.sandbox.cuda_convnet bprop weights: 0.0 GFLOP/s ( tm = 0.0283707380295 )
+pylearn2.sandbox.cuda_convnet bprop inputs: 0.0 GFLOP/s ( tm = 0.0239557623863 )
 
 CONFIG: input = 384 x 13 x 13 * ker = 384 x 384 x 3 x 3 ( bs = 128 , stride = 1 )
 Input shape: (13, 13)
 Detector space: (11, 11)
 Output space: (11, 11)
-pylearn2.models.mlp.ConvElemwise: 150.825021587 GFLOP/s ( tm = 0.272556722164 )
-(fft experimental) pylearn2.models.mlp.ConvElemwise: 787.656746042 GFLOP/s ( tm = 0.052190721035 )
- pylearn2.sandbox.cuda_convnet: 1076.72790438 GFLOP/s ( tm = 0.0381789803505 )
+pylearn2.models.mlp.ConvElemwise fprop: 144.42638067 GFLOP/s ( tm = 0.284632027149 )
+pylearn2.models.mlp.ConvElemwise bprop weights: 0.0 GFLOP/s ( tm = 0.305943787098 )
+pylearn2.models.mlp.ConvElemwise bprop inputs: 0.0 GFLOP/s ( tm = 0.40665024519 )
+pylearn2.models.mlp.ConvElemwise bprop both: 0.0 GFLOP/s ( tm = 0.76122546196 )
+(fft experimental) pylearn2.models.mlp.ConvElemwise fprop: 725.133671483 GFLOP/s ( tm = 0.0566907525063 )
+Traceback (most recent call last):
+  File "pylearn2_benchmark.py", line 184, in <module>
+    bprop()
+  File "/home/fatbox/code/convnet-benchmarks/theano/Theano/theano/compile/function_module.py", line 589, in __call__
+    self.fn.thunks[self.fn.position_of_error])
+  File "/home/fatbox/code/convnet-benchmarks/theano/Theano/theano/compile/function_module.py", line 579, in __call__
+    outputs = self.fn()
+AssertionError: in conv2d_fft: width is not even
+Apply node that caused the error: Assert(GpuDimShuffle{1,0,2,3}.0, Elemwise{Composite{[EQ(mod(i0, i1), i2)]}}.0)
+Inputs types: [CudaNdarrayType(float32, 4D), TensorType(int8, scalar)]
+Inputs shapes: [(384, 128, 13, 13), ()]
+Inputs strides: [(169, 64896, 13, 1), ()]
+Inputs scalar values: ['not scalar', array(0, dtype=int8)]
+
+HINT: Re-running with most Theano optimization disabled could give you a back-traces when this node was created. This can be done with by setting the Theano flags optimizer=fast_compile
+HINT: Use the Theano flag 'exception_verbosity=high' for a debugprint of this apply node.
 -------------------------------------------------------------------
 PyCUDA ERROR: The context stack was not empty upon module cleanup.
 -------------------------------------------------------------------
@@ -49,4 +94,3 @@ have been deinitialized, so there is no way we can finish
 cleanly. The program will be aborted now.
 Use Context.pop() to avoid this problem.
 -------------------------------------------------------------------
-Aborted (core dumped)
