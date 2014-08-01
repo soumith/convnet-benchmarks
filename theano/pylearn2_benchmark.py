@@ -10,7 +10,6 @@ from pylearn2.models.mlp import ConvElemwise, ConvNonlinearity, MLP
 from pylearn2.space import Conv2DSpace
 
 from pylearn2.sandbox.cuda_convnet.filter_acts import FilterActs
-from pylearn2.sandbox.cuda_convnet.weight_acts import WeightActs
 from theano.sandbox.cuda.basic_ops import gpu_contiguous
 
 
@@ -78,9 +77,13 @@ runs = [
 for i in range(5):
     run = runs[i]
     # params for run:
+    # (input channels, output channels, kernel width, kernel height, batchsize, image width, image height, horizontal stride, vertical stride)
     ni, no, kw, kh, bs, iw, ih, dw, dh = run['ni'], run['no'], run['kw'], run['kh'], run['bs'], run['iw'], run['ih'], run['dw'], run['dh']
     print ''
     print 'CONFIG: input =', ni, 'x', iw, 'x', ih, '* ker =', ni, 'x', no, 'x', kw, 'x', kh, '( bs =', bs, ', stride =', dw, ')'
+    fprop_flops = ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) / dw/dh * bs * ops  # flops of a valid convolution of X with W
+    bprop_W_flops = 0 #no*(iw-kw+1)*(ih-kh+1)*ops*ni*kw*kh*no/dw/dh  # TODO: check if that's the flops of a valid convolution of X with Y
+    bprop_X_flops = 0 #fprop_flops  # TODO: check if that's the flops of a full convolution of Y with W
 
     conv = MLP(
        batch_size=bs,
@@ -96,8 +99,9 @@ for i in range(5):
     X = theano.tensor.tensor4()
     Y = conv.fprop(X)
     gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
+    gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
 
-    # benchmark fprop Theano standard convolution
+    # benchmark Theano standard convolution, fprop
     fprop = theano.function([], [], givens=[(X, sharedX)], updates=[(sharedY, Y)], on_unused_input='ignore')
 
     theano.sandbox.cuda.synchronize()
@@ -108,9 +112,9 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del fprop
-    print 'pylearn2.models.mlp.ConvElemwise fprop:', (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) / dw/dh * bs * ops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print 'pylearn2.models.mlp.ConvElemwise fprop:', (fprop_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
-    # benchmark bprop Theano standard convolution
+    # benchmark Theano standard convolution, bprop wrt weights
     bprop = theano.function([], [], givens=[(X, sharedX)], updates=[(sharedW, gW)], on_unused_input='ignore')
 
     theano.sandbox.cuda.synchronize()
@@ -121,14 +125,40 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del bprop
-    print 'pylearn2.models.mlp.ConvElemwise bprop:', (0000 / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'  # TODO: GFLOP/s
+    print 'pylearn2.models.mlp.ConvElemwise bprop weights:', (bprop_W_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+
+    # benchmark Theano standard convolution, bprop wrt input
+    bprop = theano.function([], [], updates=[(sharedX, gX)], on_unused_input='ignore')
+
+    theano.sandbox.cuda.synchronize()
+    start = time.time()
+    for i in range(steps):
+        bprop()
+    theano.sandbox.cuda.synchronize()
+    tm = (time.time()-start)/steps
+
+    del bprop
+    print 'pylearn2.models.mlp.ConvElemwise bprop inputs:', (bprop_X_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+
+    # benchmark Theano standard convolution, bprop wrt weights and input
+    bprop = theano.function([], [], givens=[(X, sharedX)], updates=[(sharedW, gW), (sharedX, gX)], on_unused_input='ignore')
+
+    theano.sandbox.cuda.synchronize()
+    start = time.time()
+    for i in range(steps):
+        bprop()
+    theano.sandbox.cuda.synchronize()
+    tm = (time.time()-start)/steps
+
+    del bprop
+    print 'pylearn2.models.mlp.ConvElemwise bprop both:', ((bprop_W_flops + bprop_X_flops) / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
 
     # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_fft_valid:conv_fft_full
     mode = theano.compile.get_default_mode()
     mode = mode.including('conv_fft_valid', 'conv_fft_full')
 
-    # benchmark fprop Theano FFT convolution
+    # benchmark Theano FFT convolution, fprop
     fprop = theano.function([], [], givens=[(X, sharedX)],
                             updates=[(sharedY, Y)],
                             on_unused_input='ignore', mode=mode)
@@ -141,9 +171,9 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del fprop
-    print '(fft experimental) pylearn2.models.mlp.ConvElemwise fprop:', (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) / dw/dh * bs * ops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print '(fft experimental) pylearn2.models.mlp.ConvElemwise fprop:', (fprop_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
-    # benchmark bprop Theano FFT convolution
+    # benchmark Theano FFT convolution, bprop wrt weights
     bprop = theano.function([], [], givens=[(X, sharedX)],
                             updates=[(sharedW, gW)],
                             on_unused_input='ignore', mode=mode)
@@ -156,7 +186,22 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del bprop
-    print '(fft experimental) pylearn2.models.mlp.ConvElemwise bprop:', (0000 / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'  # TODO: GFLOP/s
+    print '(fft experimental) pylearn2.models.mlp.ConvElemwise bprop weights:', (bprop_W_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+
+    # benchmark Theano FFT convolution, bprop wrt inputs
+    bprop = theano.function([], [],
+                            updates=[(sharedX, gX)],
+                            on_unused_input='ignore', mode=mode)
+
+    theano.sandbox.cuda.synchronize()
+    start = time.time()
+    for i in range(steps):
+        bprop()
+    theano.sandbox.cuda.synchronize()
+    tm = (time.time()-start)/steps
+
+    del bprop
+    print '(fft experimental) pylearn2.models.mlp.ConvElemwise bprop inputs:', (bprop_X_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
     del sharedX
     del sharedY
@@ -178,9 +223,11 @@ for i in range(5):
     contiguous_filters = gpu_contiguous(sharedW)
     Y = conv_op(contiguous_input, contiguous_filters)
     gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
+    #from pylearn2.sandbox.cuda_convnet.weight_acts import WeightActs
     #gW = WeightActs()(contiguous_input, gpu_contiguous(sharedY), sharedW.shape)[0]  # constructed by hand, results in the same graph
+    gX = theano.grad(None, wrt=sharedX, known_grads={Y: sharedY})
 
-    # benchmark fprop cuda-convnet convolution
+    # benchmark cuda-convnet convolution, fprop
     fprop = theano.function([], [], givens=[(X, sharedX)], updates=[(sharedY, Y)], on_unused_input='ignore')
 
     theano.sandbox.cuda.synchronize()
@@ -191,9 +238,9 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del fprop
-    print 'pylearn2.sandbox.cuda_convnet fprop:', (ni*no*kw*kh*(iw-kw+1)*(ih-kh+1) / dw/dh * bs * ops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print 'pylearn2.sandbox.cuda_convnet fprop:', (fprop_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
-    # benchmark bprop cuda-convnet convolution
+    # benchmark cuda-convnet convolution, bprop wrt weights
     bprop = theano.function([], [], givens=[(X, sharedX)], updates=[(sharedW, gW)], on_unused_input='ignore')
 
     theano.sandbox.cuda.synchronize()
@@ -204,7 +251,20 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del bprop
-    print 'pylearn2.sandbox.cuda_convnet bprop:', (0000 / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'  # TODO: GFLOP/s
+    print 'pylearn2.sandbox.cuda_convnet bprop weights:', (bprop_W_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+
+    # benchmark cuda-convnet convolution, bprop wrt inputs
+    bprop = theano.function([], [], updates=[(sharedX, gX)], on_unused_input='ignore')
+
+    theano.sandbox.cuda.synchronize()
+    start = time.time()
+    for i in range(steps):
+        bprop()
+    theano.sandbox.cuda.synchronize()
+    tm = (time.time()-start)/steps
+
+    del bprop
+    print 'pylearn2.sandbox.cuda_convnet bprop inputs:', (bprop_X_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
     del sharedX
     del sharedY
