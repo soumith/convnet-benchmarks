@@ -2,6 +2,8 @@ require 'sys'
 require 'cunn'
 require 'ccn2'
 
+print('Running on device: ' .. cutorch.getDeviceProperties(cutorch.getDevice()).name)
+
 steps = 4 -- nb of steps in loop to average perf
 ops = 2 -- ops per point
 
