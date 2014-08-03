@@ -6,9 +6,6 @@ import pylearn2
 
 import theano.tensor as T
 
-from pylearn2.models.mlp import ConvElemwise, ConvNonlinearity, MLP
-from pylearn2.space import Conv2DSpace
-
 from pylearn2.sandbox.cuda_convnet.filter_acts import FilterActs
 from theano.sandbox.cuda.basic_ops import gpu_contiguous
 
@@ -85,19 +82,14 @@ for i in range(5):
     bprop_W_flops = 0 #no*(iw-kw+1)*(ih-kh+1)*ops*ni*kw*kh*no/dw/dh  # TODO: check if that's the flops of a valid convolution of X with Y
     bprop_X_flops = 0 #fprop_flops  # TODO: check if that's the flops of a full convolution of Y with W
 
-    conv = MLP(
-       batch_size=bs,
-       input_space=Conv2DSpace((ih, iw), num_channels=ni, axes=('b', 'c', 0, 1)),
-       layers=[ConvElemwise(no, (kw, kh), 'ConvTest', ConvNonlinearity(), irange=0.1)]
-    )
-
-    inputBatch = np.random.randn(bs, ni, ih, iw)
-    sharedX = theano.shared(inputBatch.astype('float32'))
+    input_shape = (bs, ni, ih, iw)
+    filter_shape = (no, ni, kh, kw)
+    sharedX = theano.shared(np.random.randn(*input_shape).astype('float32'))
     sharedY = theano.shared(np.random.randn(bs, no, (ih-kh)/dh+1, (iw-kw)/dw+1).astype('float32'))
-    sharedW = conv.layers[0].transformer.get_params()[0]
+    sharedW = theano.shared(np.random.randn(*filter_shape).astype('float32'))
 
     X = theano.tensor.tensor4()
-    Y = conv.fprop(X)
+    Y = theano.tensor.nnet.conv.conv2d(X, sharedW, input_shape, filter_shape, subsample=(dh,dw))
     gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
     gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
 
@@ -112,7 +104,7 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del fprop
-    print 'pylearn2.models.mlp.ConvElemwise fprop:', (fprop_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print 'theano.tensor.nnet.conv.conv2d fprop:', (fprop_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
     # benchmark Theano standard convolution, bprop wrt weights
     bprop = theano.function([], [], givens=[(X, sharedX)], updates=[(sharedW, gW)], on_unused_input='ignore')
@@ -125,7 +117,7 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del bprop
-    print 'pylearn2.models.mlp.ConvElemwise bprop weights:', (bprop_W_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print 'theano.tensor.nnet.conv.conv2d bprop weights:', (bprop_W_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
     # benchmark Theano standard convolution, bprop wrt input
     bprop = theano.function([], [], updates=[(sharedX, gX)], on_unused_input='ignore')
@@ -138,7 +130,7 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del bprop
-    print 'pylearn2.models.mlp.ConvElemwise bprop inputs:', (bprop_X_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print 'theano.tensor.nnet.conv.conv2d bprop inputs:', (bprop_X_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
     # benchmark Theano standard convolution, bprop wrt weights and input
     bprop = theano.function([], [], givens=[(X, sharedX)], updates=[(sharedW, gW), (sharedX, gX)], on_unused_input='ignore')
@@ -151,7 +143,7 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del bprop
-    print 'pylearn2.models.mlp.ConvElemwise bprop both:', ((bprop_W_flops + bprop_X_flops) / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print 'theano.tensor.nnet.conv.conv2d bprop both:', ((bprop_W_flops + bprop_X_flops) / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
 
     # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_fft_valid:conv_fft_full
@@ -171,7 +163,7 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del fprop
-    print '(fft experimental) pylearn2.models.mlp.ConvElemwise fprop:', (fprop_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print '(experimental) theano.sandbox.cuda.fftconv.conv2d_fft fprop:', (fprop_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
     # benchmark Theano FFT convolution, bprop wrt weights
     bprop = theano.function([], [], givens=[(X, sharedX)],
@@ -186,7 +178,7 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del bprop
-    print '(fft experimental) pylearn2.models.mlp.ConvElemwise bprop weights:', (bprop_W_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print '(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop weights:', (bprop_W_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
     # benchmark Theano FFT convolution, bprop wrt inputs
     bprop = theano.function([], [],
@@ -201,15 +193,14 @@ for i in range(5):
     tm = (time.time()-start)/steps
 
     del bprop
-    print '(fft experimental) pylearn2.models.mlp.ConvElemwise bprop inputs:', (bprop_X_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
+    print '(experimental) theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs:', (bprop_X_flops / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
 
     del sharedX
     del sharedY
     del sharedW
-    del conv
 
 
-    ### pylearn2 work-around for using cuda-convnet (http://benanne.github.io/2014/04/03/faster-convolutions-in-theano.html) ###
+    ### pylearn2 wrapper for using cuda-convnet (http://benanne.github.io/2014/04/03/faster-convolutions-in-theano.html) ###
 
     #(channels, rows, columns, batch_size)
     inputBatch = np.random.randn(ni, ih, iw, bs)
