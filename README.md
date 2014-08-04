@@ -39,6 +39,7 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 #####Breakdown
 ###### forward
 Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
+
 | Original Library         | Class/Function Benchmarked                                                                                                        |  L1 |   L2 |  L3 | L4 |  L5 | Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:| ---:| ----:| ---:| --:| ---:| -----:|
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 102 | 203  | 158 | 39 | 52  |   554 |
@@ -52,6 +53,7 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 
 ###### backward (gradInput + gradWeight)
 Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
+
 | Original Library         | Class/Function Benchmarked                                                                                                        |  L1   |   L2 |  L3 | L4  |  L5  | Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:| -----:| ----:| ---:| ---:| ----:| -----:|
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 194   |  328 | 122 | 21  | 34   |  699  |
@@ -65,6 +67,7 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 
 ###### gradInput
 Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
+
 | Original Library         | Class/Function Benchmarked                                                                                                        |  L1   |   L2 |  L3 | L4  |  L5 | Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:| -----:| ----:| ---:| ---:| ---:| -----:|
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              |
