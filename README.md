@@ -11,7 +11,7 @@ A summary is provided in the section below.
 
 Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.04 x86_64`
 
-###Spatial Convolution layer (3D input 3D output all inputs are connected to all outputs)
+###Spatial Convolution layer (3D input 3D output, densely connected)
 ##### forward + backprop (wrt input and weights)
 
 | Original Library         | Class/Function Benchmarked                                                                                               | Total Time (ms)   | Total forward time (ms) | Total backward time (ms) | Peak Memory Formula | Limitations |
