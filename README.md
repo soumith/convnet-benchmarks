@@ -81,6 +81,7 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 
 ###### gradWeights
 Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
+
 | Original Library         | Class/Function Benchmarked                                                                                                        |  L1 |   L2 |  L3  | L4  |  L5 | Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:| ---:| ----:| ----:| ---:| ---:| -----:|
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              |
