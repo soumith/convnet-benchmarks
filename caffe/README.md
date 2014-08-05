@@ -5,9 +5,9 @@ bash install.sh
 
 Run the benchmark using:
 ```bash
-./caffe/build/tools/net_speed_benchmark.bin conv.prototxt 1 GPU
-./caffe/build/tools/net_speed_benchmark.bin conv2.prototxt 1 GPU
-./caffe/build/tools/net_speed_benchmark.bin conv3.prototxt 1 GPU
-./caffe/build/tools/net_speed_benchmark.bin conv4.prototxt 1 GPU
-./caffe/build/tools/net_speed_benchmark.bin conv5.prototxt 1 GPU
+./caffe/build/tools/caffe.bin speedtest --net_proto_file=conv.prototxt --run_iterations=1 --speedtest_with_gpu --logtostderr=1
+./caffe/build/tools/caffe.bin speedtest --net_proto_file=conv2.prototxt --run_iterations=1 --speedtest_with_gpu --logtostderr=1
+./caffe/build/tools/caffe.bin speedtest --net_proto_file=conv3.prototxt --run_iterations=1 --speedtest_with_gpu --logtostderr=1
+./caffe/build/tools/caffe.bin speedtest --net_proto_file=conv4.prototxt --run_iterations=1 --speedtest_with_gpu --logtostderr=1
+./caffe/build/tools/caffe.bin speedtest --net_proto_file=conv5.prototxt --run_iterations=1 --speedtest_with_gpu --logtostderr=1
 ```
