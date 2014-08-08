@@ -1,3 +1,4 @@
+import sys
 import time
 import numpy as np
 import theano
@@ -119,6 +120,10 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, flops, m
         print name, 'bprop inputs:', (flops[2] / tm / 1e9), 'GFLOP/s ( tm =', tm, ')'
     except Exception:
         print name, 'bprop inputs: FAILED'
+
+if len(sys.argv) > 1:
+    # allow specifying the runs on command line, 1-indexed (i.e., 1 2 5)
+    runs = [runs[int(r) - 1] for r in sys.argv[1:]]
 
 for run in runs:
     # params for run:
