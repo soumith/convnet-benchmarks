@@ -1,6 +1,12 @@
 import sys
-import time
 import numpy as np
+try:
+    import theano.misc.pycuda_init
+    import pycuda.driver
+except ImportError:
+    print "Note: pycuda not available, no timing via CUDA events possible"
+    import time
+    pycuda = None
 import theano
 
 try:
@@ -76,13 +82,25 @@ runs = [
 def time_run(fn):
     times = []
     fn()  # warm-up call, not timed
-    for _ in range(repeat):
+    if pycuda:
         theano.sandbox.cuda.synchronize()
-        start = time.time()
-        for _ in range(number):
-            fn()
-        theano.sandbox.cuda.synchronize()
-        times.append((time.time() - start) / number)
+        start = pycuda.driver.Event()
+        end = pycuda.driver.Event()
+        for _ in range(repeat):
+            start.record()
+            for _ in range(number):
+                fn()
+            end.record()
+            end.synchronize()
+            times.append(start.time_till(end) / 1e3 / number)
+    else:
+        for _ in range(repeat):
+            theano.sandbox.cuda.synchronize()
+            start = time.time()
+            for _ in range(number):
+                fn()
+            theano.sandbox.cuda.synchronize()
+            times.append((time.time() - start) / number)
     return min(times)
 
 def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, flops, mode=None):
@@ -192,3 +210,5 @@ for run in runs:
     del sharedY
     del sharedW
 
+if pycuda:
+    pycuda.driver.Context.pop()
