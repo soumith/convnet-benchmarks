@@ -139,9 +139,26 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, flops, m
     except Exception:
         print name, 'bprop inputs: FAILED'
 
+def parse_custom_config(s):
+    # parses a custom configuration string of the format:
+    # iAxBxC,kDxExF,bG,sHxJ where A: input channels, B: input width, C: input height,
+    # D: output channels, E: kernel width, F: kernel height, G: batchsize,
+    # H: horizontal stride, J: vertical stride (with G, H, J being optional)
+    run = {'bs': 128, 'dw': 1, 'dh': 1}
+    defs = {'i': ['ni', 'iw', 'ih'],
+            'k': ['no', 'kw', 'kh'],
+            'b': ['bs'],
+            's': ['dw', 'dh']}
+    for part in s.split(','):
+        p, args = part[0], map(int, part[1:].split('x'))
+        run.update(zip(defs[p], args))
+    return run
+
 if len(sys.argv) > 1:
     # allow specifying the runs on command line, 1-indexed (i.e., 1 2 5)
-    runs = [runs[int(r) - 1] for r in sys.argv[1:]]
+    runs = [runs[int(r) - 1] for r in sys.argv[1:] if r[0] != 'i']
+    # allow specifying custom configurations on command line (e.g., i3x80x15,k32x3x7,b256)
+    runs.extend([parse_custom_config(r) for r in sys.argv[1:] if r[0] == 'i'])
 
 for run in runs:
     # params for run:
