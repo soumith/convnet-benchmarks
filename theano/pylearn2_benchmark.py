@@ -179,10 +179,11 @@ for run in runs:
     sharedY = theano.shared(np.random.randn(bs, no, (ih-kh)/dh+1, (iw-kw)/dw+1).astype('float32'))
     sharedW = theano.shared(np.random.randn(*filter_shape).astype('float32'))
     X = theano.tensor.tensor4()
-    Y = theano.tensor.nnet.conv.conv2d(X, sharedW, input_shape, filter_shape, subsample=(dh,dw))
+    Y = theano.sandbox.cuda.blas.GpuCorrMM(subsample=(dh,dw))(X, sharedW)
+    # Y = theano.tensor.nnet.conv.conv2d(X, sharedW, input_shape, filter_shape, subsample=(dh,dw))
     gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
     gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
-    benchmark_three_ways('theano.tensor.nnet.conv.conv2d',
+    benchmark_three_ways('theano.sandbox.cuda.blas.GpuCorrMM',
                          sharedX, sharedY, sharedW, X, Y, gW, gX, flops)
 
     # benchmark Theano FFT convolution
