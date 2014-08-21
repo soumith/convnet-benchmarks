@@ -11,6 +11,7 @@ layers {
   top: "conv3"
   blobs_lr: 1
   blobs_lr: 2
+  force_backward: true
   convolution_param {
     num_output: 128
     kernel_size: 9
