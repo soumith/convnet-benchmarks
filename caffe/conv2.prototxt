@@ -4,6 +4,7 @@ input_dim: 128
 input_dim: 64
 input_dim: 64
 input_dim: 64
+force_backward: true
 layers {
   name: "conv2"
   type: CONVOLUTION
@@ -11,7 +12,6 @@ layers {
   top: "conv2"
   blobs_lr: 1
   blobs_lr: 2
-  force_backward: true
   convolution_param {
     num_output: 128
     kernel_size: 9
