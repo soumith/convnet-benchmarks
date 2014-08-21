@@ -5,10 +5,10 @@ input_dim: 384
 input_dim: 13
 input_dim: 13
 layers {
-  name: "conv1"
+  name: "conv5"
   type: CONVOLUTION
   bottom: "data"
-  top: "conv1"
+  top: "conv5"
   blobs_lr: 1
   blobs_lr: 2
   convolution_param {
