@@ -1,0 +1,10 @@
+I0822 12:37:27.816861 25054 caffe.cpp:188] conv1	forward: 971.091 milliseconds.
+I0822 12:37:30.564046 25054 caffe.cpp:202] conv1	backward: 2747.01 milliseconds.
+I0822 12:37:33.664798 25057 caffe.cpp:188] conv2	forward: 2001.56 milliseconds.
+I0822 12:37:39.568907 25057 caffe.cpp:202] conv2	backward: 5902.25 milliseconds.
+I0822 12:37:41.867735 25060 caffe.cpp:188] conv3	forward: 1571.16 milliseconds.
+I0822 12:37:44.239641 25060 caffe.cpp:202] conv3	backward: 2370.34 milliseconds.
+I0822 12:37:45.058789 25063 caffe.cpp:188] conv4	forward: 426.543 milliseconds.
+I0822 12:37:45.473961 25063 caffe.cpp:202] conv4	backward: 415.102 milliseconds.
+I0822 12:37:48.037724 25066 caffe.cpp:188] conv5	forward: 527.794 milliseconds.
+I0822 12:37:48.665490 25066 caffe.cpp:202] conv5	backward: 626.427 milliseconds.
