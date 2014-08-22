@@ -1,0 +1,25 @@
+name: "ConvLayer_128x128x7x7"
+input: "data"
+input_dim: 128
+input_dim: 128
+input_dim: 16
+input_dim: 16
+layers {
+  name: "conv4"
+  type: CONVOLUTION
+  bottom: "data"
+  top: "conv4"
+  blobs_lr: 1
+  blobs_lr: 2
+  convolution_param {
+    num_output: 128
+    kernel_size: 7
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
