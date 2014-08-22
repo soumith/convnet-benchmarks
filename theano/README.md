@@ -31,5 +31,5 @@ sudo python setup.py install
 
 Launch the script:
 ```
-THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python pylearn2_benchmark.py 
+SKIP_LEGACY=1 THEANO_FLAGS=mode=FAST_RUN,device=gpu,floatX=float32 python pylearn2_benchmark.py
 ```
