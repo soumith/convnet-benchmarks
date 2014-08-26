@@ -19,8 +19,8 @@ else:
     from theano.sandbox.cuda.basic_ops import gpu_contiguous
 
 
-number = 2  # nb of steps in loop to average over
-repeat = 2  # nb of trials to pick the minimum of
+number = 1   # nb of steps in loop to average over
+repeat = 10  # nb of trials to pick the minimum of
 
 runs = [
    {
@@ -102,7 +102,7 @@ def time_run(fn):
                 fn()
             theano.sandbox.cuda.synchronize()
             times.append((time.time() - start) / number)
-    return min(times)
+    return sum(times)/repeat
 
 def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, flops, mode=None):
     # benchmark fprop
