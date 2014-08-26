@@ -1,5 +1,5 @@
-I0822 12:37:01.978389 25037 caffe.cpp:148] Use GPU with device ID 0
-I0822 12:37:02.219224 25037 net.cpp:39] Initializing net from parameters: 
+I0826 00:18:11.842151 29602 caffe.cpp:192] Use GPU with device ID 0
+I0826 00:18:12.890301 29602 net.cpp:39] Initializing net from parameters: 
 name: "ConvLayer_3x96x11x11"
 layers {
   bottom: "data"
@@ -25,30 +25,30 @@ input_dim: 128
 input_dim: 3
 input_dim: 128
 input_dim: 128
-I0822 12:37:02.219279 25037 net.cpp:357] Input 0 -> data
-I0822 12:37:02.219308 25037 net.cpp:67] Creating Layer conv1
-I0822 12:37:02.219315 25037 net.cpp:394] conv1 <- data
-I0822 12:37:02.219321 25037 net.cpp:355] conv1 -> conv1
-I0822 12:37:02.219334 25037 net.cpp:96] Setting up conv1
-I0822 12:37:02.219847 25037 net.cpp:103] Top shape: 128 96 118 118 (171098112)
-I0822 12:37:02.219877 25037 net.cpp:171] conv1 does not need backward computation.
-I0822 12:37:02.219882 25037 net.cpp:207] This network produces output conv1
-I0822 12:37:02.219889 25037 net.cpp:467] Collecting Learning Rate and Weight Decay.
-I0822 12:37:02.219895 25037 net.cpp:218] Network initialization done.
-I0822 12:37:02.219900 25037 net.cpp:219] Memory required for data: 25165824
-I0822 12:37:02.219909 25037 caffe.cpp:161] Performing Forward
-I0822 12:37:02.230511 25037 caffe.cpp:166] Initial loss: 0
-I0822 12:37:02.230535 25037 caffe.cpp:167] Performing Backward
-I0822 12:37:02.230540 25037 caffe.cpp:175] *** Benchmark begins ***
-I0822 12:37:02.230545 25037 caffe.cpp:176] Testing for 10 iterations.
-I0822 12:37:03.343850 25037 caffe.cpp:188] conv1	forward: 999.728 milliseconds.
-I0822 12:37:03.343920 25037 caffe.cpp:191] Forward pass: 999.816 milliseconds.
-I0822 12:37:05.279582 25037 caffe.cpp:202] conv1	backward: 1935.58 milliseconds.
-I0822 12:37:05.279615 25037 caffe.cpp:205] Backward pass: 1935.62 milliseconds.
-I0822 12:37:05.279633 25037 caffe.cpp:207] Total Time: 2935.48 milliseconds.
-I0822 12:37:05.279640 25037 caffe.cpp:209] *** Benchmark ends ***
-I0822 12:37:05.370820 25041 caffe.cpp:148] Use GPU with device ID 0
-I0822 12:37:05.588775 25041 net.cpp:39] Initializing net from parameters: 
+I0826 00:18:12.890354 29602 net.cpp:358] Input 0 -> data
+I0826 00:18:12.890388 29602 net.cpp:67] Creating Layer conv1
+I0826 00:18:12.890394 29602 net.cpp:394] conv1 <- data
+I0826 00:18:12.890400 29602 net.cpp:356] conv1 -> conv1
+I0826 00:18:12.890414 29602 net.cpp:96] Setting up conv1
+I0826 00:18:12.890926 29602 net.cpp:103] Top shape: 128 96 118 118 (171098112)
+I0826 00:18:12.890956 29602 net.cpp:172] conv1 does not need backward computation.
+I0826 00:18:12.890962 29602 net.cpp:208] This network produces output conv1
+I0826 00:18:12.890969 29602 net.cpp:467] Collecting Learning Rate and Weight Decay.
+I0826 00:18:12.890975 29602 net.cpp:219] Network initialization done.
+I0826 00:18:12.890980 29602 net.cpp:220] Memory required for data: 684392448
+I0826 00:18:12.890990 29602 caffe.cpp:205] Performing Forward
+I0826 00:18:12.900507 29602 caffe.cpp:210] Initial loss: 0
+I0826 00:18:12.900532 29602 caffe.cpp:211] Performing Backward
+I0826 00:18:12.900538 29602 caffe.cpp:219] *** Benchmark begins ***
+I0826 00:18:12.900542 29602 caffe.cpp:220] Testing for 10 iterations.
+I0826 00:18:14.037953 29602 caffe.cpp:232] conv1	forward: 1023.36 milliseconds.
+I0826 00:18:14.038009 29602 caffe.cpp:235] Forward pass: 1023.43 milliseconds.
+I0826 00:18:16.253343 29602 caffe.cpp:246] conv1	backward: 2215.25 milliseconds.
+I0826 00:18:16.253401 29602 caffe.cpp:249] Backward pass: 2215.32 milliseconds.
+I0826 00:18:16.253417 29602 caffe.cpp:251] Total Time: 3238.78 milliseconds.
+I0826 00:18:16.253424 29602 caffe.cpp:253] *** Benchmark ends ***
+I0826 00:18:16.752197 29607 caffe.cpp:192] Use GPU with device ID 0
+I0826 00:18:17.929803 29607 net.cpp:39] Initializing net from parameters: 
 name: "ConvLayer_64x128x9x9"
 layers {
   bottom: "data"
@@ -74,30 +74,30 @@ input_dim: 128
 input_dim: 64
 input_dim: 64
 input_dim: 64
-I0822 12:37:05.588829 25041 net.cpp:357] Input 0 -> data
-I0822 12:37:05.588857 25041 net.cpp:67] Creating Layer conv2
-I0822 12:37:05.588863 25041 net.cpp:394] conv2 <- data
-I0822 12:37:05.588870 25041 net.cpp:355] conv2 -> conv2
-I0822 12:37:05.588882 25041 net.cpp:96] Setting up conv2
-I0822 12:37:05.593427 25041 net.cpp:103] Top shape: 128 128 56 56 (51380224)
-I0822 12:37:05.593461 25041 net.cpp:171] conv2 does not need backward computation.
-I0822 12:37:05.593468 25041 net.cpp:207] This network produces output conv2
-I0822 12:37:05.593475 25041 net.cpp:467] Collecting Learning Rate and Weight Decay.
-I0822 12:37:05.593482 25041 net.cpp:218] Network initialization done.
-I0822 12:37:05.593485 25041 net.cpp:219] Memory required for data: 134217728
-I0822 12:37:05.593495 25041 caffe.cpp:161] Performing Forward
-I0822 12:37:05.612927 25041 caffe.cpp:166] Initial loss: 0
-I0822 12:37:05.612957 25041 caffe.cpp:167] Performing Backward
-I0822 12:37:05.612962 25041 caffe.cpp:175] *** Benchmark begins ***
-I0822 12:37:05.612967 25041 caffe.cpp:176] Testing for 10 iterations.
-I0822 12:37:07.799698 25041 caffe.cpp:188] conv2	forward: 1999.45 milliseconds.
-I0822 12:37:07.799790 25041 caffe.cpp:191] Forward pass: 2001.08 milliseconds.
-I0822 12:37:11.046766 25041 caffe.cpp:202] conv2	backward: 3246.68 milliseconds.
-I0822 12:37:11.046840 25041 caffe.cpp:205] Backward pass: 3246.78 milliseconds.
-I0822 12:37:11.046859 25041 caffe.cpp:207] Total Time: 5248.07 milliseconds.
-I0822 12:37:11.046866 25041 caffe.cpp:209] *** Benchmark ends ***
-I0822 12:37:11.153507 25044 caffe.cpp:148] Use GPU with device ID 0
-I0822 12:37:11.373883 25044 net.cpp:39] Initializing net from parameters: 
+I0826 00:18:17.929857 29607 net.cpp:358] Input 0 -> data
+I0826 00:18:17.929889 29607 net.cpp:67] Creating Layer conv2
+I0826 00:18:17.929896 29607 net.cpp:394] conv2 <- data
+I0826 00:18:17.929903 29607 net.cpp:356] conv2 -> conv2
+I0826 00:18:17.929915 29607 net.cpp:96] Setting up conv2
+I0826 00:18:17.933961 29607 net.cpp:103] Top shape: 128 128 56 56 (51380224)
+I0826 00:18:17.933992 29607 net.cpp:172] conv2 does not need backward computation.
+I0826 00:18:17.933998 29607 net.cpp:208] This network produces output conv2
+I0826 00:18:17.934005 29607 net.cpp:467] Collecting Learning Rate and Weight Decay.
+I0826 00:18:17.934011 29607 net.cpp:219] Network initialization done.
+I0826 00:18:17.934015 29607 net.cpp:220] Memory required for data: 205520896
+I0826 00:18:17.934025 29607 caffe.cpp:205] Performing Forward
+I0826 00:18:17.944309 29607 caffe.cpp:210] Initial loss: 0
+I0826 00:18:17.944336 29607 caffe.cpp:211] Performing Backward
+I0826 00:18:17.944341 29607 caffe.cpp:219] *** Benchmark begins ***
+I0826 00:18:17.944346 29607 caffe.cpp:220] Testing for 10 iterations.
+I0826 00:18:20.243595 29607 caffe.cpp:232] conv2	forward: 2062.9 milliseconds.
+I0826 00:18:20.243623 29607 caffe.cpp:235] Forward pass: 2062.93 milliseconds.
+I0826 00:18:23.531473 29607 caffe.cpp:246] conv2	backward: 3287.75 milliseconds.
+I0826 00:18:23.531529 29607 caffe.cpp:249] Backward pass: 3287.81 milliseconds.
+I0826 00:18:23.531546 29607 caffe.cpp:251] Total Time: 5350.78 milliseconds.
+I0826 00:18:23.531553 29607 caffe.cpp:253] *** Benchmark ends ***
+I0826 00:18:24.815862 29611 caffe.cpp:192] Use GPU with device ID 0
+I0826 00:18:25.874841 29611 net.cpp:39] Initializing net from parameters: 
 name: "ConvLayer_128x128x9x9"
 layers {
   bottom: "data"
@@ -123,30 +123,30 @@ input_dim: 128
 input_dim: 128
 input_dim: 32
 input_dim: 32
-I0822 12:37:11.373934 25044 net.cpp:357] Input 0 -> data
-I0822 12:37:11.373965 25044 net.cpp:67] Creating Layer conv3
-I0822 12:37:11.373970 25044 net.cpp:394] conv3 <- data
-I0822 12:37:11.373976 25044 net.cpp:355] conv3 -> conv3
-I0822 12:37:11.373989 25044 net.cpp:96] Setting up conv3
-I0822 12:37:11.381788 25044 net.cpp:103] Top shape: 128 128 24 24 (9437184)
-I0822 12:37:11.381820 25044 net.cpp:171] conv3 does not need backward computation.
-I0822 12:37:11.381826 25044 net.cpp:207] This network produces output conv3
-I0822 12:37:11.381834 25044 net.cpp:467] Collecting Learning Rate and Weight Decay.
-I0822 12:37:11.381839 25044 net.cpp:218] Network initialization done.
-I0822 12:37:11.381844 25044 net.cpp:219] Memory required for data: 67108864
-I0822 12:37:11.381852 25044 caffe.cpp:161] Performing Forward
-I0822 12:37:11.390537 25044 caffe.cpp:166] Initial loss: 0
-I0822 12:37:11.390566 25044 caffe.cpp:167] Performing Backward
-I0822 12:37:11.390571 25044 caffe.cpp:175] *** Benchmark begins ***
-I0822 12:37:11.390575 25044 caffe.cpp:176] Testing for 10 iterations.
-I0822 12:37:13.116469 25044 caffe.cpp:188] conv3	forward: 1571.68 milliseconds.
-I0822 12:37:13.116543 25044 caffe.cpp:191] Forward pass: 1571.77 milliseconds.
-I0822 12:37:14.325780 25044 caffe.cpp:202] conv3	backward: 1209.17 milliseconds.
-I0822 12:37:14.325844 25044 caffe.cpp:205] Backward pass: 1209.25 milliseconds.
-I0822 12:37:14.325861 25044 caffe.cpp:207] Total Time: 2781.06 milliseconds.
-I0822 12:37:14.325868 25044 caffe.cpp:209] *** Benchmark ends ***
-I0822 12:37:14.417120 25047 caffe.cpp:148] Use GPU with device ID 0
-I0822 12:37:14.636389 25047 net.cpp:39] Initializing net from parameters: 
+I0826 00:18:25.874887 29611 net.cpp:358] Input 0 -> data
+I0826 00:18:25.874919 29611 net.cpp:67] Creating Layer conv3
+I0826 00:18:25.874925 29611 net.cpp:394] conv3 <- data
+I0826 00:18:25.874933 29611 net.cpp:356] conv3 -> conv3
+I0826 00:18:25.874945 29611 net.cpp:96] Setting up conv3
+I0826 00:18:25.885072 29611 net.cpp:103] Top shape: 128 128 24 24 (9437184)
+I0826 00:18:25.885166 29611 net.cpp:172] conv3 does not need backward computation.
+I0826 00:18:25.885184 29611 net.cpp:208] This network produces output conv3
+I0826 00:18:25.885205 29611 net.cpp:467] Collecting Learning Rate and Weight Decay.
+I0826 00:18:25.885221 29611 net.cpp:219] Network initialization done.
+I0826 00:18:25.885234 29611 net.cpp:220] Memory required for data: 37748736
+I0826 00:18:25.885262 29611 caffe.cpp:205] Performing Forward
+I0826 00:18:25.897071 29611 caffe.cpp:210] Initial loss: 0
+I0826 00:18:25.897104 29611 caffe.cpp:211] Performing Backward
+I0826 00:18:25.897109 29611 caffe.cpp:219] *** Benchmark begins ***
+I0826 00:18:25.897114 29611 caffe.cpp:220] Testing for 10 iterations.
+I0826 00:18:27.696673 29611 caffe.cpp:232] conv3	forward: 1613.15 milliseconds.
+I0826 00:18:27.696730 29611 caffe.cpp:235] Forward pass: 1613.22 milliseconds.
+I0826 00:18:28.926600 29611 caffe.cpp:246] conv3	backward: 1229.82 milliseconds.
+I0826 00:18:28.926657 29611 caffe.cpp:249] Backward pass: 1229.88 milliseconds.
+I0826 00:18:28.926868 29611 caffe.cpp:251] Total Time: 2843.3 milliseconds.
+I0826 00:18:28.926883 29611 caffe.cpp:253] *** Benchmark ends ***
+I0826 00:18:29.463989 29615 caffe.cpp:192] Use GPU with device ID 0
+I0826 00:18:30.508059 29615 net.cpp:39] Initializing net from parameters: 
 name: "ConvLayer_128x128x7x7"
 layers {
   bottom: "data"
@@ -172,30 +172,30 @@ input_dim: 128
 input_dim: 128
 input_dim: 16
 input_dim: 16
-I0822 12:37:14.636442 25047 net.cpp:357] Input 0 -> data
-I0822 12:37:14.636471 25047 net.cpp:67] Creating Layer conv4
-I0822 12:37:14.636477 25047 net.cpp:394] conv4 <- data
-I0822 12:37:14.636484 25047 net.cpp:355] conv4 -> conv4
-I0822 12:37:14.636497 25047 net.cpp:96] Setting up conv4
-I0822 12:37:14.641388 25047 net.cpp:103] Top shape: 128 128 10 10 (1638400)
-I0822 12:37:14.641420 25047 net.cpp:171] conv4 does not need backward computation.
-I0822 12:37:14.641427 25047 net.cpp:207] This network produces output conv4
-I0822 12:37:14.641433 25047 net.cpp:467] Collecting Learning Rate and Weight Decay.
-I0822 12:37:14.641439 25047 net.cpp:218] Network initialization done.
-I0822 12:37:14.641443 25047 net.cpp:219] Memory required for data: 16777216
-I0822 12:37:14.641453 25047 caffe.cpp:161] Performing Forward
-I0822 12:37:14.689236 25047 caffe.cpp:166] Initial loss: 0
-I0822 12:37:14.689262 25047 caffe.cpp:167] Performing Backward
-I0822 12:37:14.689267 25047 caffe.cpp:175] *** Benchmark begins ***
-I0822 12:37:14.689271 25047 caffe.cpp:176] Testing for 10 iterations.
-I0822 12:37:15.102807 25047 caffe.cpp:188] conv4	forward: 413.225 milliseconds.
-I0822 12:37:15.102834 25047 caffe.cpp:191] Forward pass: 413.263 milliseconds.
-I0822 12:37:15.316865 25047 caffe.cpp:202] conv4	backward: 213.996 milliseconds.
-I0822 12:37:15.316923 25047 caffe.cpp:205] Backward pass: 214.065 milliseconds.
-I0822 12:37:15.316941 25047 caffe.cpp:207] Total Time: 627.367 milliseconds.
-I0822 12:37:15.316948 25047 caffe.cpp:209] *** Benchmark ends ***
-I0822 12:37:18.701599 25051 caffe.cpp:148] Use GPU with device ID 0
-I0822 12:37:18.924589 25051 net.cpp:39] Initializing net from parameters: 
+I0826 00:18:30.508106 29615 net.cpp:358] Input 0 -> data
+I0826 00:18:30.508139 29615 net.cpp:67] Creating Layer conv4
+I0826 00:18:30.508147 29615 net.cpp:394] conv4 <- data
+I0826 00:18:30.508153 29615 net.cpp:356] conv4 -> conv4
+I0826 00:18:30.508167 29615 net.cpp:96] Setting up conv4
+I0826 00:18:30.520714 29615 net.cpp:103] Top shape: 128 128 10 10 (1638400)
+I0826 00:18:30.520803 29615 net.cpp:172] conv4 does not need backward computation.
+I0826 00:18:30.520820 29615 net.cpp:208] This network produces output conv4
+I0826 00:18:30.520841 29615 net.cpp:467] Collecting Learning Rate and Weight Decay.
+I0826 00:18:30.520859 29615 net.cpp:219] Network initialization done.
+I0826 00:18:30.520872 29615 net.cpp:220] Memory required for data: 6553600
+I0826 00:18:30.520900 29615 caffe.cpp:205] Performing Forward
+I0826 00:18:30.564456 29615 caffe.cpp:210] Initial loss: 0
+I0826 00:18:30.564482 29615 caffe.cpp:211] Performing Backward
+I0826 00:18:30.564487 29615 caffe.cpp:219] *** Benchmark begins ***
+I0826 00:18:30.564491 29615 caffe.cpp:220] Testing for 10 iterations.
+I0826 00:18:30.927801 29615 caffe.cpp:232] conv4	forward: 363.027 milliseconds.
+I0826 00:18:30.927824 29615 caffe.cpp:235] Forward pass: 363.053 milliseconds.
+I0826 00:18:31.148705 29615 caffe.cpp:246] conv4	backward: 220.854 milliseconds.
+I0826 00:18:31.148758 29615 caffe.cpp:249] Backward pass: 220.913 milliseconds.
+I0826 00:18:31.148774 29615 caffe.cpp:251] Total Time: 584 milliseconds.
+I0826 00:18:31.148782 29615 caffe.cpp:253] *** Benchmark ends ***
+I0826 00:18:31.572005 29618 caffe.cpp:192] Use GPU with device ID 0
+I0826 00:18:32.618775 29618 net.cpp:39] Initializing net from parameters: 
 name: "ConvLayer_384x384x3x3"
 layers {
   bottom: "data"
@@ -221,25 +221,25 @@ input_dim: 128
 input_dim: 384
 input_dim: 13
 input_dim: 13
-I0822 12:37:18.924643 25051 net.cpp:357] Input 0 -> data
-I0822 12:37:18.924672 25051 net.cpp:67] Creating Layer conv5
-I0822 12:37:18.924679 25051 net.cpp:394] conv5 <- data
-I0822 12:37:18.924685 25051 net.cpp:355] conv5 -> conv5
-I0822 12:37:18.924698 25051 net.cpp:96] Setting up conv5
-I0822 12:37:18.932837 25051 net.cpp:103] Top shape: 128 384 11 11 (5947392)
-I0822 12:37:18.932871 25051 net.cpp:171] conv5 does not need backward computation.
-I0822 12:37:18.932878 25051 net.cpp:207] This network produces output conv5
-I0822 12:37:18.932884 25051 net.cpp:467] Collecting Learning Rate and Weight Decay.
-I0822 12:37:18.932890 25051 net.cpp:218] Network initialization done.
-I0822 12:37:18.932894 25051 net.cpp:219] Memory required for data: 33226752
-I0822 12:37:18.932904 25051 caffe.cpp:161] Performing Forward
-I0822 12:37:19.001996 25051 caffe.cpp:166] Initial loss: 0
-I0822 12:37:19.002027 25051 caffe.cpp:167] Performing Backward
-I0822 12:37:19.002032 25051 caffe.cpp:175] *** Benchmark begins ***
-I0822 12:37:19.002038 25051 caffe.cpp:176] Testing for 10 iterations.
-I0822 12:37:19.571516 25051 caffe.cpp:188] conv5	forward: 568.99 milliseconds.
-I0822 12:37:19.571553 25051 caffe.cpp:191] Forward pass: 569.042 milliseconds.
-I0822 12:37:20.098950 25051 caffe.cpp:202] conv5	backward: 526.11 milliseconds.
-I0822 12:37:20.098984 25051 caffe.cpp:205] Backward pass: 527.397 milliseconds.
-I0822 12:37:20.099001 25051 caffe.cpp:207] Total Time: 1096.48 milliseconds.
-I0822 12:37:20.099009 25051 caffe.cpp:209] *** Benchmark ends ***
+I0826 00:18:32.618821 29618 net.cpp:358] Input 0 -> data
+I0826 00:18:32.618854 29618 net.cpp:67] Creating Layer conv5
+I0826 00:18:32.618861 29618 net.cpp:394] conv5 <- data
+I0826 00:18:32.618868 29618 net.cpp:356] conv5 -> conv5
+I0826 00:18:32.618881 29618 net.cpp:96] Setting up conv5
+I0826 00:18:32.635596 29618 net.cpp:103] Top shape: 128 384 11 11 (5947392)
+I0826 00:18:32.635630 29618 net.cpp:172] conv5 does not need backward computation.
+I0826 00:18:32.635637 29618 net.cpp:208] This network produces output conv5
+I0826 00:18:32.635643 29618 net.cpp:467] Collecting Learning Rate and Weight Decay.
+I0826 00:18:32.635649 29618 net.cpp:219] Network initialization done.
+I0826 00:18:32.635653 29618 net.cpp:220] Memory required for data: 23789568
+I0826 00:18:32.635663 29618 caffe.cpp:205] Performing Forward
+I0826 00:18:32.642989 29618 caffe.cpp:210] Initial loss: 0
+I0826 00:18:32.643019 29618 caffe.cpp:211] Performing Backward
+I0826 00:18:32.643024 29618 caffe.cpp:219] *** Benchmark begins ***
+I0826 00:18:32.643029 29618 caffe.cpp:220] Testing for 10 iterations.
+I0826 00:18:33.084373 29618 caffe.cpp:232] conv5	forward: 400.705 milliseconds.
+I0826 00:18:33.084429 29618 caffe.cpp:235] Forward pass: 400.768 milliseconds.
+I0826 00:18:33.427806 29618 caffe.cpp:246] conv5	backward: 343.346 milliseconds.
+I0826 00:18:33.427830 29618 caffe.cpp:249] Backward pass: 343.376 milliseconds.
+I0826 00:18:33.427845 29618 caffe.cpp:251] Total Time: 744.179 milliseconds.
+I0826 00:18:33.427852 29618 caffe.cpp:253] *** Benchmark ends ***
