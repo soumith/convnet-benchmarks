@@ -20,7 +20,7 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | 1818              |  416                    | 1402                     |                     |             |
 | Theano (experimental)*** | [conv2d_fft](https://github.com/Theano/Theano/blob/master/theano/sandbox/cuda/fftconv.py)                                | 1819              |  **304**                | 1515                     |                     |             |
 | Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                | 1936              |  581                    | 1355                     |                     |             |
-| Theano (experimental)*** | CorrMM                                                                                                                   | 2063              |  630                    | 1433                     |                     |             |
+| Theano (experimental)    | CorrMM                                                                                                                   | 2063              |  630                    | 1433                     |                     |             |
 | cuda-convnet**           | [pylearn2.cuda_convnet](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu)   | 3287              |  727                    | 2560                     |                     |             |
 | ccv                      | [ccv_convnet_layer](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu)                                 | 809+bw            |  809                    |                          |                     |             |
 | Theano (legacy)          | [conv2d](https://github.com/Theano/Theano/blob/master/theano/sandbox/cuda/blas.py#L674)                                  | 70774             |  3833                   | 66941                    |                     |             |
@@ -47,7 +47,7 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 63  | 241  |  86 | 9  | 17  |   416 |
 | Theano (experimental)*** | [conv2d_fft](http://deeplearning.net/software/theano/library/tensor/nnet/conv.html#theano.sandbox.cuda.fftconv.conv2d_fft)        | 138 | 72   |  30 | 9  |  55 |   304 |
 | Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       | 105 | 239  | 168 | 32 | 37  |   581 |
-| Theano (experimental)*** | CorrMM                                                                                                                            | 100 | 251  | 197 | 38 |  44 |   630 |
+| Theano (experimental)    | CorrMM                                                                                                                            | 100 | 251  | 197 | 38 |  44 |   630 |
 | cuda-convnet**           | [pylearn2.cuda_convnet](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu)            | 92  | 412  | 159 | 19 | 45  |   727 |
 | ccv                      |[ccv_convnet_layer](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu)                                           | 121 | 437  | 182 | 23 | 44  |   809 |
 | Theano (legacy)          | [conv2d](http://deeplearning.net/software/theano/library/tensor/nnet/conv.html#theano.tensor.nnet.conv.conv2d)                    | 408 | 2310 | 739 | 99 | 277 |  3833 |
@@ -62,7 +62,7 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 586   |  570 | 190 | 19  | 37   | 1402  |
 | Theano (experimental)*** | [conv2d_fft](https://github.com/Theano/Theano/blob/master/theano/sandbox/cuda/fftconv.py)                                         | 846   |  363 | 137 | 40  |  129 | 1515  |
 | Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       |  301  |  673 | 270 | 47  | 64   | 1355  |
-| Theano (experimental)*** | CorrMM                                                                                                                            | 282   | 733  | 295 | 51  |  72  | 1433  |
+| Theano (experimental)    | CorrMM                                                                                                                            | 282   | 733  | 295 | 51  |  72  | 1433  |
 | cuda-convnet**           | [pylearn2.cuda_convnet](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu)            | 618   | 1305 | 473 | 50  | 114  | 2560  |
 | ccv                      |[ccv_convnet_layer](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu)                                           |
 | Theano (legacy)          | [conv2d](http://deeplearning.net/software/theano/library/tensor/nnet/conv.html#theano.tensor.nnet.conv.conv2d)                    | 53997 | 9752 | 2202 | 299| 691 | 66941  |
@@ -76,7 +76,7 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 86    |  271 | 120 | 20  | 26  |   523 |
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 131   |  230 | 82  | 8   | 16  |   467 |
 | Theano (experimental)*** | [conv2d_fft](http://deeplearning.net/software/theano/library/tensor/nnet/conv.html#theano.sandbox.cuda.fftconv.conv2d_fft)        | 647   |  256 | 101 | 31  | 70  |  1105 |
-| Theano (experimental)*** | CorrMM                                                                                                                            | 87    | 328  | 142 | 25 |  31  |   613 |
+| Theano (experimental)    | CorrMM                                                                                                                            | 87    | 328  | 142 | 25 |  31  |   613 |
 | Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       | 91    |  302 | 129 | 23  | 27  |   572 |
 | cuda-convnet**           | [pylearn2.cuda_convnet](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu)            | 155   |  647 | 230 | 23  | 47  |  1102 |
 | ccv                      |[ccv_convnet_layer](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu)                                           |
@@ -92,7 +92,7 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 455 | 340  | 108  | 11  | 21  |  935  |
 | Theano (experimental)*** | [conv2d_fft](http://deeplearning.net/software/theano/library/tensor/nnet/conv.html#theano.sandbox.cuda.fftconv.conv2d_fft)        | 199 | 107  |   36 | 9   | 59  |   410 |
 | Torch-7                  | [nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                      | 210 | 371  | 141  | 24  | 37  |   783 |
-| Theano (experimental)*** | CorrMM                                                                                                                            | 195 | 405  | 153  | 26  |  41 |  820  |
+| Theano (experimental)    | CorrMM                                                                                                                            | 195 | 405  | 153  | 26  |  41 |  820  |
 | cuda-convnet**           | [pylearn2.cuda_convnet](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu)            | 463 | 658  | 243  | 27  | 67  |  2069 |
 | ccv                      | [ccv_convnet_layer](https://github.com/liuliu/ccv/blob/unstable/lib/cuda/cwc_convnet.cu)                                          |
 | Theano (legacy)          | [conv2d](http://deeplearning.net/software/theano/library/tensor/nnet/conv.html#theano.tensor.nnet.conv.conv2d)                    | 657 | 7062 | 1158 | 128 | 285 |  9290 |
