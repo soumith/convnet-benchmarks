@@ -224,13 +224,12 @@ for run in runs:
     sharedW = theano.shared(np.random.randn(ni, kh, kw, no).astype('float32'))
     contiguous_input = gpu_contiguous(sharedX)
     contiguous_filters = gpu_contiguous(sharedW)
-    Y = FilterActs()(contiguous_input, contiguous_filters)
-    gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
-    #from pylearn2.sandbox.cuda_convnet.weight_acts import WeightActs
-    #gW = WeightActs()(contiguous_input, gpu_contiguous(sharedY), sharedW.shape)[0]  # constructed by hand, results in the same graph
-    gX = theano.grad(None, wrt=sharedX, known_grads={Y: sharedY})
-    benchmark_three_ways('pylearn2.sandbox.cuda_convnet',
-                         sharedX, sharedY, sharedW, X, Y, gW, gX, flops)
+    for partial_sum in (None, 1):
+        Y = FilterActs(partial_sum=partial_sum)(contiguous_input, contiguous_filters)
+        gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
+        gX = theano.grad(None, wrt=sharedX, known_grads={Y: sharedY})
+        benchmark_three_ways('pylearn2.sandbox.cuda_convnet(partial_sum=%r)' % partial_sum,
+                             sharedX, sharedY, sharedW, X, Y, gW, gX, flops)
 
     del sharedX
     del sharedY
