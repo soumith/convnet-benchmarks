@@ -198,7 +198,14 @@ for run in runs:
     # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_gemm
     mode = theano.compile.get_default_mode()
     mode = mode.including('conv_gemm')
-    benchmark_three_ways('(experimental) theano.sandbox.cuda.blas.CorrMM',
+    benchmark_three_ways('(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM',
+                         sharedX, sharedY, sharedW, X, Y, gW, gX, flops, mode)
+
+    # benchmark caffe-like gemm convolution again, directly, w/o kernel flipping
+    Y = theano.sandbox.cuda.blas.GpuCorrMM(subsample=(dh,dw))(gpu_contiguous(X), gpu_contiguous(sharedW))
+    gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
+    gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
+    benchmark_three_ways('(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM',
                          sharedX, sharedY, sharedW, X, Y, gW, gX, flops, mode)
 
     del sharedX
