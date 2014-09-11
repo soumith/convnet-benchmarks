@@ -208,6 +208,13 @@ for run in runs:
     benchmark_three_ways('(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM',
                          sharedX, sharedY, sharedW, X, Y, gW, gX, flops, mode)
 
+    # benchmark cudnn, convolution with kernel flipping
+    mode = theano.compile.get_default_mode()
+    import theano.sandbox.cuda.dnn
+    mode = mode.including('cudnn')
+    benchmark_three_ways('(experimental auto) theano.sandbox.cuda.dnn.GpuDnnConv',
+                         sharedX, sharedY, sharedW, X, Y, gW, gX, flops, mode)
+
     del sharedX
     del sharedY
     del sharedW
