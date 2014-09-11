@@ -11,6 +11,11 @@ except ImportError:
 import theano
 
 try:
+	import theano.sandbox.cuda.dnn
+except ImportError:
+	print "Note: cuDNN not available"
+
+try:
     from pylearn2.sandbox.cuda_convnet.filter_acts import FilterActs
 except ImportError:
     FilterActs = None
@@ -194,6 +199,13 @@ for run in runs:
     benchmark_three_ways('(experimental) theano.sandbox.cuda.fftconv.conv2d_fft',
                          sharedX, sharedY, sharedW, X, Y, gW, gX, flops, mode)
 
+    # benchmark cudnn, convolution with kernel flipping
+    if hasattr(theano.sandbox.cuda, 'dnn'):
+        mode = theano.compile.get_default_mode()
+        mode = mode.including('cudnn')
+        benchmark_three_ways('(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv',
+	                         sharedX, sharedY, sharedW, X, Y, gW, gX, flops, mode)
+
     # benchmark caffe-like gemm convolution
     # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_gemm
     mode = theano.compile.get_default_mode()
@@ -206,13 +218,6 @@ for run in runs:
     gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
     gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
     benchmark_three_ways('(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM',
-                         sharedX, sharedY, sharedW, X, Y, gW, gX, flops, mode)
-
-    # benchmark cudnn, convolution with kernel flipping
-    mode = theano.compile.get_default_mode()
-    import theano.sandbox.cuda.dnn
-    mode = mode.including('cudnn')
-    benchmark_three_ways('(experimental auto) theano.sandbox.cuda.dnn.GpuDnnConv',
                          sharedX, sharedY, sharedW, X, Y, gW, gX, flops, mode)
 
     del sharedX
