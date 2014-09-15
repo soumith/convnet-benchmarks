@@ -80,26 +80,25 @@ for i,run in ipairs(runs) do
    mods[1] = cudnn.SpatialConvolution(ni,no,kw,kh,dw,dh):cuda()
    mods[2] = nn.SpatialConvolutionMM(ni,no,kw,kh,dw,dh):cuda()
    mods[3] = ccn2.SpatialConvolution(ni,no,kw,dw):cuda()
-   for j=1,#mods do        
-      local i_DHWB = torch.randn(ni, ih, iw, bs):cuda()
-      local i_BDHW = torch.randn(bs, ni, ih, iw):cuda()
-      local i1
+   for j=1,#mods do   
+      local tmf, tmbi, tmbg
+      collectgarbage()
       if torch.typename(mods[j]) == 'ccn2.SpatialConvolution' then
-         i1 = i_DHWB;
+         i1 = torch.randn(ni, ih, iw, bs):cuda();
       else
-         i1 = i_BDHW
+         i1 = torch.randn(bs, ni, ih, iw):cuda()
       end         
-
+      collectgarbage()
       local o1 = mods[j]:forward(i1)
-
       cutorch.synchronize()
+      collectgarbage()
       sys.tic()
       for t = 1,steps do
          o1 = mods[j]:updateOutput(i1)
       end
       cutorch.synchronize()
-      tm = sys.toc()/steps
-      print(torch.typename(mods[j]) .. ':updateOutput():        '.. '(tm = ' .. tm .. ')')
+      tmf = sys.toc()/steps
+      print(string.format("%-30s %25s %10.2f", torch.typename(mods[j]), ':updateOutput():', tmf*1000))
 
       cutorch.synchronize()
       collectgarbage()
@@ -108,8 +107,8 @@ for i,run in ipairs(runs) do
          mods[j]:updateGradInput(i1, o1)
       end
       cutorch.synchronize()
-      tm = sys.toc()/steps
-      print(torch.typename(mods[j]) .. ':updateGradInput():        ' .. '(tm = ' .. tm .. ')')
+      tmbi = sys.toc()/steps
+      print(string.format("%-30s %25s %10.2f", torch.typename(mods[j]), ':updateGradInput():', tmbi*1000))
 
       cutorch.synchronize()
       collectgarbage()
@@ -119,12 +118,14 @@ for i,run in ipairs(runs) do
          ok = pcall(function() mods[j]:accGradParameters(i1, o1) end)
       end
       cutorch.synchronize()
-      tm = sys.toc()/steps
+      tmbg = sys.toc()/steps
       if not ok then
-         print(torch.typename(mods[j]) .. ':accGradParameters():       ' .. 'FAILED!')
+         print(string.format("%-30s %25s %s", torch.typename(mods[j]), ':accGradParameters():', 'FAILED!'))
       else
-         print(torch.typename(mods[j]) .. ':accGradParameters():       ' .. '(tm = ' .. tm .. ')')
+         print(string.format("%-30s %25s %10.2f", torch.typename(mods[j]), ':accGradParameters():', tmbi*1000))
       end
+      print(string.format("%-30s %25s %10.2f", torch.typename(mods[j]), ':TOTAL:', (tmf+tmbi+tmbg)*1000))
+      print()
    end
 end
 
