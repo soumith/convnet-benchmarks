@@ -122,7 +122,7 @@ for i,run in ipairs(runs) do
       if not ok then
          print(string.format("%-30s %25s %s", torch.typename(mods[j]), ':accGradParameters():', 'FAILED!'))
       else
-         print(string.format("%-30s %25s %10.2f", torch.typename(mods[j]), ':accGradParameters():', tmbi*1000))
+         print(string.format("%-30s %25s %10.2f", torch.typename(mods[j]), ':accGradParameters():', tmbg*1000))
       end
       print(string.format("%-30s %25s %10.2f", torch.typename(mods[j]), ':TOTAL:', (tmf+tmbi+tmbg)*1000))
       print()
