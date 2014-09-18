@@ -2,6 +2,7 @@ require 'sys'
 require 'cunn'
 require 'ccn2'
 require 'cudnn'
+require 'nnbhwd'
 
 print('Running on device: ' .. cutorch.getDeviceProperties(cutorch.getDevice()).name)
 
@@ -80,11 +81,14 @@ for i,run in ipairs(runs) do
    mods[1] = cudnn.SpatialConvolution(ni,no,kw,kh,dw,dh):cuda()
    mods[2] = nn.SpatialConvolutionMM(ni,no,kw,kh,dw,dh):cuda()
    mods[3] = ccn2.SpatialConvolution(ni,no,kw,dw):cuda()
+   mods[4] = nn.SpatialConvolutionBHWD(ni,no,kw,kh,dw,dh):cuda()
    for j=1,#mods do   
       local tmf, tmbi, tmbg
       collectgarbage()
       if torch.typename(mods[j]) == 'ccn2.SpatialConvolution' then
          i1 = torch.randn(ni, ih, iw, bs):cuda();
+      elseif torch.typename(mods[j]) == 'nn.SpatialConvolutionBHWD' then
+         i1 = torch.randn(bs, ih, iw, ni):cuda();
       else
          i1 = torch.randn(bs, ni, ih, iw):cuda()
       end         
