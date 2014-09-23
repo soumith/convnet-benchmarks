@@ -182,10 +182,15 @@ for run in runs:
     # benchmark Theano standard convolution
     input_shape = (bs, ni, ih, iw)
     filter_shape = (no, ni, kh, kw)
-    sharedX = theano.shared(np.random.randn(*input_shape).astype('float32'))
-    sharedY = theano.shared(np.random.randn(bs, no, (ih-kh)/dh+1, (iw-kw)/dw+1).astype('float32'))
-    sharedW = theano.shared(np.random.randn(*filter_shape).astype('float32'))
-    X = theano.tensor.tensor4()
+    try:
+        sharedX = theano.shared(np.random.randn(*input_shape).astype('float32'), name='sharedX')
+        sharedY = theano.shared(np.random.randn(bs, no, (ih-kh)/dh+1, (iw-kw)/dw+1).astype('float32'), name='sharedY')
+        sharedW = theano.shared(np.random.randn(*filter_shape).astype('float32'), name='sharedW')
+    except MemoryError, e:
+        print "SKIPPING config due to the memory error bellow"
+        print e
+        continue
+    X = theano.tensor.tensor4('X')
     Y = theano.tensor.nnet.conv.conv2d(X, sharedW, input_shape, filter_shape, subsample=(dh,dw))
     gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
     gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
