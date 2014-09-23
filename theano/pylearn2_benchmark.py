@@ -127,6 +127,8 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
     # benchmark bprop wrt input
     try:
         bprop = theano.function([], [],
+                                # the nvidia wrapper need this (in fact could be optional for subsample==(1, 1)
+                                givens=[(X, sharedX)],
                                 updates=[(sharedX, gX)],
                                 mode=mode)
         tm = time_run(bprop)
@@ -207,17 +209,38 @@ for run in runs:
 
     # benchmark caffe-like gemm convolution
     # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_gemm
-    mode = theano.compile.get_default_mode()
-    mode = mode.including('conv_gemm')
-    benchmark_three_ways('(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM',
-                         sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
+    if int(os.environ.get("SKIP_GEMM", 0)) == 0:
+        mode = theano.compile.get_default_mode()
+        mode = mode.including('conv_gemm')
+        benchmark_three_ways('(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM',
+                             sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
 
-    # benchmark caffe-like gemm convolution again, directly, w/o kernel flipping
-    Y = theano.sandbox.cuda.blas.GpuCorrMM(subsample=(dh,dw))(gpu_contiguous(X), gpu_contiguous(sharedW))
-    gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
-    gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
-    benchmark_three_ways('(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM',
-                         sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
+        # benchmark caffe-like gemm convolution again, directly, w/o kernel flipping
+        Y = theano.sandbox.cuda.blas.GpuCorrMM(subsample=(dh, dw))(
+            gpu_contiguous(X), gpu_contiguous(sharedW))
+        gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
+        gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
+        benchmark_three_ways('(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM',
+                             sharedX, sharedY, sharedW, X, Y, gW, gX)
+
+    # benchmark nvidia convolution directly
+    if hasattr(theano.sandbox.cuda, 'dnn'):
+        Y = theano.sandbox.cuda.dnn.dnn_conv(X, sharedW, 'valid',
+                                             subsample=(dh, dw))
+        gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
+        gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
+        benchmark_three_ways(
+            '(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv',
+            sharedX, sharedY, sharedW, X, Y, gW, gX)
+        # without flipping
+        Y = theano.sandbox.cuda.dnn.dnn_conv(X, sharedW, 'valid',
+                                             subsample=(dh, dw),
+                                             conv_mode='cross')
+        gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
+        gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
+        benchmark_three_ways(
+            '(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv',
+            sharedX, sharedY, sharedW, X, Y, gW, gX)
 
     del sharedX
     del sharedY
