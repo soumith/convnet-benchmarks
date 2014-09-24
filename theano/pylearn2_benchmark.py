@@ -117,7 +117,8 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
         fprop = theano.function([], [],
                                 givens=[(X, sharedX)],
                                 updates=[(sharedY, Y)],
-                                mode=mode)
+                                mode=mode,
+                                name=name + " fprop")
         tm = time_run(fprop)
         del fprop
         print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'fprop', math.floor(tm*1000))
@@ -130,7 +131,8 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
                                 # the nvidia wrapper need this (in fact could be optional for subsample==(1, 1)
                                 givens=[(X, sharedX)],
                                 updates=[(sharedX, gX)],
-                                mode=mode)
+                                mode=mode,
+                                name=name + " bprop inputs")
         tm = time_run(bprop)
         del bprop
         print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop inputs', math.floor(tm*1000))
@@ -142,7 +144,8 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
         bprop = theano.function([], [],
                                 givens=[(X, sharedX)],
                                 updates=[(sharedW, gW)],
-                                mode=mode)
+                                mode=mode,
+                                name=name + " bprop weights")
         tm = time_run(bprop)
         del bprop
         print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop weights', math.floor(tm*1000))
