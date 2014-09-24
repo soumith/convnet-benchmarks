@@ -121,8 +121,8 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
         tm = time_run(fprop)
         del fprop
         print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'fprop', math.floor(tm*1000))
-    except Exception:
-        print name, 'fprop: FAILED'
+    except Exception, e:
+        print name, 'fprop: FAILED', e
 
     # benchmark bprop wrt input
     try:
@@ -134,8 +134,8 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
         tm = time_run(bprop)
         del bprop
         print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop inputs', math.floor(tm*1000))
-    except Exception:
-        print name, 'bprop inputs: FAILED'
+    except Exception, e:
+        print name, 'bprop inputs: FAILED', e
 
     # benchmark bprop wrt weights
     try:
@@ -146,8 +146,8 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
         tm = time_run(bprop)
         del bprop
         print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop weights', math.floor(tm*1000))
-    except Exception:
-        print name, 'bprop weights: FAILED'
+    except Exception, e:
+        print name, 'bprop weights: FAILED', e
     print ''
 
 def parse_custom_config(s):
