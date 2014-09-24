@@ -117,35 +117,40 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
         fprop = theano.function([], [],
                                 givens=[(X, sharedX)],
                                 updates=[(sharedY, Y)],
-                                mode=mode)
+                                mode=mode,
+                                name=name + " fprop")
         tm = time_run(fprop)
         del fprop
         print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'fprop', math.floor(tm*1000))
-    except Exception:
-        print name, 'fprop: FAILED'
+    except Exception, e:
+        print name, 'fprop: FAILED', e
 
     # benchmark bprop wrt input
     try:
         bprop = theano.function([], [],
+                                # the nvidia wrapper need this (in fact could be optional for subsample==(1, 1)
+                                givens=[(X, sharedX)],
                                 updates=[(sharedX, gX)],
-                                mode=mode)
+                                mode=mode,
+                                name=name + " bprop inputs")
         tm = time_run(bprop)
         del bprop
         print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop inputs', math.floor(tm*1000))
-    except Exception:
-        print name, 'bprop inputs: FAILED'
+    except Exception, e:
+        print name, 'bprop inputs: FAILED', e
 
     # benchmark bprop wrt weights
     try:
         bprop = theano.function([], [],
                                 givens=[(X, sharedX)],
                                 updates=[(sharedW, gW)],
-                                mode=mode)
+                                mode=mode,
+                                name=name + " bprop weights")
         tm = time_run(bprop)
         del bprop
         print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop weights', math.floor(tm*1000))
-    except Exception:
-        print name, 'bprop weights: FAILED'
+    except Exception, e:
+        print name, 'bprop weights: FAILED', e
     print ''
 
 def parse_custom_config(s):
@@ -180,10 +185,15 @@ for run in runs:
     # benchmark Theano standard convolution
     input_shape = (bs, ni, ih, iw)
     filter_shape = (no, ni, kh, kw)
-    sharedX = theano.shared(np.random.randn(*input_shape).astype('float32'))
-    sharedY = theano.shared(np.random.randn(bs, no, (ih-kh)/dh+1, (iw-kw)/dw+1).astype('float32'))
-    sharedW = theano.shared(np.random.randn(*filter_shape).astype('float32'))
-    X = theano.tensor.tensor4()
+    try:
+        sharedX = theano.shared(np.random.randn(*input_shape).astype('float32'), name='sharedX')
+        sharedY = theano.shared(np.random.randn(bs, no, (ih-kh)/dh+1, (iw-kw)/dw+1).astype('float32'), name='sharedY')
+        sharedW = theano.shared(np.random.randn(*filter_shape).astype('float32'), name='sharedW')
+    except MemoryError, e:
+        print "SKIPPING config due to the memory error bellow"
+        print e
+        continue
+    X = theano.tensor.tensor4('X')
     Y = theano.tensor.nnet.conv.conv2d(X, sharedW, input_shape, filter_shape, subsample=(dh,dw))
     gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
     gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
@@ -207,17 +217,38 @@ for run in runs:
 
     # benchmark caffe-like gemm convolution
     # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_gemm
-    mode = theano.compile.get_default_mode()
-    mode = mode.including('conv_gemm')
-    benchmark_three_ways('(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM',
-                         sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
+    if int(os.environ.get("SKIP_GEMM", 0)) == 0:
+        mode = theano.compile.get_default_mode()
+        mode = mode.including('conv_gemm')
+        benchmark_three_ways('(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM',
+                             sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
 
-    # benchmark caffe-like gemm convolution again, directly, w/o kernel flipping
-    Y = theano.sandbox.cuda.blas.GpuCorrMM(subsample=(dh,dw))(gpu_contiguous(X), gpu_contiguous(sharedW))
-    gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
-    gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
-    benchmark_three_ways('(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM',
-                         sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
+        # benchmark caffe-like gemm convolution again, directly, w/o kernel flipping
+        Y = theano.sandbox.cuda.blas.GpuCorrMM(subsample=(dh, dw))(
+            gpu_contiguous(X), gpu_contiguous(sharedW))
+        gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
+        gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
+        benchmark_three_ways('(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM',
+                             sharedX, sharedY, sharedW, X, Y, gW, gX)
+
+    # benchmark nvidia convolution directly
+    if hasattr(theano.sandbox.cuda, 'dnn'):
+        Y = theano.sandbox.cuda.dnn.dnn_conv(X, sharedW, 'valid',
+                                             subsample=(dh, dw))
+        gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
+        gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
+        benchmark_three_ways(
+            '(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv',
+            sharedX, sharedY, sharedW, X, Y, gW, gX)
+        # without flipping
+        Y = theano.sandbox.cuda.dnn.dnn_conv(X, sharedW, 'valid',
+                                             subsample=(dh, dw),
+                                             conv_mode='cross')
+        gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
+        gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
+        benchmark_three_ways(
+            '(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv',
+            sharedX, sharedY, sharedW, X, Y, gW, gX)
 
     del sharedX
     del sharedY
