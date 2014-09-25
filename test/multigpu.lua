@@ -4,7 +4,7 @@ require 'cunn'
 require 'cudnn'
 require 'ccn2'
 
-cutorch.setDevice(4)
+--cutorch.setDevice(4)
 
 fSize = {3, 96, 128, 128, 384}
 inputSize = {3, 64, 64}
