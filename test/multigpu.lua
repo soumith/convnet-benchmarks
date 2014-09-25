@@ -67,6 +67,7 @@ input = torch.rand(batchSize, inputSize[1], inputSize[2], inputSize[3]):cuda()
 -- first run
 --print(model:forward(input):size())
 output = model:forward(input)
+cutorch.synchronize()
 
 a = torch.Timer()
 output = model:forward(input)
