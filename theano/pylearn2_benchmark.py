@@ -184,8 +184,10 @@ for run in runs:
     print ''
     print 'CONFIG: input =', ni, 'x', iw, 'x', ih, '* ker =', ni, 'x', no, 'x', kw, 'x', kh, '( bs =', bs, ', stride =', dw, ')'
     ops = 2  # ops per point
+    mode = theano.compile.get_default_mode().including('gpu')
 
-    # benchmark Theano standard convolution
+    # benchmark Theano legacy convolution
+    # Mimic THEANO_FLAGS=optimizer_excluding=conv_gemm:conv_dnn
     input_shape = (bs, ni, ih, iw)
     filter_shape = (no, ni, kh, kw)
     try:
@@ -202,29 +204,29 @@ for run in runs:
     gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
     if int(os.environ.get("SKIP_LEGACY", 0)) == 0:
         benchmark_three_ways('theano.tensor.nnet.conv.conv2d',
-                             sharedX, sharedY, sharedW, X, Y, gW, gX)
+                             sharedX, sharedY, sharedW, X, Y, gW, gX,
+                             mode.excluding('conv_gemm', 'conv_dnn'))
 
     # benchmark Theano FFT convolution
-    # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_fft_valid:conv_fft_full
-    mode = theano.compile.get_default_mode()
-    mode = mode.including('conv_fft_valid', 'conv_fft_full')
+    # Mimic THEANO_FLAGS=optimizer_including=conv_fft
     benchmark_three_ways('(experimental) theano.sandbox.cuda.fftconv.conv2d_fft',
-                         sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
+                         sharedX, sharedY, sharedW, X, Y, gW, gX,
+                         mode.including('conv_fft'))
 
     # benchmark cudnn, convolution with kernel flipping
     if hasattr(theano.sandbox.cuda, 'dnn'):
         mode = theano.compile.get_default_mode()
         mode = mode.including('cudnn')
         benchmark_three_ways('(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv',
-	                         sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
+	                         sharedX, sharedY, sharedW, X, Y, gW, gX,
+	                         mode.including('conv_dnn'))
 
     # benchmark caffe-like gemm convolution
-    # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_gemm
+    # Mimic THEANO_FLAGS=optimizer_excluding=conv_dnn
     if int(os.environ.get("SKIP_GEMM", 0)) == 0:
-        mode = theano.compile.get_default_mode()
-        mode = mode.including('conv_gemm')
         benchmark_three_ways('(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM',
-                             sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
+                             sharedX, sharedY, sharedW, X, Y, gW, gX,
+                             mode.excluding('conv_dnn'))
 
         # benchmark caffe-like gemm convolution again, directly, w/o kernel flipping
         Y = theano.sandbox.cuda.blas.GpuCorrMM(subsample=(dh, dw))(
