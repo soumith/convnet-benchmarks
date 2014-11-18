@@ -13,9 +13,12 @@ except ImportError:
 import theano
 
 try:
-	import theano.sandbox.cuda.dnn
-except ImportError:
-	print "Note: cuDNN not available"
+    import theano.sandbox.cuda.dnn
+    if not theano.sandbox.cuda.dnn.dnn_available():
+        del theano.sandbox.cuda.dnn
+        raise ImportError
+except (ImportError, NameError):
+    print "Note: cuDNN not available"
 
 try:
     from pylearn2.sandbox.cuda_convnet.filter_acts import FilterActs
