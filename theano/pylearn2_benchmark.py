@@ -124,9 +124,9 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
                                 name=name + " fprop")
         tm = time_run(fprop)
         del fprop
-        print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'fprop', math.floor(tm*1000))
+        print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'fprop', int(tm*1000))
     except Exception, e:
-        print name, 'fprop: FAILED', e
+        print name, 'fprop: FAILED', str(e).split('\n', 1)[0]
 
     # benchmark bprop wrt input
     try:
@@ -138,9 +138,9 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
                                 name=name + " bprop inputs")
         tm = time_run(bprop)
         del bprop
-        print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop inputs', math.floor(tm*1000))
+        print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop inputs', int(tm*1000))
     except Exception, e:
-        print name, 'bprop inputs: FAILED', e
+        print name, 'bprop inputs: FAILED', str(e).split('\n', 1)[0]
 
     # benchmark bprop wrt weights
     try:
@@ -151,9 +151,9 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
                                 name=name + " bprop weights")
         tm = time_run(bprop)
         del bprop
-        print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop weights', math.floor(tm*1000))
+        print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop weights', int(tm*1000))
     except Exception, e:
-        print name, 'bprop weights: FAILED', e
+        print name, 'bprop weights: FAILED', str(e).split('\n', 1)[0]
     print ''
 
 def parse_custom_config(s):
@@ -193,7 +193,7 @@ for run in runs:
         sharedY = theano.shared(np.random.randn(bs, no, (ih-kh)/dh+1, (iw-kw)/dw+1).astype('float32'), name='sharedY')
         sharedW = theano.shared(np.random.randn(*filter_shape).astype('float32'), name='sharedW')
     except MemoryError, e:
-        print "SKIPPING config due to the memory error bellow"
+        print "SKIPPING config due to the memory error below"
         print e
         continue
     X = theano.tensor.tensor4('X')
