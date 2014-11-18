@@ -13,9 +13,12 @@ except ImportError:
 import theano
 
 try:
-	import theano.sandbox.cuda.dnn
-except ImportError:
-	print "Note: cuDNN not available"
+    import theano.sandbox.cuda.dnn
+    if not theano.sandbox.cuda.dnn.dnn_available():
+        del theano.sandbox.cuda.dnn
+        raise ImportError
+except (ImportError, NameError):
+    print "Note: cuDNN not available"
 
 try:
     from pylearn2.sandbox.cuda_convnet.filter_acts import FilterActs
@@ -121,9 +124,9 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
                                 name=name + " fprop")
         tm = time_run(fprop)
         del fprop
-        print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'fprop', math.floor(tm*1000))
+        print '{: <50} ==> {: <13} ==> {: >7}'.format(name, 'fprop', int(tm*1000))
     except Exception, e:
-        print name, 'fprop: FAILED', e
+        print name, 'fprop: FAILED', str(e).split('\n', 1)[0]
 
     # benchmark bprop wrt input
     try:
@@ -135,9 +138,9 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
                                 name=name + " bprop inputs")
         tm = time_run(bprop)
         del bprop
-        print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop inputs', math.floor(tm*1000))
+        print '{: <50} ==> {: <13} ==> {: >7}'.format(name, 'bprop inputs', int(tm*1000))
     except Exception, e:
-        print name, 'bprop inputs: FAILED', e
+        print name, 'bprop inputs: FAILED', str(e).split('\n', 1)[0]
 
     # benchmark bprop wrt weights
     try:
@@ -148,9 +151,9 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
                                 name=name + " bprop weights")
         tm = time_run(bprop)
         del bprop
-        print '{: <70} ==> {: <15} ==> {: >10}'.format(name, 'bprop weights', math.floor(tm*1000))
+        print '{: <50} ==> {: <13} ==> {: >7}'.format(name, 'bprop weights', int(tm*1000))
     except Exception, e:
-        print name, 'bprop weights: FAILED', e
+        print name, 'bprop weights: FAILED', str(e).split('\n', 1)[0]
     print ''
 
 def parse_custom_config(s):
@@ -181,8 +184,10 @@ for run in runs:
     print ''
     print 'CONFIG: input =', ni, 'x', iw, 'x', ih, '* ker =', ni, 'x', no, 'x', kw, 'x', kh, '( bs =', bs, ', stride =', dw, ')'
     ops = 2  # ops per point
+    mode = theano.compile.get_default_mode().including('gpu')
 
-    # benchmark Theano standard convolution
+    # benchmark Theano legacy convolution
+    # Mimic THEANO_FLAGS=optimizer_excluding=conv_gemm:conv_dnn
     input_shape = (bs, ni, ih, iw)
     filter_shape = (no, ni, kh, kw)
     try:
@@ -190,7 +195,7 @@ for run in runs:
         sharedY = theano.shared(np.random.randn(bs, no, (ih-kh)/dh+1, (iw-kw)/dw+1).astype('float32'), name='sharedY')
         sharedW = theano.shared(np.random.randn(*filter_shape).astype('float32'), name='sharedW')
     except MemoryError, e:
-        print "SKIPPING config due to the memory error bellow"
+        print "SKIPPING config due to the memory error below"
         print e
         continue
     X = theano.tensor.tensor4('X')
@@ -199,36 +204,36 @@ for run in runs:
     gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
     if int(os.environ.get("SKIP_LEGACY", 0)) == 0:
         benchmark_three_ways('theano.tensor.nnet.conv.conv2d',
-                             sharedX, sharedY, sharedW, X, Y, gW, gX)
+                             sharedX, sharedY, sharedW, X, Y, gW, gX,
+                             mode.excluding('conv_gemm', 'conv_dnn'))
 
     # benchmark Theano FFT convolution
-    # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_fft_valid:conv_fft_full
-    mode = theano.compile.get_default_mode()
-    mode = mode.including('conv_fft_valid', 'conv_fft_full')
-    benchmark_three_ways('(experimental) theano.sandbox.cuda.fftconv.conv2d_fft',
-                         sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
+    # Mimic THEANO_FLAGS=optimizer_including=conv_fft
+    benchmark_three_ways('theano.sandbox.cuda.fftconv.conv2d_fft',
+                         sharedX, sharedY, sharedW, X, Y, gW, gX,
+                         mode.including('conv_fft'))
 
     # benchmark cudnn, convolution with kernel flipping
     if hasattr(theano.sandbox.cuda, 'dnn'):
         mode = theano.compile.get_default_mode()
         mode = mode.including('cudnn')
-        benchmark_three_ways('(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv',
-	                         sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
+        benchmark_three_ways('(auto) theano.sandbox.cuda.dnn.GpuDnnConv',
+	                         sharedX, sharedY, sharedW, X, Y, gW, gX,
+	                         mode.including('conv_dnn'))
 
     # benchmark caffe-like gemm convolution
-    # Mimic Theano flag THEANO_FLAGS=optimizer_including=conv_gemm
+    # Mimic THEANO_FLAGS=optimizer_excluding=conv_dnn
     if int(os.environ.get("SKIP_GEMM", 0)) == 0:
-        mode = theano.compile.get_default_mode()
-        mode = mode.including('conv_gemm')
-        benchmark_three_ways('(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM',
-                             sharedX, sharedY, sharedW, X, Y, gW, gX, mode)
+        benchmark_three_ways('(auto) theano.sandbox.cuda.blas.GpuCorrMM',
+                             sharedX, sharedY, sharedW, X, Y, gW, gX,
+                             mode.excluding('conv_dnn'))
 
         # benchmark caffe-like gemm convolution again, directly, w/o kernel flipping
         Y = theano.sandbox.cuda.blas.GpuCorrMM(subsample=(dh, dw))(
             gpu_contiguous(X), gpu_contiguous(sharedW))
         gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
         gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
-        benchmark_three_ways('(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM',
+        benchmark_three_ways('(manual) theano.sandbox.cuda.blas.GpuCorrMM',
                              sharedX, sharedY, sharedW, X, Y, gW, gX)
 
     # benchmark nvidia convolution directly
@@ -238,7 +243,7 @@ for run in runs:
         gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
         gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
         benchmark_three_ways(
-            '(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv',
+            '(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv',
             sharedX, sharedY, sharedW, X, Y, gW, gX)
         # without flipping
         Y = theano.sandbox.cuda.dnn.dnn_conv(X, sharedW, 'valid',
@@ -247,7 +252,7 @@ for run in runs:
         gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
         gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
         benchmark_three_ways(
-            '(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv',
+            '(manual corr) theano.sandbox.cuda.dnn.GpuDnnConv',
             sharedX, sharedY, sharedW, X, Y, gW, gX)
 
     del sharedX
