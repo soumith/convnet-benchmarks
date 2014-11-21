@@ -220,6 +220,13 @@ for run in runs:
                              sharedX, sharedY, sharedW, X, Y, gW, gX,
                              mode.excluding('conv_gemm', 'conv_dnn'))
 
+    # benchmark Theano meta-optimizer
+    # Mimic THEANO_FLAGS=optimizer_including=conv_meta
+    if 'meta' not in skip_tests:
+        benchmark_three_ways('(experimental) meta-optimizer',
+                             sharedX, sharedY, sharedW, X, Y, gW, gX,
+                             mode.including('conv_meta'))
+
     # benchmark Theano FFT convolution
     # Mimic THEANO_FLAGS=optimizer_including=conv_fft
     if 'fft' not in skip_tests:
