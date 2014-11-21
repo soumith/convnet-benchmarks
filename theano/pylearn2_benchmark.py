@@ -114,6 +114,13 @@ def time_run(fn):
             times.append((time.time() - start) / number)
     return min(times)
 
+def print_graph(fn):
+    if int(os.environ.get('PRINT_GRAPH', 0)):
+		# debugprint of graph (in blue text)
+		print '\033[1;34m'
+		theano.printing.debugprint(fn)
+		print '\033[1;m'
+
 def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=None):
     # benchmark fprop
     try:
@@ -123,8 +130,9 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
                                 mode=mode,
                                 name=name + " fprop")
         tm = time_run(fprop)
-        del fprop
         print '{: <50} ==> {: <13} ==> {: >7}'.format(name, 'fprop', int(tm*1000))
+        print_graph(fprop)
+        del fprop
     except Exception, e:
         print name, 'fprop: FAILED', str(e).split('\n', 1)[0]
 
@@ -137,8 +145,9 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
                                 mode=mode,
                                 name=name + " bprop inputs")
         tm = time_run(bprop)
-        del bprop
         print '{: <50} ==> {: <13} ==> {: >7}'.format(name, 'bprop inputs', int(tm*1000))
+        print_graph(bprop)
+        del bprop
     except Exception, e:
         print name, 'bprop inputs: FAILED', str(e).split('\n', 1)[0]
 
@@ -150,8 +159,9 @@ def benchmark_three_ways(name, sharedX, sharedY, sharedW, X, Y, gW, gX, mode=Non
                                 mode=mode,
                                 name=name + " bprop weights")
         tm = time_run(bprop)
-        del bprop
         print '{: <50} ==> {: <13} ==> {: >7}'.format(name, 'bprop weights', int(tm*1000))
+        print_graph(bprop)
+        del bprop
     except Exception, e:
         print name, 'bprop weights: FAILED', str(e).split('\n', 1)[0]
     print ''
