@@ -177,6 +177,9 @@ if len(sys.argv) > 1:
     # allow specifying custom configurations on command line (e.g., i3x80x15,k32x3x7,b256)
     runs.extend([parse_custom_config(r) for r in sys.argv[1:] if r[0] == 'i'])
 
+# allow specifying benchmarks to skip via a SKIP environment variable
+skip_tests = os.environ.get("SKIP", '').lower().split(',')
+
 for run in runs:
     # params for run:
     # (input channels, output channels, kernel width, kernel height, batchsize, image width, image height, horizontal stride, vertical stride)
@@ -202,19 +205,20 @@ for run in runs:
     Y = theano.tensor.nnet.conv.conv2d(X, sharedW, input_shape, filter_shape, subsample=(dh,dw))
     gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
     gX = theano.grad(None, wrt=X, known_grads={Y: sharedY})
-    if int(os.environ.get("SKIP_LEGACY", 0)) == 0:
+    if 'legacy' not in skip_tests:
         benchmark_three_ways('theano.tensor.nnet.conv.conv2d',
                              sharedX, sharedY, sharedW, X, Y, gW, gX,
                              mode.excluding('conv_gemm', 'conv_dnn'))
 
     # benchmark Theano FFT convolution
     # Mimic THEANO_FLAGS=optimizer_including=conv_fft
-    benchmark_three_ways('theano.sandbox.cuda.fftconv.conv2d_fft',
-                         sharedX, sharedY, sharedW, X, Y, gW, gX,
-                         mode.including('conv_fft'))
+    if 'fft' not in skip_tests:
+        benchmark_three_ways('theano.sandbox.cuda.fftconv.conv2d_fft',
+                             sharedX, sharedY, sharedW, X, Y, gW, gX,
+                             mode.including('conv_fft'))
 
     # benchmark cudnn, convolution with kernel flipping
-    if hasattr(theano.sandbox.cuda, 'dnn'):
+    if hasattr(theano.sandbox.cuda, 'dnn') and 'dnn' not in skip_tests:
         mode = theano.compile.get_default_mode()
         mode = mode.including('cudnn')
         benchmark_three_ways('(auto) theano.sandbox.cuda.dnn.GpuDnnConv',
@@ -223,7 +227,7 @@ for run in runs:
 
     # benchmark caffe-like gemm convolution
     # Mimic THEANO_FLAGS=optimizer_excluding=conv_dnn
-    if int(os.environ.get("SKIP_GEMM", 0)) == 0:
+    if 'gemm' not in skip_tests and 'caffe' not in skip_tests:
         benchmark_three_ways('(auto) theano.sandbox.cuda.blas.GpuCorrMM',
                              sharedX, sharedY, sharedW, X, Y, gW, gX,
                              mode.excluding('conv_dnn'))
@@ -237,7 +241,7 @@ for run in runs:
                              sharedX, sharedY, sharedW, X, Y, gW, gX)
 
     # benchmark nvidia convolution directly
-    if hasattr(theano.sandbox.cuda, 'dnn'):
+    if hasattr(theano.sandbox.cuda, 'dnn') and 'dnn' not in skip_tests:
         Y = theano.sandbox.cuda.dnn.dnn_conv(X, sharedW, 'valid',
                                              subsample=(dh, dw))
         gW = theano.grad(None, wrt=sharedW, known_grads={Y: sharedY})
@@ -245,7 +249,8 @@ for run in runs:
         benchmark_three_ways(
             '(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv',
             sharedX, sharedY, sharedW, X, Y, gW, gX)
-        # without flipping
+    if int(os.environ.get('DNN_CORR', 0)):
+        # without flipping (just as fast as manual conv; set DNN_CORR=1 to run)
         Y = theano.sandbox.cuda.dnn.dnn_conv(X, sharedW, 'valid',
                                              subsample=(dh, dw),
                                              conv_mode='cross')
@@ -261,7 +266,7 @@ for run in runs:
 
     # benchmark cuda-convnet convolution
     # we use the pylearn2 wrapper for cuda-convnet (http://benanne.github.io/2014/04/03/faster-convolutions-in-theano.html)
-    if FilterActs is None:
+    if (FilterActs is None) or ('convnet' in skip_tests):
         continue  # skip cuda-convnet if pylearn2 wrapper is not available
     #(channels, rows, columns, batch_size)
     inputBatch = np.random.randn(ni, ih, iw, bs)
