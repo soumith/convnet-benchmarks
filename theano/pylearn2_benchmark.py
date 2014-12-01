@@ -236,8 +236,6 @@ for run in runs:
 
     # benchmark cudnn, convolution with kernel flipping
     if hasattr(theano.sandbox.cuda, 'dnn') and 'dnn' not in skip_tests:
-        mode = theano.compile.get_default_mode()
-        mode = mode.including('cudnn')
         benchmark_three_ways('(auto) theano.sandbox.cuda.dnn.GpuDnnConv',
 	                         sharedX, sharedY, sharedW, X, Y, gW, gX,
 	                         mode.including('conv_dnn'))
