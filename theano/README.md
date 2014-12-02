@@ -38,5 +38,5 @@ sudo python setup.py install
 
 Launch the script:
 ```
-SKIP=legacy THEANO_FLAGS=floatX=float32 python pylearn2_benchmark.py
+SKIP=legacy python pylearn2_benchmark.py
 ```
