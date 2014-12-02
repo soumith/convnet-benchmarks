@@ -3,6 +3,12 @@ import sys
 import numpy as np
 import math
 
+import theano
+if not theano.config.device.startswith('gpu'):
+    import theano.sandbox.cuda
+    theano.sandbox.cuda.use('gpu')
+theano.config.floatX = 'float32'
+
 try:
     import theano.misc.pycuda_init
     import pycuda.driver
@@ -197,7 +203,7 @@ for run in runs:
     print ''
     print 'CONFIG: input =', ni, 'x', iw, 'x', ih, '* ker =', ni, 'x', no, 'x', kw, 'x', kh, '( bs =', bs, ', stride =', dw, ')'
     ops = 2  # ops per point
-    mode = theano.compile.get_default_mode().including('gpu')
+    mode = theano.compile.get_default_mode()
 
     # benchmark Theano legacy convolution
     # Mimic THEANO_FLAGS=optimizer_excluding=conv_gemm:conv_dnn
