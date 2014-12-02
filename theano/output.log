@@ -1,190 +1,172 @@
 Using gpu device 0: GeForce GTX TITAN Black
-WARNING (theano.gof.cmodule): The same cache key is associated to different modules (/home/fatbox/.theano/compiledir_Linux-3.13.0-33-generic-x86_64-with-Ubuntu-14.04-trusty-x86_64-2.7.6-64/tmpgIeaEp/4f6e5345caff28b9ad4b3562809367f1.so and /home/fatbox/.theano/compiledir_Linux-3.13.0-33-generic-x86_64-with-Ubuntu-14.04-trusty-x86_64-2.7.6-64/tmpolY2en/5279d12b7311d25e46d3c7dc53a6060f.so). This is not supposed to happen! You may need to manually delete your cache directory to fix this.
+Error allocating 8323596288 bytes of device memory (out of memory). Driver report 5599027200 bytes free and 6442254336 bytes total 
 
 CONFIG: input = 3 x 128 x 128 * ker = 3 x 96 x 11 x 11 ( bs = 128 , stride = 1 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> fprop           ==>      139.0
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> bprop inputs    ==>      249.0
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> bprop weights   ==>      197.0
+(experimental) meta-optimizer                      ==> fprop         ==>      89
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      87
+(experimental) meta-optimizer                      ==> bprop weights ==>     195
 
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> fprop           ==>       91.0
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> bprop inputs    ==>     1232.0
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> bprop weights   ==>      540.0
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> fprop         ==>     138
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop inputs  ==>     252
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop weights ==>     197
 
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> fprop           ==>       95.0
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> bprop inputs    ==>       84.0
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> bprop weights   ==>      191.0
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> fprop         ==>      89
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop inputs  ==>     108
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop weights ==>     104
 
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> fprop           ==>       93.0
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> bprop inputs    ==>       84.0
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> bprop weights   ==>      190.0
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      93
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      84
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>     191
 
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> fprop           ==>       85.0
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop inputs    ==>      108.0
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop weights   ==>      105.0
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      93
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      84
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>     190
 
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> fprop           ==>       85.0
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop inputs    ==>      108.0
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop weights   ==>      105.0
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> fprop         ==>      85
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop inputs  ==>     108
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop weights ==>     106
 
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> fprop           ==>       89.0
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> bprop inputs    ==>      130.0
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> bprop weights   ==>      444.0
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      89
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>     131
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>     450
 
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> fprop           ==>       89.0
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> bprop inputs    ==>      130.0
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> bprop weights   ==>      198.0
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      89
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>     131
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>     198
 
 
 CONFIG: input = 64 x 64 x 64 * ker = 64 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> fprop           ==>       72.0
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> bprop inputs    ==>      108.0
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> bprop weights   ==>      107.0
+(experimental) meta-optimizer                      ==> fprop         ==>      72
+(experimental) meta-optimizer                      ==> bprop inputs  ==>     109
+(experimental) meta-optimizer                      ==> bprop weights ==>     107
 
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> fprop           ==>      283.0
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> bprop inputs    ==>      568.0
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> bprop weights   ==>      345.0
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> fprop         ==>      84
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop inputs  ==>     108
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop weights ==>     107
 
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> fprop           ==>      214.0
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> bprop inputs    ==>      272.0
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> bprop weights   ==>      325.0
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> fprop         ==>     272
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop inputs  ==>     411
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop weights ==>     295
 
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> fprop           ==>      203.0
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> bprop inputs    ==>      284.0
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> bprop weights   ==>      340.0
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>     206
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>     298
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>     356
 
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> fprop           ==>      269.0Error allocating 8323596288 bytes of device memory (out of memory). Driver report 5599240192 bytes free and 6442254336 bytes total 
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>     223
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>     302
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>     360
 
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop inputs    ==>      460.0
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop weights   ==>      330.0
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> fprop         ==>     279
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop inputs  ==>     463
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop weights ==>     322
 
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> fprop           ==>      279.0
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop inputs    ==>      459.0
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop weights   ==>      305.0
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>     417
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>     626
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>     790
 
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> fprop           ==>      416.0
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> bprop inputs    ==>      632.0
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> bprop weights   ==>      794.0
-
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> fprop           ==>      456.0
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> bprop inputs    ==>      637.0
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>     452
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>     643
 pylearn2.sandbox.cuda_convnet(partial_sum=1) bprop weights: FAILED Error allocating 8323596288 bytes of device memory (out of memory).
-Apply node that caused the error: <pylearn2.sandbox.cuda_convnet.weight_acts.WeightActs object at 0x7fd2c6783d90>(GpuContiguous.0, GpuContiguous.0, Subtensor{int64:int64:}.0)
-Inputs types: [CudaNdarrayType(float32, 4D), CudaNdarrayType(float32, 4D), TensorType(int64, vector)]
-Inputs shapes: [(64, 64, 64, 128), (128, 56, 56, 128), (2,)]
-Inputs strides: [(524288, 8192, 128, 1), (401408, 7168, 128, 1), (8,)]
-Inputs scalar values: ['not scalar', 'not scalar', 'not scalar']
-
-Backtrace when the node is created:
-  File "/home/fatbox/code/convnet-benchmarks/theano/Theano/theano/gradient.py", line 895, in access_term_cache
-    output_grads = [access_grad_cache(var) for var in node.outputs]
-  File "/home/fatbox/code/convnet-benchmarks/theano/Theano/theano/gradient.py", line 1173, in access_grad_cache
-    term = access_term_cache(node)[idx]
-  File "/home/fatbox/code/convnet-benchmarks/theano/Theano/theano/gradient.py", line 1034, in access_term_cache
-    input_grads = node.op.grad(inputs, new_output_grads)
-  File "/home/fatbox/code/convnet-benchmarks/theano/pylearn2/pylearn2/sandbox/cuda_convnet/filter_acts.py", line 381, in grad
-    images, dout, fshape)[0]
-
-HINT: Use the Theano flag 'exception_verbosity=high' for a debugprint of this apply node.
 
 
 CONFIG: input = 128 x 32 x 32 * ker = 128 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> fprop           ==>       30.0
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> bprop inputs    ==>       51.0
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> bprop weights   ==>       33.0
+(experimental) meta-optimizer                      ==> fprop         ==>      28
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      52
+(experimental) meta-optimizer                      ==> bprop weights ==>      33
 
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> fprop           ==>      106.0
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> bprop inputs    ==>      187.0
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> bprop weights   ==>      131.0
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> fprop         ==>      32
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop inputs  ==>      51
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop weights ==>      33
 
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> fprop           ==>      188.0
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> bprop inputs    ==>      139.0
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> bprop weights   ==>      143.0
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> fprop         ==>     105
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop inputs  ==>     191
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop weights ==>     120
 
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> fprop           ==>      187.0
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> bprop inputs    ==>      139.0
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> bprop weights   ==>      143.0
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>     173
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>     128
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>     133
 
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> fprop           ==>      105.0
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop inputs    ==>      197.0
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop weights   ==>      123.0
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>     173
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>     128
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>     133
 
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> fprop           ==>      104.0
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop inputs    ==>      195.0
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop weights   ==>      122.0
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> fprop         ==>     101
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop inputs  ==>     190
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop weights ==>     120
 
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> fprop           ==>      154.0
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> bprop inputs    ==>      216.0
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> bprop weights   ==>      271.0
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>     154
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>     232
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>     271
 
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> fprop           ==>      174.0
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> bprop inputs    ==>      233.0
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> bprop weights   ==>      310.0
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>     175
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>     238
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>     314
 
 
 CONFIG: input = 128 x 16 x 16 * ker = 128 x 128 x 7 x 7 ( bs = 128 , stride = 1 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> fprop           ==>        9.0
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> bprop inputs    ==>       19.0
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> bprop weights   ==>        9.0
+(experimental) meta-optimizer                      ==> fprop         ==>       9
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      16
+(experimental) meta-optimizer                      ==> bprop weights ==>       9
 
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> fprop           ==>       13.0
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> bprop inputs    ==>       29.0
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> bprop weights   ==>       15.0
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> fprop         ==>       8
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop inputs  ==>      18
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop weights ==>       9
 
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> fprop           ==>       36.0
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> bprop inputs    ==>       24.0
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> bprop weights   ==>       24.0
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> fprop         ==>      11
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop inputs  ==>      15
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop weights ==>      13
 
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> fprop           ==>       36.0
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> bprop inputs    ==>       24.0
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> bprop weights   ==>       24.0
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      31
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      21
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      22
 
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> fprop           ==>       12.0
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop inputs    ==>       17.0
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop weights   ==>       15.0
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      32
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      22
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      22
 
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> fprop           ==>       12.0
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop inputs    ==>       17.0
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop weights   ==>       15.0
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> fprop         ==>      11
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop inputs  ==>      15
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop weights ==>      13
 
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> fprop           ==>       19.0
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> bprop inputs    ==>       22.0
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> bprop weights   ==>       27.0
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      17
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>      21
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>      26
 
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> fprop           ==>       18.0
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> bprop inputs    ==>       22.0
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> bprop weights   ==>       31.0
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      17
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>      21
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>      30
 
 
 CONFIG: input = 384 x 13 x 13 * ker = 384 x 384 x 3 x 3 ( bs = 128 , stride = 1 )
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> fprop           ==>       35.0
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> bprop inputs    ==>       43.0
-(experimental) theano.sandbox.cuda.fftconv.conv2d_fft                  ==> bprop weights   ==>       39.0
+(experimental) meta-optimizer                      ==> fprop         ==>      30
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      22
+(experimental) meta-optimizer                      ==> bprop weights ==>      35
 
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> fprop           ==>       30.0
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> bprop inputs    ==>       41.0
-(experimental, auto) theano.sandbox.cuda.dnn.GpuDnnConv                ==> bprop weights   ==>       36.0
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> fprop         ==>      34
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop inputs  ==>      44
+theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop weights ==>      39
 
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> fprop           ==>       38.0
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> bprop inputs    ==>       27.0
-(experimental, auto) theano.sandbox.cuda.blas.GpuCorrMM                ==> bprop weights   ==>       35.0
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> fprop         ==>      30
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop inputs  ==>      21
+(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop weights ==>      35
 
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> fprop           ==>       38.0
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> bprop inputs    ==>       27.0
-(experimental, manual) theano.sandbox.cuda.blas.GpuCorrMM              ==> bprop weights   ==>       35.0
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      36
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      26
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      34
 
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> fprop           ==>       30.0
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop inputs    ==>       22.0
-(experimental, manual conv) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop weights   ==>       36.0
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      38
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      27
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      35
 
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> fprop           ==>       30.0
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop inputs    ==>       22.0
-(experimental, manual corr) theano.sandbox.cuda.dnn.GpuDnnConv         ==> bprop weights   ==>       36.0
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> fprop         ==>      30
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop inputs  ==>      22
+(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop weights ==>      37
 
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> fprop           ==>       41.0
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> bprop inputs    ==>       44.0
-pylearn2.sandbox.cuda_convnet(partial_sum=None)                        ==> bprop weights   ==>       65.0
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      41
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>      43
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>      64
 
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> fprop           ==>       41.0
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> bprop inputs    ==>       44.0
-pylearn2.sandbox.cuda_convnet(partial_sum=1)                           ==> bprop weights   ==>       77.0
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      40
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>      43
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>      75
 
