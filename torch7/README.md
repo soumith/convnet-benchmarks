@@ -6,7 +6,14 @@ luarocks install cudnn # to do NVIDIA CuDNN benchmarks, also have CuDNN installe
 luarocks install https://raw.githubusercontent.com/qassemoquab/nnbhwd/master/nnbhwd-scm-1.rockspec # to do nnBHWD benchmarks
 ```
 
+For layerwise benchmarks (table in frontpage with L1,L2,L3,L4,L5)
 Run the benchmark using:
 ```bash
-th benchmark.lua
+th layerwise_benchmarks/benchmark.lua
+```
+
+For imagenet-winners benchmarks
+Run the benchmark using:
+```bash
+th imagenet_winners/benchmark.lua
 ```
