@@ -1,44 +1,43 @@
-[0mRunning on device: GeForce GTX TITAN Black[0m	
-[0mModelType: VGG Model-A[0m	[0mKernels: cudnn[0m	[0mInput shape: 32x3x224x224[0m	
-[0mcudnn                                   :updateOutput():     288.62[0m	
-[0mcudnn                                :updateGradInput():     354.79[0m	
-[0mcudnn                              :accGradParameters():     308.83[0m	
-[0mcudnn                                          :Forward:     288.62[0m	
-[0mcudnn                                         :Backward:     663.62[0m	
-[0mcudnn                                            :TOTAL:     952.24[0m	
-[0mModelType: VGG Model-A[0m	[0mKernels: nn[0m	[0mInput shape: 32x3x224x224[0m	
-[0mnn                                      :updateOutput():     262.68[0m	
-[0mnn                                   :updateGradInput():     259.03[0m	
-[0mnn                                 :accGradParameters():     320.01[0m	
-[0mnn                                             :Forward:     262.68[0m	
-[0mnn                                            :Backward:     579.05[0m	
-[0mnn                                               :TOTAL:     841.73[0m	
-[0mModelType: OverFeat[fast][0m	[0mKernels: cudnn[0m	[0mInput shape: 128x3x231x231[0m	
-[0mcudnn                                   :updateOutput():     411.86[0m	
-[0mcudnn                                :updateGradInput():     571.33[0m	
-[0mcudnn                              :accGradParameters():     497.18[0m	
-[0mcudnn                                          :Forward:     411.86[0m	
-[0mcudnn                                         :Backward:    1068.51[0m	
-[0mcudnn                                            :TOTAL:    1480.37[0m	
-[0mModelType: OverFeat[fast][0m	[0mKernels: nn[0m	[0mInput shape: 128x3x231x231[0m	
-[0mnn                                      :updateOutput():     672.35[0m	
-[0mnn                                   :updateGradInput():     425.08[0m	
-[0mnn                                 :accGradParameters():     555.34[0m	
-[0mnn                                             :Forward:     672.35[0m	
-[0mnn                                            :Backward:     980.42[0m	
-[0mnn                                               :TOTAL:    1652.77[0m	
-[0mModelType: AlexNet[0m	[0mKernels: cudnn[0m	[0mInput shape: 128x3x224x224[0m	
-[0mcudnn                                   :updateOutput():     134.51[0m	
-[0mcudnn                                :updateGradInput():     188.57[0m	
-[0mcudnn                              :accGradParameters():     166.68[0m	
-[0mcudnn                                          :Forward:     134.51[0m	
-[0mcudnn                                         :Backward:     355.25[0m	
-[0mcudnn                                            :TOTAL:     489.76[0m	
-[0mModelType: AlexNet[0m	[0mKernels: nn[0m	[0mInput shape: 128x3x224x224[0m	
-[0mnn                                      :updateOutput():     234.05[0m	
-[0mnn                                   :updateGradInput():     192.22[0m	
-[0mnn                                 :accGradParameters():     227.18[0m	
-[0mnn                                             :Forward:     234.05[0m	
-[0mnn                                            :Backward:     419.40[0m	
-[0mnn                                               :TOTAL:     653.46[0m	
-[0m[0m	
+Running on device: GeForce GTX TITAN Black
+ModelType: VGG Model-A  Kernels: cudnn  Input shape: 32x3x224x224
+cudnn                                   :updateOutput():     288.62
+cudnn                                :updateGradInput():     354.79
+cudnn                              :accGradParameters():     308.83
+cudnn                                          :Forward:     288.62
+cudnn                                         :Backward:     663.62
+cudnn                                            :TOTAL:     952.24
+ModelType: VGG Model-A  Kernels: nn     Input shape: 32x3x224x224
+nn                                      :updateOutput():     262.68
+nn                                   :updateGradInput():     259.03
+nn                                 :accGradParameters():     320.01
+nn                                             :Forward:     262.68
+nn                                            :Backward:     579.05
+nn                                               :TOTAL:     841.73
+ModelType: OverFeat[fast]       Kernels: cudnn  Input shape: 128x3x231x231
+cudnn                                   :updateOutput():     411.86
+cudnn                                :updateGradInput():     571.33
+cudnn                              :accGradParameters():     497.18
+cudnn                                          :Forward:     411.86
+cudnn                                         :Backward:    1068.51
+cudnn                                            :TOTAL:    1480.37
+ModelType: OverFeat[fast]       Kernels: nn     Input shape: 128x3x231x231
+nn                                      :updateOutput():     672.35
+nn                                   :updateGradInput():     425.08
+nn                                 :accGradParameters():     555.34
+nn                                             :Forward:     672.35
+nn                                            :Backward:     980.42
+nn                                               :TOTAL:    1652.77
+ModelType: AlexNet      Kernels: cudnn  Input shape: 128x3x224x224
+cudnn                                   :updateOutput():     134.51
+cudnn                                :updateGradInput():     188.57
+cudnn                              :accGradParameters():     166.68
+cudnn                                          :Forward:     134.51
+cudnn                                         :Backward:     355.25
+cudnn                                            :TOTAL:     489.76
+ModelType: AlexNet      Kernels: nn     Input shape: 128x3x224x224
+nn                                      :updateOutput():     234.05
+nn                                   :updateGradInput():     192.22
+nn                                 :accGradParameters():     227.18
+nn                                             :Forward:     234.05
+nn                                            :Backward:     419.40
+nn                                               :TOTAL:     653.46
