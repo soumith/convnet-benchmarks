@@ -1,12 +1,13 @@
+
 require 'sys'
 require 'cunn'
 require 'ccn2'
 require 'cudnn'
 -- require 'nnbhwd' -- not compiling anymore, file an issue
 local nets = {}
-nets[1] = require 'vgg_a'
-nets[2] = require 'overfeat'
-nets[3] = require 'alexnet'
+nets[1] = require 'alexnet'
+-- nets[2] = require 'vgg_a'
+-- nets[3] = require 'overfeat'
 -- nets[4] = require 'googlenet'
 
 
@@ -29,9 +30,9 @@ function makeInput(config, size)
 end
 
 local libs = {}
-libs[1] = {cudnn.SpatialConvolution, cudnn.SpatialMaxPooling, cudnn.ReLU, 'BDHW', 'cudnn'}
-libs[2] = {nn.SpatialConvolutionMM, nn.SpatialMaxPooling, nn.ReLU, 'BDHW', 'nn'}
--- libs[3] = {ccn2.SpatialConvolution, ccn2.SpatialMaxPooling, nn.ReLU, 'DHWB', 'cuda-convnet2'}
+-- libs[1] = {cudnn.SpatialConvolution, cudnn.SpatialMaxPooling, cudnn.ReLU, 'BDHW', 'cudnn'}
+-- libs[2] = {nn.SpatialConvolutionMM, nn.SpatialMaxPooling, nn.ReLU, 'BDHW', 'nn'}
+libs[1] = {ccn2.SpatialConvolution, ccn2.SpatialMaxPooling, nn.ReLU, 'DHWB', 'cuda-convnet2'}
 -- libs[4] = {nn.SpatialConvolutionBHWD, nn.SpatialMaxPoolingBHWD, nn.ReLU, 'BHWD', 'nnBHWD'}
 
 for i=1,#nets do
