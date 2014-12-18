@@ -17,8 +17,8 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 | Original Library         | Class/Function Benchmarked                                                                                               | Total Time (ms)   | Total forward time (ms) | Total backward time (ms) | Peak Memory Formula | Limitations |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:| -------------------:| :---------: |
 | Theano (experimental)*** | [conv2d_fft](https://github.com/Theano/Theano/blob/master/theano/sandbox/cuda/fftconv.py)                                | **1178**          |  **304**                | **874**                  |                     |             |
+| cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | 1551              |  445                    | 1106                     |                     |             |
 | Caffe                    | [ConvolutionLayer](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                             | 1787              |  537                    |   1250                   |                     |             |
-| cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | 1818              |  416                    | 1402                     |                     |             |
 | NVidia CuDNN *           |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 1861              | 513                     | 1348                     |                     |             |
 | Torch-7                  |[nn.SpatialConvolutionBHWD](https://github.com/qassemoquab/nnbhwd/blob/master/SpatialConvolutionBHWD.lua)                 | 1892              |  581                    | 1311                     |                     |             |
 | Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                | 1936              |  581                    | 1355                     |                     |             |
@@ -47,7 +47,7 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:| ---:| ----:| ---:| --:| ---:| -----:|
 | Theano (experimental)*** | [conv2d_fft](http://deeplearning.net/software/theano/library/tensor/nnet/conv.html#theano.sandbox.cuda.fftconv.conv2d_fft)        | 138 | 73   |  30 | 9  |  39 |   304 |
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 100 | 205  | 158 | 35 | 39  |  537  |
-| cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 63  | 241  |  86 | 9  | 17  |   416 |
+| cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 63  | 252  |  98 | 11 | 21  |   445 |
 | NVidia CuDNN             |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                              | 94  | 274  | 101 | 12 | 32  |   513 |
 | Torch-7                  |[nn.SpatialConvolutionBHWD](https://github.com/qassemoquab/nnbhwd/blob/master/SpatialConvolutionBHWD.lua)                          | 182 | 279  | 94  | 11 | 15  |   581 |
 | Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       | 105 | 239  | 168 | 32 | 37  |   581 |
@@ -62,9 +62,9 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 
 | Original Library         | Class/Function Benchmarked                                                                                                        |  L1   |   L2 |  L3 | L4  |  L5  | Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:| -----:| ----:| ---:| ---:| ----:| -----:|
-| Theano (experimental)*** | [conv2d_fft](https://github.com/Theano/Theano/blob/master/theano/sandbox/cuda/fftconv.py)                                         | 449   |  218 | 89  | 28  |  90 | 874  |
+| Theano (experimental)*** | [conv2d_fft](https://github.com/Theano/Theano/blob/master/theano/sandbox/cuda/fftconv.py)                                         | 449   |  218 | 89  | 28  |  90  | 874   |
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 307   |  599 | 242 | 42  |  60  | 1250  |
-| cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 586   |  570 | 190 | 19  | 37   | 1402  |
+| cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 224   | 620  | 200 | 20  | 42   | 1106  |
 | NVidia CuDNN             |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                              | 226   | 736  | 297 | 32  | 57   | 1348  |
 | Torch-7                  |[nn.SpatialConvolutionBHWD](https://github.com/qassemoquab/nnbhwd/blob/master/SpatialConvolutionBHWD.lua)                          |  513  | 562  | 187 | 21  | 28   | 1311  | 
 | Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       |  301  |  673 | 270 | 47  | 64   | 1355  |
@@ -79,10 +79,10 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 
 | Original Library         | Class/Function Benchmarked                                                                                                        |  L1   |   L2 |  L3 | L4  |  L5 | Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:| -----:| ----:| ---:| ---:| ---:| -----:|
-| Theano (experimental)*** | [conv2d_fft](http://deeplearning.net/software/theano/library/tensor/nnet/conv.html#theano.sandbox.cuda.fftconv.conv2d_fft)        | 250   |  111 |  54 | 19  | 48  |  482 |
+| Theano (experimental)*** | [conv2d_fft](http://deeplearning.net/software/theano/library/tensor/nnet/conv.html#theano.sandbox.cuda.fftconv.conv2d_fft)        | 250   |  111 |  54 | 19  | 48  |   482 |
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 86    |  271 | 120 | 20  | 26  |   523 |
-| cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 131   |  230 | 82  | 8   | 16  |   467 |
-| Theano (experimental)    | CorrMM                                                                                                                            | 87    | 328  | 142 | 25 |  31  |   613 |
+| cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 132   |  247 | 90  | 9   | 19  |   497 |
+| Theano (experimental)    | CorrMM                                                                                                                            | 87    | 328  | 142 | 25  | 31  |   613 |
 | NVidia CuDNN             |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                              | 111   | 421  | 180 | 17  | 21  |   750 |
 | Torch-7                  |[nn.SpatialConvolutionBHWD](https://github.com/qassemoquab/nnbhwd/blob/master/SpatialConvolutionBHWD.lua)                          | 276   | 277  | 102  | 11 | 14  |  680  |
 | Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       | 91    |  302 | 129 | 23  | 27  |   572 |
@@ -98,7 +98,7 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:| ---:| ----:| ----:| ---:| ---:| -----:|
 | Theano (experimental)*** | [conv2d_fft](http://deeplearning.net/software/theano/library/tensor/nnet/conv.html#theano.sandbox.cuda.fftconv.conv2d_fft)        | 199 | 107  | 35   | 9   | 42  |   392 |
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 221 | 328  | 122  | 22  | 34  |   727 |
-| cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 455 | 340  | 108  | 11  | 21  |  935  |
+| cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 92  | 373  | 110  | 11  | 23  |  609  |
 | NVidia CuDNN             |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                              | 115 | 315  | 117  | 15  | 36  | 598   |
 | Torch-7                  |[nn.SpatialConvolutionBHWD](https://github.com/qassemoquab/nnbhwd/blob/master/SpatialConvolutionBHWD.lua)                          | 237 | 285  | 85   | 10  | 14  |   631 |
 | Torch-7                  | [nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                      | 210 | 371  | 141  | 24  | 37  |   783 |
