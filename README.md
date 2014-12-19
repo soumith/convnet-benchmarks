@@ -14,8 +14,8 @@ AlexNet (One Weird Trick paper) - Input 128x3x224x224
 | Original Library         | Class/Function Benchmarked                                                                                               | Total Time (ms)   | Total forward time (ms) | Total backward time (ms) |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | **275**           |  **88**                 | **187**                  |
-| NVidia CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 362               |  100                    | 261                      |
-| NVidia CuDNN (R1) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 489               | 134                     | 355                      |
+| CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 362               |  100                    | 261                      |
+| CuDNN (R1) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 489               | 134                     | 355                      |
 | Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                | 479               |  172                    | 306                      |
 
 
