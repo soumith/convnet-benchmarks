@@ -24,8 +24,8 @@ Overfeat [fast] - Input 128x3x231x231
 | Original Library         | Class/Function Benchmarked                                                                                               | Total Time (ms)   | Total forward time (ms) | Total backward time (ms) |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | **1191**          |  385                    | **805**                  |
-| NVidia CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 1258              |  **308**                | 949                      |
-| NVidia CuDNN (R1) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 1480              | 411                     | 1068                     |
+| CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 1258              |  **308**                | 949                      |
+| CuDNN (R1) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 1480              | 411                     | 1068                     |
 | Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                | 1489              |  629                    | 860                      |
 
 
@@ -34,8 +34,8 @@ OxfordNet [Model-A] - Input 32x3x224x224
 | Original Library         | Class/Function Benchmarked                                                                                               | Total Time (ms)   | Total forward time (ms) | Total backward time (ms) |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | 1671              | 681                     | 990                      |
-| NVidia CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | **802**           |  **221**                | 581                      |
-| NVidia CuDNN (R1) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 952               | 288                     | 663                      |
+| CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | **802**           |  **221**                | 581                      |
+| CuDNN (R1) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 952               | 288                     | 663                      |
 | Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                | 841               |  262                    | **579**                  |
 
 
