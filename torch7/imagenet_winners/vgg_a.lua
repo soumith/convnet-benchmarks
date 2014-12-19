@@ -24,10 +24,10 @@ function vgg_a(lib)
       local iChannels = 3;
       for k,v in ipairs(cfg) do
          if v == 'M' then
-            features:add(SpatialMaxPooling(2,2,2,2))
+            features:add(SpatialMaxPooling(2,2))
          else
             local oChannels = v;
-            local conv3 = SpatialConvolution(iChannels,oChannels,3,3,1,1,1,1);
+            local conv3 = SpatialConvolution(iChannels,oChannels,3,1,1,1,6);
             features:add(conv3)
             features:add(ReLU())
             iChannels = oChannels;
@@ -36,6 +36,7 @@ function vgg_a(lib)
    end
 
    local classifier = nn.Sequential()
+   classifier:add(nn.Transpose({4,1},{4,2},{4,3}))
    classifier:add(nn.View(512*7*7))
    classifier:add(nn.Linear(512*7*7, 4096))
    classifier:add(nn.Threshold(0, 1e-6))
