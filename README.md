@@ -10,7 +10,9 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 I pick some popular imagenet models, and I clock the time for a full forward + backward pass. I average my times over 10 runs. I ignored dropout and softmax layers.
 
 AlexNet (One Weird Trick paper) - Input 128x3x224x224
+
 | Original Library         | Class/Function Benchmarked                                                                                               | Total Time (ms)   | Total forward time (ms) | Total backward time (ms) |
+|:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | **275**           |  **88**                 | **187**                  |
 | NVidia CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 362               |  100                    | 261                      |
 | NVidia CuDNN (R1) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 489               | 134                     | 355                      |
@@ -18,7 +20,9 @@ AlexNet (One Weird Trick paper) - Input 128x3x224x224
 
 
 Overfeat [fast] - Input 128x3x231x231
+
 | Original Library         | Class/Function Benchmarked                                                                                               | Total Time (ms)   | Total forward time (ms) | Total backward time (ms) |
+|:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | **1191**          |  385                    | **805**                  |
 | NVidia CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 1258              |  **308**                | 949                      |
 | NVidia CuDNN (R1) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 1480              | 411                     | 1068                     |
@@ -26,7 +30,9 @@ Overfeat [fast] - Input 128x3x231x231
 
 
 OxfordNet [Model-A] - Input 32x3x224x224
+
 | Original Library         | Class/Function Benchmarked                                                                                               | Total Time (ms)   | Total forward time (ms) | Total backward time (ms) |
+|:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | 1671              | 681                     | 990                      |
 | NVidia CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | **802**           |  **221**                | 581                      |
 | NVidia CuDNN (R1) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 952               | 288                     | 663                      |
