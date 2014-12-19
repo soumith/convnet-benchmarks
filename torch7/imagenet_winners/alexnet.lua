@@ -20,7 +20,7 @@ function alexnet(lib)
 
    local classifier = nn.Sequential()
    classifier:add(nn.Transpose({4,1},{4,2},{4,3}))
-   classifier:add(nn.View(256*6*6):setNumInputDims(3))   
+   classifier:add(nn.View(256*6*6):setNumInputDims(3))
    -- classifier:add(nn.Dropout(0.5))
    classifier:add(nn.Linear(256*6*6, 4096))
    classifier:add(nn.Threshold(0, 1e-6))
@@ -32,7 +32,7 @@ function alexnet(lib)
 
    local model = nn.Sequential()
    model:add(features):add(classifier)
-   
+
    return model,'AlexNet',{128,3,224,224}
 end
 
