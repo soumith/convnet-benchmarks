@@ -9,7 +9,7 @@ Machine: `6-core Intel i7-3930K @ 3.20GHz` + `NVIDIA Titan Black` + `Ubuntu 14.0
 ##Imagenet Winners Benchmarking
 I pick some popular imagenet models, and I clock the time for a full forward + backward pass. I average my times over 10 runs. I ignored dropout and softmax layers.
 
-AlexNet (One Weird Trick paper) - Input 128x3x224x224
+**[AlexNet (One Weird Trick paper)](https://code.google.com/p/cuda-convnet2/source/browse/layers/layers-imagenet-1gpu.cfg)** - Input 128x3x224x224
 
 | Original Library         | Class                                                                                               | Total time (ms)   | forward (ms) | backward (ms) |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
@@ -19,7 +19,7 @@ AlexNet (One Weird Trick paper) - Input 128x3x224x224
 | Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                | 479               |  172                    | 306                      |
 
 
-Overfeat [fast] - Input 128x3x231x231
+**[Overfeat [fast]](http://arxiv.org/abs/1312.6229)** - Input 128x3x231x231
 
 | Original Library         | Class                                                                                               | Total time (ms)   | forward (ms) | backward (ms) |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
@@ -29,7 +29,7 @@ Overfeat [fast] - Input 128x3x231x231
 | Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                | 1489              |  629                    | 860                      |
 
 
-OxfordNet [Model-A] - Input 32x3x224x224
+**[OxfordNet [Model-A]](http://arxiv.org/abs/1409.1556/)** - Input 32x3x224x224
 
 | Original Library         | Class                                                                                               | Total time (ms)   | forward (ms) | backward (ms) |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
