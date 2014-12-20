@@ -11,7 +11,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 
 **[AlexNet (One Weird Trick paper)](https://code.google.com/p/cuda-convnet2/source/browse/layers/layers-imagenet-1gpu.cfg)** - Input 128x3x224x224
 
-| Library         | Class                                                                                               | Total time (ms)   | forward (ms) | backward (ms) |
+| Library         | Class                                                                                               | Time (ms)   | forward (ms) | backward (ms) |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | cudaconvnet2*          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | **275**           |  **88**                 | **187**                  |
 | CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 362               |  100                    | 261                      |
@@ -21,7 +21,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 
 **[Overfeat [fast]](http://arxiv.org/abs/1312.6229)** - Input 128x3x231x231
 
-| Library         | Class                                                                                               | Total time (ms)   | forward (ms) | backward (ms) |
+| Library         | Class                                                                                               | Time (ms)   | forward (ms) | backward (ms) |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | cudaconvnet2*          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | **1191**          |  385                    | **805**                  |
 | CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 1258              |  **308**                | 949                      |
@@ -31,7 +31,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 
 **[OxfordNet [Model-A]](http://arxiv.org/abs/1409.1556/)** - Input 32x3x224x224
 
-| Library         | Class                                                                                               | Total time (ms)   | forward (ms) | backward (ms) |
+| Library         | Class                                                                                               | Time (ms)   | forward (ms) | backward (ms) |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | cudaconvnet2*          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | 1671              | 681                     | 990                      |
 | CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | **802**           |  **221**                | 581                      |
