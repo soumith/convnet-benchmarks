@@ -11,12 +11,12 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 
 **[AlexNet (One Weird Trick paper)](https://code.google.com/p/cuda-convnet2/source/browse/layers/layers-imagenet-1gpu.cfg)** - Input 128x3x224x224
 
-| Library         | Class                                                                                               | Time (ms)   | forward (ms) | backward (ms) |
-|:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
-| cudaconvnet2*          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | **275**           |  **88**                 | **187**                  |
-| CuDNN (R2) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 362               |  100                    | 261                      |
-| CuDNN (R1) *      |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                     | 489               | 134                     | 355                      |
-| Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                | 479               |  172                    | 306                      |
+| Library         | Class                                                                                                                | Time (ms)  | forward (ms) | backward (ms) |
+|:------------------------:|:-----------------------------------------------------------------------------------------------------------:| ----------:| ------------:| -------------:|
+| cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)        | **275**    |  **88**      | **187**       |
+| CuDNN (R2) *             |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)        | 362        |  100         | 261           |
+| CuDNN (R1) *             |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)        | 489        | 134          | 355           |
+| Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                   | 479        |  172         | 306           |
 
 
 **[Overfeat [fast]](http://arxiv.org/abs/1312.6229)** - Input 128x3x231x231
