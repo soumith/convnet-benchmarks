@@ -6,22 +6,22 @@ local function inception(depth_dim, input_size, config, lib)
 
    local depth_concat = nn.DepthConcat(depth_dim)
    local conv1 = nn.Sequential()
-   conv1:add(SpatialConvolution(input_size, config[1][1], 1, 1)):add(ReLU())
+   conv1:add(SpatialConvolution(input_size, config[1][1], 1, 1)):add(ReLU(true))
    depth_concat:add(conv1)
 
    local conv3 = nn.Sequential()
-   conv3:add(SpatialConvolution(input_size, config[2][1], 1, 1)):add(ReLU())
-   conv3:add(SpatialConvolution(config[2][1], config[2][2], 3, 3)):add(ReLU())
+   conv3:add(SpatialConvolution(input_size, config[2][1], 1, 1)):add(ReLU(true))
+   conv3:add(SpatialConvolution(config[2][1], config[2][2], 3, 3)):add(ReLU(true))
    depth_concat:add(conv3)
 
    local conv5 = nn.Sequential()
-   conv5:add(SpatialConvolution(input_size, config[3][1], 1, 1)):add(ReLU())
-   conv5:add(SpatialConvolution(config[3][1], config[3][2], 5, 5)):add(ReLU())
+   conv5:add(SpatialConvolution(input_size, config[3][1], 1, 1)):add(ReLU(true))
+   conv5:add(SpatialConvolution(config[3][1], config[3][2], 5, 5)):add(ReLU(true))
    depth_concat:add(conv5)
    
    local pool = nn.Sequential()
    pool:add(SpatialMaxPooling(config[4][1], config[4][1], 1, 1))
-   pool:add(SpatialConvolution(input_size, config[4][2], 1, 1)):add(ReLU())
+   pool:add(SpatialConvolution(input_size, config[4][2], 1, 1)):add(ReLU(true))
    depth_concat:add(pool)
 
    return depth_concat
@@ -32,11 +32,11 @@ local function googlenet(lib)
    local SpatialMaxPooling = lib[2]
    local ReLU = lib[3]
    local model = nn.Sequential()
-   model:add(SpatialConvolution(3,64,7,7,2,2)):add(ReLU())
+   model:add(SpatialConvolution(3,64,7,7,2,2)):add(ReLU(true))
    model:add(SpatialMaxPooling(3,3,2,2))
    -- LRN (not added for now)
-   model:add(SpatialConvolution(64,64,1,1)):add(ReLU())
-   model:add(SpatialConvolution(64,192,3,3)):add(ReLU())
+   model:add(SpatialConvolution(64,64,1,1)):add(ReLU(true))
+   model:add(SpatialConvolution(64,192,3,3)):add(ReLU(true))
    -- LRN (not added for now)
    model:add(SpatialMaxPooling(3,3,2,2))
    model:add(inception(2, 192, {{64},{96,128},{16,32},{3,32}},lib)) -- 256
@@ -49,13 +49,13 @@ local function googlenet(lib)
    model:add(inception(2, 528, {{256},{160,320},{32,128},{3,128}},lib)) -- 4(e) (14x14x832)
    model:add(SpatialMaxPooling(3,3,2,2))
    model:add(inception(2, 832, {{256},{160,320},{32,128},{3,128}},lib)) -- 5(a)
-   model:add(inception(2, 1024, {{384},{192,384},{48,128},{3,128}},lib)) -- 5(b)
-   model:add(nn.SpatialAveragePooling(7,7,1,1))
+   model:add(inception(2, 832, {{384},{192,384},{48,128},{3,128}},lib)) -- 5(b)
+   model:add(cudnn.SpatialAveragePooling(5,5,1,1))
    model:add(nn.View(1024))
-   model:add(nn.Dropout(0.4))
-   model.add(nn.Linear(1024,1000):add(nn.ReLU()))
-   model:add(nn.LogSoftMax())
-   return model,'GoogleNet', {2,3,224,224}
+   -- model:add(nn.Dropout(0.4))
+   model:add(nn.Linear(1024,1000)):add(nn.ReLU(true))
+   -- model:add(nn.LogSoftMax())
+   return model,'GoogleNet', {128,3,224,224}
 end
 
 return googlenet

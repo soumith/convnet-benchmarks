@@ -7,7 +7,7 @@ local nets = {}
 nets[1] = require 'vgg_a'
 nets[2] = require 'overfeat'
 nets[3] = require 'alexnet'
--- nets[4] = require 'googlenet'
+nets[4] = require 'googlenet'
 
 
 

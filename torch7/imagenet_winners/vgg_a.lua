@@ -29,7 +29,7 @@ function vgg_a(lib)
             local oChannels = v;
             local conv3 = SpatialConvolution(iChannels,oChannels,3,3,1,1,1,1);
             features:add(conv3)
-            features:add(ReLU())
+            features:add(ReLU(true))
             iChannels = oChannels;
          end
       end
@@ -39,12 +39,12 @@ function vgg_a(lib)
    classifier:add(nn.View(512*7*7))
    classifier:add(nn.Linear(512*7*7, 4096))
    classifier:add(nn.Threshold(0, 1e-6))
-   -- classifier:add(nn.Dropout(0.5))
+   classifier:add(nn.Dropout(0.5))
    classifier:add(nn.Linear(4096, 4096))
    classifier:add(nn.Threshold(0, 1e-6))
-   -- classifier:add(nn.Dropout(0.5))
+   classifier:add(nn.Dropout(0.5))
    classifier:add(nn.Linear(4096, 1000))
-   -- classifier:add(nn.LogSoftMax())
+   classifier:add(nn.LogSoftMax())
 
    local model = nn.Sequential()
    model:add(features):add(classifier)
