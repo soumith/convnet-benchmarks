@@ -1,6 +1,5 @@
 require 'sys'
 require 'cunn'
-require 'ccn2'
 require 'cudnn'
 -- require 'nnbhwd' -- not compiling anymore, file an issue
 local nets = {}
@@ -31,8 +30,7 @@ end
 local libs = {}
 libs[1] = {cudnn.SpatialConvolution, cudnn.SpatialMaxPooling, cudnn.ReLU, 'BDHW', 'cudnn'}
 libs[2] = {nn.SpatialConvolutionMM, nn.SpatialMaxPooling, nn.ReLU, 'BDHW', 'nn'}
--- libs[3] = {ccn2.SpatialConvolution, ccn2.SpatialMaxPooling, nn.ReLU, 'DHWB', 'cuda-convnet2'}
--- libs[4] = {nn.SpatialConvolutionBHWD, nn.SpatialMaxPoolingBHWD, nn.ReLU, 'BHWD', 'nnBHWD'}
+-- libs[3] = {nn.SpatialConvolutionBHWD, nn.SpatialMaxPoolingBHWD, nn.ReLU, 'BHWD', 'nnBHWD'}
 
 for i=1,#nets do
    for j=1,#libs do
