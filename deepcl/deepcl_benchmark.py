@@ -95,6 +95,9 @@ def go(runs):
         
         try:
             net.setBatchSize(batchSize)
+            # warm up layers, choose appropriate implementation
+            for epoch in range(8):
+                net.propagate( images )
             forwardtime = 0
             backwardtime = 0
             last = time.time()
