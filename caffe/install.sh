@@ -3,15 +3,15 @@ cd caffe
 git checkout dev
 
 # Dependencies
-sudo apt-get install libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libboost-all-dev libhdf5-serial-dev
-sudo apt-get install libgflags-dev libgoogle-glog-dev liblmdb-dev protobuf-compiler
-sudo apt-get install gcc-4.6 g++-4.6
+sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libboost-all-dev libhdf5-serial-dev 
+sudo apt-get install -y protobuf-compiler gfortran libjpeg62 libfreeimage-dev libatlas-base-dev git python-dev python-pip 
+sudo apt-get install -y libgoogle-glog-dev libbz2-dev libxml2-dev libxslt-dev libffi-dev libssl-dev libgflags-dev liblmdb-dev python-yaml
+sudo easy_install pillow
 
-export CC=gcc-4.6
-export CXX=g++-4.6
 # Compile Caffe
 cp Makefile.config.example Makefile.config
 # Adjust Makefile.config (for example, if using Anaconda Python)
+# For some reason, I was getting <mpi.h> not found. So I had to manually edit /usr/include/H5public.h and disable PARALLEL support. (by adding #undef H5_HAVE_PARALLEL )
 make all
 make test
 make runtest
