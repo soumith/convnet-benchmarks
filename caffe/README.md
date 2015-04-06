@@ -1,6 +1,6 @@
 Install Caffe using the script:
 ```bash
-bash install.sh
+bash install.sh #actually go read the comments there, slight tweaks might be needed
 ```
 
 Run the benchmark using:

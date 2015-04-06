@@ -10,8 +10,8 @@ sudo easy_install pillow
 
 # Compile Caffe
 cp Makefile.config.example Makefile.config
-# Adjust Makefile.config (for example, if using Anaconda Python)
 # For some reason, I was getting <mpi.h> not found. So I had to manually edit /usr/include/H5public.h and disable PARALLEL support. (by adding #undef H5_HAVE_PARALLEL )
+# Also, I disabled CUDNN (because these are pure-caffe benchmarks)
 make all
 make test
 make runtest
