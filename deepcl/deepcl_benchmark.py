@@ -55,9 +55,11 @@ runs = [
 def time_layer( numEpochs, batchSize, inputPlanes, inputSize, outputPlanes, filterSize ):
     print('building network...')
     net = PyDeepCL.NeuralNet( inputPlanes, inputSize )
-    net.addLayer( PyDeepCL.ConvolutionalMaker().numFilters(inputPlanes)
-        .filterSize(1).padZeros().biased().linear() ) # this is just to make sure that gradient needs to be 
-                                                      # backproped through next layer
+#    net.addLayer( PyDeepCL.ConvolutionalMaker().numFilters(inputPlanes)
+#        .filterSize(1).padZeros().biased().linear() ) # this is just to make sure that gradient needs to be 
+#                                                      # backproped through next layer
+    net.addLayer( PyDeepCL.ForceBackpropMaker() ) # this forces the next layer to backprop gradients to
+                          # this layer
     net.addLayer( PyDeepCL.ConvolutionalMaker().numFilters(outputPlanes)
         .filterSize(filterSize).biased().linear() )
     net.addLayer( PyDeepCL.FullyConnectedMaker().numPlanes(1).imageSize(1) )
