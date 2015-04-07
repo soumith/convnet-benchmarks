@@ -1,18 +1,31 @@
 name: "vgg_a"
 input: "data"
-input_dim: 32
+input_dim: 128
 input_dim: 3
-input_dim: 244
-input_dim: 244
+input_dim: 224
+input_dim: 224
+force_backward: true
 layers {
   name: "conv1/3x3_s1"
   type: CONVOLUTION
   bottom: "data"
   top: "conv1/3x3_s1"
+  blobs_lr: 1
+  blobs_lr: 2 
+  weight_decay: 1
+  weight_decay: 0 
   convolution_param {
     num_output: 64
     kernel_size: 3
     stride: 1
+    weight_filler {
+      type: "xavier"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.2
+    }
   }
 }
 layers {
@@ -37,11 +50,23 @@ layers {
   type: CONVOLUTION
   bottom: "pool1/2x2_s2"
   top: "conv2/3x3_s1"
+  blobs_lr: 1
+  blobs_lr: 2 
+  weight_decay: 1
+  weight_decay: 0 
   convolution_param {
     num_output: 128
     pad: 1
     kernel_size: 3
     stride: 1
+    weight_filler {
+      type: "xavier"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.2
+    }
   }
 }
 layers {
@@ -66,11 +91,23 @@ layers {
   type: CONVOLUTION
   bottom: "pool2/2x2_s2"
   top: "conv3/3x3_s1"
+  blobs_lr: 1
+  blobs_lr: 2 
+  weight_decay: 1
+  weight_decay: 0 
   convolution_param {
     num_output: 256
     kernel_size: 3
     stride: 1
     pad: 1
+    weight_filler {
+      type: "xavier"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.2
+    }
   }
 }
 layers {
@@ -84,11 +121,23 @@ layers {
   type: CONVOLUTION
   bottom: "conv3/3x3_s1"
   top: "conv4/3x3_s1"
+  blobs_lr: 1
+  blobs_lr: 2 
+  weight_decay: 1
+  weight_decay: 0 
   convolution_param {
     num_output: 256
     kernel_size: 3
     stride: 1
     pad: 1
+    weight_filler {
+      type: "xavier"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.2
+    }
   }
 }
 layers {
@@ -113,11 +162,23 @@ layers {
   type: CONVOLUTION
   bottom: "pool3/2x2_s2"
   top: "conv5/3x3_s1"
+  blobs_lr: 1
+  blobs_lr: 2 
+  weight_decay: 1
+  weight_decay: 0 
   convolution_param {
     num_output: 512
     kernel_size: 3
     stride: 1
     pad: 1
+    weight_filler {
+      type: "xavier"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.2
+    }
   }
 }
 layers {
@@ -131,11 +192,23 @@ layers {
   type: CONVOLUTION
   bottom: "conv5/3x3_s1"
   top: "conv6/3x3_s1"
+  blobs_lr: 1
+  blobs_lr: 2 
+  weight_decay: 1
+  weight_decay: 0 
   convolution_param {
     num_output: 512
     kernel_size: 3
     stride: 1
     pad: 1
+    weight_filler {
+      type: "xavier"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.2
+    }
   }
 }
 layers {
@@ -160,11 +233,23 @@ layers {
   type: CONVOLUTION
   bottom: "pool4/2x2_s2"
   top: "conv7/3x3_s1"
+  blobs_lr: 1
+  blobs_lr: 2 
+  weight_decay: 1
+  weight_decay: 0 
   convolution_param {
     num_output: 512
     kernel_size: 3
     stride: 1
     pad: 1
+    weight_filler {
+      type: "xavier"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.2
+    }
   }
 }
 layers {
@@ -178,11 +263,23 @@ layers {
   type: CONVOLUTION
   bottom: "conv7/3x3_s1"
   top: "conv8/3x3_s1"
+  blobs_lr: 1
+  blobs_lr: 2 
+  weight_decay: 1
+  weight_decay: 0 
   convolution_param {
     num_output: 512
     kernel_size: 3
     stride: 1
     pad: 1
+    weight_filler {
+      type: "xavier"
+      std: 0.1
+    }
+    bias_filler {
+      type: "constant"
+      value: 0.2
+    }
   }
 }
 layers {
@@ -232,6 +329,3 @@ layers {
     kernel_size: 1
   }
 }
-
-
-
