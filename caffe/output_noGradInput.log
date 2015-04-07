@@ -243,3 +243,8 @@ I0826 00:18:33.427806 29618 caffe.cpp:246] conv5	backward: 343.346 milliseconds.
 I0826 00:18:33.427830 29618 caffe.cpp:249] Backward pass: 343.376 milliseconds.
 I0826 00:18:33.427845 29618 caffe.cpp:251] Total Time: 744.179 milliseconds.
 I0826 00:18:33.427852 29618 caffe.cpp:253] *** Benchmark ends ***
+ERROR: unknown command line flag 'logtostderr'
+ERROR: unknown command line flag 'logtostderr'
+ERROR: unknown command line flag 'logtostderr'
+ERROR: unknown command line flag 'logtostderr'
+ERROR: unknown command line flag 'logtostderr'
