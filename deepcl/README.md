@@ -14,3 +14,5 @@ Launch the script:
 ( LD_LIBRARY_PATH=$PWD/DeepCL/python PYTHONPATH=$PWD/DeepCL/python python deepcl_benchmark.py 5 )
 ```
 
+Results should appear in the `results.txt` file
+

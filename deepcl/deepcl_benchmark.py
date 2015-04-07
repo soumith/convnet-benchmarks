@@ -52,6 +52,11 @@ runs = [
    }
 ]
 
+def writeResults( resultsLine ):
+    f = open('results.txt', 'a')
+    f.write( resultsLine + '\n' )
+    f.close()
+
 def time_layer( numEpochs, batchSize, inputPlanes, inputSize, outputPlanes, filterSize ):
     print('building network...')
     net = PyDeepCL.NeuralNet( inputPlanes, inputSize )
@@ -97,6 +102,7 @@ def time_layer( numEpochs, batchSize, inputPlanes, inputSize, outputPlanes, filt
     now = time.time()
     print('forward layer total time', now - last )
     print('forward layer average time', ( now - last ) / float(numEpochs) )
+    writeResults( layer.asString() + ', forward: ' + str( ( now - last ) / float(numEpochs) * 1000 ) + 'ms' )
 
     print('warm up backwards again')
     layer.backProp(0.001)
@@ -110,6 +116,7 @@ def time_layer( numEpochs, batchSize, inputPlanes, inputSize, outputPlanes, filt
     now = time.time()
     print('backwar layer total time', now - last )
     print('backwar layer average time', ( now - last ) / float(numEpochs) )
+    writeResults( layer.asString() + ', backward: ' + str( ( now - last ) / float(numEpochs) * 1000 ) + 'ms' )
     last = now
 
 def time_run(fn):
@@ -145,49 +152,6 @@ def go(runs):
 
         time_layer(numEpochs, batchSize, inputPlanes, inputSize,
             outputPlanes, filterSize )
-
-#        net = PyDeepCL.NeuralNet( inputPlanes, inputSize )
-#        net.addLayer( PyDeepCL.ConvolutionalMaker().numFilters(inputPlanes)
-#            .filterSize(filterSize).biased().linear() )
-#        # net.addLayer( PyDeepCL.SquareLossMaker() )
-#        print( net.asString() )
-
-#        images = array.array( 'f', [0] * (batchSize*inputPlanes*inputSize*inputSize) )
-#        grad = array.array('f',[0] * batchSize * outputPlanes * (inputSize - filterSize + 1) )
-#        for i in range( batchSize*inputPlanes*inputSize*inputSize ):
-#            images[i] = random.random() - 0.5
-#        for i in range( batchSize * outputPlanes * (inputSize - filterSize + 1) ):
-#            grad[i] = random.random() - 0.5
-#        
-#        #try:
-#        net.setBatchSize(batchSize)
-#        # warm up layers, choose appropriate implementation
-#        print('warming up')
-#        for epoch in range(8):
-#            net.propagate( images )
-#        # forward first
-#        print('forward...')
-#        last = time.time()
-#        for epoch in range(numEpochs): 
-#            net.propagate( images )
-#        now = time.time()
-#        totalforward = now - last
-#        perEpochForward = float(totalforward) / numEpochs
-#        print('perepoch forward time', perEpochForward )
-
-#        # now backward
-#        print('backward...')
-#        now = time.time()
-#        for epoch in range(numEpochs): 
-#            net.backProp( 0.0001, grad )
-#        now = time.time()
-#        totalbackward = now - last
-#        perEpochBackward = float(totalbackward) / numEpochs
-#        print('perepoch backward time', perEpochBackward )
-#            
-#        #except Exception, e:
-#        #    print('something went wrong:', e )
-#        #    continue
 
 if __name__ == '__main__':
     if len(sys.argv) > 1:
