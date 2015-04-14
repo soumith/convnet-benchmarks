@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 		{
 			.type = CCV_CONVNET_CONVOLUTIONAL,
 			.bias = 0,
-			.sigma = 0.01,
+			.glorot = sqrtf(2),
 			.input = {
 				.matrix = {
 					.rows = 128,
@@ -56,7 +56,7 @@ int main(int argc, char** argv)
 		{
 			.type = CCV_CONVNET_CONVOLUTIONAL,
 			.bias = 1,
-			.sigma = 0.01,
+			.glorot = sqrtf(2),
 			.input = {
 				.matrix = {
 					.rows = 64,
@@ -81,12 +81,12 @@ int main(int argc, char** argv)
 		{
 			.type = CCV_CONVNET_CONVOLUTIONAL,
 			.bias = 0,
-			.sigma = 0.01,
+			.glorot = sqrtf(2),
 			.input = {
 				.matrix = {
-					.rows = 32,
-					.cols = 32,
-					.channels = 128,
+					.rows = 13,
+					.cols = 13,
+					.channels = 256,
 					.partition = 1,
 				},
 			},
@@ -106,7 +106,7 @@ int main(int argc, char** argv)
 		{
 			.type = CCV_CONVNET_CONVOLUTIONAL,
 			.bias = 1,
-			.sigma = 0.01,
+			.glorot = sqrtf(2),
 			.input = {
 				.matrix = {
 					.rows = 16,
@@ -131,7 +131,7 @@ int main(int argc, char** argv)
 		{
 			.type = CCV_CONVNET_CONVOLUTIONAL,
 			.bias = 1,
-			.sigma = 0.01,
+			.glorot = sqrtf(2),
 			.input = {
 				.matrix = {
 					.rows = 13,
@@ -169,6 +169,7 @@ int main(int argc, char** argv)
 	ccv_convnet_train_param_t train_params = {
 		.max_epoch = 100,
 		.mini_batch = 128,
+		.device_count = 1,
 		.layer_params = layer_params,
 	};
 	for (i = 0; i < 128; i++)
