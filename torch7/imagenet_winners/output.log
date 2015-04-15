@@ -1,52 +1,58 @@
-[0mRunning on device: GeForce GTX TITAN Black[0m	
-[0mModelType: VGG Model-A[0m	[0mKernels: cudnn[0m	[0mInput shape: 32x3x224x224[0m	
-[0mcudnn                                   :updateOutput():     288.59[0m	
-[0mcudnn                                :updateGradInput():     353.75[0m	
-[0mcudnn                              :accGradParameters():     306.70[0m	
-[0mcudnn                                          :Forward:     288.59[0m	
-[0mcudnn                                         :Backward:     660.44[0m	
-[0mcudnn                                            :TOTAL:     949.03[0m	
-[0mModelType: VGG Model-A[0m	[0mKernels: nn[0m	[0mInput shape: 32x3x224x224[0m	
-[0mnn                                      :updateOutput():     261.10[0m	
-[0mnn                                   :updateGradInput():     258.29[0m	
-[0mnn                                 :accGradParameters():     318.56[0m	
-[0mnn                                             :Forward:     261.10[0m	
-[0mnn                                            :Backward:     576.85[0m	
-[0mnn                                               :TOTAL:     837.95[0m	
+[0mRunning on device: Graphics Device[0m	
+[0mModelType: VGG Model-A[0m	[0mKernels: cudnn[0m	[0mInput shape: 64x3x224x224[0m	
+[0mcudnn                                   :updateOutput():     333.51[0m	
+[0mcudnn                                :updateGradInput():     399.73[0m	
+[0mcudnn                              :accGradParameters():     345.03[0m	
+[0mcudnn                                          :Forward:     333.51[0m	
+[0mcudnn                                         :Backward:     744.76[0m	
+[0mcudnn                                            :TOTAL:    1078.27[0m	
+[0mModelType: VGG Model-A[0m	[0mKernels: nn[0m	[0mInput shape: 64x3x224x224[0m	
+[0mnn                                      :updateOutput():     344.71[0m	
+[0mnn                                   :updateGradInput():     379.65[0m	
+[0mnn                                 :accGradParameters():     368.96[0m	
+[0mnn                                             :Forward:     344.71[0m	
+[0mnn                                            :Backward:     748.61[0m	
+[0mnn                                               :TOTAL:    1093.32[0m	
 [0mModelType: OverFeat[fast][0m	[0mKernels: cudnn[0m	[0mInput shape: 128x3x231x231[0m	
-[0mcudnn                                   :updateOutput():     407.27[0m	
-[0mcudnn                                :updateGradInput():     564.96[0m	
-[0mcudnn                              :accGradParameters():     440.52[0m	
-[0mcudnn                                          :Forward:     407.27[0m	
-[0mcudnn                                         :Backward:    1005.47[0m	
-[0mcudnn                                            :TOTAL:    1412.74[0m	
+[0mcudnn                                   :updateOutput():     230.77[0m	
+[0mcudnn                                :updateGradInput():     302.95[0m	
+[0mcudnn                              :accGradParameters():     263.96[0m	
+[0mcudnn                                          :Forward:     230.77[0m	
+[0mcudnn                                         :Backward:     566.91[0m	
+[0mcudnn                                            :TOTAL:     797.67[0m	
 [0mModelType: OverFeat[fast][0m	[0mKernels: nn[0m	[0mInput shape: 128x3x231x231[0m	
-[0mnn                                      :updateOutput():     635.08[0m	
-[0mnn                                   :updateGradInput():     380.77[0m	
-[0mnn                                 :accGradParameters():     479.44[0m	
-[0mnn                                             :Forward:     635.08[0m	
-[0mnn                                            :Backward:     860.21[0m	
-[0mnn                                               :TOTAL:    1495.29[0m	
+[0mnn                                      :updateOutput():     377.53[0m	
+[0mnn                                   :updateGradInput():     270.30[0m	
+[0mnn                                 :accGradParameters():     226.15[0m	
+[0mnn                                             :Forward:     377.53[0m	
+[0mnn                                            :Backward:     496.45[0m	
+[0mnn                                               :TOTAL:     873.98[0m	
 [0mModelType: AlexNet[0m	[0mKernels: cudnn[0m	[0mInput shape: 128x3x224x224[0m	
-[0mcudnn                                   :updateOutput():     128.93[0m	
-[0mcudnn                                :updateGradInput():     146.32[0m	
-[0mcudnn                              :accGradParameters():     132.97[0m	
-[0mcudnn                                          :Forward:     128.93[0m	
-[0mcudnn                                         :Backward:     279.29[0m	
-[0mcudnn                                            :TOTAL:     408.22[0m	
+[0mcudnn                                   :updateOutput():      70.49[0m	
+[0mcudnn                                :updateGradInput():      83.60[0m	
+[0mcudnn                              :accGradParameters():      79.23[0m	
+[0mcudnn                                          :Forward:      70.49[0m	
+[0mcudnn                                         :Backward:     162.83[0m	
+[0mcudnn                                            :TOTAL:     233.32[0m	
 [0mModelType: AlexNet[0m	[0mKernels: nn[0m	[0mInput shape: 128x3x224x224[0m	
-[0mnn                                      :updateOutput():     172.63[0m	
-[0mnn                                   :updateGradInput():     137.77[0m	
-[0mnn                                 :accGradParameters():     168.52[0m	
-[0mnn                                             :Forward:     172.63[0m	
-[0mnn                                            :Backward:     306.28[0m	
-[0mnn                                               :TOTAL:     478.91[0m	
+[0mnn                                      :updateOutput():     133.61[0m	
+[0mnn                                   :updateGradInput():     116.58[0m	
+[0mnn                                 :accGradParameters():      96.46[0m	
+[0mnn                                             :Forward:     133.61[0m	
+[0mnn                                            :Backward:     213.04[0m	
+[0mnn                                               :TOTAL:     346.65[0m	
 [0mModelType: GoogleNet[0m	[0mKernels: cudnn[0m	[0mInput shape: 128x3x224x224[0m	
-[0mcudnn                                   :updateOutput():     451.02[0m	
-[0mcudnn                                :updateGradInput():     570.26[0m	
-[0mcudnn                              :accGradParameters():     357.24[0m	
-[0mcudnn                                          :Forward:     451.02[0m	
-[0mcudnn                                         :Backward:     927.49[0m	
-[0mcudnn                                            :TOTAL:    1378.52[0m	
+[0mcudnn                                   :updateOutput():     168.28[0m	
+[0mcudnn                                :updateGradInput():     236.70[0m	
+[0mcudnn                              :accGradParameters():     185.62[0m	
+[0mcudnn                                          :Forward:     168.28[0m	
+[0mcudnn                                         :Backward:     422.32[0m	
+[0mcudnn                                            :TOTAL:     590.60[0m	
 [0mModelType: GoogleNet[0m	[0mKernels: nn[0m	[0mInput shape: 128x3x224x224[0m	
-error in SpatialMaxsampling.updateOutput: invalid argument
+[0mnn                                      :updateOutput():     823.02[0m	
+[0mnn                                   :updateGradInput():     468.88[0m	
+[0mnn                                 :accGradParameters():     564.01[0m	
+[0mnn                                             :Forward:     823.02[0m	
+[0mnn                                            :Backward:    1032.89[0m	
+[0mnn                                               :TOTAL:    1855.92[0m	
+[0m[0m	
