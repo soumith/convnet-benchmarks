@@ -1,172 +1,132 @@
-Using gpu device 0: GeForce GTX TITAN Black
-Error allocating 8323596288 bytes of device memory (out of memory). Driver report 5599027200 bytes free and 6442254336 bytes total 
+Using gpu device 0: Graphics Device
+Note: cuDNN not available
 
 CONFIG: input = 3 x 128 x 128 * ker = 3 x 96 x 11 x 11 ( bs = 128 , stride = 1 )
-(experimental) meta-optimizer                      ==> fprop         ==>      89
-(experimental) meta-optimizer                      ==> bprop inputs  ==>      87
-(experimental) meta-optimizer                      ==> bprop weights ==>     195
+(experimental) meta-optimizer                      ==> fprop         ==>      91
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      92
+(experimental) meta-optimizer                      ==> bprop weights ==>      87
 
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> fprop         ==>     138
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop inputs  ==>     252
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop weights ==>     197
+theano.sandbox.cuda.fftconv.conv2d_fft fprop: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
 
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> fprop         ==>      89
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop inputs  ==>     108
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop weights ==>     104
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      91
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      92
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      87
 
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      93
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      84
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>     191
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      90
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      89
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      85
 
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      93
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      84
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>     190
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      38
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>      53
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>     339
 
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> fprop         ==>      85
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop inputs  ==>     108
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop weights ==>     106
-
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      89
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>     131
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>     450
-
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      89
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>     131
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>     198
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      38
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>      53
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>      83
 
 
 CONFIG: input = 64 x 64 x 64 * ker = 64 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
-(experimental) meta-optimizer                      ==> fprop         ==>      72
-(experimental) meta-optimizer                      ==> bprop inputs  ==>     109
-(experimental) meta-optimizer                      ==> bprop weights ==>     107
+(experimental) meta-optimizer                      ==> fprop         ==>     149
+(experimental) meta-optimizer                      ==> bprop inputs  ==>     173
+(experimental) meta-optimizer                      ==> bprop weights ==>     239
 
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> fprop         ==>      84
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop inputs  ==>     108
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop weights ==>     107
+theano.sandbox.cuda.fftconv.conv2d_fft fprop: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
 
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> fprop         ==>     272
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop inputs  ==>     411
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop weights ==>     295
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>     149
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>     173
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>     244
 
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>     206
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>     298
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>     356
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>     143
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>     163
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>     242
 
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>     223
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>     302
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>     360
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>     184
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>     226
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>     207
 
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> fprop         ==>     279
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop inputs  ==>     463
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop weights ==>     322
-
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>     417
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>     626
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>     790
-
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>     452
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>     643
-pylearn2.sandbox.cuda_convnet(partial_sum=1) bprop weights: FAILED Error allocating 8323596288 bytes of device memory (out of memory).
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>     183
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>     227
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>     441
 
 
 CONFIG: input = 128 x 32 x 32 * ker = 128 x 128 x 9 x 9 ( bs = 128 , stride = 1 )
-(experimental) meta-optimizer                      ==> fprop         ==>      28
-(experimental) meta-optimizer                      ==> bprop inputs  ==>      52
-(experimental) meta-optimizer                      ==> bprop weights ==>      33
+(experimental) meta-optimizer                      ==> fprop         ==>     123
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      91
+(experimental) meta-optimizer                      ==> bprop weights ==>      86
 
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> fprop         ==>      32
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop inputs  ==>      51
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop weights ==>      33
+theano.sandbox.cuda.fftconv.conv2d_fft fprop: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
 
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> fprop         ==>     105
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop inputs  ==>     191
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop weights ==>     120
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>     123
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      90
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      86
 
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>     173
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>     128
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>     133
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>     121
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      88
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      86
 
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>     173
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>     128
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>     133
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      68
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>      77
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>      70
 
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> fprop         ==>     101
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop inputs  ==>     190
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop weights ==>     120
-
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>     154
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>     232
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>     271
-
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>     175
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>     238
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>     314
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      67
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>      78
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>      95
 
 
 CONFIG: input = 128 x 16 x 16 * ker = 128 x 128 x 7 x 7 ( bs = 128 , stride = 1 )
-(experimental) meta-optimizer                      ==> fprop         ==>       9
-(experimental) meta-optimizer                      ==> bprop inputs  ==>      16
-(experimental) meta-optimizer                      ==> bprop weights ==>       9
+(experimental) meta-optimizer                      ==> fprop         ==>      25
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      18
+(experimental) meta-optimizer                      ==> bprop weights ==>      11
 
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> fprop         ==>       8
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop inputs  ==>      18
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop weights ==>       9
+theano.sandbox.cuda.fftconv.conv2d_fft fprop: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
 
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> fprop         ==>      11
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop inputs  ==>      15
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop weights ==>      13
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      24
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      18
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      11
 
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      31
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      21
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      22
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      24
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      18
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      11
 
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      32
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      22
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      22
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>       7
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>       7
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>       8
 
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> fprop         ==>      11
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop inputs  ==>      15
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop weights ==>      13
-
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      17
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>      21
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>      26
-
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      17
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>      21
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>      30
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>       7
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>       7
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>       9
 
 
 CONFIG: input = 384 x 13 x 13 * ker = 384 x 384 x 3 x 3 ( bs = 128 , stride = 1 )
-(experimental) meta-optimizer                      ==> fprop         ==>      30
-(experimental) meta-optimizer                      ==> bprop inputs  ==>      22
-(experimental) meta-optimizer                      ==> bprop weights ==>      35
+(experimental) meta-optimizer                      ==> fprop         ==>      28
+(experimental) meta-optimizer                      ==> bprop inputs  ==>      18
+(experimental) meta-optimizer                      ==> bprop weights ==>      14
 
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> fprop         ==>      34
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop inputs  ==>      44
-theano.sandbox.cuda.fftconv.conv2d_fft             ==> bprop weights ==>      39
+theano.sandbox.cuda.fftconv.conv2d_fft fprop: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop inputs: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
+theano.sandbox.cuda.fftconv.conv2d_fft bprop weights: FAILED ('The following error happened while compiling the node', CuFFTOp(GpuContiguous.0), '\n', 'scikits.cuda is needed for all GPU fft implementation, including fftconv.')
 
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> fprop         ==>      30
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop inputs  ==>      21
-(auto) theano.sandbox.cuda.dnn.GpuDnnConv          ==> bprop weights ==>      35
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      28
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      17
+(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      14
 
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> fprop         ==>      36
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop inputs  ==>      26
-(auto) theano.sandbox.cuda.blas.GpuCorrMM          ==> bprop weights ==>      34
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      28
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      17
+(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      14
 
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> fprop         ==>      38
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop inputs  ==>      27
-(manual) theano.sandbox.cuda.blas.GpuCorrMM        ==> bprop weights ==>      35
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      16
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>      15
+pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>      19
 
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> fprop         ==>      30
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop inputs  ==>      22
-(manual conv) theano.sandbox.cuda.dnn.GpuDnnConv   ==> bprop weights ==>      37
-
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> fprop         ==>      41
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop inputs  ==>      43
-pylearn2.sandbox.cuda_convnet(partial_sum=None)    ==> bprop weights ==>      64
-
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      40
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>      43
-pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>      75
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> fprop         ==>      17
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop inputs  ==>      15
+pylearn2.sandbox.cuda_convnet(partial_sum=1)       ==> bprop weights ==>      23
 
