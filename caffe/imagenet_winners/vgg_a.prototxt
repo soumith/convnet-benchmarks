@@ -1,6 +1,6 @@
 name: "vgg_a"
 input: "data"
-input_dim: 128
+input_dim: 64
 input_dim: 3
 input_dim: 224
 input_dim: 224
