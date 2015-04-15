@@ -608,3 +608,363 @@ I0413 19:16:32.699717 11842 caffe.cpp:286] Average Backward pass: 31.0744 ms.
 I0413 19:16:32.699723 11842 caffe.cpp:288] Average Forward-Backward: 58.793 ms.
 I0413 19:16:32.699726 11842 caffe.cpp:290] Total Time: 587.93 ms.
 I0413 19:16:32.699730 11842 caffe.cpp:291] *** Benchmark ends ***
+I0415 15:49:13.216737 32519 caffe.cpp:212] Use GPU with device ID 0
+E0415 15:49:13.435988 32519 upgrade_proto.cpp:618] Attempting to upgrade input file specified using deprecated V1LayerParameter: proto_forceGradInput/conv1.prototxt
+I0415 15:49:13.436036 32519 upgrade_proto.cpp:626] Successfully upgraded file specified using deprecated V1LayerParameter
+I0415 15:49:13.436095 32519 net.cpp:42] Initializing net from parameters: 
+name: "ConvLayer_3x96x11x11"
+input: "data"
+input_dim: 128
+input_dim: 3
+input_dim: 128
+input_dim: 128
+force_backward: true
+state {
+  phase: TRAIN
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 96
+    kernel_size: 11
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+I0415 15:49:13.436136 32519 net.cpp:340] Input 0 -> data
+I0415 15:49:13.436163 32519 layer_factory.hpp:74] Creating layer conv1
+I0415 15:49:13.436179 32519 net.cpp:84] Creating Layer conv1
+I0415 15:49:13.436184 32519 net.cpp:380] conv1 <- data
+I0415 15:49:13.436190 32519 net.cpp:338] conv1 -> conv1
+I0415 15:49:13.436199 32519 net.cpp:113] Setting up conv1
+I0415 15:49:13.436785 32519 net.cpp:120] Top shape: 128 96 118 118 (171098112)
+I0415 15:49:13.436800 32519 net.cpp:169] conv1 does not need backward computation.
+I0415 15:49:13.436802 32519 net.cpp:205] This network produces output conv1
+I0415 15:49:13.436807 32519 net.cpp:447] Collecting Learning Rate and Weight Decay.
+I0415 15:49:13.436812 32519 net.cpp:217] Network initialization done.
+I0415 15:49:13.436815 32519 net.cpp:218] Memory required for data: 684392448
+I0415 15:49:13.436825 32519 caffe.cpp:224] Performing Forward
+I0415 15:49:13.447800 32519 caffe.cpp:229] Initial loss: 0
+I0415 15:49:13.447818 32519 caffe.cpp:230] Performing Backward
+I0415 15:49:13.584873 32519 caffe.cpp:238] *** Benchmark begins ***
+I0415 15:49:13.584887 32519 caffe.cpp:239] Testing for 10 iterations.
+I0415 15:49:14.074204 32519 caffe.cpp:270] Iteration: 1 forward-backward time: 301.187 ms.
+I0415 15:49:14.373965 32519 caffe.cpp:270] Iteration: 2 forward-backward time: 299.726 ms.
+I0415 15:49:14.673312 32519 caffe.cpp:270] Iteration: 3 forward-backward time: 299.315 ms.
+I0415 15:49:14.972735 32519 caffe.cpp:270] Iteration: 4 forward-backward time: 299.394 ms.
+I0415 15:49:15.272409 32519 caffe.cpp:270] Iteration: 5 forward-backward time: 299.645 ms.
+I0415 15:49:15.571655 32519 caffe.cpp:270] Iteration: 6 forward-backward time: 299.215 ms.
+I0415 15:49:15.870950 32519 caffe.cpp:270] Iteration: 7 forward-backward time: 299.266 ms.
+I0415 15:49:16.170341 32519 caffe.cpp:270] Iteration: 8 forward-backward time: 299.363 ms.
+I0415 15:49:16.469714 32519 caffe.cpp:270] Iteration: 9 forward-backward time: 299.342 ms.
+I0415 15:49:16.769111 32519 caffe.cpp:270] Iteration: 10 forward-backward time: 299.366 ms.
+I0415 15:49:16.769124 32519 caffe.cpp:273] Average time per layer: 
+I0415 15:49:16.769127 32519 caffe.cpp:276]      conv1	forward: 95.1271 ms.
+I0415 15:49:16.769131 32519 caffe.cpp:279]      conv1	backward: 204.422 ms.
+I0415 15:49:16.769142 32519 caffe.cpp:284] Average Forward pass: 95.1363 ms.
+I0415 15:49:16.769146 32519 caffe.cpp:286] Average Backward pass: 204.432 ms.
+I0415 15:49:16.769151 32519 caffe.cpp:288] Average Forward-Backward: 299.607 ms.
+I0415 15:49:16.769155 32519 caffe.cpp:290] Total Time: 2996.07 ms.
+I0415 15:49:16.769158 32519 caffe.cpp:291] *** Benchmark ends ***
+I0415 15:49:16.883141 32522 caffe.cpp:212] Use GPU with device ID 0
+E0415 15:49:17.079277 32522 upgrade_proto.cpp:618] Attempting to upgrade input file specified using deprecated V1LayerParameter: proto_forceGradInput/conv2.prototxt
+I0415 15:49:17.079324 32522 upgrade_proto.cpp:626] Successfully upgraded file specified using deprecated V1LayerParameter
+I0415 15:49:17.079382 32522 net.cpp:42] Initializing net from parameters: 
+name: "ConvLayer_64x128x9x9"
+input: "data"
+input_dim: 128
+input_dim: 64
+input_dim: 64
+input_dim: 64
+force_backward: true
+state {
+  phase: TRAIN
+}
+layer {
+  name: "conv2"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv2"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 9
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+I0415 15:49:17.079412 32522 net.cpp:340] Input 0 -> data
+I0415 15:49:17.079437 32522 layer_factory.hpp:74] Creating layer conv2
+I0415 15:49:17.079450 32522 net.cpp:84] Creating Layer conv2
+I0415 15:49:17.079455 32522 net.cpp:380] conv2 <- data
+I0415 15:49:17.079462 32522 net.cpp:338] conv2 -> conv2
+I0415 15:49:17.079478 32522 net.cpp:113] Setting up conv2
+I0415 15:49:17.083525 32522 net.cpp:120] Top shape: 128 128 56 56 (51380224)
+I0415 15:49:17.083542 32522 net.cpp:169] conv2 does not need backward computation.
+I0415 15:49:17.083545 32522 net.cpp:205] This network produces output conv2
+I0415 15:49:17.083551 32522 net.cpp:447] Collecting Learning Rate and Weight Decay.
+I0415 15:49:17.083555 32522 net.cpp:217] Network initialization done.
+I0415 15:49:17.083557 32522 net.cpp:218] Memory required for data: 205520896
+I0415 15:49:17.083569 32522 caffe.cpp:224] Performing Forward
+I0415 15:49:17.093106 32522 caffe.cpp:229] Initial loss: 0
+I0415 15:49:17.093123 32522 caffe.cpp:230] Performing Backward
+I0415 15:49:17.229171 32522 caffe.cpp:238] *** Benchmark begins ***
+I0415 15:49:17.229182 32522 caffe.cpp:239] Testing for 10 iterations.
+I0415 15:49:18.211261 32522 caffe.cpp:270] Iteration: 1 forward-backward time: 557.98 ms.
+I0415 15:49:18.767452 32522 caffe.cpp:270] Iteration: 2 forward-backward time: 556.147 ms.
+I0415 15:49:19.323290 32522 caffe.cpp:270] Iteration: 3 forward-backward time: 555.801 ms.
+I0415 15:49:19.883347 32522 caffe.cpp:270] Iteration: 4 forward-backward time: 560.018 ms.
+I0415 15:49:20.438695 32522 caffe.cpp:270] Iteration: 5 forward-backward time: 555.31 ms.
+I0415 15:49:20.997997 32522 caffe.cpp:270] Iteration: 6 forward-backward time: 559.263 ms.
+I0415 15:49:21.555253 32522 caffe.cpp:270] Iteration: 7 forward-backward time: 557.217 ms.
+I0415 15:49:22.113096 32522 caffe.cpp:270] Iteration: 8 forward-backward time: 557.799 ms.
+I0415 15:49:22.671558 32522 caffe.cpp:270] Iteration: 9 forward-backward time: 558.423 ms.
+I0415 15:49:23.229445 32522 caffe.cpp:270] Iteration: 10 forward-backward time: 557.85 ms.
+I0415 15:49:23.229460 32522 caffe.cpp:273] Average time per layer: 
+I0415 15:49:23.229465 32522 caffe.cpp:276]      conv2	forward: 137.569 ms.
+I0415 15:49:23.229468 32522 caffe.cpp:279]      conv2	backward: 419.966 ms.
+I0415 15:49:23.229480 32522 caffe.cpp:284] Average Forward pass: 137.581 ms.
+I0415 15:49:23.229483 32522 caffe.cpp:286] Average Backward pass: 419.986 ms.
+I0415 15:49:23.229488 32522 caffe.cpp:288] Average Forward-Backward: 557.61 ms.
+I0415 15:49:23.229492 32522 caffe.cpp:290] Total Time: 5576.1 ms.
+I0415 15:49:23.229496 32522 caffe.cpp:291] *** Benchmark ends ***
+I0415 15:49:23.345111 32526 caffe.cpp:212] Use GPU with device ID 0
+E0415 15:49:23.542840 32526 upgrade_proto.cpp:618] Attempting to upgrade input file specified using deprecated V1LayerParameter: proto_forceGradInput/conv3.prototxt
+I0415 15:49:23.542883 32526 upgrade_proto.cpp:626] Successfully upgraded file specified using deprecated V1LayerParameter
+I0415 15:49:23.542940 32526 net.cpp:42] Initializing net from parameters: 
+name: "ConvLayer_128x128x9x9"
+input: "data"
+input_dim: 128
+input_dim: 128
+input_dim: 32
+input_dim: 32
+force_backward: true
+state {
+  phase: TRAIN
+}
+layer {
+  name: "conv3"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv3"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 9
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+I0415 15:49:23.542970 32526 net.cpp:340] Input 0 -> data
+I0415 15:49:23.542997 32526 layer_factory.hpp:74] Creating layer conv3
+I0415 15:49:23.543014 32526 net.cpp:84] Creating Layer conv3
+I0415 15:49:23.543018 32526 net.cpp:380] conv3 <- data
+I0415 15:49:23.543025 32526 net.cpp:338] conv3 -> conv3
+I0415 15:49:23.543033 32526 net.cpp:113] Setting up conv3
+I0415 15:49:23.550850 32526 net.cpp:120] Top shape: 128 128 24 24 (9437184)
+I0415 15:49:23.550866 32526 net.cpp:169] conv3 does not need backward computation.
+I0415 15:49:23.550870 32526 net.cpp:205] This network produces output conv3
+I0415 15:49:23.550875 32526 net.cpp:447] Collecting Learning Rate and Weight Decay.
+I0415 15:49:23.550879 32526 net.cpp:217] Network initialization done.
+I0415 15:49:23.550882 32526 net.cpp:218] Memory required for data: 37748736
+I0415 15:49:23.550892 32526 caffe.cpp:224] Performing Forward
+I0415 15:49:23.558878 32526 caffe.cpp:229] Initial loss: 0
+I0415 15:49:23.558897 32526 caffe.cpp:230] Performing Backward
+I0415 15:49:23.628859 32526 caffe.cpp:238] *** Benchmark begins ***
+I0415 15:49:23.628870 32526 caffe.cpp:239] Testing for 10 iterations.
+I0415 15:49:24.142382 32526 caffe.cpp:270] Iteration: 1 forward-backward time: 293.189 ms.
+I0415 15:49:24.435586 32526 caffe.cpp:270] Iteration: 2 forward-backward time: 293.164 ms.
+I0415 15:49:24.728746 32526 caffe.cpp:270] Iteration: 3 forward-backward time: 293.123 ms.
+I0415 15:49:25.021797 32526 caffe.cpp:270] Iteration: 4 forward-backward time: 293.018 ms.
+I0415 15:49:25.315057 32526 caffe.cpp:270] Iteration: 5 forward-backward time: 293.229 ms.
+I0415 15:49:25.608229 32526 caffe.cpp:270] Iteration: 6 forward-backward time: 293.138 ms.
+I0415 15:49:25.901578 32526 caffe.cpp:270] Iteration: 7 forward-backward time: 293.317 ms.
+I0415 15:49:26.194905 32526 caffe.cpp:270] Iteration: 8 forward-backward time: 293.295 ms.
+I0415 15:49:26.488239 32526 caffe.cpp:270] Iteration: 9 forward-backward time: 293.297 ms.
+I0415 15:49:26.781745 32526 caffe.cpp:270] Iteration: 10 forward-backward time: 293.473 ms.
+I0415 15:49:26.781760 32526 caffe.cpp:273] Average time per layer: 
+I0415 15:49:26.781764 32526 caffe.cpp:276]      conv3	forward: 119.199 ms.
+I0415 15:49:26.781769 32526 caffe.cpp:279]      conv3	backward: 173.987 ms.
+I0415 15:49:26.781780 32526 caffe.cpp:284] Average Forward pass: 119.212 ms.
+I0415 15:49:26.781785 32526 caffe.cpp:286] Average Backward pass: 173.999 ms.
+I0415 15:49:26.781790 32526 caffe.cpp:288] Average Forward-Backward: 293.254 ms.
+I0415 15:49:26.781795 32526 caffe.cpp:290] Total Time: 2932.54 ms.
+I0415 15:49:26.781798 32526 caffe.cpp:291] *** Benchmark ends ***
+I0415 15:49:26.895763 32529 caffe.cpp:212] Use GPU with device ID 0
+E0415 15:49:27.092433 32529 upgrade_proto.cpp:618] Attempting to upgrade input file specified using deprecated V1LayerParameter: proto_forceGradInput/conv4.prototxt
+I0415 15:49:27.092478 32529 upgrade_proto.cpp:626] Successfully upgraded file specified using deprecated V1LayerParameter
+I0415 15:49:27.092536 32529 net.cpp:42] Initializing net from parameters: 
+name: "ConvLayer_128x128x7x7"
+input: "data"
+input_dim: 128
+input_dim: 128
+input_dim: 16
+input_dim: 16
+force_backward: true
+state {
+  phase: TRAIN
+}
+layer {
+  name: "conv4"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv4"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 128
+    kernel_size: 7
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+I0415 15:49:27.092566 32529 net.cpp:340] Input 0 -> data
+I0415 15:49:27.092593 32529 layer_factory.hpp:74] Creating layer conv4
+I0415 15:49:27.092609 32529 net.cpp:84] Creating Layer conv4
+I0415 15:49:27.092613 32529 net.cpp:380] conv4 <- data
+I0415 15:49:27.092620 32529 net.cpp:338] conv4 -> conv4
+I0415 15:49:27.092629 32529 net.cpp:113] Setting up conv4
+I0415 15:49:27.097738 32529 net.cpp:120] Top shape: 128 128 10 10 (1638400)
+I0415 15:49:27.097754 32529 net.cpp:169] conv4 does not need backward computation.
+I0415 15:49:27.097759 32529 net.cpp:205] This network produces output conv4
+I0415 15:49:27.097764 32529 net.cpp:447] Collecting Learning Rate and Weight Decay.
+I0415 15:49:27.097769 32529 net.cpp:217] Network initialization done.
+I0415 15:49:27.097770 32529 net.cpp:218] Memory required for data: 6553600
+I0415 15:49:27.097781 32529 caffe.cpp:224] Performing Forward
+I0415 15:49:27.104457 32529 caffe.cpp:229] Initial loss: 0
+I0415 15:49:27.104475 32529 caffe.cpp:230] Performing Backward
+I0415 15:49:27.113119 32529 caffe.cpp:238] *** Benchmark begins ***
+I0415 15:49:27.113129 32529 caffe.cpp:239] Testing for 10 iterations.
+I0415 15:49:27.211316 32529 caffe.cpp:270] Iteration: 1 forward-backward time: 54.3191 ms.
+I0415 15:49:27.265712 32529 caffe.cpp:270] Iteration: 2 forward-backward time: 54.3672 ms.
+I0415 15:49:27.320089 32529 caffe.cpp:270] Iteration: 3 forward-backward time: 54.3508 ms.
+I0415 15:49:27.374336 32529 caffe.cpp:270] Iteration: 4 forward-backward time: 54.2147 ms.
+I0415 15:49:27.428624 32529 caffe.cpp:270] Iteration: 5 forward-backward time: 54.2648 ms.
+I0415 15:49:27.483008 32529 caffe.cpp:270] Iteration: 6 forward-backward time: 54.359 ms.
+I0415 15:49:27.537436 32529 caffe.cpp:270] Iteration: 7 forward-backward time: 54.4041 ms.
+I0415 15:49:27.591683 32529 caffe.cpp:270] Iteration: 8 forward-backward time: 54.2239 ms.
+I0415 15:49:27.645934 32529 caffe.cpp:270] Iteration: 9 forward-backward time: 54.2259 ms.
+I0415 15:49:27.700187 32529 caffe.cpp:270] Iteration: 10 forward-backward time: 54.228 ms.
+I0415 15:49:27.700201 32529 caffe.cpp:273] Average time per layer: 
+I0415 15:49:27.700204 32529 caffe.cpp:276]      conv4	forward: 24.9871 ms.
+I0415 15:49:27.700208 32529 caffe.cpp:279]      conv4	backward: 29.2731 ms.
+I0415 15:49:27.700218 32529 caffe.cpp:284] Average Forward pass: 24.9971 ms.
+I0415 15:49:27.700223 32529 caffe.cpp:286] Average Backward pass: 29.2842 ms.
+I0415 15:49:27.700227 32529 caffe.cpp:288] Average Forward-Backward: 54.3218 ms.
+I0415 15:49:27.700232 32529 caffe.cpp:290] Total Time: 543.218 ms.
+I0415 15:49:27.700235 32529 caffe.cpp:291] *** Benchmark ends ***
+I0415 15:49:27.813078 32532 caffe.cpp:212] Use GPU with device ID 0
+E0415 15:49:28.009358 32532 upgrade_proto.cpp:618] Attempting to upgrade input file specified using deprecated V1LayerParameter: proto_forceGradInput/conv5.prototxt
+I0415 15:49:28.009400 32532 upgrade_proto.cpp:626] Successfully upgraded file specified using deprecated V1LayerParameter
+I0415 15:49:28.009459 32532 net.cpp:42] Initializing net from parameters: 
+name: "ConvLayer_384x384x3x3"
+input: "data"
+input_dim: 128
+input_dim: 384
+input_dim: 13
+input_dim: 13
+force_backward: true
+state {
+  phase: TRAIN
+}
+layer {
+  name: "conv5"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv5"
+  param {
+    lr_mult: 1
+  }
+  param {
+    lr_mult: 2
+  }
+  convolution_param {
+    num_output: 384
+    kernel_size: 3
+    stride: 1
+    weight_filler {
+      type: "xavier"
+    }
+    bias_filler {
+      type: "constant"
+    }
+  }
+}
+I0415 15:49:28.009488 32532 net.cpp:340] Input 0 -> data
+I0415 15:49:28.009516 32532 layer_factory.hpp:74] Creating layer conv5
+I0415 15:49:28.009531 32532 net.cpp:84] Creating Layer conv5
+I0415 15:49:28.009536 32532 net.cpp:380] conv5 <- data
+I0415 15:49:28.009541 32532 net.cpp:338] conv5 -> conv5
+I0415 15:49:28.009551 32532 net.cpp:113] Setting up conv5
+I0415 15:49:28.017246 32532 net.cpp:120] Top shape: 128 384 11 11 (5947392)
+I0415 15:49:28.017262 32532 net.cpp:169] conv5 does not need backward computation.
+I0415 15:49:28.017266 32532 net.cpp:205] This network produces output conv5
+I0415 15:49:28.017271 32532 net.cpp:447] Collecting Learning Rate and Weight Decay.
+I0415 15:49:28.017276 32532 net.cpp:217] Network initialization done.
+I0415 15:49:28.017278 32532 net.cpp:218] Memory required for data: 23789568
+I0415 15:49:28.017289 32532 caffe.cpp:224] Performing Forward
+I0415 15:49:28.024075 32532 caffe.cpp:229] Initial loss: 0
+I0415 15:49:28.024093 32532 caffe.cpp:230] Performing Backward
+I0415 15:49:28.033782 32532 caffe.cpp:238] *** Benchmark begins ***
+I0415 15:49:28.033792 32532 caffe.cpp:239] Testing for 10 iterations.
+I0415 15:49:28.140161 32532 caffe.cpp:270] Iteration: 1 forward-backward time: 58.8616 ms.
+I0415 15:49:28.198966 32532 caffe.cpp:270] Iteration: 2 forward-backward time: 58.7756 ms.
+I0415 15:49:28.257733 32532 caffe.cpp:270] Iteration: 3 forward-backward time: 58.7428 ms.
+I0415 15:49:28.316576 32532 caffe.cpp:270] Iteration: 4 forward-backward time: 58.8165 ms.
+I0415 15:49:28.375334 32532 caffe.cpp:270] Iteration: 5 forward-backward time: 58.7346 ms.
+I0415 15:49:28.434154 32532 caffe.cpp:270] Iteration: 6 forward-backward time: 58.796 ms.
+I0415 15:49:28.492993 32532 caffe.cpp:270] Iteration: 7 forward-backward time: 58.8155 ms.
+I0415 15:49:28.551796 32532 caffe.cpp:270] Iteration: 8 forward-backward time: 58.7796 ms.
+I0415 15:49:28.610543 32532 caffe.cpp:270] Iteration: 9 forward-backward time: 58.7233 ms.
+I0415 15:49:28.669340 32532 caffe.cpp:270] Iteration: 10 forward-backward time: 58.7725 ms.
+I0415 15:49:28.669363 32532 caffe.cpp:273] Average time per layer: 
+I0415 15:49:28.669366 32532 caffe.cpp:276]      conv5	forward: 27.7015 ms.
+I0415 15:49:28.669370 32532 caffe.cpp:279]      conv5	backward: 31.0432 ms.
+I0415 15:49:28.669381 32532 caffe.cpp:284] Average Forward pass: 27.7119 ms.
+I0415 15:49:28.669385 32532 caffe.cpp:286] Average Backward pass: 31.0549 ms.
+I0415 15:49:28.669389 32532 caffe.cpp:288] Average Forward-Backward: 58.8075 ms.
+I0415 15:49:28.669394 32532 caffe.cpp:290] Total Time: 588.075 ms.
+I0415 15:49:28.669397 32532 caffe.cpp:291] *** Benchmark ends ***
