@@ -50,7 +50,7 @@ function vgg_a(lib)
    local model = nn.Sequential()
    model:add(features):add(classifier)
    
-   return model,'VGG Model-' .. modelType, {32,3,224,224}
+   return model,'VGG Model-' .. modelType, {64,3,224,224}
 end
 
 return vgg_a

@@ -1,22 +1,26 @@
-Running on device: GeForce GTX TITAN Black
-ModelType: VGG Model-A  Kernels: cuda-convnet2  Input shape: 3x224x224x32
-cuda-convnet2                           :updateOutput():     681.02
-cuda-convnet2                        :updateGradInput():     726.68
-cuda-convnet2                      :accGradParameters():     263.39
-cuda-convnet2                                  :Forward:     681.02
-cuda-convnet2                                 :Backward:     990.07
-cuda-convnet2                                    :TOTAL:    1671.09
-ModelType: OverFeat[fast]       Kernels: cuda-convnet2  Input shape: 3x231x231x128
-cuda-convnet2                           :updateOutput():     385.86
-cuda-convnet2                        :updateGradInput():     352.61
-cuda-convnet2                      :accGradParameters():     453.37
-cuda-convnet2                                  :Forward:     385.86
-cuda-convnet2                                 :Backward:     805.99
-cuda-convnet2                                    :TOTAL:    1191.84
-ModelType: AlexNet      Kernels: cuda-convnet2  Input shape: 3x224x224x128
-cuda-convnet2                           :updateOutput():      88.28
-cuda-convnet2                        :updateGradInput():      86.35
-cuda-convnet2                      :accGradParameters():     101.10
-cuda-convnet2                                  :Forward:      88.28
-cuda-convnet2                                 :Backward:     187.44
-cuda-convnet2                                    :TOTAL:     275.73
+Running on device: Graphics Device
+ModelType: VGG Model-A	Kernels: cuda-convnet2	Input shape: 3x224x224x64
+cuda-convnet2                           :updateOutput():     408.31
+cuda-convnet2                        :updateGradInput():     467.05
+cuda-convnet2                      :accGradParameters():     354.93
+cuda-convnet2                                  :Forward:     408.31
+cuda-convnet2                                 :Backward:     821.98
+cuda-convnet2                                    :TOTAL:    1230.29
+
+ModelType: OverFeat[fast]	Kernels: cuda-convnet2	Input shape: 3x231x231x128
+cuda-convnet2                           :updateOutput():     176.62
+cuda-convnet2                        :updateGradInput():     301.79
+cuda-convnet2                      :accGradParameters():     246.55
+cuda-convnet2                                  :Forward:     176.62
+cuda-convnet2                                 :Backward:     548.34
+cuda-convnet2                                    :TOTAL:     724.95
+
+ModelType: AlexNet	Kernels: cuda-convnet2	Input shape: 3x224x224x128
+cuda-convnet2                           :updateOutput():      42.26
+cuda-convnet2                        :updateGradInput():      72.91
+cuda-convnet2                      :accGradParameters():      63.72
+cuda-convnet2                                  :Forward:      42.26
+cuda-convnet2                                 :Backward:     136.63
+cuda-convnet2                                    :TOTAL:     178.89
+
+
