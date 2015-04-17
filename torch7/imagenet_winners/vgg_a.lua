@@ -2,6 +2,13 @@ function vgg_a(lib)
    local SpatialConvolution = lib[1]
    local SpatialMaxPooling = lib[2]
    local ReLU = lib[3]
+   local SpatialZeroPadding = nn.SpatialZeroPadding
+   local padding = true
+   local stride1only = false
+   if lib[5] == 'fbfft' then
+      padding = false -- fbfft does not support implicit zero padding
+      stride1only = true -- fbfft does not support convolutions that are not stride-1
+   end
 
    local modelType = 'A' -- on a titan black, B/D/E run out of memory even for batch-size 32
 
@@ -27,8 +34,16 @@ function vgg_a(lib)
             features:add(SpatialMaxPooling(2,2,2,2))
          else
             local oChannels = v;
-            local conv3 = SpatialConvolution(iChannels,oChannels,3,3,1,1,1,1);
-            features:add(conv3)
+	    if not padding then
+	       features:add(SpatialZeroPadding(1,1,1,1))
+	       if k >= 3 and lib[5] == 'fbfft' then -- fbfft runs out of memory at this point
+		  features:add(cudnn.SpatialConvolution(iChannels,oChannels,3,3,1,1))
+	       else
+		  features:add(SpatialConvolution(iChannels,oChannels,3,3,1,1))
+	       end
+	    else
+	       features:add(SpatialConvolution(iChannels,oChannels,3,3,1,1,1,1))
+	    end
             features:add(ReLU(true))
             iChannels = oChannels;
          end
@@ -39,12 +54,12 @@ function vgg_a(lib)
    classifier:add(nn.View(512*7*7))
    classifier:add(nn.Linear(512*7*7, 4096))
    classifier:add(nn.Threshold(0, 1e-6))
-   classifier:add(nn.Dropout(0.5))
+   -- classifier:add(nn.Dropout(0.5))
    classifier:add(nn.Linear(4096, 4096))
    classifier:add(nn.Threshold(0, 1e-6))
-   classifier:add(nn.Dropout(0.5))
+   -- classifier:add(nn.Dropout(0.5))
    classifier:add(nn.Linear(4096, 1000))
-   classifier:add(nn.LogSoftMax())
+   -- classifier:add(nn.LogSoftMax())
 
    local model = nn.Sequential()
    model:add(features):add(classifier)

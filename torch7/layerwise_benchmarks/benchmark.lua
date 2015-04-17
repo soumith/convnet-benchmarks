@@ -2,6 +2,7 @@ require 'sys'
 require 'cunn'
 require 'ccn2'
 require 'cudnn'
+require 'fbcunn'
 -- require 'nnbhwd'
 
 print('Running on device: ' .. cutorch.getDeviceProperties(cutorch.getDevice()).name)
@@ -81,6 +82,7 @@ for i,run in ipairs(runs) do
    mods[1] = cudnn.SpatialConvolution(ni,no,kw,kh,dw,dh):cuda()
    mods[2] = nn.SpatialConvolutionMM(ni,no,kw,kh,dw,dh):cuda()
    mods[3] = ccn2.SpatialConvolution(ni,no,kw,dw,0,1,4):cuda()
+   mods[4] = nn.SpatialConvolutionCuFFT(ni,no,kw,kh,dw,dh):cuda()
    -- mods[4] = nn.SpatialConvolutionBHWD(ni,no,kw,kh,dw,dh):cuda()
    for j=1,#mods do   
       local tmf, tmbi, tmbg
