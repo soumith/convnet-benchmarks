@@ -186,33 +186,30 @@ layers {
     stride: 2
   }
 }
-layers {
+layer {
   name: "fc6-conv"
-  type: CONVOLUTION
+  type: "InnerProduct"
   bottom: "pool5/2x2_s2"
   top: "fc6-conv"
-  convolution_param {
+  inner_product_param {
     num_output: 3072
-    kernel_size: 6
   }
 }
-layers {
+layer {
   name: "fc7-conv"
-  type: CONVOLUTION
+  type: "InnerProduct"
   bottom: "fc6-conv"
   top: "fc7-conv"
-  convolution_param {
+  inner_product_param {
     num_output: 4096
-    kernel_size: 1
   }
 }
-layers {
+layer {
   name: "fc8-conv"
-  type: CONVOLUTION
+  type: "InnerProduct"
   bottom: "fc7-conv"
   top: "fc8-conv"
-  convolution_param {
+  inner_product_param {
     num_output: 1000
-    kernel_size: 1
   }
 }
