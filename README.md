@@ -13,7 +13,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 
 | Library         | Class                                                                                                                | Time (ms)  | forward (ms) | backward (ms) |
 |:------------------------:|:-----------------------------------------------------------------------------------------------------------:| ----------:| ------------:| -------------:|
-| NervanaSys-16            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                    |       97   |  30          |    67         |
+| **NervanaSys-16**            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                    |       **97**   |  **30**          |    **67**         |
 | NervanaSys-32            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                    |      109   |  31          |    78         |
 | fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                             |      136   |  45          |    91         |
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)        |      177   |  42          |   135         |
@@ -25,7 +25,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 
 | Library                  | Class                                                                                                                    | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
-| NervanaSys-16            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |         364       |  119                    |   245                    |
+| **NervanaSys-16**            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |         **364**       |  **119**                    |   **245**                    |
 | NervanaSys-32            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |         410       |  126                    |   284                    |
 | fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                                          |         407       |  139                    |   268                    |
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     |         723       |  176                    |   547                    |
@@ -37,7 +37,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 
 | Library                  | Class                                                                                                                    | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
-| NervanaSys-16            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        530        |  166                    |   364                    |
+| **NervanaSys-16**            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        **530**        |  **166**                    |   **364**                    |
 | NervanaSys-32            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        629        |  173                    |   456                    |
 | fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                                          |       1092        |  355                    |   737                    |
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     |       1229        |  408                    |   821                    |
@@ -52,7 +52,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 
 | Original Library         | Class/Function Benchmarked                                                                                               | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
-| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                                          |  256              |  101                    | 155                      |
+| **fbfft**                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                                          |  **256**              |  **101**                    | **155**                      |
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | 977               |  201                    | 776                      |
 | cuda-convnet**           | [pylearn2.cuda_convnet](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu)   | 1077              |  312                    | 765                      |
 | CuDNN R2 *               | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    | 1019              |  269                    | 750                      |
@@ -63,7 +63,8 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 | _cherry-picking_****     | _best per layer_                                                                                                         | _235_             |  _79_                   |   _155_                  |
 
 This table is ___NOT UPDATED For TITAN-X___. These numbers below were on Titan Black and are here only for informational and legacy purposes.
-| Original Library         | Class/Function Benchmarked                                                                                               | Time (ms)         | forward (ms)            | backward (ms)            |
+
+| Original Library         | Class/Function Benchmarked | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | Theano (experimental)*** | [conv2d_fft](https://github.com/Theano/Theano/blob/master/theano/sandbox/cuda/fftconv.py)                                | **1178**          |  **304**                | **874**                  |
 | Torch-7                  | [nn.SpatialConvolutionBHWD](https://github.com/qassemoquab/nnbhwd/blob/master/SpatialConvolutionBHWD.lua)                | 1892              |  581                    | 1311                     |
