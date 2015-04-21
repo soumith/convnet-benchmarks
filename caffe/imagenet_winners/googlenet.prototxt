@@ -1885,41 +1885,17 @@ layers {
   }
 }
 layers {
-  name: "fc6-conv"
-  type: CONVOLUTION
+  name: "fc6"
+  type: INNER_PRODUCT
   bottom: "pool5/7x7_s1"
-  top: "fc6-conv"
-  blobs_lr: 1
-  blobs_lr: 2 
-  weight_decay: 1
-  weight_decay: 0 
-  convolution_param {
+  top: "fc6"
+  inner_product_param {
     num_output: 1000
-    kernel_size: 1
   }
 }
 layers {
-  name: "fc6-conv/relu"
+  name: "fc6/relu"
   type: RELU
-  bottom: "fc6-conv"
-  top: "fc6-conv"
+  bottom: "fc6"
+  top: "fc6"
 }
-
-#layers {
-#  name: "pool5/drop_7x7_s1"
-#  type: DROPOUT
-#  bottom: "pool5/7x7_s1"
-#  top: "pool5/7x7_s1"
-#  dropout_param {
-#    dropout_ratio: 0.4
-#  }
-#}
-#layers {
-#  name: "loss3/classifier"
-#  type: INNER_PRODUCT
-#  bottom: "pool5/7x7_s1"
-#  top: "loss3/classifier"
-#  inner_product_param {
-#    num_output: 1000
-#  }
-#}

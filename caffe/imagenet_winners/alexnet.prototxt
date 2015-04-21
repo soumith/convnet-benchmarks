@@ -188,29 +188,29 @@ layers {
     stride: 2
   }
 }
-layer {
-  name: "fc6-conv"
-  type: "InnerProduct"
+layers {
+  name: "fc6"
+  type: INNER_PRODUCT
   bottom: "pool5/3x3_s2"
-  top: "fc6-conv"
+  top: "fc6"
   inner_product_param {
     num_output: 4096
   }
 }
-layer {
-  name: "fc7-conv"
-  type: "InnerProduct"
-  bottom: "fc6-conv"
-  top: "fc7-conv"
+layers {
+  name: "fc7"
+  type: INNER_PRODUCT
+  bottom: "fc6"
+  top: "fc7"
   inner_product_param {
     num_output: 4096
   }
 }
-layer {
-  name: "fc8-conv"
-  type: "InnerProduct"
-  bottom: "fc7-conv"
-  top: "fc8-conv"
+layers {
+  name: "fc8"
+  type: INNER_PRODUCT
+  bottom: "fc7"
+  top: "fc8"
   inner_product_param {
     num_output: 1000
   }
