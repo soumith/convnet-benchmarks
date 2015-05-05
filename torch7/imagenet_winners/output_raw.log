@@ -1,0 +1,165 @@
+Running on device: Graphics Device	
+ModelType: AlexNet	Kernels: cudnn	Input shape: 128x3x224x224	
+cudnn                                   :updateOutput():      69.23	
+cudnn                                :updateGradInput():      83.05	
+cudnn                              :accGradParameters():      77.48	
+cudnn                                          :Forward:      69.23	
+cudnn                                         :Backward:     160.53	
+cudnn                                            :TOTAL:     229.76	
+ModelType: AlexNet	Kernels: nn	Input shape: 128x3x224x224	
+nn                                      :updateOutput():     132.38	
+nn                                   :updateGradInput():     112.52	
+nn                                 :accGradParameters():      94.82	
+nn                                             :Forward:     132.38	
+nn                                            :Backward:     207.34	
+nn                                               :TOTAL:     339.72	
+ModelType: AlexNet	Kernels: fbfft	Input shape: 128x3x224x224	
+WARNING: Logging before InitGoogleLogging() is written to STDERR
+I0505 17:26:10.509590 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateOutput     (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 31x31 
+I0505 17:26:11.584348 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=375.39M strategy = (FBMM cuFFT) (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 3959.91  time = 9.54ms
+I0505 17:26:11.584362 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=291.50M strategy = (FBMM FBFFT) (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 7185.05  time = 5.26ms
+I0505 17:26:11.584365 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=291.50M strategy = (FBMM FBFFT) (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 7185.05  time = 5.26ms
+I0505 17:26:11.584368 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateGradInput  (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 31x31 
+I0505 17:26:12.499948 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=380.63M strategy = (FBMM cuFFT) (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 4061.46  time = 9.30ms
+I0505 17:26:12.499959 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=229.64M strategy = (FBMM FBFFT) (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 8003.12  time = 4.72ms
+I0505 17:26:12.499963 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=229.64M strategy = (FBMM FBFFT) (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 8003.12  time = 4.72ms
+I0505 17:26:12.499964 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = accGradParameters(b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 31x31 
+I0505 17:26:13.419617 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=378.54M strategy = (FBMM cuFFT) (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 3827.26  time = 9.87ms
+I0505 17:26:13.419628 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=244.32M strategy = (FBMM FBFFT) (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 7173.87  time = 5.27ms
+I0505 17:26:13.419631 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=244.32M strategy = (FBMM FBFFT) (b x p x f) = 128x64x192 (input rows x cols) = 31x31 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 7173.87  time = 5.27ms
+I0505 17:26:13.432436 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateOutput     (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x15 
+I0505 17:26:14.064550 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=297.14M strategy = (Many cuFFT) (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x16  GReductions(virtual fmas)/s = 2154.02  time = 8.87ms
+I0505 17:26:14.064561 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=214.96M strategy = (Many FBFFT) (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3490.91  time = 5.47ms
+I0505 17:26:14.064563 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=214.96M strategy = (Many FBFFT) (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3490.91  time = 5.47ms
+I0505 17:26:14.064566 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateGradInput  (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x15 
+I0505 17:26:14.694813 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=298.98M strategy = (Many cuFFT) (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x16  GReductions(virtual fmas)/s = 2248.75  time = 8.50ms
+I0505 17:26:14.694823 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=193.99M strategy = (Many FBFFT) (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3870.26  time = 4.94ms
+I0505 17:26:14.694825 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=193.99M strategy = (Many FBFFT) (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3870.26  time = 4.94ms
+I0505 17:26:14.694828 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = accGradParameters(b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x15 
+I0505 17:26:15.291407 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=294.13M strategy = (Many cuFFT) (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x16  GReductions(virtual fmas)/s = 2257.73  time = 8.46ms
+I0505 17:26:15.291419 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=236.98M strategy = (Many FBFFT) (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3644.29  time = 5.24ms
+I0505 17:26:15.291421 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=236.98M strategy = (Many FBFFT) (b x p x f) = 128x192x384 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3644.29  time = 5.24ms
+I0505 17:26:15.305467 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateOutput     (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x15 
+I0505 17:26:16.068344 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=364.77M strategy = (Many cuFFT) (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x16  GReductions(virtual fmas)/s = 2379.12  time = 10.71ms
+I0505 17:26:16.068354 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=239.08M strategy = (Many FBFFT) (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3944.71  time = 6.46ms
+I0505 17:26:16.068356 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=239.08M strategy = (Many FBFFT) (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3944.71  time = 6.46ms
+I0505 17:26:16.068359 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateGradInput  (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x15 
+I0505 17:26:16.817615 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=363.86M strategy = (Many cuFFT) (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x16  GReductions(virtual fmas)/s = 2464.17  time = 10.34ms
+I0505 17:26:16.817626 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=252.71M strategy = (Many FBFFT) (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4110.21  time = 6.20ms
+I0505 17:26:16.817628 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=252.71M strategy = (Many FBFFT) (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4110.21  time = 6.20ms
+I0505 17:26:16.817631 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = accGradParameters(b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x15 
+I0505 17:26:17.527192 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=356.91M strategy = (Many cuFFT) (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x16  GReductions(virtual fmas)/s = 2496.56  time = 10.21ms
+I0505 17:26:17.527204 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=297.80M strategy = (Many FBFFT) (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3929.13  time = 6.48ms
+I0505 17:26:17.527205 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=297.80M strategy = (Many FBFFT) (b x p x f) = 128x384x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3929.13  time = 6.48ms
+I0505 17:26:17.534040 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateOutput     (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x15 
+I0505 17:26:18.118405 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=265.55M strategy = (Many cuFFT) (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x16  GReductions(virtual fmas)/s = 2175.58  time = 7.81ms
+I0505 17:26:18.118417 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=181.40M strategy = (Many FBFFT) (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3611.78  time = 4.70ms
+I0505 17:26:18.118418 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=181.40M strategy = (Many FBFFT) (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3611.78  time = 4.70ms
+I0505 17:26:18.118420 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateGradInput  (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x15 
+I0505 17:26:18.690752 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=264.50M strategy = (Many cuFFT) (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x16  GReductions(virtual fmas)/s = 2277.43  time = 7.46ms
+I0505 17:26:18.690762 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=182.45M strategy = (Many FBFFT) (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3922.63  time = 4.33ms
+I0505 17:26:18.690765 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=182.45M strategy = (Many FBFFT) (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3922.63  time = 4.33ms
+I0505 17:26:18.690774 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = accGradParameters(b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x15 
+I0505 17:26:19.242434 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=261.62M strategy = (Many cuFFT) (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 15x16  GReductions(virtual fmas)/s = 2310.74  time = 7.35ms
+I0505 17:26:19.242445 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=210.76M strategy = (Many FBFFT) (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3758.22  time = 4.52ms
+I0505 17:26:19.242449 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=210.76M strategy = (Many FBFFT) (b x p x f) = 128x256x256 (input rows x cols) = 15x15 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3758.22  time = 4.52ms
+fbfft                                   :updateOutput():      44.46	
+fbfft                                :updateGradInput():      46.23	
+fbfft                              :accGradParameters():      43.76	
+fbfft                                          :Forward:      44.46	
+fbfft                                         :Backward:      89.99	
+fbfft                                            :TOTAL:     134.45	
+ModelType: VGG Model-A	Kernels: cudnn	Input shape: 64x3x224x224	
+cudnn                                   :updateOutput():     337.17	
+cudnn                                :updateGradInput():     396.36	
+cudnn                              :accGradParameters():     350.38	
+cudnn                                          :Forward:     337.17	
+cudnn                                         :Backward:     746.74	
+cudnn                                            :TOTAL:    1083.91	
+ModelType: VGG Model-A	Kernels: nn	Input shape: 64x3x224x224	
+nn                                      :updateOutput():     344.24	
+nn                                   :updateGradInput():     376.29	
+nn                                 :accGradParameters():     368.62	
+nn                                             :Forward:     344.24	
+nn                                            :Backward:     744.91	
+nn                                               :TOTAL:    1089.15	
+ModelType: VGG Model-A	Kernels: fbfft	Input shape: 64x3x224x224	
+I0505 17:26:59.683387 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateOutput     (b x p x f) = 64x3x64 (input rows x cols) = 226x226 (filter rows x cols) = 3x3 (common rows x cols) = 226x226 
+I0505 17:27:00.119372 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=1952.88M strategy = (Batch FBFFT) (b x p x f) = 64x3x64 (input rows x cols) = 226x226 (filter rows x cols) = 3x3 (common rows x cols) = 256x256  GReductions(virtual fmas)/s = 211.88  time = 26.66ms
+I0505 17:27:00.119384 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=1952.88M strategy = (Batch FBFFT) (b x p x f) = 64x3x64 (input rows x cols) = 226x226 (filter rows x cols) = 3x3 (common rows x cols) = 256x256  GReductions(virtual fmas)/s = 211.88  time = 26.66ms
+I0505 17:27:00.119386 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateGradInput  (b x p x f) = 64x3x64 (input rows x cols) = 226x226 (filter rows x cols) = 3x3 (common rows x cols) = 226x226 
+I0505 17:27:00.501482 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=1242.30M strategy = (Batch FBFFT) (b x p x f) = 64x3x64 (input rows x cols) = 226x226 (filter rows x cols) = 3x3 (common rows x cols) = 256x256  GReductions(virtual fmas)/s = 339.35  time = 16.65ms
+I0505 17:27:00.501493 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=1242.30M strategy = (Batch FBFFT) (b x p x f) = 64x3x64 (input rows x cols) = 226x226 (filter rows x cols) = 3x3 (common rows x cols) = 256x256  GReductions(virtual fmas)/s = 339.35  time = 16.65ms
+I0505 17:27:00.501497 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = accGradParameters(b x p x f) = 64x3x64 (input rows x cols) = 226x226 (filter rows x cols) = 3x3 (common rows x cols) = 226x226 
+I0505 17:27:00.925504 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=1241.25M strategy = (Batch FBFFT) (b x p x f) = 64x3x64 (input rows x cols) = 226x226 (filter rows x cols) = 3x3 (common rows x cols) = 256x256  GReductions(virtual fmas)/s = 240.71  time = 23.47ms
+I0505 17:27:00.925513 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=1241.25M strategy = (Batch FBFFT) (b x p x f) = 64x3x64 (input rows x cols) = 226x226 (filter rows x cols) = 3x3 (common rows x cols) = 256x256  GReductions(virtual fmas)/s = 240.71  time = 23.47ms
+fbfft                                   :updateOutput():     353.17	
+fbfft                                :updateGradInput():     400.65	
+fbfft                              :accGradParameters():     329.45	
+fbfft                                          :Forward:     353.17	
+fbfft                                         :Backward:     730.10	
+fbfft                                            :TOTAL:    1083.26	
+ModelType: OverFeat[fast]	Kernels: cudnn	Input shape: 128x3x231x231	
+cudnn                                   :updateOutput():     234.52	
+cudnn                                :updateGradInput():     302.58	
+cudnn                              :accGradParameters():     264.28	
+cudnn                                          :Forward:     234.52	
+cudnn                                         :Backward:     566.86	
+cudnn                                            :TOTAL:     801.38	
+ModelType: OverFeat[fast]	Kernels: nn	Input shape: 128x3x231x231	
+nn                                      :updateOutput():     380.10	
+nn                                   :updateGradInput():     270.30	
+nn                                 :accGradParameters():     226.31	
+nn                                             :Forward:     380.10	
+nn                                            :Backward:     496.61	
+nn                                               :TOTAL:     876.72	
+ModelType: OverFeat[fast]	Kernels: fbfft	Input shape: 128x3x231x231	
+I0505 17:27:50.931972 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateOutput     (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 28x28 
+I0505 17:27:52.513263 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=581.96M strategy = (FBMM cuFFT) (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 3998.35  time = 15.42ms
+I0505 17:27:52.513278 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=429.92M strategy = (FBMM FBFFT) (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 6893.10  time = 8.94ms
+I0505 17:27:52.513280 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=429.92M strategy = (FBMM FBFFT) (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 6893.10  time = 8.94ms
+I0505 17:27:52.513283 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateGradInput  (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 28x28 
+I0505 17:27:53.944504 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=513.02M strategy = (Batch cuFFT) (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 28x32  GReductions(virtual fmas)/s = 4257.01  time = 14.48ms
+I0505 17:27:53.944519 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=351.27M strategy = (FBMM FBFFT) (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 7197.13  time = 8.57ms
+I0505 17:27:53.944520 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=351.27M strategy = (FBMM FBFFT) (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 7197.13  time = 8.57ms
+I0505 17:27:53.944525 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = accGradParameters(b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 28x28 
+I0505 17:27:55.451619 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=510.26M strategy = (Batch cuFFT) (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 28x32  GReductions(virtual fmas)/s = 4104.10  time = 15.02ms
+I0505 17:27:55.451634 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=398.46M strategy = (FBMM FBFFT) (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 6566.82  time = 9.39ms
+I0505 17:27:55.451637 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=398.46M strategy = (FBMM FBFFT) (b x p x f) = 128x96x256 (input rows x cols) = 28x28 (filter rows x cols) = 5x5 (common rows x cols) = 32x32  GReductions(virtual fmas)/s = 6566.82  time = 9.39ms
+I0505 17:27:55.470185 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateOutput     (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 14x14 
+I0505 17:27:57.291265 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=407.11M strategy = (Many cuFFT) (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 15x14  GReductions(virtual fmas)/s = 2365.48  time = 12.51ms
+I0505 17:27:57.291278 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=325.06M strategy = (Many FBFFT) (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3410.59  time = 8.68ms
+I0505 17:27:57.291281 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=325.06M strategy = (Many FBFFT) (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3410.59  time = 8.68ms
+I0505 17:27:57.291285 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateGradInput  (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 14x14 
+I0505 17:27:59.133831 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=411.04M strategy = (Many cuFFT) (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 15x14  GReductions(virtual fmas)/s = 2480.80  time = 11.93ms
+I0505 17:27:59.133846 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=295.70M strategy = (Many FBFFT) (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3747.59  time = 7.90ms
+I0505 17:27:59.133848 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=295.70M strategy = (Many FBFFT) (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3747.59  time = 7.90ms
+I0505 17:27:59.133852 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = accGradParameters(b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 14x14 
+I0505 17:28:00.783583 30142 SpatialConvolutionCuFFTTuner.cpp:115] Found best cufft result   Buffer=399.25M strategy = (Many cuFFT) (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 15x14  GReductions(virtual fmas)/s = 2531.63  time = 11.69ms
+I0505 17:28:00.783597 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=383.78M strategy = (Many FBFFT) (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3564.11  time = 8.30ms
+I0505 17:28:00.783601 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=383.78M strategy = (Many FBFFT) (b x p x f) = 128x256x512 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 3564.11  time = 8.30ms
+I0505 17:28:00.804857 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateOutput     (b x p x f) = 128x512x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 14x14 
+I0505 17:28:01.113546 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=948.96M strategy = (Many FBFFT) (b x p x f) = 128x512x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4088.76  time = 28.95ms
+I0505 17:28:01.113556 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=948.96M strategy = (Many FBFFT) (b x p x f) = 128x512x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4088.76  time = 28.95ms
+I0505 17:28:01.113559 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateGradInput  (b x p x f) = 128x512x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 14x14 
+I0505 17:28:01.375329 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=891.29M strategy = (Many FBFFT) (b x p x f) = 128x512x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4334.18  time = 27.31ms
+I0505 17:28:01.375337 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=891.29M strategy = (Many FBFFT) (b x p x f) = 128x512x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4334.18  time = 27.31ms
+I0505 17:28:01.375342 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = accGradParameters(b x p x f) = 128x512x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 14x14 
+I0505 17:28:01.661890 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=1301.28M strategy = (Many FBFFT) (b x p x f) = 128x512x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4139.71  time = 28.60ms
+I0505 17:28:01.661898 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=1301.28M strategy = (Many FBFFT) (b x p x f) = 128x512x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4139.71  time = 28.60ms
+I0505 17:28:01.716519 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateOutput     (b x p x f) = 128x1024x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 14x14 
+I0505 17:28:02.401914 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=1629.49M strategy = (Many FBFFT) (b x p x f) = 128x1024x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4395.90  time = 53.86ms
+I0505 17:28:02.401923 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=1629.49M strategy = (Many FBFFT) (b x p x f) = 128x1024x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4395.90  time = 53.86ms
+I0505 17:28:02.401927 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = updateGradInput  (b x p x f) = 128x1024x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 14x14 
+I0505 17:28:02.909543 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=1628.44M strategy = (Many FBFFT) (b x p x f) = 128x1024x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4562.17  time = 51.90ms
+I0505 17:28:02.909551 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=1628.44M strategy = (Many FBFFT) (b x p x f) = 128x1024x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4562.17  time = 51.90ms
+I0505 17:28:02.909555 30142 SpatialConvolutionCuFFTTuner.cpp:160] START exploring FFT perf for pass = accGradParameters(b x p x f) = 128x1024x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 14x14 
+I0505 17:28:03.447571 30142 SpatialConvolutionCuFFTTuner.cpp:119] Found best fbfft result   Buffer=2451.57M strategy = (Many FBFFT) (b x p x f) = 128x1024x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4367.83  time = 54.21ms
+I0505 17:28:03.447579 30142 SpatialConvolutionCuFFTTuner.cpp:166] Found best result   Buffer=2451.57M strategy = (Many FBFFT) (b x p x f) = 128x1024x1024 (input rows x cols) = 14x14 (filter rows x cols) = 3x3 (common rows x cols) = 16x16  GReductions(virtual fmas)/s = 4367.83  time = 54.21ms
+fbfft                                   :updateOutput():     139.69	
+fbfft                                :updateGradInput():     136.14	
+fbfft                              :accGradParameters():     131.44	
+fbfft                                          :Forward:     139.69	
+fbfft                                         :Backward:     267.57	
+fbfft                                            :TOTAL:     407.26	
+	
