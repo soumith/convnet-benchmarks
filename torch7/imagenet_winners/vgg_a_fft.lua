@@ -27,11 +27,14 @@ function vgg_a(lib)
             features:add(SpatialMaxPooling(2,2,2,2))
          else
             local oChannels = v
-            if lib[#lib] == 'fbfft' then
-               features:add(SpatialConvolution(iChannels,oChannels,3,3,1,1,1,1,32,32))
-               -- features:add(cudnn.SpatialConvolution(iChannels,oChannels,3,3,1,1,1,1))
-            else
-               features:add(SpatialConvolution(iChannels,oChannels,3,3,1,1,1,1))
+            if k == 1 then
+               features:add(cudnn.SpatialConvolution(iChannels,oChannels,3,3,1,1,1,1))
+            elseif k == 3 or k == 5 or k == 6 then
+               features:add(nn.SpatialConvolutionFFTTiled(iChannels,oChannels,3,3,1,1,1,1,32,32,'none'))
+            elseif k == 8 or k == 9 then
+               features:add(nn.SpatialConvolutionFBFFT(iChannels,oChannels,3,3,1,1,1,1,'none'))
+            elseif k == 11 or k == 12 then
+               features:add(nn.SpatialConvolutionFBFFTGemm(iChannels,oChannels,3,3,1,1,1,1,'none'))
             end
             features:add(ReLU(true))
             iChannels = oChannels;

@@ -5,13 +5,16 @@ require 'fbcunn'
 -- require 'nnbhwd' -- not compiling anymore, file an issue
 local nets = {}
 -- nets[#nets+1] = require 'alexnet'
-nets[#nets+1] = require 'vgg_a'
+-- nets[#nets+1] = require 'vgg_a'
 -- nets[#nets+1] = require 'overfeat'
 -- nets[#nets+1] = require 'googlenet'
 
 local libs = {}
-libs[#libs+1] = {nn.SpatialConvolutionFFTTiled, cudnn.SpatialMaxPooling, cudnn.ReLU, 'BDHW', 'fbfft'}
-libs[#libs+1] = {cudnn.SpatialConvolution, cudnn.SpatialMaxPooling, cudnn.ReLU, 'BDHW', 'cudnn'}
+-- nets[#nets+1] = require 'alexnet_fft'
+-- libs[#libs+1] = {nn.SpatialConvolutionFFTTiled, cudnn.SpatialMaxPooling, cudnn.ReLU, 'BDHW', 'fbfft'}
+
+nets[#nets+1] = require 'vgg_a_fft'
+libs[#libs+1] = {cudnn.SpatialConvolution, cudnn.SpatialMaxPooling, cudnn.ReLU, 'BDHW', 'fbfft'}
 -- libs[#libs+1] = {nn.SpatialConvolutionMM, nn.SpatialMaxPooling, nn.ReLU, 'BDHW', 'nn'}
 -- libs[#libs+1] = {nn.SpatialConvolutionBHWD, nn.SpatialMaxPoolingBHWD, nn.ReLU, 'BHWD', 'nnBHWD'}
 
@@ -37,6 +40,7 @@ for i=1,#nets do
       collectgarbage()
       local model,model_name,size = nets[i](libs[j])
       model=model:cuda()
+      print(model)
       local input = makeInput(libs[j],size):cuda()
       local lib_name = libs[j][5]
       print('ModelType: ' .. model_name, 'Kernels: ' .. lib_name,
