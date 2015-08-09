@@ -5,6 +5,12 @@ luarocks install cltorch # to install cltorch matrix layer
 luarocks install clnn    # to install clnn network layer
 ```
 
+For imagenet_winners benchmarks (overfeat and vgg)
+Run the benchmark using:
+```bash
+th imagenet_winners/benchmark.lua
+```
+
 For layerwise benchmarks (table in frontpage with L1,L2,L3,L4,L5)
 Run the benchmark using:
 ```bash
