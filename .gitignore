@@ -2,6 +2,7 @@
 
 deepcl/DeepCL/
 caffe/caffe/
+greentea/caffe/
 ccv/ccv/
 ccv/cwc-bench
 ccv/cwc-bench-runtime.o
