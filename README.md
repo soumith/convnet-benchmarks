@@ -15,7 +15,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 |:------------------------:|:-----------------------------------------------------------------------------------------------------------:| ----------:| ------------:| -------------:|
 | **NervanaSys-16**            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                    |       **97**   |  **30**          |    **67**         |
 | NervanaSys-32            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                    |      109   |  31          |    78         |
-| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                             |      136   |  45          |    91         |
+| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                             |      136   |  45          |    91         |
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)        |      177   |  42          |   135         |
 | CuDNN (R2) *             | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)       |      231   |  70          |   161         |
 | Caffe (native)           | [ConvolutionLayer](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                |      324   | 121          |   203         |
@@ -27,7 +27,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | **NervanaSys-16**            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |         **364**       |  **119**                    |   **245**                    |
 | NervanaSys-32            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |         410       |  126                    |   284                    |
-| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                                          |         407       |  139                    |   268                    |
+| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                          |         407       |  139                    |   268                    |
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     |         723       |  176                    |   547                    |
 | CuDNN (R2) *             | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |         810       |  234                    |   576                    |
 | Caffe                    | [ConvolutionLayer](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                             |         823       |  355                    |   468                    |
@@ -39,7 +39,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | **NervanaSys-16**            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        **530**        |  **166**                    |   **364**                    |
 | NervanaSys-32            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        629        |  173                    |   456                    |
-| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                                          |       1092        |  355                    |   737                    |
+| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                          |       1092        |  355                    |   737                    |
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     |       1229        |  408                    |   821                    |
 | CuDNN (R2) *             | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       1099        |  342                    |   757                    |
 | Caffe                    | [ConvolutionLayer](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                             |       1068        |  323                    |   745                    |
@@ -52,7 +52,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 
 | Original Library         | Class/Function Benchmarked                                                                                               | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
-| **fbfft**                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                                          |  **256**              |  **101**                    | **155**                      |
+| **fbfft**                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                          |  **256**              |  **101**                    | **155**                      |
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     | 977               |  201                    | 776                      |
 | cuda-convnet**           | [pylearn2.cuda_convnet](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu)   | 1077              |  312                    | 765                      |
 | CuDNN R2 *               | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    | 1019              |  269                    | 750                      |
@@ -72,7 +72,7 @@ This table is ___NOT UPDATED For TITAN-X___. These numbers below were on Titan B
 | Theano (legacy)          | [conv2d](https://github.com/Theano/Theano/blob/master/theano/sandbox/cuda/blas.py#L674)                                  | 70774             |  3833                   | 66941                    |
 
 * \* indicates that the library was tested with Torch bindings of the specific kernels.
-* ** indicates that the library was tested with Pylearn2 bindings. 
+* ** indicates that the library was tested with Pylearn2 bindings.
 * *** This is an experimental module which used FFT to calculate convolutions. [It uses a lot of memory according to @benanne](https://github.com/soumith/convnet-benchmarks/pull/5#issuecomment-50548946)
 * **** The last row shows results obtainable when choosing the best-performing library for each layer.
 * L1 - Input: `128x128` Batch-size `128`, Feature maps:    `3->96`,  Kernel Size: `11x11`,  Stride: `1x1`
@@ -88,14 +88,14 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 
 | Original Library         | Class/Function Benchmarked                                                                                                        |  L1 |   L2 |  L3 | L4 |  L5 | Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:| ---:| ----:| ---:| --:| ---:| -----:|
-| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                                                   | 57 |  27 |   6 |  2 |  9 | 101 |
+| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                                   | 57 |  27 |   6 |  2 |  9 | 101 |
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 36 | 113 |  40 |  4 |  8 | 201 |
 | cuda-convnet**           | [pylearn2.cuda_convnet](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu)            | 38 | 183 |  68 |  7 | 16 | 312 |
 | CuDNN R2                 |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                              | 56 | 143 |  53 |  6 | 11 | 269 |
 | Theano                   | CorrMM                                                                                                                            | 91 | 143 | 121 | 24 | 28 | 407 |
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 93 | 136 | 116 | 24 | 27 | 396 |
 | Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       | 94 | 149 | 123 | 24 | 28 | 418 |
-| DeepCL                   | [ConvolutionLayer](https://github.com/hughperkins/DeepCL/blob/master/src/ConvolutionalLayer.cpp)                                  | 738| 1241 | 518| 47 |104 |2648 | 
+| DeepCL                   | [ConvolutionLayer](https://github.com/hughperkins/DeepCL/blob/master/src/ConvolutionalLayer.cpp)                                  | 738| 1241 | 518| 47 |104 |2648 |
 | _cherry-picking_****     | _best per layer_                                                                                                                  |_36_|_27_ |  _6_| _2_| _8_|  79 |
 
 ###### backward (gradInput + gradWeight)
@@ -103,13 +103,12 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 
 | Original Library         | Class/Function Benchmarked                                                                                                        |  L1 | L2  |  L3 | L4 |  L5| Total |
 |:------------------------:|:---------------------------------------------------------------------------------------------------------------------------------:| ---:| ---:| ---:| --:| --:| -----:|
-| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/sync/src/fft)                                                   |  76 |  45 |  12 |  4 | 18 | 155   |
+| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                                   |  76 |  45 |  12 |  4 | 18 | 155   |
 | cuda-convnet2 *          | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                              | 103 | 467 | 162 | 15 | 29 | 776   |
 | cuda-convnet**           | [pylearn2.cuda_convnet](https://github.com/lisa-lab/pylearn2/blob/master/pylearn2/sandbox/cuda_convnet/filter_acts.cu)            | 136 | 433 | 147 | 15 | 34 | 765   |
 | CuDNN R2                 |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                              | 139 | 401 | 159 | 19 | 32 | 750   |
 | Theano                   | CorrMM                                                                                                                            | 179 | 405 | 174 | 29 | 31 | 818   |
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 200 | 405 | 172 | 28 | 30 | 835   |
 | Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       | 206 | 432 | 178 | 29 | 32 | 877   |
-| DeepCL                   | [ConvolutionLayer](https://github.com/hughperkins/DeepCL/blob/master/src/ConvolutionalLayer.cpp)                                  | 484 |2144 | 747 | 59 |198 |  3632 | 
+| DeepCL                   | [ConvolutionLayer](https://github.com/hughperkins/DeepCL/blob/master/src/ConvolutionalLayer.cpp)                                  | 484 |2144 | 747 | 59 |198 |  3632 |
 | _cherry-picking_****     | _best per layer_                                                                                                                  | _76_| _45_| _12_|_4_ |_18_|_155_  |
-
