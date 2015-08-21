@@ -1,6 +1,16 @@
 #!/bin/bash
 
-git clone --recursive https://github.com/hughperkins/DeepCL.git
-( cd DeepCL/python; python setup.py build_ext -i )
-( cd DeepCL/python; python setup.py install )
+sudo apt-get install -y python2.7 python2.7-dev python-virtualenv cmake cmake-curses-gui make g++ gcc git
+git clone --recursive https://github.com/hughperkins/DeepCL.git -b 8.x
+cd DeepCL
+mkdir build
+cd build
+cmake ..
+make -j 4 install
+cd ../python
+virtualenv ../env
+source ../env/bin/activate
+source ../dist/bin/activate.sh
+python setup.py install
+cd ../..
 
