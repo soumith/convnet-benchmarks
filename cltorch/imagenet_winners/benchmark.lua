@@ -4,9 +4,9 @@ require 'clnn'
 
 local nets = {}
 nets[#nets+1] = require 'imagenet_winners/overfeat'
+nets[#nets+1] = require 'imagenet_winners/alexnet'
 nets[#nets+1] = require 'imagenet_winners/vgg_a'
---nets[#nets+1] = require 'imagenet_winners/alexnet'  -- this needs atomic spatialmaxpooling
---nets[#nets+1] = require 'imagenet_winners/googlenet'  -- this needs spatialaveragepooling
+nets[#nets+1] = require 'imagenet_winners/googlenet'
 
 local libs = {}
 libs[#libs+1] = {nn.SpatialConvolutionMM, nn.SpatialMaxPooling, nn.ReLU, 'BDHW', 'clnn'}
@@ -35,18 +35,18 @@ for i=1,#nets do
       model=model:cl()
       local input = makeInput(libs[j],size):cl()
       local lib_name = libs[j][5]
-      print('ModelType: ' .. model_name, 'Kernels: ' .. lib_name, 
-            'Input shape: ' .. input:size(1) .. 'x' .. input:size(2) .. 
+      print('ModelType: ' .. model_name, 'Kernels: ' .. lib_name,
+            'Input shape: ' .. input:size(1) .. 'x' .. input:size(2) ..
                'x' .. input:size(3) .. 'x' .. input:size(4))
-      
+
       -- dry-run
       model:zeroGradParameters()
       local output = model:updateOutput(input)
       local gradInput = model:updateGradInput(input, output)
       model:accGradParameters(input, output)
-      cltorch.synchronize()      
+      cltorch.synchronize()
       collectgarbage()
-      
+
       local tmf, tmbi, tmbg
       sys.tic()
       for t = 1,steps do
