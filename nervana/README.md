@@ -16,7 +16,7 @@ make
 sudo make install
 
 cd ..
-git clone git@github.com:NervanaSystems/nervanagpu.git
+git clone -b convnew git@github.com:NervanaSystems/nervanagpu.git
 cd nervanagpu
 make kernels
 make python
