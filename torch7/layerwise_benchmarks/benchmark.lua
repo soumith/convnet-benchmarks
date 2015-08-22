@@ -2,7 +2,7 @@ require 'sys'
 require 'cunn'
 require 'ccn2'
 require 'cudnn'
-require 'fbcunn'
+-- require 'fbcunn'
 -- require 'nnbhwd'
 
 print('Running on device: ' .. cutorch.getDeviceProperties(cutorch.getDevice()).name)
@@ -10,7 +10,7 @@ print('Running on device: ' .. cutorch.getDeviceProperties(cutorch.getDevice()).
 steps = 10 -- nb of steps in loop to average perf
 
 runs = {
-   
+
    {
       -- first layer
       ni = 3,
@@ -81,10 +81,10 @@ for i,run in ipairs(runs) do
    local mods = {}
    mods[1] = cudnn.SpatialConvolution(ni,no,kw,kh,dw,dh):cuda()
    mods[2] = nn.SpatialConvolutionMM(ni,no,kw,kh,dw,dh):cuda()
-   mods[3] = ccn2.SpatialConvolution(ni,no,kw,dw,0,1,4):cuda()
-   mods[4] = nn.SpatialConvolutionCuFFT(ni,no,kw,kh,dw,dh):cuda()
+   -- mods[3] = ccn2.SpatialConvolution(ni,no,kw,dw,0,1,4):cuda()
+   -- mods[4] = nn.SpatialConvolutionCuFFT(ni,no,kw,kh,dw,dh):cuda()
    -- mods[4] = nn.SpatialConvolutionBHWD(ni,no,kw,kh,dw,dh):cuda()
-   for j=1,#mods do   
+   for j=1,#mods do
       local tmf, tmbi, tmbg
       collectgarbage()
       if torch.typename(mods[j]) == 'ccn2.SpatialConvolution' then
@@ -93,7 +93,7 @@ for i,run in ipairs(runs) do
          i1 = torch.randn(bs, ih, iw, ni):cuda();
       else
          i1 = torch.randn(bs, ni, ih, iw):cuda()
-      end         
+      end
       collectgarbage()
       local o1 = mods[j]:forward(i1)
       cutorch.synchronize()

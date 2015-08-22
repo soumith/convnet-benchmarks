@@ -30,6 +30,7 @@ end
 local function googlenet(lib)
    local SpatialConvolution = lib[1]
    local SpatialMaxPooling = lib[2]
+   local SpatialAveragePooling = torch.type(lib[2]) == 'nn.SpatialMaxPooling' and nn.SpatialAveragePooling or cudnn.SpatialAveragePooling
    local ReLU = lib[3]
    local model = nn.Sequential()
    model:add(SpatialConvolution(3,64,7,7,2,2)):add(ReLU(true))
@@ -50,7 +51,7 @@ local function googlenet(lib)
    model:add(SpatialMaxPooling(3,3,2,2))
    model:add(inception(2, 832, {{256},{160,320},{32,128},{3,128}},lib)) -- 5(a)
    model:add(inception(2, 832, {{384},{192,384},{48,128},{3,128}},lib)) -- 5(b)
-   model:add(nn.SpatialAveragePooling(5,5,1,1))
+   model:add(SpatialAveragePooling(5,5,1,1))
    model:add(nn.View(1024))
    -- model:add(nn.Dropout(0.4))
    model:add(nn.Linear(1024,1000)):add(nn.ReLU(true))

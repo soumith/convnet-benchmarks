@@ -1,65 +1,34 @@
-Running on device: Graphics Device	
-ModelType: AlexNet	Kernels: cudnn	Input shape: 128x3x224x224	
-cudnn                                   :updateOutput():      70.40	
-cudnn                                :updateGradInput():      82.65	
-cudnn                              :accGradParameters():      79.08	
-cudnn                                          :Forward:      70.40	
-cudnn                                         :Backward:     161.73	
-cudnn                                            :TOTAL:     232.14	
-ModelType: AlexNet	Kernels: nn	Input shape: 128x3x224x224	
-nn                                      :updateOutput():     132.71	
-nn                                   :updateGradInput():     114.23	
-nn                                 :accGradParameters():      96.19	
-nn                                             :Forward:     132.71	
-nn                                            :Backward:     210.42	
-nn                                               :TOTAL:     343.13	
-ModelType: AlexNet	Kernels: fbfft	Input shape: 128x3x224x224	
-fbfft                                   :updateOutput():      45.18	
-fbfft                                :updateGradInput():      47.17	
-fbfft                              :accGradParameters():      44.28	
-fbfft                                          :Forward:      45.18	
-fbfft                                         :Backward:      91.45	
-fbfft                                            :TOTAL:     136.64	
-ModelType: VGG Model-A	Kernels: cudnn	Input shape: 64x3x224x224	
-cudnn                                   :updateOutput():     342.81	
-cudnn                                :updateGradInput():     402.78	
-cudnn                              :accGradParameters():     355.36	
-cudnn                                          :Forward:     342.81	
-cudnn                                         :Backward:     758.14	
-cudnn                                            :TOTAL:    1100.95	
-ModelType: VGG Model-A	Kernels: nn	Input shape: 64x3x224x224	
-nn                                      :updateOutput():     350.80	
-nn                                   :updateGradInput():     384.23	
-nn                                 :accGradParameters():     371.88	
-nn                                             :Forward:     350.80	
-nn                                            :Backward:     756.11	
-nn                                               :TOTAL:    1106.92	
-ModelType: VGG Model-A	Kernels: fbfft	Input shape: 64x3x224x224	
-fbfft                                   :updateOutput():     355.63	
-fbfft                                :updateGradInput():     404.86	
-fbfft                              :accGradParameters():     333.76	
-fbfft                                          :Forward:     355.63	
-fbfft                                         :Backward:     738.62	
-fbfft                                            :TOTAL:    1094.25	
-ModelType: OverFeat[fast]	Kernels: cudnn	Input shape: 128x3x231x231	
-cudnn                                   :updateOutput():     234.40	
-cudnn                                :updateGradInput():     307.08	
-cudnn                              :accGradParameters():     269.06	
-cudnn                                          :Forward:     234.40	
-cudnn                                         :Backward:     576.14	
-cudnn                                            :TOTAL:     810.54	
-ModelType: OverFeat[fast]	Kernels: nn	Input shape: 128x3x231x231	
-nn                                      :updateOutput():     379.40	
-nn                                   :updateGradInput():     272.75	
-nn                                 :accGradParameters():     227.31	
-nn                                             :Forward:     379.40	
-nn                                            :Backward:     500.06	
-nn                                               :TOTAL:     879.45	
-ModelType: OverFeat[fast]	Kernels: fbfft	Input shape: 128x3x231x231	
-fbfft                                   :updateOutput():     139.67	
-fbfft                                :updateGradInput():     136.31	
-fbfft                              :accGradParameters():     132.33	
-fbfft                                          :Forward:     139.67	
-fbfft                                         :Backward:     268.64	
-fbfft                                            :TOTAL:     408.31	
-	
+Running on device: GeForce GTX TITAN X
+ModelType: AlexNet	Kernels: cudnn	Input shape: 128x3x224x224
+cudnn                                   :updateOutput():      32.55
+cudnn                                :updateGradInput():      30.83
+cudnn                              :accGradParameters():      33.89
+cudnn                                          :Forward:      32.55
+cudnn                                         :Backward:      64.71
+cudnn                                            :TOTAL:      97.26
+
+ModelType: VGG Model-A	Kernels: cudnn	Input shape: 64x3x224x224
+cudnn                                   :updateOutput():     197.90
+cudnn                                :updateGradInput():     213.65
+cudnn                              :accGradParameters():     209.62
+cudnn                                          :Forward:     197.90
+cudnn                                         :Backward:     423.27
+cudnn                                            :TOTAL:     621.17
+
+ModelType: OverFeat[fast]	Kernels: cudnn	Input shape: 128x3x231x231
+cudnn                                   :updateOutput():     114.47
+cudnn                                :updateGradInput():     101.73
+cudnn                              :accGradParameters():     114.71
+cudnn                                          :Forward:     114.47
+cudnn                                         :Backward:     216.44
+cudnn                                            :TOTAL:     330.92
+
+ModelType: GoogleNet	Kernels: cudnn	Input shape: 128x3x224x224
+cudnn                                   :updateOutput():     118.90
+cudnn                                :updateGradInput():     219.66
+cudnn                              :accGradParameters():     109.21
+cudnn                                          :Forward:     118.90
+cudnn                                         :Backward:     328.88
+cudnn                                            :TOTAL:     447.77
+
+
