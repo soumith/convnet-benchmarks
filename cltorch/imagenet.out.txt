@@ -1,18 +1,36 @@
-[0mRunning on device: GeForce GTX TITAN X[0m	
+Running on device: GeForce GTX TITAN X
 Using NVIDIA Corporation , OpenCL platform: NVIDIA CUDA
 Using OpenCL device: GeForce GTX TITAN X
-[0mModelType: OverFeat[fast][0m	[0mKernels: clnn[0m	[0mInput shape: 128x3x231x231[0m	
-[0mclnn                                    :updateOutput():    1173.07[0m	
-[0mclnn                                 :updateGradInput():     351.26[0m	
-[0mclnn                               :accGradParameters():    1706.39[0m	
-[0mclnn                                           :Forward:    1173.07[0m	
-[0mclnn                                          :Backward:    2057.65[0m	
-[0mclnn                                             :TOTAL:    3230.72[0m	
-[0mModelType: VGG Model-A[0m	[0mKernels: clnn[0m	[0mInput shape: 64x3x224x224[0m	
-[0mclnn                                    :updateOutput():     875.24[0m	
-[0mclnn                                 :updateGradInput():     477.55[0m	
-[0mclnn                               :accGradParameters():    2080.77[0m	
-[0mclnn                                           :Forward:     875.24[0m	
-[0mclnn                                          :Backward:    2558.32[0m	
-[0mclnn                                             :TOTAL:    3433.56[0m	
-[0m[0m	
+ModelType: OverFeat[fast]	Kernels: clnn	Input shape: 128x3x231x231
+clnn                                    :updateOutput():    1180.92
+clnn                                 :updateGradInput():     354.65
+clnn                               :accGradParameters():    1725.63
+clnn                                           :Forward:    1180.92
+clnn                                          :Backward:    2080.28
+clnn                                             :TOTAL:    3261.19
+
+ModelType: AlexNet	Kernels: clnn	Input shape: 128x3x224x224
+clnn                                    :updateOutput():     388.69
+clnn                                 :updateGradInput():     204.12
+clnn                               :accGradParameters():     370.30
+clnn                                           :Forward:     388.69
+clnn                                          :Backward:     574.42
+clnn                                             :TOTAL:     963.11
+
+ModelType: VGG Model-A	Kernels: clnn	Input shape: 64x3x224x224
+clnn                                    :updateOutput():     875.65
+clnn                                 :updateGradInput():     479.20
+clnn                               :accGradParameters():    2083.00
+clnn                                           :Forward:     875.65
+clnn                                          :Backward:    2562.20
+clnn                                             :TOTAL:    3437.85
+
+ModelType: GoogleNet	Kernels: clnn	Input shape: 128x3x224x224
+clnn                                    :updateOutput():    3027.72
+clnn                                 :updateGradInput():    1554.68
+clnn                               :accGradParameters():    2433.74
+clnn                                           :Forward:    3027.72
+clnn                                          :Backward:    3988.43
+clnn                                             :TOTAL:    7016.15
+
+
