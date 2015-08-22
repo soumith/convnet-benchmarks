@@ -67,6 +67,8 @@ function alexnet(lib)
    classifier:add(nn.Linear(4096, 1000))
    -- classifier:add(nn.LogSoftMax())
 
+   features:get(1).gradInput = nil
+
    local model = nn.Sequential()
    model:add(features):add(classifier)
 

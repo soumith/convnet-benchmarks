@@ -50,6 +50,8 @@ function vgg_a(lib)
       end
    end
 
+   features:get(1).gradInput = nil
+
    local classifier = nn.Sequential()
    classifier:add(nn.View(512*7*7))
    classifier:add(nn.Linear(512*7*7, 4096))
@@ -63,7 +65,7 @@ function vgg_a(lib)
 
    local model = nn.Sequential()
    model:add(features):add(classifier)
-   
+
    return model,'VGG Model-' .. modelType, {64,3,224,224}
 end
 

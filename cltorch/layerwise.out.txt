@@ -1,0 +1,54 @@
+[0;36m1[0m	[0ml1[0m	
+Using NVIDIA Corporation , OpenCL platform: NVIDIA CUDA
+Using OpenCL device: GeForce GTX TITAN X
+[0m   updateOutput sys.toc()[0m	[0;36m0.1102499961853[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.10596203804016[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.10403418540955[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.21330809593201[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.21355485916138[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.21345400810242[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.21531891822815[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.21532011032104[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.21628308296204[0m	
+[0m   backwards[0m	[0;36m0.42862701416016[0m	
+[0m   backwards[0m	[0;36m0.42887496948242[0m	
+[0m   backwards[0m	[0;36m0.42973709106445[0m	
+[0;36m2[0m	[0ml3[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.55879998207092[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.55877995491028[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.55866694450378[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.094888925552368[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.094869136810303[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.094879150390625[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.38145899772644[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.38126707077026[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.38134407997131[0m	
+[0m   backwards[0m	[0;36m0.47634792327881[0m	
+[0m   backwards[0m	[0;36m0.47613620758057[0m	
+[0m   backwards[0m	[0;36m0.47622323036194[0m	
+[0;36m3[0m	[0ml4[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.17146182060242[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.17142510414124[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.17141604423523[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.027024984359741[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.027138948440552[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.02699613571167[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.040662050247192[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.040784120559692[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.040785074234009[0m	
+[0m   backwards[0m	[0;36m0.067687034606934[0m	
+[0m   backwards[0m	[0;36m0.067923069000244[0m	
+[0m   backwards[0m	[0;36m0.067781209945679[0m	
+[0;36m4[0m	[0ml5[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.11678600311279[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.11677193641663[0m	
+[0m   updateOutput sys.toc()[0m	[0;36m0.11677384376526[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.058609008789062[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.058629035949707[0m	
+[0m   updateGradInput sys.toc()[0m	[0;36m0.058593034744263[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.06651496887207[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.066493988037109[0m	
+[0m   accGradParameters sys.toc()[0m	[0;36m0.06651496887207[0m	
+[0m   backwards[0m	[0;36m0.12512397766113[0m	
+[0m   backwards[0m	[0;36m0.12512302398682[0m	
+[0m   backwards[0m	[0;36m0.12510800361633[0m	
