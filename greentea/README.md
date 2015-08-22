@@ -1,3 +1,8 @@
+Download and extract viennacl:
+wget -c http://downloads.sourceforge.net/project/viennacl/1.7.x/ViennaCL-1.7.0.tar.gz?r=http%3A%2F%2Fviennacl.sourceforge.net%2Fviennacl-download.html&ts=1440274908&use_mirror=superb-dca2
+tar -xvf ViennaCL-1.7.0.tar.gz
+
+
 Install Caffe using the script:
 ```bash
 bash install.sh
