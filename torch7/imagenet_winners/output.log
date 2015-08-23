@@ -1,34 +1,34 @@
 Running on device: GeForce GTX TITAN X
 ModelType: AlexNet	Kernels: cudnn	Input shape: 128x3x224x224
-cudnn                                   :updateOutput():      32.55
-cudnn                                :updateGradInput():      30.83
-cudnn                              :accGradParameters():      33.89
-cudnn                                          :Forward:      32.55
-cudnn                                         :Backward:      64.71
-cudnn                                            :TOTAL:      97.26
+cudnn                                   :updateOutput():      32.65
+cudnn                                :updateGradInput():      30.57
+cudnn                              :accGradParameters():      33.66
+cudnn                                          :Forward:      32.65
+cudnn                                         :Backward:      64.23
+cudnn                                            :TOTAL:      96.88
 
 ModelType: VGG Model-A	Kernels: cudnn	Input shape: 64x3x224x224
-cudnn                                   :updateOutput():     197.90
-cudnn                                :updateGradInput():     213.65
-cudnn                              :accGradParameters():     209.62
-cudnn                                          :Forward:     197.90
-cudnn                                         :Backward:     423.27
-cudnn                                            :TOTAL:     621.17
+cudnn                                   :updateOutput():     197.81
+cudnn                                :updateGradInput():     211.98
+cudnn                              :accGradParameters():     209.55
+cudnn                                          :Forward:     197.81
+cudnn                                         :Backward:     421.53
+cudnn                                            :TOTAL:     619.33
 
 ModelType: OverFeat[fast]	Kernels: cudnn	Input shape: 128x3x231x231
-cudnn                                   :updateOutput():     114.47
-cudnn                                :updateGradInput():     101.73
-cudnn                              :accGradParameters():     114.71
-cudnn                                          :Forward:     114.47
-cudnn                                         :Backward:     216.44
-cudnn                                            :TOTAL:     330.92
+cudnn                                   :updateOutput():     113.62
+cudnn                                :updateGradInput():     100.37
+cudnn                              :accGradParameters():     112.88
+cudnn                                          :Forward:     113.62
+cudnn                                         :Backward:     213.25
+cudnn                                            :TOTAL:     326.87
 
 ModelType: GoogleNet	Kernels: cudnn	Input shape: 128x3x224x224
-cudnn                                   :updateOutput():     118.90
-cudnn                                :updateGradInput():     219.66
-cudnn                              :accGradParameters():     109.21
-cudnn                                          :Forward:     118.90
-cudnn                                         :Backward:     328.88
-cudnn                                            :TOTAL:     447.77
+cudnn                                   :updateOutput():     117.48
+cudnn                                :updateGradInput():     212.25
+cudnn                              :accGradParameters():      99.78
+cudnn                                          :Forward:     117.48
+cudnn                                         :Backward:     312.03
+cudnn                                            :TOTAL:     429.51
 
 

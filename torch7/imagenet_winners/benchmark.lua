@@ -1,6 +1,9 @@
 require 'sys'
 require 'cunn'
 require 'cudnn'
+cudnn.benchmark = true -- run manual auto-tuner provided by cudnn
+cudnn.verbose = false
+
 -- require 'fbcunn'
 -- require 'nnbhwd' -- not compiling anymore, file an issue
 local nets = {}

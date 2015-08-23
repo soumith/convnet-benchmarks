@@ -1,62 +1,62 @@
 Running on device: GeForce GTX TITAN X
 
 CONFIG: input = 3x128x128 * ker = 3x96x11x11 (bs = 128, stride = 1)
-cudnn.SpatialConvolution                :updateOutput():      32.91
-cudnn.SpatialConvolution             :updateGradInput():      69.84
-cudnn.SpatialConvolution           :accGradParameters():      35.83
-cudnn.SpatialConvolution                         :TOTAL:     138.58
+cudnn.SpatialConvolution                :updateOutput():      32.65
+cudnn.SpatialConvolution             :updateGradInput():      69.05
+cudnn.SpatialConvolution           :accGradParameters():      35.09
+cudnn.SpatialConvolution                         :TOTAL:     136.79
 
-nn.SpatialConvolutionMM                 :updateOutput():      94.40
-nn.SpatialConvolutionMM              :updateGradInput():      90.70
-nn.SpatialConvolutionMM            :accGradParameters():     114.30
-nn.SpatialConvolutionMM                          :TOTAL:     299.40
+nn.SpatialConvolutionMM                 :updateOutput():      93.27
+nn.SpatialConvolutionMM              :updateGradInput():      89.15
+nn.SpatialConvolutionMM            :accGradParameters():     113.82
+nn.SpatialConvolutionMM                          :TOTAL:     296.25
 
 
 CONFIG: input = 64x64x64 * ker = 64x128x9x9 (bs = 128, stride = 1)
-cudnn.SpatialConvolution                :updateOutput():      13.84
-cudnn.SpatialConvolution             :updateGradInput():     101.17
-cudnn.SpatialConvolution           :accGradParameters():      20.08
-cudnn.SpatialConvolution                         :TOTAL:     135.10
+cudnn.SpatialConvolution                :updateOutput():      13.75
+cudnn.SpatialConvolution             :updateGradInput():     100.08
+cudnn.SpatialConvolution           :accGradParameters():      19.74
+cudnn.SpatialConvolution                         :TOTAL:     133.57
 
-nn.SpatialConvolutionMM                 :updateOutput():     148.39
-nn.SpatialConvolutionMM              :updateGradInput():     166.91
-nn.SpatialConvolutionMM            :accGradParameters():     274.70
-nn.SpatialConvolutionMM                          :TOTAL:     590.00
+nn.SpatialConvolutionMM                 :updateOutput():     146.45
+nn.SpatialConvolutionMM              :updateGradInput():     165.18
+nn.SpatialConvolutionMM            :accGradParameters():     278.77
+nn.SpatialConvolutionMM                          :TOTAL:     590.40
 
 
 CONFIG: input = 128x32x32 * ker = 128x128x9x9 (bs = 128, stride = 1)
-cudnn.SpatialConvolution                :updateOutput():       5.66
-cudnn.SpatialConvolution             :updateGradInput():      17.46
-cudnn.SpatialConvolution           :accGradParameters():       7.01
-cudnn.SpatialConvolution                         :TOTAL:      30.13
+cudnn.SpatialConvolution                :updateOutput():       5.56
+cudnn.SpatialConvolution             :updateGradInput():      17.12
+cudnn.SpatialConvolution           :accGradParameters():       6.86
+cudnn.SpatialConvolution                         :TOTAL:      29.54
 
-nn.SpatialConvolutionMM                 :updateOutput():     124.63
-nn.SpatialConvolutionMM              :updateGradInput():      87.09
-nn.SpatialConvolutionMM            :accGradParameters():      94.10
-nn.SpatialConvolutionMM                          :TOTAL:     305.82
+nn.SpatialConvolutionMM                 :updateOutput():     122.67
+nn.SpatialConvolutionMM              :updateGradInput():      85.94
+nn.SpatialConvolutionMM            :accGradParameters():      93.75
+nn.SpatialConvolutionMM                          :TOTAL:     302.35
 
 
 CONFIG: input = 128x16x16 * ker = 128x128x7x7 (bs = 128, stride = 1)
-cudnn.SpatialConvolution                :updateOutput():       1.43
-cudnn.SpatialConvolution             :updateGradInput():       4.63
+cudnn.SpatialConvolution                :updateOutput():       1.42
+cudnn.SpatialConvolution             :updateGradInput():       4.57
 cudnn.SpatialConvolution           :accGradParameters():       1.52
-cudnn.SpatialConvolution                         :TOTAL:       7.58
+cudnn.SpatialConvolution                         :TOTAL:       7.51
 
-nn.SpatialConvolutionMM                 :updateOutput():      25.58
-nn.SpatialConvolutionMM              :updateGradInput():      16.61
-nn.SpatialConvolutionMM            :accGradParameters():      12.56
+nn.SpatialConvolutionMM                 :updateOutput():      25.41
+nn.SpatialConvolutionMM              :updateGradInput():      16.84
+nn.SpatialConvolutionMM            :accGradParameters():      12.51
 nn.SpatialConvolutionMM                          :TOTAL:      54.76
 
 
 CONFIG: input = 384x13x13 * ker = 384x384x3x3 (bs = 128, stride = 1)
-cudnn.SpatialConvolution                :updateOutput():       8.05
-cudnn.SpatialConvolution             :updateGradInput():       7.52
-cudnn.SpatialConvolution           :accGradParameters():       7.68
-cudnn.SpatialConvolution                         :TOTAL:      23.24
+cudnn.SpatialConvolution                :updateOutput():       7.57
+cudnn.SpatialConvolution             :updateGradInput():       7.53
+cudnn.SpatialConvolution           :accGradParameters():       7.81
+cudnn.SpatialConvolution                         :TOTAL:      22.91
 
-nn.SpatialConvolutionMM                 :updateOutput():      29.85
-nn.SpatialConvolutionMM              :updateGradInput():      17.46
-nn.SpatialConvolutionMM            :accGradParameters():      15.59
-nn.SpatialConvolutionMM                          :TOTAL:      62.90
+nn.SpatialConvolutionMM                 :updateOutput():      29.69
+nn.SpatialConvolutionMM              :updateGradInput():      17.36
+nn.SpatialConvolutionMM            :accGradParameters():      15.38
+nn.SpatialConvolutionMM                          :TOTAL:      62.43
 
 

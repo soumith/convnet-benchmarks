@@ -2,6 +2,8 @@ require 'sys'
 require 'cunn'
 require 'ccn2'
 require 'cudnn'
+cudnn.benchmark = true -- run manual auto-tuner provided by cudnn
+cudnn.verbose = false
 -- require 'fbcunn'
 -- require 'nnbhwd'
 
