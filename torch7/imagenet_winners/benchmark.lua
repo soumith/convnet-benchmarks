@@ -1,6 +1,7 @@
 require 'sys'
 require 'cunn'
 require 'cudnn'
+-- require 'fbnn'
 cudnn.benchmark = true -- run manual auto-tuner provided by cudnn
 cudnn.verbose = false
 
@@ -14,6 +15,7 @@ nets[#nets+1] = require 'googlenet'
 
 local libs = {}
 libs[#libs+1] = {cudnn.SpatialConvolution, cudnn.SpatialMaxPooling, cudnn.ReLU, 'BDHW', 'cudnn'}
+-- libs[#libs+1] = {fbnn.SpatialConvolution, cudnn.SpatialMaxPooling, cudnn.ReLU, 'BDHW', 'fbnn'}
 -- libs[#libs+1] = {nn.SpatialConvolutionMM, nn.SpatialMaxPooling, nn.ReLU, 'BDHW', 'nn'}
 -- libs[#libs+1] = {nn.SpatialConvolutionCuFFT, cudnn.SpatialMaxPooling, cudnn.ReLU, 'BDHW', 'fbfft'}
 -- libs[#libs+1] = {nn.SpatialConvolutionBHWD, nn.SpatialMaxPoolingBHWD, nn.ReLU, 'BHWD', 'nnBHWD'}

@@ -1,0 +1,17 @@
+Running on device: GeForce GTX TITAN X
+ModelType: AlexNet      Kernels: fbnn   Input shape: 128x3x224x224
+fbnn                                    :updateOutput():      31.93
+fbnn                                 :updateGradInput():      41.59
+fbnn                               :accGradParameters():      30.59
+fbnn                                           :Forward:      31.93
+fbnn                                          :Backward:      72.18
+fbnn                                             :TOTAL:     104.11
+
+Running on device: GeForce GTX TITAN X
+ModelType: OverFeat[fast]       Kernels: fbnn   Input shape: 128x3x231x231
+fbnn                                    :updateOutput():     114.36
+fbnn                                 :updateGradInput():     116.35
+fbnn                               :accGradParameters():     111.56
+fbnn                                           :Forward:     114.36
+fbnn                                          :Backward:     227.91
+fbnn                                             :TOTAL:     342.27
