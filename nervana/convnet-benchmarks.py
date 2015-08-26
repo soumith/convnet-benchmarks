@@ -29,7 +29,7 @@ print(context.get_device().name())
 nets = ("Alexnet","Overfeat","GoogLeNet1","GoogLeNet2","VGG","VGG_E",)
 
 #Available dtypes: np.float16, np.float32
-dtypes = (np.float32,)
+dtypes = (np.float16,np.float32)
 
 # number of full iterations
 loops       = 10

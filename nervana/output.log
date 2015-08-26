@@ -1,5 +1,59 @@
 GeForce GTX TITAN X
 ------------------------------------------------
+Benchmarking: Alexnet (dtype=float16, N=128)
+------------------------------------------------
+DataLayer: NCK: (128, 3, 3) DHW:(1, 224, 224)
+ConvLayer: NCK: (128, 3, 64) DHW:(1, 224, 224) TRS:(1, 11, 11) MPQ:(1, 55, 55)
+PoolLayer: NCK: (128, 64, 64) DHW:(1, 55, 55) JTRS:(1, 1, 3, 3) MPQ:(1, 27, 27) op: max 
+ConvLayer: NCK: (128, 64, 192) DHW:(1, 27, 27) TRS:(1, 5, 5) MPQ:(1, 27, 27)
+PoolLayer: NCK: (128, 192, 192) DHW:(1, 27, 27) JTRS:(1, 1, 3, 3) MPQ:(1, 13, 13) op: max 
+ConvLayer: NCK: (128, 192, 384) DHW:(1, 13, 13) TRS:(1, 3, 3) MPQ:(1, 13, 13)
+ConvLayer: NCK: (128, 384, 256) DHW:(1, 13, 13) TRS:(1, 3, 3) MPQ:(1, 13, 13)
+ConvLayer: NCK: (128, 256, 256) DHW:(1, 13, 13) TRS:(1, 3, 3) MPQ:(1, 13, 13)
+PoolLayer: NCK: (128, 256, 256) DHW:(1, 13, 13) JTRS:(1, 1, 3, 3) MPQ:(1, 6, 6) op: max 
+FullLayer: N, nIn, nOut: (128, 9216, 4096)
+FullLayer: N, nIn, nOut: (128, 4096, 4096)
+FullLayer: N, nIn, nOut: (128, 4096, 1000)
+0.666GB of 12.000GB Allocated (11.334GB Remaining)
+fprop( 0):   29.942 msecs 6106.263 gflops
+bprop( 0):  423.874 msecs  862.674 gflops
+fprop( 0):   29.945 msecs 6105.636 gflops
+bprop( 0):   61.303 msecs 5964.892 gflops
+fprop( 0):   29.330 msecs 6233.534 gflops
+bprop( 0):   61.197 msecs 5975.173 gflops
+fprop( 0):   29.336 msecs 6232.446 gflops
+bprop( 0):   61.922 msecs 5905.215 gflops
+fprop( 0):   30.064 msecs 6081.519 gflops
+bprop( 0):   63.092 msecs 5795.761 gflops
+fprop( 1):   30.334 msecs 6027.314 gflops
+bprop( 1):   63.374 msecs 5769.917 gflops
+fprop( 2):   30.382 msecs 6017.760 gflops
+bprop( 2):   63.379 msecs 5769.448 gflops
+fprop( 3):   30.416 msecs 6011.080 gflops
+bprop( 3):   63.344 msecs 5772.710 gflops
+fprop( 4):   30.722 msecs 5951.168 gflops
+bprop( 4):   62.712 msecs 5830.872 gflops
+fprop( 5):   30.047 msecs 6084.828 gflops
+bprop( 5):   62.848 msecs 5818.236 gflops
+fprop( 6):   30.099 msecs 6074.277 gflops
+bprop( 6):   62.669 msecs 5834.870 gflops
+fprop( 7):   30.138 msecs 6066.428 gflops
+bprop( 7):   62.695 msecs 5832.395 gflops
+fprop( 8):   30.119 msecs 6070.341 gflops
+bprop( 8):   62.680 msecs 5833.825 gflops
+fprop( 9):   30.004 msecs 6093.544 gflops
+bprop( 9):   62.575 msecs 5843.658 gflops
+fprop(10):   30.051 msecs 6083.993 gflops
+bprop(10):   62.849 msecs 5818.138 gflops
+---------------------------------------------
+Alexnet (dtype=float16, N=128) Results:
+---------------------------------------------
+Avg(10) fprop:   30.231 msecs 6047.768 gflops
+Avg(10) bprop:   62.913 msecs 5812.269 gflops
+Avg(10) total:   93.144 msecs 5888.704 gflops
+
+
+------------------------------------------------
 Benchmarking: Alexnet (dtype=float32, N=128)
 ------------------------------------------------
 DataLayer: NCK: (128, 3, 3) DHW:(1, 224, 224)
@@ -14,43 +68,89 @@ PoolLayer: NCK: (128, 256, 256) DHW:(1, 13, 13) JTRS:(1, 1, 3, 3) MPQ:(1, 6, 6) 
 FullLayer: N, nIn, nOut: (128, 9216, 4096)
 FullLayer: N, nIn, nOut: (128, 4096, 4096)
 FullLayer: N, nIn, nOut: (128, 4096, 1000)
-1.045GB of 12.000GB Allocated (10.954GB Remaining)
-fprop( 0):   34.826 msecs 5249.842 gflops
-bprop( 0):  348.759 msecs 1048.473 gflops
-fprop( 0):   34.049 msecs 5369.682 gflops
-bprop( 0):   68.509 msecs 5337.495 gflops
-fprop( 0):   31.307 msecs 5840.032 gflops
-bprop( 0):   68.125 msecs 5367.581 gflops
-fprop( 0):   29.405 msecs 6217.688 gflops
-bprop( 0):   64.518 msecs 5667.623 gflops
-fprop( 0):   30.541 msecs 5986.485 gflops
-bprop( 0):   67.038 msecs 5454.571 gflops
-fprop( 1):   31.947 msecs 5723.037 gflops
-bprop( 1):   69.919 msecs 5229.851 gflops
-fprop( 2):   32.716 msecs 5588.510 gflops
-bprop( 2):   70.523 msecs 5185.050 gflops
-fprop( 3):   32.480 msecs 5629.033 gflops
-bprop( 3):   70.988 msecs 5151.091 gflops
-fprop( 4):   32.180 msecs 5681.509 gflops
-bprop( 4):   69.994 msecs 5224.189 gflops
-fprop( 5):   32.167 msecs 5683.855 gflops
-bprop( 5):   69.305 msecs 5276.137 gflops
-fprop( 6):   31.333 msecs 5835.070 gflops
-bprop( 6):   68.461 msecs 5341.242 gflops
-fprop( 7):   31.305 msecs 5840.408 gflops
-bprop( 7):   68.432 msecs 5343.483 gflops
-fprop( 8):   31.389 msecs 5824.791 gflops
-bprop( 8):   68.471 msecs 5340.448 gflops
-fprop( 9):   31.340 msecs 5833.920 gflops
-bprop( 9):   68.490 msecs 5338.928 gflops
-fprop(10):   31.332 msecs 5835.255 gflops
-bprop(10):   68.538 msecs 5335.177 gflops
+1.082GB of 12.000GB Allocated (10.918GB Remaining)
+fprop( 0):   30.389 msecs 6016.347 gflops
+bprop( 0):  332.725 msecs 1098.998 gflops
+fprop( 0):   30.469 msecs 6000.575 gflops
+bprop( 0):   66.800 msecs 5474.051 gflops
+fprop( 0):   30.498 msecs 5994.940 gflops
+bprop( 0):   66.451 msecs 5502.731 gflops
+fprop( 0):   30.820 msecs 5932.192 gflops
+bprop( 0):   68.225 msecs 5359.680 gflops
+fprop( 0):   31.767 msecs 5755.500 gflops
+bprop( 0):   70.092 msecs 5216.939 gflops
+fprop( 1):   32.647 msecs 5600.249 gflops
+bprop( 1):   70.837 msecs 5162.039 gflops
+fprop( 2):   32.592 msecs 5609.750 gflops
+bprop( 2):   70.936 msecs 5154.881 gflops
+fprop( 3):   32.580 msecs 5611.866 gflops
+bprop( 3):   70.726 msecs 5170.184 gflops
+fprop( 4):   32.382 msecs 5646.116 gflops
+bprop( 4):   70.598 msecs 5179.560 gflops
+fprop( 5):   31.790 msecs 5751.242 gflops
+bprop( 5):   69.223 msecs 5282.378 gflops
+fprop( 6):   31.846 msecs 5741.065 gflops
+bprop( 6):   70.056 msecs 5219.607 gflops
+fprop( 7):   32.385 msecs 5645.575 gflops
+bprop( 7):   70.395 msecs 5194.476 gflops
+fprop( 8):   32.384 msecs 5645.759 gflops
+bprop( 8):   70.271 msecs 5203.632 gflops
+fprop( 9):   32.382 msecs 5646.121 gflops
+bprop( 9):   70.525 msecs 5184.900 gflops
+fprop(10):   31.830 msecs 5744.020 gflops
+bprop(10):   69.371 msecs 5271.153 gflops
 ---------------------------------------------
 Alexnet (dtype=float32, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:   31.819 msecs 5746.037 gflops
-Avg(10) bprop:   69.312 msecs 5275.623 gflops
-Avg(10) total:  101.131 msecs 5423.629 gflops
+Avg(10) fprop:   32.282 msecs 5663.632 gflops
+Avg(10) bprop:   70.294 msecs 5201.952 gflops
+Avg(10) total:  102.576 msecs 5347.249 gflops
+
+
+------------------------------------------------
+Benchmarking: Overfeat (dtype=float16, N=128)
+------------------------------------------------
+DataLayer: NCK: (128, 3, 3) DHW:(1, 231, 231)
+ConvLayer: NCK: (128, 3, 96) DHW:(1, 231, 231) TRS:(1, 11, 11) MPQ:(1, 56, 56)
+PoolLayer: NCK: (128, 96, 96) DHW:(1, 56, 56) JTRS:(1, 1, 2, 2) MPQ:(1, 28, 28) op: max 
+ConvLayer: NCK: (128, 96, 256) DHW:(1, 28, 28) TRS:(1, 5, 5) MPQ:(1, 24, 24)
+PoolLayer: NCK: (128, 256, 256) DHW:(1, 24, 24) JTRS:(1, 1, 2, 2) MPQ:(1, 12, 12) op: max 
+ConvLayer: NCK: (128, 256, 512) DHW:(1, 12, 12) TRS:(1, 3, 3) MPQ:(1, 12, 12)
+ConvLayer: NCK: (128, 512, 1024) DHW:(1, 12, 12) TRS:(1, 3, 3) MPQ:(1, 12, 12)
+ConvLayer: NCK: (128, 1024, 1024) DHW:(1, 12, 12) TRS:(1, 3, 3) MPQ:(1, 12, 12)
+PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 12, 12) JTRS:(1, 1, 2, 2) MPQ:(1, 6, 6) op: max 
+FullLayer: N, nIn, nOut: (128, 36864, 3072)
+FullLayer: N, nIn, nOut: (128, 3072, 4096)
+FullLayer: N, nIn, nOut: (128, 4096, 1000)
+1.289GB of 12.000GB Allocated (10.710GB Remaining)
+fprop( 0):  107.762 msecs 6655.051 gflops
+bprop( 0):  237.037 msecs 6051.045 gflops
+fprop( 1):  112.044 msecs 6400.691 gflops
+bprop( 1):  245.333 msecs 5846.416 gflops
+fprop( 2):  112.927 msecs 6350.660 gflops
+bprop( 2):  243.228 msecs 5897.022 gflops
+fprop( 3):  111.965 msecs 6405.200 gflops
+bprop( 3):  242.614 msecs 5911.931 gflops
+fprop( 4):  112.012 msecs 6402.508 gflops
+bprop( 4):  242.708 msecs 5909.636 gflops
+fprop( 5):  112.804 msecs 6357.580 gflops
+bprop( 5):  240.145 msecs 5972.710 gflops
+fprop( 6):  112.020 msecs 6402.038 gflops
+bprop( 6):  244.955 msecs 5855.435 gflops
+fprop( 7):  112.647 msecs 6366.420 gflops
+bprop( 7):  240.612 msecs 5961.119 gflops
+fprop( 8):  112.019 msecs 6402.100 gflops
+bprop( 8):  244.856 msecs 5857.811 gflops
+fprop( 9):  113.254 msecs 6332.287 gflops
+bprop( 9):  242.809 msecs 5907.194 gflops
+fprop(10):  111.299 msecs 6443.564 gflops
+bprop(10):  242.862 msecs 5905.899 gflops
+---------------------------------------------
+Overfeat (dtype=float16, N=128) Results:
+---------------------------------------------
+Avg(10) fprop:  112.299 msecs 6386.148 gflops
+Avg(10) bprop:  243.012 msecs 5902.248 gflops
+Avg(10) total:  355.312 msecs 6055.189 gflops
 
 
 ------------------------------------------------
@@ -68,35 +168,187 @@ PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 12, 12) JTRS:(1, 1, 2, 2) MPQ:(1, 6, 6
 FullLayer: N, nIn, nOut: (128, 36864, 3072)
 FullLayer: N, nIn, nOut: (128, 3072, 4096)
 FullLayer: N, nIn, nOut: (128, 4096, 1000)
-1.975GB of 12.000GB Allocated (10.025GB Remaining)
-fprop( 0):  112.014 msecs 6402.388 gflops
-bprop( 0):  260.449 msecs 5507.094 gflops
-fprop( 1):  123.706 msecs 5797.270 gflops
-bprop( 1):  265.021 msecs 5412.087 gflops
-fprop( 2):  120.334 msecs 5959.722 gflops
-bprop( 2):  261.451 msecs 5486.001 gflops
-fprop( 3):  120.398 msecs 5956.581 gflops
-bprop( 3):  266.431 msecs 5383.443 gflops
-fprop( 4):  121.174 msecs 5918.427 gflops
-bprop( 4):  266.703 msecs 5377.965 gflops
-fprop( 5):  122.519 msecs 5853.477 gflops
-bprop( 5):  269.465 msecs 5322.847 gflops
-fprop( 6):  121.868 msecs 5884.710 gflops
-bprop( 6):  265.879 msecs 5394.639 gflops
-fprop( 7):  121.389 msecs 5907.941 gflops
-bprop( 7):  264.785 msecs 5416.921 gflops
-fprop( 8):  120.895 msecs 5932.061 gflops
-bprop( 8):  263.890 msecs 5435.292 gflops
-fprop( 9):  121.616 msecs 5896.900 gflops
-bprop( 9):  264.580 msecs 5421.114 gflops
-fprop(10):  121.588 msecs 5898.288 gflops
-bprop(10):  265.395 msecs 5404.463 gflops
+1.976GB of 12.000GB Allocated (10.024GB Remaining)
+fprop( 0):  120.499 msecs 5951.570 gflops
+bprop( 0):  274.923 msecs 5217.175 gflops
+fprop( 1):  124.074 msecs 5780.095 gflops
+bprop( 1):  266.699 msecs 5378.048 gflops
+fprop( 2):  123.505 msecs 5806.739 gflops
+bprop( 2):  269.832 msecs 5315.596 gflops
+fprop( 3):  123.991 msecs 5783.963 gflops
+bprop( 3):  270.950 msecs 5293.659 gflops
+fprop( 4):  123.356 msecs 5813.730 gflops
+bprop( 4):  272.947 msecs 5254.931 gflops
+fprop( 5):  124.744 msecs 5749.066 gflops
+bprop( 5):  273.889 msecs 5236.857 gflops
+fprop( 6):  124.677 msecs 5752.133 gflops
+bprop( 6):  270.553 msecs 5301.431 gflops
+fprop( 7):  123.962 msecs 5785.298 gflops
+bprop( 7):  273.080 msecs 5252.369 gflops
+fprop( 8):  123.384 msecs 5812.429 gflops
+bprop( 8):  274.341 msecs 5228.237 gflops
+fprop( 9):  124.020 msecs 5782.626 gflops
+bprop( 9):  269.725 msecs 5317.715 gflops
+fprop(10):  123.002 msecs 5830.475 gflops
+bprop(10):  272.294 msecs 5267.540 gflops
 ---------------------------------------------
 Overfeat (dtype=float32, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:  121.549 msecs 5900.177 gflops
-Avg(10) bprop:  265.360 msecs 5405.181 gflops
-Avg(10) total:  386.909 msecs 5560.686 gflops
+Avg(10) fprop:  123.871 msecs 5789.546 gflops
+Avg(10) bprop:  271.431 msecs 5284.284 gflops
+Avg(10) total:  395.302 msecs 5442.612 gflops
+
+
+------------------------------------------------
+Benchmarking: GoogLeNet1 (dtype=float16, N=128)
+------------------------------------------------
+DataLayer: NCK: (128, 3, 3) DHW:(1, 224, 224)
+ConvLayer: NCK: (128, 3, 64) DHW:(1, 224, 224) TRS:(1, 7, 7) MPQ:(1, 112, 112)
+PoolLayer: NCK: (128, 64, 64) DHW:(1, 112, 112) JTRS:(1, 1, 3, 3) MPQ:(1, 56, 56) op: max 
+ConvLayer: NCK: (128, 64, 64) DHW:(1, 56, 56) TRS:(1, 1, 1) MPQ:(1, 56, 56)
+ConvLayer: NCK: (128, 64, 192) DHW:(1, 56, 56) TRS:(1, 3, 3) MPQ:(1, 56, 56)
+PoolLayer: NCK: (128, 192, 192) DHW:(1, 56, 56) JTRS:(1, 1, 3, 3) MPQ:(1, 28, 28) op: max 
+Inception: NCK: (128, 192, 256) DHW:(1, 28, 28) MPQ:(1, 28, 28)
+  Part1:
+    ConvLayer: NCK: (128, 192, 64) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+  Part2:
+    ConvLayer: NCK: (128, 192, 96) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 96, 128) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+  Part3:
+    ConvLayer: NCK: (128, 192, 16) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 16, 32) DHW:(1, 28, 28) TRS:(1, 5, 5) MPQ:(1, 28, 28)
+  Part4:
+    PoolLayer: NCK: (128, 192, 192) DHW:(1, 28, 28) JTRS:(1, 1, 3, 3) MPQ:(1, 28, 28) op: max 
+    ConvLayer: NCK: (128, 192, 32) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+Inception: NCK: (128, 256, 480) DHW:(1, 28, 28) MPQ:(1, 28, 28)
+  Part1:
+    ConvLayer: NCK: (128, 256, 128) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+  Part2:
+    ConvLayer: NCK: (128, 256, 128) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 128, 192) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+  Part3:
+    ConvLayer: NCK: (128, 256, 32) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 32, 96) DHW:(1, 28, 28) TRS:(1, 5, 5) MPQ:(1, 28, 28)
+  Part4:
+    PoolLayer: NCK: (128, 256, 256) DHW:(1, 28, 28) JTRS:(1, 1, 3, 3) MPQ:(1, 28, 28) op: max 
+    ConvLayer: NCK: (128, 256, 64) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+PoolLayer: NCK: (128, 480, 480) DHW:(1, 28, 28) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: max 
+Inception: NCK: (128, 480, 512) DHW:(1, 14, 14) MPQ:(1, 14, 14)
+  Part1:
+    ConvLayer: NCK: (128, 480, 192) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+  Part2:
+    ConvLayer: NCK: (128, 480, 96) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 96, 208) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part3:
+    ConvLayer: NCK: (128, 480, 16) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 16, 48) DHW:(1, 14, 14) TRS:(1, 5, 5) MPQ:(1, 14, 14)
+  Part4:
+    PoolLayer: NCK: (128, 480, 480) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: max 
+    ConvLayer: NCK: (128, 480, 64) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+Inception: NCK: (128, 512, 512) DHW:(1, 14, 14) MPQ:(1, 14, 14)
+  Part1:
+    ConvLayer: NCK: (128, 512, 160) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+  Part2:
+    ConvLayer: NCK: (128, 512, 112) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 112, 224) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part3:
+    ConvLayer: NCK: (128, 512, 24) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 24, 64) DHW:(1, 14, 14) TRS:(1, 5, 5) MPQ:(1, 14, 14)
+  Part4:
+    PoolLayer: NCK: (128, 512, 512) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: max 
+    ConvLayer: NCK: (128, 512, 64) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+Inception: NCK: (128, 512, 512) DHW:(1, 14, 14) MPQ:(1, 14, 14)
+  Part1:
+    ConvLayer: NCK: (128, 512, 128) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+  Part2:
+    ConvLayer: NCK: (128, 512, 128) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 128, 256) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part3:
+    ConvLayer: NCK: (128, 512, 24) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 24, 64) DHW:(1, 14, 14) TRS:(1, 5, 5) MPQ:(1, 14, 14)
+  Part4:
+    PoolLayer: NCK: (128, 512, 512) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: max 
+    ConvLayer: NCK: (128, 512, 64) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+Inception: NCK: (128, 512, 528) DHW:(1, 14, 14) MPQ:(1, 14, 14)
+  Part1:
+    ConvLayer: NCK: (128, 512, 112) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+  Part2:
+    ConvLayer: NCK: (128, 512, 144) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 144, 288) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part3:
+    ConvLayer: NCK: (128, 512, 32) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 32, 64) DHW:(1, 14, 14) TRS:(1, 5, 5) MPQ:(1, 14, 14)
+  Part4:
+    PoolLayer: NCK: (128, 512, 512) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: max 
+    ConvLayer: NCK: (128, 512, 64) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+Inception: NCK: (128, 528, 832) DHW:(1, 14, 14) MPQ:(1, 14, 14)
+  Part1:
+    ConvLayer: NCK: (128, 528, 256) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+  Part2:
+    ConvLayer: NCK: (128, 528, 160) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 160, 320) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part3:
+    ConvLayer: NCK: (128, 528, 32) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 32, 128) DHW:(1, 14, 14) TRS:(1, 5, 5) MPQ:(1, 14, 14)
+  Part4:
+    PoolLayer: NCK: (128, 528, 528) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: max 
+    ConvLayer: NCK: (128, 528, 128) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+PoolLayer: NCK: (128, 832, 832) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 7, 7) op: max 
+Inception: NCK: (128, 832, 832) DHW:(1, 7, 7) MPQ:(1, 7, 7)
+  Part1:
+    ConvLayer: NCK: (128, 832, 256) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+  Part2:
+    ConvLayer: NCK: (128, 832, 160) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+    ConvLayer: NCK: (128, 160, 320) DHW:(1, 7, 7) TRS:(1, 3, 3) MPQ:(1, 7, 7)
+  Part3:
+    ConvLayer: NCK: (128, 832, 32) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+    ConvLayer: NCK: (128, 32, 128) DHW:(1, 7, 7) TRS:(1, 5, 5) MPQ:(1, 7, 7)
+  Part4:
+    PoolLayer: NCK: (128, 832, 832) DHW:(1, 7, 7) JTRS:(1, 1, 3, 3) MPQ:(1, 7, 7) op: max 
+    ConvLayer: NCK: (128, 832, 128) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+Inception: NCK: (128, 832, 1024) DHW:(1, 7, 7) MPQ:(1, 7, 7)
+  Part1:
+    ConvLayer: NCK: (128, 832, 384) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+  Part2:
+    ConvLayer: NCK: (128, 832, 192) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+    ConvLayer: NCK: (128, 192, 384) DHW:(1, 7, 7) TRS:(1, 3, 3) MPQ:(1, 7, 7)
+  Part3:
+    ConvLayer: NCK: (128, 832, 48) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+    ConvLayer: NCK: (128, 48, 128) DHW:(1, 7, 7) TRS:(1, 5, 5) MPQ:(1, 7, 7)
+  Part4:
+    PoolLayer: NCK: (128, 832, 832) DHW:(1, 7, 7) JTRS:(1, 1, 3, 3) MPQ:(1, 7, 7) op: max 
+    ConvLayer: NCK: (128, 832, 128) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 7, 7) JTRS:(1, 1, 7, 7) MPQ:(1, 1, 1) op: avg 
+FullLayer: N, nIn, nOut: (128, 1024, 1000)
+2.163GB of 12.000GB Allocated (9.837GB Remaining)
+fprop( 0):   84.485 msecs 4795.685 gflops
+bprop( 0): 1466.274 msecs  552.644 gflops
+fprop( 1):   84.631 msecs 4787.445 gflops
+bprop( 1):  194.510 msecs 4166.000 gflops
+fprop( 2):   84.518 msecs 4793.825 gflops
+bprop( 2):  194.033 msecs 4176.246 gflops
+fprop( 3):   84.574 msecs 4790.635 gflops
+bprop( 3):  194.445 msecs 4167.382 gflops
+fprop( 4):   84.625 msecs 4787.737 gflops
+bprop( 4):  194.422 msecs 4167.888 gflops
+fprop( 5):   85.441 msecs 4742.059 gflops
+bprop( 5):  195.882 msecs 4136.817 gflops
+fprop( 6):   85.138 msecs 4758.885 gflops
+bprop( 6):  196.500 msecs 4123.797 gflops
+fprop( 7):   84.581 msecs 4790.229 gflops
+bprop( 7):  194.487 msecs 4166.484 gflops
+fprop( 8):   84.618 msecs 4788.140 gflops
+bprop( 8):  194.349 msecs 4169.446 gflops
+fprop( 9):   85.509 msecs 4738.255 gflops
+bprop( 9):  195.857 msecs 4137.337 gflops
+fprop(10):   84.573 msecs 4790.691 gflops
+bprop(10):  194.188 msecs 4172.898 gflops
+---------------------------------------------
+GoogLeNet1 (dtype=float16, N=128) Results:
+---------------------------------------------
+Avg(10) fprop:   84.821 msecs 4776.701 gflops
+Avg(10) bprop:  194.867 msecs 4158.356 gflops
+Avg(10) total:  279.688 msecs 4345.881 gflops
 
 
 ------------------------------------------------
@@ -221,34 +473,202 @@ Inception: NCK: (128, 832, 1024) DHW:(1, 7, 7) MPQ:(1, 7, 7)
 PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 7, 7) JTRS:(1, 1, 7, 7) MPQ:(1, 1, 1) op: avg 
 FullLayer: N, nIn, nOut: (128, 1024, 1000)
 4.087GB of 12.000GB Allocated (7.912GB Remaining)
-fprop( 0):   83.995 msecs 4823.690 gflops
-bprop( 0):  220.643 msecs 3672.570 gflops
-fprop( 1):   86.984 msecs 4657.933 gflops
-bprop( 1):  228.407 msecs 3547.732 gflops
-fprop( 2):   88.645 msecs 4570.656 gflops
-bprop( 2):  226.863 msecs 3571.881 gflops
-fprop( 3):   87.943 msecs 4607.112 gflops
-bprop( 3):  224.940 msecs 3602.418 gflops
-fprop( 4):   86.058 msecs 4708.037 gflops
-bprop( 4):  226.638 msecs 3575.432 gflops
-fprop( 5):   87.614 msecs 4624.396 gflops
-bprop( 5):  228.388 msecs 3548.035 gflops
-fprop( 6):   88.546 msecs 4575.730 gflops
-bprop( 6):  227.891 msecs 3555.767 gflops
-fprop( 7):   86.779 msecs 4668.924 gflops
-bprop( 7):  225.878 msecs 3587.459 gflops
-fprop( 8):   88.112 msecs 4598.277 gflops
-bprop( 8):  226.341 msecs 3580.123 gflops
-fprop( 9):   87.569 msecs 4626.776 gflops
-bprop( 9):  226.438 msecs 3578.585 gflops
-fprop(10):   87.720 msecs 4618.838 gflops
-bprop(10):  226.405 msecs 3579.102 gflops
+fprop( 0):   88.161 msecs 4595.714 gflops
+bprop( 0):  230.451 msecs 3516.267 gflops
+fprop( 1):   89.176 msecs 4543.417 gflops
+bprop( 1):  228.827 msecs 3541.223 gflops
+fprop( 2):   88.757 msecs 4564.857 gflops
+bprop( 2):  230.312 msecs 3518.393 gflops
+fprop( 3):   89.996 msecs 4502.008 gflops
+bprop( 3):  230.713 msecs 3512.272 gflops
+fprop( 4):   88.225 msecs 4592.408 gflops
+bprop( 4):  228.128 msecs 3552.080 gflops
+fprop( 5):   89.164 msecs 4544.043 gflops
+bprop( 5):  228.715 msecs 3542.967 gflops
+fprop( 6):   89.007 msecs 4552.041 gflops
+bprop( 6):  228.808 msecs 3541.525 gflops
+fprop( 7):   89.141 msecs 4545.193 gflops
+bprop( 7):  229.053 msecs 3537.725 gflops
+fprop( 8):   89.792 msecs 4512.275 gflops
+bprop( 8):  231.230 msecs 3504.417 gflops
+fprop( 9):   90.147 msecs 4494.491 gflops
+bprop( 9):  230.369 msecs 3517.518 gflops
+fprop(10):   89.217 msecs 4541.332 gflops
+bprop(10):  228.924 msecs 3539.718 gflops
 ---------------------------------------------
 GoogLeNet1 (dtype=float32, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:   87.597 msecs 4625.316 gflops
-Avg(10) bprop:  226.819 msecs 3572.576 gflops
-Avg(10) total:  314.416 msecs 3865.872 gflops
+Avg(10) fprop:   89.262 msecs 4539.034 gflops
+Avg(10) bprop:  229.508 msecs 3530.718 gflops
+Avg(10) total:  318.770 msecs 3813.067 gflops
+
+
+------------------------------------------------
+Benchmarking: GoogLeNet2 (dtype=float16, N=128)
+------------------------------------------------
+DataLayer: NCK: (128, 3, 3) DHW:(1, 224, 224)
+ConvLayer: NCK: (128, 3, 64) DHW:(1, 224, 224) TRS:(1, 7, 7) MPQ:(1, 112, 112)
+PoolLayer: NCK: (128, 64, 64) DHW:(1, 112, 112) JTRS:(1, 1, 3, 3) MPQ:(1, 56, 56) op: max 
+ConvLayer: NCK: (128, 64, 64) DHW:(1, 56, 56) TRS:(1, 1, 1) MPQ:(1, 56, 56)
+ConvLayer: NCK: (128, 64, 192) DHW:(1, 56, 56) TRS:(1, 3, 3) MPQ:(1, 56, 56)
+PoolLayer: NCK: (128, 192, 192) DHW:(1, 56, 56) JTRS:(1, 1, 3, 3) MPQ:(1, 28, 28) op: max 
+Inception: NCK: (128, 192, 256) DHW:(1, 28, 28) MPQ:(1, 28, 28)
+  Part1:
+    ConvLayer: NCK: (128, 192, 64) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+  Part2:
+    ConvLayer: NCK: (128, 192, 64) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 64, 64) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+  Part3:
+    ConvLayer: NCK: (128, 192, 64) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 64, 96) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 96, 96) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+  Part4:
+    PoolLayer: NCK: (128, 192, 192) DHW:(1, 28, 28) JTRS:(1, 1, 3, 3) MPQ:(1, 28, 28) op: avg 
+    ConvLayer: NCK: (128, 192, 32) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+Inception: NCK: (128, 256, 320) DHW:(1, 28, 28) MPQ:(1, 28, 28)
+  Part1:
+    ConvLayer: NCK: (128, 256, 64) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+  Part2:
+    ConvLayer: NCK: (128, 256, 64) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 64, 96) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+  Part3:
+    ConvLayer: NCK: (128, 256, 64) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 64, 96) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 96, 96) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+  Part4:
+    PoolLayer: NCK: (128, 256, 256) DHW:(1, 28, 28) JTRS:(1, 1, 3, 3) MPQ:(1, 28, 28) op: avg 
+    ConvLayer: NCK: (128, 256, 64) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+Inception: NCK: (128, 320, 576) DHW:(1, 28, 28) MPQ:(1, 28, 28)
+  Part1:
+    ConvLayer: NCK: (128, 320, 128) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 128, 160) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+  Part2:
+    ConvLayer: NCK: (128, 320, 64) DHW:(1, 28, 28) TRS:(1, 1, 1) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 64, 96) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+    ConvLayer: NCK: (128, 96, 96) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+  Part3:
+    PoolLayer: NCK: (128, 320, 320) DHW:(1, 28, 28) JTRS:(1, 1, 3, 3) MPQ:(1, 28, 28) op: max
+ConvLayer: NCK: (128, 576, 576) DHW:(1, 28, 28) TRS:(1, 2, 2) MPQ:(1, 14, 14)
+Inception: NCK: (128, 576, 576) DHW:(1, 14, 14) MPQ:(1, 14, 14)
+  Part1:
+    ConvLayer: NCK: (128, 576, 224) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+  Part2:
+    ConvLayer: NCK: (128, 576, 64) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 64, 96) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part3:
+    ConvLayer: NCK: (128, 576, 96) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 96, 128) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 128, 128) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part4:
+    PoolLayer: NCK: (128, 576, 576) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: avg 
+    ConvLayer: NCK: (128, 576, 128) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+Inception: NCK: (128, 576, 576) DHW:(1, 14, 14) MPQ:(1, 14, 14)
+  Part1:
+    ConvLayer: NCK: (128, 576, 192) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+  Part2:
+    ConvLayer: NCK: (128, 576, 96) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 96, 128) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part3:
+    ConvLayer: NCK: (128, 576, 96) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 96, 128) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 128, 128) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part4:
+    PoolLayer: NCK: (128, 576, 576) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: avg 
+    ConvLayer: NCK: (128, 576, 128) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+Inception: NCK: (128, 576, 576) DHW:(1, 14, 14) MPQ:(1, 14, 14)
+  Part1:
+    ConvLayer: NCK: (128, 576, 160) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+  Part2:
+    ConvLayer: NCK: (128, 576, 128) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 128, 160) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part3:
+    ConvLayer: NCK: (128, 576, 128) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 128, 160) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 160, 160) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part4:
+    PoolLayer: NCK: (128, 576, 576) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: avg 
+    ConvLayer: NCK: (128, 576, 96) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+Inception: NCK: (128, 576, 576) DHW:(1, 14, 14) MPQ:(1, 14, 14)
+  Part1:
+    ConvLayer: NCK: (128, 576, 96) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+  Part2:
+    ConvLayer: NCK: (128, 576, 128) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 128, 192) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part3:
+    ConvLayer: NCK: (128, 576, 160) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 160, 192) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 192, 192) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part4:
+    PoolLayer: NCK: (128, 576, 576) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: avg 
+    ConvLayer: NCK: (128, 576, 96) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+Inception: NCK: (128, 576, 1024) DHW:(1, 14, 14) MPQ:(1, 14, 14)
+  Part1:
+    ConvLayer: NCK: (128, 576, 128) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 128, 192) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part2:
+    ConvLayer: NCK: (128, 576, 192) DHW:(1, 14, 14) TRS:(1, 1, 1) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 192, 256) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+    ConvLayer: NCK: (128, 256, 256) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+  Part3:
+    PoolLayer: NCK: (128, 576, 576) DHW:(1, 14, 14) JTRS:(1, 1, 3, 3) MPQ:(1, 14, 14) op: max
+ConvLayer: NCK: (128, 1024, 1024) DHW:(1, 14, 14) TRS:(1, 2, 2) MPQ:(1, 7, 7)
+Inception: NCK: (128, 1024, 1024) DHW:(1, 7, 7) MPQ:(1, 7, 7)
+  Part1:
+    ConvLayer: NCK: (128, 1024, 352) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+  Part2:
+    ConvLayer: NCK: (128, 1024, 192) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+    ConvLayer: NCK: (128, 192, 320) DHW:(1, 7, 7) TRS:(1, 3, 3) MPQ:(1, 7, 7)
+  Part3:
+    ConvLayer: NCK: (128, 1024, 160) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+    ConvLayer: NCK: (128, 160, 224) DHW:(1, 7, 7) TRS:(1, 3, 3) MPQ:(1, 7, 7)
+    ConvLayer: NCK: (128, 224, 224) DHW:(1, 7, 7) TRS:(1, 3, 3) MPQ:(1, 7, 7)
+  Part4:
+    PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 7, 7) JTRS:(1, 1, 3, 3) MPQ:(1, 7, 7) op: avg 
+    ConvLayer: NCK: (128, 1024, 128) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+Inception: NCK: (128, 1024, 1024) DHW:(1, 7, 7) MPQ:(1, 7, 7)
+  Part1:
+    ConvLayer: NCK: (128, 1024, 352) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+  Part2:
+    ConvLayer: NCK: (128, 1024, 192) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+    ConvLayer: NCK: (128, 192, 320) DHW:(1, 7, 7) TRS:(1, 3, 3) MPQ:(1, 7, 7)
+  Part3:
+    ConvLayer: NCK: (128, 1024, 192) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+    ConvLayer: NCK: (128, 192, 224) DHW:(1, 7, 7) TRS:(1, 3, 3) MPQ:(1, 7, 7)
+    ConvLayer: NCK: (128, 224, 224) DHW:(1, 7, 7) TRS:(1, 3, 3) MPQ:(1, 7, 7)
+  Part4:
+    PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 7, 7) JTRS:(1, 1, 3, 3) MPQ:(1, 7, 7) op: max 
+    ConvLayer: NCK: (128, 1024, 128) DHW:(1, 7, 7) TRS:(1, 1, 1) MPQ:(1, 7, 7)
+PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 7, 7) JTRS:(1, 1, 7, 7) MPQ:(1, 1, 1) op: avg 
+FullLayer: N, nIn, nOut: (128, 1024, 1000)
+2.466GB of 12.000GB Allocated (9.534GB Remaining)
+fprop( 0):  139.738 msecs 5057.881 gflops
+bprop( 0):  313.892 msecs 4503.327 gflops
+fprop( 1):  142.063 msecs 4975.122 gflops
+bprop( 1):  312.475 msecs 4523.751 gflops
+fprop( 2):  141.190 msecs 5005.866 gflops
+bprop( 2):  314.210 msecs 4498.762 gflops
+fprop( 3):  141.063 msecs 5010.372 gflops
+bprop( 3):  312.110 msecs 4529.035 gflops
+fprop( 4):  141.465 msecs 4996.154 gflops
+bprop( 4):  310.939 msecs 4546.099 gflops
+fprop( 5):  141.825 msecs 4983.455 gflops
+bprop( 5):  314.548 msecs 4493.930 gflops
+fprop( 6):  141.796 msecs 4984.463 gflops
+bprop( 6):  313.307 msecs 4511.732 gflops
+fprop( 7):  140.763 msecs 5021.050 gflops
+bprop( 7):  317.562 msecs 4451.283 gflops
+fprop( 8):  143.019 msecs 4941.853 gflops
+bprop( 8):  312.303 msecs 4526.243 gflops
+fprop( 9):  140.927 msecs 5015.213 gflops
+bprop( 9):  314.512 msecs 4494.441 gflops
+fprop(10):  142.064 msecs 4975.085 gflops
+bprop(10):  311.882 msecs 4532.352 gflops
+---------------------------------------------
+GoogLeNet2 (dtype=float16, N=128) Results:
+---------------------------------------------
+Avg(10) fprop:  141.617 msecs 4990.760 gflops
+Avg(10) bprop:  313.385 msecs 4510.614 gflops
+Avg(10) total:  455.002 msecs 4660.057 gflops
 
 
 ------------------------------------------------
@@ -389,34 +809,85 @@ Inception: NCK: (128, 1024, 1024) DHW:(1, 7, 7) MPQ:(1, 7, 7)
 PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 7, 7) JTRS:(1, 1, 7, 7) MPQ:(1, 1, 1) op: avg 
 FullLayer: N, nIn, nOut: (128, 1024, 1000)
 4.661GB of 12.000GB Allocated (7.339GB Remaining)
-fprop( 0):  150.335 msecs 4701.345 gflops
-bprop( 0):  358.467 msecs 3943.346 gflops
-fprop( 1):  144.755 msecs 4882.598 gflops
-bprop( 1):  349.254 msecs 4047.367 gflops
-fprop( 2):  145.430 msecs 4859.940 gflops
-bprop( 2):  352.335 msecs 4011.972 gflops
-fprop( 3):  145.998 msecs 4841.024 gflops
-bprop( 3):  349.640 msecs 4042.898 gflops
-fprop( 4):  146.152 msecs 4835.901 gflops
-bprop( 4):  352.308 msecs 4012.275 gflops
-fprop( 5):  145.296 msecs 4864.394 gflops
-bprop( 5):  352.575 msecs 4009.234 gflops
-fprop( 6):  146.095 msecs 4837.800 gflops
-bprop( 6):  350.080 msecs 4037.813 gflops
-fprop( 7):  146.215 msecs 4833.834 gflops
-bprop( 7):  352.301 msecs 4012.357 gflops
-fprop( 8):  147.244 msecs 4800.049 gflops
-bprop( 8):  352.248 msecs 4012.963 gflops
-fprop( 9):  146.755 msecs 4816.059 gflops
-bprop( 9):  351.931 msecs 4016.571 gflops
-fprop(10):  146.823 msecs 4813.810 gflops
-bprop(10):  351.899 msecs 4016.946 gflops
+fprop( 0):  154.333 msecs 4579.564 gflops
+bprop( 0):  365.594 msecs 3866.472 gflops
+fprop( 1):  149.076 msecs 4741.065 gflops
+bprop( 1):  357.219 msecs 3957.114 gflops
+fprop( 2):  149.742 msecs 4719.992 gflops
+bprop( 2):  358.822 msecs 3939.440 gflops
+fprop( 3):  149.475 msecs 4728.397 gflops
+bprop( 3):  357.674 msecs 3952.084 gflops
+fprop( 4):  149.451 msecs 4729.175 gflops
+bprop( 4):  360.786 msecs 3917.995 gflops
+fprop( 5):  146.832 msecs 4813.508 gflops
+bprop( 5):  362.973 msecs 3894.386 gflops
+fprop( 6):  150.113 msecs 4708.303 gflops
+bprop( 6):  361.703 msecs 3908.057 gflops
+fprop( 7):  150.129 msecs 4707.821 gflops
+bprop( 7):  360.075 msecs 3925.728 gflops
+fprop( 8):  149.853 msecs 4716.474 gflops
+bprop( 8):  358.448 msecs 3943.548 gflops
+fprop( 9):  150.130 msecs 4707.789 gflops
+bprop( 9):  361.063 msecs 3914.984 gflops
+fprop(10):  150.217 msecs 4705.061 gflops
+bprop(10):  359.872 msecs 3927.940 gflops
 ---------------------------------------------
 GoogLeNet2 (dtype=float32, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:  146.076 msecs 4838.423 gflops
-Avg(10) bprop:  351.457 msecs 4021.992 gflops
-Avg(10) total:  497.533 msecs 4261.697 gflops
+Avg(10) fprop:  149.502 msecs 4727.562 gflops
+Avg(10) bprop:  359.864 msecs 3928.036 gflops
+Avg(10) total:  509.365 msecs 4162.701 gflops
+
+
+------------------------------------------------
+Benchmarking: VGG (dtype=float16, N=64)
+------------------------------------------------
+DataLayer: NCK: (64, 3, 3) DHW:(1, 224, 224)
+ConvLayer: NCK: (64, 3, 64) DHW:(1, 224, 224) TRS:(1, 3, 3) MPQ:(1, 224, 224)
+PoolLayer: NCK: (64, 64, 64) DHW:(1, 224, 224) JTRS:(1, 1, 2, 2) MPQ:(1, 112, 112) op: max 
+ConvLayer: NCK: (64, 64, 128) DHW:(1, 112, 112) TRS:(1, 3, 3) MPQ:(1, 112, 112)
+PoolLayer: NCK: (64, 128, 128) DHW:(1, 112, 112) JTRS:(1, 1, 2, 2) MPQ:(1, 56, 56) op: max 
+ConvLayer: NCK: (64, 128, 256) DHW:(1, 56, 56) TRS:(1, 3, 3) MPQ:(1, 56, 56)
+ConvLayer: NCK: (64, 256, 256) DHW:(1, 56, 56) TRS:(1, 3, 3) MPQ:(1, 56, 56)
+PoolLayer: NCK: (64, 256, 256) DHW:(1, 56, 56) JTRS:(1, 1, 2, 2) MPQ:(1, 28, 28) op: max 
+ConvLayer: NCK: (64, 256, 512) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+ConvLayer: NCK: (64, 512, 512) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+PoolLayer: NCK: (64, 512, 512) DHW:(1, 28, 28) JTRS:(1, 1, 2, 2) MPQ:(1, 14, 14) op: max 
+ConvLayer: NCK: (64, 512, 512) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+ConvLayer: NCK: (64, 512, 512) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+PoolLayer: NCK: (64, 512, 512) DHW:(1, 14, 14) JTRS:(1, 1, 2, 2) MPQ:(1, 7, 7) op: max 
+FullLayer: N, nIn, nOut: (64, 25088, 4096)
+FullLayer: N, nIn, nOut: (64, 4096, 4096)
+FullLayer: N, nIn, nOut: (64, 4096, 1000)
+2.724GB of 12.000GB Allocated (9.276GB Remaining)
+fprop( 0):  163.018 msecs 5974.586 gflops
+bprop( 0):  360.901 msecs 5397.406 gflops
+fprop( 1):  164.735 msecs 5912.305 gflops
+bprop( 1):  356.403 msecs 5465.515 gflops
+fprop( 2):  165.303 msecs 5891.979 gflops
+bprop( 2):  358.335 msecs 5436.043 gflops
+fprop( 3):  164.424 msecs 5923.500 gflops
+bprop( 3):  358.532 msecs 5433.062 gflops
+fprop( 4):  164.749 msecs 5911.792 gflops
+bprop( 4):  358.015 msecs 5440.910 gflops
+fprop( 5):  163.912 msecs 5942.003 gflops
+bprop( 5):  358.080 msecs 5439.929 gflops
+fprop( 6):  165.246 msecs 5894.023 gflops
+bprop( 6):  358.164 msecs 5438.639 gflops
+fprop( 7):  165.357 msecs 5890.083 gflops
+bprop( 7):  359.029 msecs 5425.546 gflops
+fprop( 8):  165.145 msecs 5897.643 gflops
+bprop( 8):  356.433 msecs 5465.060 gflops
+fprop( 9):  164.268 msecs 5929.111 gflops
+bprop( 9):  357.285 msecs 5452.028 gflops
+fprop(10):  165.422 msecs 5887.749 gflops
+bprop(10):  359.177 msecs 5423.304 gflops
+---------------------------------------------
+VGG (dtype=float16, N=64) Results:
+---------------------------------------------
+Avg(10) fprop:  164.856 msecs 5907.965 gflops
+Avg(10) bprop:  357.945 msecs 5441.968 gflops
+Avg(10) total:  522.801 msecs 5588.912 gflops
 
 
 ------------------------------------------------
@@ -440,34 +911,93 @@ FullLayer: N, nIn, nOut: (64, 25088, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 1000)
 4.824GB of 12.000GB Allocated (7.176GB Remaining)
-fprop( 0):  178.283 msecs 5463.034 gflops
-bprop( 0):  401.320 msecs 4853.801 gflops
-fprop( 1):  172.594 msecs 5643.084 gflops
-bprop( 1):  400.945 msecs 4858.337 gflops
-fprop( 2):  175.459 msecs 5550.935 gflops
-bprop( 2):  401.355 msecs 4853.380 gflops
-fprop( 3):  171.486 msecs 5679.543 gflops
-bprop( 3):  396.789 msecs 4909.230 gflops
-fprop( 4):  177.374 msecs 5491.009 gflops
-bprop( 4):  397.429 msecs 4901.324 gflops
-fprop( 5):  174.376 msecs 5585.423 gflops
-bprop( 5):  403.476 msecs 4827.858 gflops
-fprop( 6):  175.357 msecs 5554.176 gflops
-bprop( 6):  401.850 msecs 4847.394 gflops
-fprop( 7):  176.534 msecs 5517.159 gflops
-bprop( 7):  399.306 msecs 4878.285 gflops
-fprop( 8):  173.178 msecs 5624.066 gflops
-bprop( 8):  395.184 msecs 4929.164 gflops
-fprop( 9):  175.249 msecs 5557.585 gflops
-bprop( 9):  401.996 msecs 4845.640 gflops
-fprop(10):  176.007 msecs 5533.658 gflops
-bprop(10):  400.666 msecs 4861.727 gflops
+fprop( 0):  185.067 msecs 5262.748 gflops
+bprop( 0):  411.871 msecs 4729.456 gflops
+fprop( 1):  179.339 msecs 5430.845 gflops
+bprop( 1):  405.161 msecs 4807.785 gflops
+fprop( 2):  177.991 msecs 5471.992 gflops
+bprop( 2):  404.479 msecs 4815.892 gflops
+fprop( 3):  179.203 msecs 5434.972 gflops
+bprop( 3):  407.700 msecs 4777.839 gflops
+fprop( 4):  177.569 msecs 5484.993 gflops
+bprop( 4):  412.277 msecs 4724.804 gflops
+fprop( 5):  178.760 msecs 5448.452 gflops
+bprop( 5):  404.053 msecs 4820.969 gflops
+fprop( 6):  175.804 msecs 5540.041 gflops
+bprop( 6):  407.349 msecs 4781.958 gflops
+fprop( 7):  178.485 msecs 5456.830 gflops
+bprop( 7):  404.767 msecs 4812.468 gflops
+fprop( 8):  177.613 msecs 5483.635 gflops
+bprop( 8):  403.174 msecs 4831.475 gflops
+fprop( 9):  179.162 msecs 5436.214 gflops
+bprop( 9):  410.276 msecs 4747.847 gflops
+fprop(10):  178.812 msecs 5446.862 gflops
+bprop(10):  407.007 msecs 4785.977 gflops
 ---------------------------------------------
 VGG (dtype=float32, N=64) Results:
 ---------------------------------------------
-Avg(10) fprop:  174.761 msecs 5573.101 gflops
-Avg(10) bprop:  399.900 msecs 4871.041 gflops
-Avg(10) total:  574.661 msecs 5084.546 gflops
+Avg(10) fprop:  178.274 msecs 5463.302 gflops
+Avg(10) bprop:  406.624 msecs 4790.483 gflops
+Avg(10) total:  584.898 msecs 4995.555 gflops
+
+
+------------------------------------------------
+Benchmarking: VGG_E (dtype=float16, N=64)
+------------------------------------------------
+DataLayer: NCK: (64, 3, 3) DHW:(1, 224, 224)
+ConvLayer: NCK: (64, 3, 64) DHW:(1, 224, 224) TRS:(1, 3, 3) MPQ:(1, 224, 224)
+ConvLayer: NCK: (64, 64, 64) DHW:(1, 224, 224) TRS:(1, 3, 3) MPQ:(1, 224, 224)
+PoolLayer: NCK: (64, 64, 64) DHW:(1, 224, 224) JTRS:(1, 1, 2, 2) MPQ:(1, 112, 112) op: max 
+ConvLayer: NCK: (64, 64, 128) DHW:(1, 112, 112) TRS:(1, 3, 3) MPQ:(1, 112, 112)
+ConvLayer: NCK: (64, 128, 128) DHW:(1, 112, 112) TRS:(1, 3, 3) MPQ:(1, 112, 112)
+PoolLayer: NCK: (64, 128, 128) DHW:(1, 112, 112) JTRS:(1, 1, 2, 2) MPQ:(1, 56, 56) op: max 
+ConvLayer: NCK: (64, 128, 256) DHW:(1, 56, 56) TRS:(1, 3, 3) MPQ:(1, 56, 56)
+ConvLayer: NCK: (64, 256, 256) DHW:(1, 56, 56) TRS:(1, 3, 3) MPQ:(1, 56, 56)
+ConvLayer: NCK: (64, 256, 256) DHW:(1, 56, 56) TRS:(1, 3, 3) MPQ:(1, 56, 56)
+ConvLayer: NCK: (64, 256, 256) DHW:(1, 56, 56) TRS:(1, 3, 3) MPQ:(1, 56, 56)
+PoolLayer: NCK: (64, 256, 256) DHW:(1, 56, 56) JTRS:(1, 1, 2, 2) MPQ:(1, 28, 28) op: max 
+ConvLayer: NCK: (64, 256, 512) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+ConvLayer: NCK: (64, 512, 512) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+ConvLayer: NCK: (64, 512, 512) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+ConvLayer: NCK: (64, 512, 512) DHW:(1, 28, 28) TRS:(1, 3, 3) MPQ:(1, 28, 28)
+PoolLayer: NCK: (64, 512, 512) DHW:(1, 28, 28) JTRS:(1, 1, 2, 2) MPQ:(1, 14, 14) op: max 
+ConvLayer: NCK: (64, 512, 512) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+ConvLayer: NCK: (64, 512, 512) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+ConvLayer: NCK: (64, 512, 512) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+ConvLayer: NCK: (64, 512, 512) DHW:(1, 14, 14) TRS:(1, 3, 3) MPQ:(1, 14, 14)
+PoolLayer: NCK: (64, 512, 512) DHW:(1, 14, 14) JTRS:(1, 1, 2, 2) MPQ:(1, 7, 7) op: max 
+FullLayer: N, nIn, nOut: (64, 25088, 4096)
+FullLayer: N, nIn, nOut: (64, 4096, 4096)
+FullLayer: N, nIn, nOut: (64, 4096, 1000)
+3.686GB of 12.000GB Allocated (8.313GB Remaining)
+fprop( 0):  416.158 msecs 6038.346 gflops
+bprop( 0):  898.930 msecs 5590.880 gflops
+fprop( 1):  416.023 msecs 6040.308 gflops
+bprop( 1):  898.371 msecs 5594.360 gflops
+fprop( 2):  417.331 msecs 6021.367 gflops
+bprop( 2):  898.716 msecs 5592.212 gflops
+fprop( 3):  417.528 msecs 6018.531 gflops
+bprop( 3):  896.172 msecs 5608.084 gflops
+fprop( 4):  417.203 msecs 6023.214 gflops
+bprop( 4):  902.190 msecs 5570.675 gflops
+fprop( 5):  417.156 msecs 6023.894 gflops
+bprop( 5):  902.031 msecs 5571.655 gflops
+fprop( 6):  418.317 msecs 6007.172 gflops
+bprop( 6):  903.247 msecs 5564.158 gflops
+fprop( 7):  419.406 msecs 5991.581 gflops
+bprop( 7):  904.471 msecs 5556.624 gflops
+fprop( 8):  418.823 msecs 5999.916 gflops
+bprop( 8):  902.159 msecs 5570.865 gflops
+fprop( 9):  418.964 msecs 5997.893 gflops
+bprop( 9):  905.214 msecs 5552.066 gflops
+fprop(10):  419.477 msecs 5990.558 gflops
+bprop(10):  906.326 msecs 5545.254 gflops
+---------------------------------------------
+VGG_E (dtype=float16, N=64) Results:
+---------------------------------------------
+Avg(10) fprop:  418.023 msecs 6011.403 gflops
+Avg(10) bprop:  901.890 msecs 5572.530 gflops
+Avg(10) total: 1319.913 msecs 5711.524 gflops
 
 
 ------------------------------------------------
@@ -499,33 +1029,33 @@ FullLayer: N, nIn, nOut: (64, 25088, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 1000)
 6.692GB of 12.000GB Allocated (5.308GB Remaining)
-fprop( 0):  449.566 msecs 5589.626 gflops
-bprop( 0):  981.218 msecs 5122.008 gflops
-fprop( 1):  447.139 msecs 5619.963 gflops
-bprop( 1):  983.555 msecs 5109.839 gflops
-fprop( 2):  444.949 msecs 5647.616 gflops
-bprop( 2):  985.964 msecs 5097.357 gflops
-fprop( 3):  447.824 msecs 5611.367 gflops
-bprop( 3):  985.500 msecs 5099.756 gflops
-fprop( 4):  448.286 msecs 5605.586 gflops
-bprop( 4):  988.390 msecs 5084.841 gflops
-fprop( 5):  447.820 msecs 5611.418 gflops
-bprop( 5):  988.566 msecs 5083.940 gflops
-fprop( 6):  447.487 msecs 5615.592 gflops
-bprop( 6):  991.530 msecs 5068.740 gflops
-fprop( 7):  448.226 msecs 5606.329 gflops
-bprop( 7):  992.940 msecs 5061.542 gflops
-fprop( 8):  450.268 msecs 5580.905 gflops
-bprop( 8):  994.470 msecs 5053.756 gflops
-fprop( 9):  452.745 msecs 5550.371 gflops
-bprop( 9):  998.747 msecs 5032.113 gflops
-fprop(10):  450.667 msecs 5575.960 gflops
-bprop(10):  995.038 msecs 5050.869 gflops
+fprop( 0):  456.616 msecs 5503.321 gflops
+bprop( 0):  998.862 msecs 5031.535 gflops
+fprop( 1):  452.338 msecs 5555.371 gflops
+bprop( 1): 1000.713 msecs 5022.226 gflops
+fprop( 2):  454.157 msecs 5533.114 gflops
+bprop( 2): 1001.879 msecs 5016.385 gflops
+fprop( 3):  453.403 msecs 5542.324 gflops
+bprop( 3):  999.860 msecs 5026.511 gflops
+fprop( 4):  453.273 msecs 5543.914 gflops
+bprop( 4):  999.062 msecs 5030.529 gflops
+fprop( 5):  454.243 msecs 5532.066 gflops
+bprop( 5): 1001.882 msecs 5016.369 gflops
+fprop( 6):  453.253 msecs 5544.152 gflops
+bprop( 6): 1004.909 msecs 5001.259 gflops
+fprop( 7):  453.516 msecs 5540.934 gflops
+bprop( 7): 1000.244 msecs 5024.581 gflops
+fprop( 8):  452.752 msecs 5550.283 gflops
+bprop( 8): 1003.300 msecs 5009.278 gflops
+fprop( 9):  455.218 msecs 5520.219 gflops
+bprop( 9): 1003.111 msecs 5010.219 gflops
+fprop(10):  454.514 msecs 5528.775 gflops
+bprop(10): 1002.677 msecs 5012.388 gflops
 ---------------------------------------------
 VGG_E (dtype=float32, N=64) Results:
 ---------------------------------------------
-Avg(10) fprop:  448.541 msecs 5602.393 gflops
-Avg(10) bprop:  990.470 msecs 5074.165 gflops
-Avg(10) total: 1439.011 msecs 5238.814 gflops
+Avg(10) fprop:  453.667 msecs 5539.097 gflops
+Avg(10) bprop: 1001.764 msecs 5016.960 gflops
+Avg(10) total: 1455.430 msecs 5179.713 gflops
 
 
