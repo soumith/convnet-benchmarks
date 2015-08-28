@@ -48,9 +48,17 @@ optimizer.setup(model)
 def train_loop():
     # Trainer
     graph_generated = False
+    data = np.ndarray((args.batchsize, 3, 224, 224), dtype=np.float32)
+    data.fill(33333)
+    x = xp.asarray(data)
+    
+    label = np.ndarray((args.batchsize), dtype=np.int32)
+    label.fill(1)
+    y = xp.asarray(label)
+
+    
+
     while True:
-        x = xp.asarray(inp[0])
-        y = xp.asarray(inp[1])
 
         optimizer.zero_grads()
         loss, accuracy = model.forward(x, y)
