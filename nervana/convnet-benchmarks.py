@@ -116,7 +116,7 @@ def inception2(conf):
 
 networks = {
     "Alexnet" : (
-        { "warmup":5 },
+        { "warmup":10 },
         { "layer":DataLayer, "N":128, "C":3, "H":224, "W":224},
         { "layer":ConvLayer, "common":conv11,"K":64,  "grid_P":55, "grid_Q":5, "update_size":"C128_K64"  },
         { "layer":PoolLayer, "common":pool3s2p0, "op":"max" },
@@ -131,7 +131,7 @@ networks = {
         { "layer":FullLayer, "nOut":1000 },
     ),
     "Overfeat" : (
-        { "warmup":1 },
+        { "warmup":10 },
         { "layer":DataLayer, "N":128, "C":3, "H":231, "W":231},
         { "layer":ConvLayer, "common":conv11p0,"K":96,   "grid_P":2, "grid_Q":8, "update_size":"C128_K128" },
         { "layer":PoolLayer, "common":pool2s2p0, "op":"max" },
@@ -147,7 +147,7 @@ networks = {
     ),
     # See http://arxiv.org/pdf/1409.1556.pdf for variations
     "VGG" : (
-        { "warmup":1 },
+        { "warmup":10 },
         { "layer":DataLayer, "N":64, "C":3, "H":224, "W":224},
         { "layer":ConvLayer, "common":conv3, "K":64, np.float16:{"grid_P":4, "grid_Q":224}, np.float32:{"grid_P":224, "grid_Q":4}, "update_size":"C128_K64" },
         { "layer":PoolLayer, "common":pool2s2p0, "op":"max" },
@@ -169,7 +169,7 @@ networks = {
     ),
     # Here is the biggest VGG model (19 layers)
     "VGG_E" : (
-        { "warmup":1 },
+        { "warmup":10 },
         { "layer":DataLayer, "N":64, "C":3, "H":224, "W":224},
         { "layer":ConvLayer, "common":conv3, "K":64,  np.float16:{"grid_P":4, "grid_Q":224}, np.float32:{"grid_P":224, "grid_Q":4}, "update_size":"C128_K64" },
         { "layer":ConvLayer, "common":conv3, "K":64,  np.float16:{"grid_P":2, "grid_Q":56 }, np.float32:{"grid_P":224, "grid_Q":4}, "update_size":"C128_K64" },
@@ -197,7 +197,7 @@ networks = {
         { "layer":FullLayer, "nOut":1000 },
     ),
     "GoogLeNet1" : (
-        { "warmup":1 },
+        { "warmup":10 },
         { "layer":DataLayer, "N":128, "C":3, "H":224, "W":224 },
         { "layer":ConvLayer, "common":conv7, "K":64  },
         { "layer":PoolLayer, "common":pool3s2p1, "op":"max" },
@@ -219,7 +219,7 @@ networks = {
         { "layer":FullLayer, "nOut":1000 },
     ),
     "GoogLeNet2" : (
-        { "warmup":1 },
+        { "warmup":10 },
         { "layer":DataLayer, "N":128, "C":3, "H":224, "W":224 },
         { "layer":ConvLayer, "common":conv7, "K":64  },
         { "layer":PoolLayer, "common":pool3s2p1, "op":"max" },

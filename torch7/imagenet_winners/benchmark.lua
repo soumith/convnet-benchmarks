@@ -23,6 +23,7 @@ libs[#libs+1] = {cudnn.SpatialConvolution, cudnn.SpatialMaxPooling, cudnn.ReLU, 
 print('Running on device: ' .. cutorch.getDeviceProperties(cutorch.getDevice()).name)
 
 steps = 10 -- nb of steps in loop to average perf
+nDryRuns = 10
 
 function makeInput(config, size)
    local layout = config[4]
@@ -49,12 +50,14 @@ for i=1,#nets do
                'x' .. input:size(3) .. 'x' .. input:size(4))
 
       -- dry-run
-      model:zeroGradParameters()
-      local output = model:updateOutput(input)
-      local gradInput = model:updateGradInput(input, output)
-      model:accGradParameters(input, output)
-      cutorch.synchronize()
-      collectgarbage()
+      for i=1,nDryRuns do
+         model:zeroGradParameters()
+         local output = model:updateOutput(input)
+         local gradInput = model:updateGradInput(input, output)
+         model:accGradParameters(input, output)
+         cutorch.synchronize()
+         collectgarbage()
+      end
 
       local tmf, tmbi, tmbg
       sys.tic()

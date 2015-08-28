@@ -15,42 +15,52 @@ FullLayer: N, nIn, nOut: (128, 9216, 4096)
 FullLayer: N, nIn, nOut: (128, 4096, 4096)
 FullLayer: N, nIn, nOut: (128, 4096, 1000)
 0.666GB of 12.000GB Allocated (11.334GB Remaining)
-fprop( 0):   29.942 msecs 6106.263 gflops
-bprop( 0):  423.874 msecs  862.674 gflops
-fprop( 0):   29.945 msecs 6105.636 gflops
-bprop( 0):   61.303 msecs 5964.892 gflops
-fprop( 0):   29.330 msecs 6233.534 gflops
-bprop( 0):   61.197 msecs 5975.173 gflops
-fprop( 0):   29.336 msecs 6232.446 gflops
-bprop( 0):   61.922 msecs 5905.215 gflops
-fprop( 0):   30.064 msecs 6081.519 gflops
-bprop( 0):   63.092 msecs 5795.761 gflops
-fprop( 1):   30.334 msecs 6027.314 gflops
-bprop( 1):   63.374 msecs 5769.917 gflops
-fprop( 2):   30.382 msecs 6017.760 gflops
-bprop( 2):   63.379 msecs 5769.448 gflops
-fprop( 3):   30.416 msecs 6011.080 gflops
-bprop( 3):   63.344 msecs 5772.710 gflops
-fprop( 4):   30.722 msecs 5951.168 gflops
-bprop( 4):   62.712 msecs 5830.872 gflops
-fprop( 5):   30.047 msecs 6084.828 gflops
-bprop( 5):   62.848 msecs 5818.236 gflops
-fprop( 6):   30.099 msecs 6074.277 gflops
-bprop( 6):   62.669 msecs 5834.870 gflops
-fprop( 7):   30.138 msecs 6066.428 gflops
-bprop( 7):   62.695 msecs 5832.395 gflops
-fprop( 8):   30.119 msecs 6070.341 gflops
-bprop( 8):   62.680 msecs 5833.825 gflops
-fprop( 9):   30.004 msecs 6093.544 gflops
-bprop( 9):   62.575 msecs 5843.658 gflops
-fprop(10):   30.051 msecs 6083.993 gflops
-bprop(10):   62.849 msecs 5818.138 gflops
+fprop( 0):   32.572 msecs 5613.101 gflops
+bprop( 0):  434.824 msecs  840.948 gflops
+fprop( 0):   30.883 msecs 5920.194 gflops
+bprop( 0):   62.268 msecs 5872.394 gflops
+fprop( 0):   29.190 msecs 6263.493 gflops
+bprop( 0):   61.162 msecs 5978.574 gflops
+fprop( 0):   29.901 msecs 6114.627 gflops
+bprop( 0):   61.697 msecs 5926.777 gflops
+fprop( 0):   30.260 msecs 6041.999 gflops
+bprop( 0):   62.995 msecs 5804.620 gflops
+fprop( 0):   30.696 msecs 5956.143 gflops
+bprop( 0):   63.445 msecs 5763.489 gflops
+fprop( 0):   30.679 msecs 5959.517 gflops
+bprop( 0):   63.462 msecs 5761.908 gflops
+fprop( 0):   30.714 msecs 5952.768 gflops
+bprop( 0):   63.912 msecs 5721.383 gflops
+fprop( 0):   30.618 msecs 5971.476 gflops
+bprop( 0):   63.145 msecs 5790.874 gflops
+fprop( 0):   29.846 msecs 6125.950 gflops
+bprop( 0):   61.999 msecs 5897.897 gflops
+fprop( 1):   29.905 msecs 6113.797 gflops
+bprop( 1):   62.234 msecs 5875.674 gflops
+fprop( 2):   29.634 msecs 6169.782 gflops
+bprop( 2):   61.914 msecs 5905.993 gflops
+fprop( 3):   29.514 msecs 6194.827 gflops
+bprop( 3):   62.037 msecs 5894.295 gflops
+fprop( 4):   29.846 msecs 6125.950 gflops
+bprop( 4):   62.838 msecs 5819.184 gflops
+fprop( 5):   30.254 msecs 6043.233 gflops
+bprop( 5):   62.948 msecs 5808.961 gflops
+fprop( 6):   30.199 msecs 6054.298 gflops
+bprop( 6):   63.046 msecs 5799.997 gflops
+fprop( 7):   30.147 msecs 6064.774 gflops
+bprop( 7):   63.053 msecs 5799.335 gflops
+fprop( 8):   30.204 msecs 6053.259 gflops
+bprop( 8):   62.980 msecs 5806.030 gflops
+fprop( 9):   30.091 msecs 6075.931 gflops
+bprop( 9):   62.883 msecs 5815.015 gflops
+fprop(10):   30.162 msecs 6061.698 gflops
+bprop(10):   63.029 msecs 5801.508 gflops
 ---------------------------------------------
 Alexnet (dtype=float16, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:   30.231 msecs 6047.768 gflops
-Avg(10) bprop:   62.913 msecs 5812.269 gflops
-Avg(10) total:   93.144 msecs 5888.704 gflops
+Avg(10) fprop:   29.995 msecs 6095.342 gflops
+Avg(10) bprop:   62.696 msecs 5832.327 gflops
+Avg(10) total:   92.692 msecs 5917.440 gflops
 
 
 ------------------------------------------------
@@ -69,42 +79,52 @@ FullLayer: N, nIn, nOut: (128, 9216, 4096)
 FullLayer: N, nIn, nOut: (128, 4096, 4096)
 FullLayer: N, nIn, nOut: (128, 4096, 1000)
 1.082GB of 12.000GB Allocated (10.918GB Remaining)
-fprop( 0):   30.389 msecs 6016.347 gflops
-bprop( 0):  332.725 msecs 1098.998 gflops
-fprop( 0):   30.469 msecs 6000.575 gflops
-bprop( 0):   66.800 msecs 5474.051 gflops
-fprop( 0):   30.498 msecs 5994.940 gflops
-bprop( 0):   66.451 msecs 5502.731 gflops
-fprop( 0):   30.820 msecs 5932.192 gflops
-bprop( 0):   68.225 msecs 5359.680 gflops
-fprop( 0):   31.767 msecs 5755.500 gflops
-bprop( 0):   70.092 msecs 5216.939 gflops
-fprop( 1):   32.647 msecs 5600.249 gflops
-bprop( 1):   70.837 msecs 5162.039 gflops
-fprop( 2):   32.592 msecs 5609.750 gflops
-bprop( 2):   70.936 msecs 5154.881 gflops
-fprop( 3):   32.580 msecs 5611.866 gflops
-bprop( 3):   70.726 msecs 5170.184 gflops
-fprop( 4):   32.382 msecs 5646.116 gflops
-bprop( 4):   70.598 msecs 5179.560 gflops
-fprop( 5):   31.790 msecs 5751.242 gflops
-bprop( 5):   69.223 msecs 5282.378 gflops
-fprop( 6):   31.846 msecs 5741.065 gflops
-bprop( 6):   70.056 msecs 5219.607 gflops
-fprop( 7):   32.385 msecs 5645.575 gflops
-bprop( 7):   70.395 msecs 5194.476 gflops
-fprop( 8):   32.384 msecs 5645.759 gflops
-bprop( 8):   70.271 msecs 5203.632 gflops
-fprop( 9):   32.382 msecs 5646.121 gflops
-bprop( 9):   70.525 msecs 5184.900 gflops
-fprop(10):   31.830 msecs 5744.020 gflops
-bprop(10):   69.371 msecs 5271.153 gflops
+fprop( 0):   30.505 msecs 5993.526 gflops
+bprop( 0):  348.340 msecs 1049.734 gflops
+fprop( 0):   29.677 msecs 6160.840 gflops
+bprop( 0):   65.248 msecs 5604.200 gflops
+fprop( 0):   30.424 msecs 6009.462 gflops
+bprop( 0):   66.058 msecs 5535.486 gflops
+fprop( 0):   31.336 msecs 5834.486 gflops
+bprop( 0):   68.463 msecs 5341.087 gflops
+fprop( 0):   32.528 msecs 5620.705 gflops
+bprop( 0):   70.529 msecs 5184.598 gflops
+fprop( 0):   33.260 msecs 5497.135 gflops
+bprop( 0):   71.502 msecs 5114.058 gflops
+fprop( 0):   33.072 msecs 5528.288 gflops
+bprop( 0):   71.533 msecs 5111.860 gflops
+fprop( 0):   32.991 msecs 5541.843 gflops
+bprop( 0):   70.663 msecs 5174.754 gflops
+fprop( 0):   32.098 msecs 5696.004 gflops
+bprop( 0):   69.791 msecs 5239.443 gflops
+fprop( 0):   32.132 msecs 5690.013 gflops
+bprop( 0):   69.879 msecs 5232.838 gflops
+fprop( 1):   32.039 msecs 5706.563 gflops
+bprop( 1):   69.811 msecs 5237.903 gflops
+fprop( 2):   32.017 msecs 5710.407 gflops
+bprop( 2):   69.771 msecs 5240.906 gflops
+fprop( 3):   32.109 msecs 5694.199 gflops
+bprop( 3):   70.016 msecs 5222.585 gflops
+fprop( 4):   32.101 msecs 5695.459 gflops
+bprop( 4):   69.773 msecs 5240.750 gflops
+fprop( 5):   32.072 msecs 5700.732 gflops
+bprop( 5):   69.913 msecs 5230.313 gflops
+fprop( 6):   32.129 msecs 5690.558 gflops
+bprop( 6):   69.941 msecs 5228.165 gflops
+fprop( 7):   32.172 msecs 5682.950 gflops
+bprop( 7):   69.989 msecs 5224.569 gflops
+fprop( 8):   32.208 msecs 5676.633 gflops
+bprop( 8):   69.770 msecs 5240.981 gflops
+fprop( 9):   32.102 msecs 5695.283 gflops
+bprop( 9):   69.797 msecs 5238.982 gflops
+fprop(10):   32.051 msecs 5704.387 gflops
+bprop(10):   69.999 msecs 5223.881 gflops
 ---------------------------------------------
 Alexnet (dtype=float32, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:   32.282 msecs 5663.632 gflops
-Avg(10) bprop:   70.294 msecs 5201.952 gflops
-Avg(10) total:  102.576 msecs 5347.249 gflops
+Avg(10) fprop:   32.100 msecs 5695.700 gflops
+Avg(10) bprop:   69.878 msecs 5232.893 gflops
+Avg(10) total:  101.978 msecs 5378.573 gflops
 
 
 ------------------------------------------------
@@ -123,34 +143,52 @@ FullLayer: N, nIn, nOut: (128, 36864, 3072)
 FullLayer: N, nIn, nOut: (128, 3072, 4096)
 FullLayer: N, nIn, nOut: (128, 4096, 1000)
 1.289GB of 12.000GB Allocated (10.710GB Remaining)
-fprop( 0):  107.762 msecs 6655.051 gflops
-bprop( 0):  237.037 msecs 6051.045 gflops
-fprop( 1):  112.044 msecs 6400.691 gflops
-bprop( 1):  245.333 msecs 5846.416 gflops
-fprop( 2):  112.927 msecs 6350.660 gflops
-bprop( 2):  243.228 msecs 5897.022 gflops
-fprop( 3):  111.965 msecs 6405.200 gflops
-bprop( 3):  242.614 msecs 5911.931 gflops
-fprop( 4):  112.012 msecs 6402.508 gflops
-bprop( 4):  242.708 msecs 5909.636 gflops
-fprop( 5):  112.804 msecs 6357.580 gflops
-bprop( 5):  240.145 msecs 5972.710 gflops
-fprop( 6):  112.020 msecs 6402.038 gflops
-bprop( 6):  244.955 msecs 5855.435 gflops
-fprop( 7):  112.647 msecs 6366.420 gflops
-bprop( 7):  240.612 msecs 5961.119 gflops
-fprop( 8):  112.019 msecs 6402.100 gflops
-bprop( 8):  244.856 msecs 5857.811 gflops
-fprop( 9):  113.254 msecs 6332.287 gflops
-bprop( 9):  242.809 msecs 5907.194 gflops
-fprop(10):  111.299 msecs 6443.564 gflops
-bprop(10):  242.862 msecs 5905.899 gflops
+fprop( 0):  106.759 msecs 6717.544 gflops
+bprop( 0):  236.077 msecs 6075.639 gflops
+fprop( 0):  113.365 msecs 6326.110 gflops
+bprop( 0):  242.493 msecs 5914.876 gflops
+fprop( 0):  111.838 msecs 6412.470 gflops
+bprop( 0):  241.734 msecs 5933.468 gflops
+fprop( 0):  112.205 msecs 6391.524 gflops
+bprop( 0):  239.708 msecs 5983.605 gflops
+fprop( 0):  111.977 msecs 6404.497 gflops
+bprop( 0):  243.289 msecs 5895.532 gflops
+fprop( 0):  113.923 msecs 6295.120 gflops
+bprop( 0):  241.183 msecs 5947.021 gflops
+fprop( 0):  112.394 msecs 6380.747 gflops
+bprop( 0):  243.439 msecs 5891.912 gflops
+fprop( 0):  113.257 msecs 6332.116 gflops
+bprop( 0):  242.114 msecs 5924.158 gflops
+fprop( 0):  111.860 msecs 6411.240 gflops
+bprop( 0):  241.969 msecs 5927.692 gflops
+fprop( 0):  112.745 msecs 6360.871 gflops
+bprop( 0):  244.088 msecs 5876.241 gflops
+fprop( 1):  112.914 msecs 6351.355 gflops
+bprop( 1):  239.989 msecs 5976.610 gflops
+fprop( 2):  112.585 msecs 6369.954 gflops
+bprop( 2):  244.201 msecs 5873.506 gflops
+fprop( 3):  113.905 msecs 6296.139 gflops
+bprop( 3):  241.248 msecs 5945.405 gflops
+fprop( 4):  112.153 msecs 6394.498 gflops
+bprop( 4):  244.100 msecs 5875.945 gflops
+fprop( 5):  113.366 msecs 6326.055 gflops
+bprop( 5):  241.613 msecs 5936.435 gflops
+fprop( 6):  112.515 msecs 6373.896 gflops
+bprop( 6):  243.654 msecs 5886.713 gflops
+fprop( 7):  113.266 msecs 6331.656 gflops
+bprop( 7):  241.635 msecs 5935.882 gflops
+fprop( 8):  112.046 msecs 6400.574 gflops
+bprop( 8):  244.077 msecs 5876.513 gflops
+fprop( 9):  112.865 msecs 6354.121 gflops
+bprop( 9):  243.947 msecs 5879.644 gflops
+fprop(10):  112.840 msecs 6355.558 gflops
+bprop(10):  242.201 msecs 5922.029 gflops
 ---------------------------------------------
 Overfeat (dtype=float16, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:  112.299 msecs 6386.148 gflops
-Avg(10) bprop:  243.012 msecs 5902.248 gflops
-Avg(10) total:  355.312 msecs 6055.189 gflops
+Avg(10) fprop:  112.845 msecs 6355.237 gflops
+Avg(10) bprop:  242.666 msecs 5910.661 gflops
+Avg(10) total:  355.512 msecs 6051.777 gflops
 
 
 ------------------------------------------------
@@ -169,34 +207,52 @@ FullLayer: N, nIn, nOut: (128, 36864, 3072)
 FullLayer: N, nIn, nOut: (128, 3072, 4096)
 FullLayer: N, nIn, nOut: (128, 4096, 1000)
 1.976GB of 12.000GB Allocated (10.024GB Remaining)
-fprop( 0):  120.499 msecs 5951.570 gflops
-bprop( 0):  274.923 msecs 5217.175 gflops
-fprop( 1):  124.074 msecs 5780.095 gflops
-bprop( 1):  266.699 msecs 5378.048 gflops
-fprop( 2):  123.505 msecs 5806.739 gflops
-bprop( 2):  269.832 msecs 5315.596 gflops
-fprop( 3):  123.991 msecs 5783.963 gflops
-bprop( 3):  270.950 msecs 5293.659 gflops
-fprop( 4):  123.356 msecs 5813.730 gflops
-bprop( 4):  272.947 msecs 5254.931 gflops
-fprop( 5):  124.744 msecs 5749.066 gflops
-bprop( 5):  273.889 msecs 5236.857 gflops
-fprop( 6):  124.677 msecs 5752.133 gflops
-bprop( 6):  270.553 msecs 5301.431 gflops
-fprop( 7):  123.962 msecs 5785.298 gflops
-bprop( 7):  273.080 msecs 5252.369 gflops
-fprop( 8):  123.384 msecs 5812.429 gflops
-bprop( 8):  274.341 msecs 5228.237 gflops
-fprop( 9):  124.020 msecs 5782.626 gflops
-bprop( 9):  269.725 msecs 5317.715 gflops
-fprop(10):  123.002 msecs 5830.475 gflops
-bprop(10):  272.294 msecs 5267.540 gflops
+fprop( 0):  121.199 msecs 5917.225 gflops
+bprop( 0):  276.513 msecs 5187.170 gflops
+fprop( 0):  124.875 msecs 5743.031 gflops
+bprop( 0):  269.602 msecs 5320.137 gflops
+fprop( 0):  124.087 msecs 5779.475 gflops
+bprop( 0):  269.334 msecs 5325.437 gflops
+fprop( 0):  124.207 msecs 5773.898 gflops
+bprop( 0):  268.961 msecs 5332.818 gflops
+fprop( 0):  123.542 msecs 5805.006 gflops
+bprop( 0):  269.236 msecs 5327.362 gflops
+fprop( 0):  124.473 msecs 5761.550 gflops
+bprop( 0):  270.765 msecs 5297.282 gflops
+fprop( 0):  125.361 msecs 5720.748 gflops
+bprop( 0):  271.119 msecs 5290.360 gflops
+fprop( 0):  124.996 msecs 5737.478 gflops
+bprop( 0):  270.498 msecs 5302.516 gflops
+fprop( 0):  125.483 msecs 5715.191 gflops
+bprop( 0):  271.228 msecs 5288.243 gflops
+fprop( 0):  124.524 msecs 5759.228 gflops
+bprop( 0):  271.038 msecs 5291.938 gflops
+fprop( 1):  125.450 msecs 5716.683 gflops
+bprop( 1):  270.663 msecs 5299.286 gflops
+fprop( 2):  124.009 msecs 5783.102 gflops
+bprop( 2):  271.743 msecs 5278.219 gflops
+fprop( 3):  124.922 msecs 5740.866 gflops
+bprop( 3):  274.517 msecs 5224.882 gflops
+fprop( 4):  124.806 msecs 5746.185 gflops
+bprop( 4):  271.090 msecs 5290.938 gflops
+fprop( 5):  124.936 msecs 5740.204 gflops
+bprop( 5):  275.229 msecs 5211.371 gflops
+fprop( 6):  124.861 msecs 5743.644 gflops
+bprop( 6):  270.409 msecs 5304.263 gflops
+fprop( 7):  123.960 msecs 5785.396 gflops
+bprop( 7):  276.226 msecs 5192.555 gflops
+fprop( 8):  125.481 msecs 5715.283 gflops
+bprop( 8):  278.360 msecs 5152.746 gflops
+fprop( 9):  126.306 msecs 5677.940 gflops
+bprop( 9):  269.275 msecs 5326.591 gflops
+fprop(10):  124.288 msecs 5770.142 gflops
+bprop(10):  278.089 msecs 5157.774 gflops
 ---------------------------------------------
 Overfeat (dtype=float32, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:  123.871 msecs 5789.546 gflops
-Avg(10) bprop:  271.431 msecs 5284.284 gflops
-Avg(10) total:  395.302 msecs 5442.612 gflops
+Avg(10) fprop:  124.902 msecs 5741.772 gflops
+Avg(10) bprop:  273.560 msecs 5243.161 gflops
+Avg(10) total:  398.462 msecs 5399.456 gflops
 
 
 ------------------------------------------------
@@ -321,34 +377,52 @@ Inception: NCK: (128, 832, 1024) DHW:(1, 7, 7) MPQ:(1, 7, 7)
 PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 7, 7) JTRS:(1, 1, 7, 7) MPQ:(1, 1, 1) op: avg 
 FullLayer: N, nIn, nOut: (128, 1024, 1000)
 2.163GB of 12.000GB Allocated (9.837GB Remaining)
-fprop( 0):   84.485 msecs 4795.685 gflops
-bprop( 0): 1466.274 msecs  552.644 gflops
-fprop( 1):   84.631 msecs 4787.445 gflops
-bprop( 1):  194.510 msecs 4166.000 gflops
-fprop( 2):   84.518 msecs 4793.825 gflops
-bprop( 2):  194.033 msecs 4176.246 gflops
-fprop( 3):   84.574 msecs 4790.635 gflops
-bprop( 3):  194.445 msecs 4167.382 gflops
-fprop( 4):   84.625 msecs 4787.737 gflops
-bprop( 4):  194.422 msecs 4167.888 gflops
-fprop( 5):   85.441 msecs 4742.059 gflops
-bprop( 5):  195.882 msecs 4136.817 gflops
-fprop( 6):   85.138 msecs 4758.885 gflops
-bprop( 6):  196.500 msecs 4123.797 gflops
-fprop( 7):   84.581 msecs 4790.229 gflops
-bprop( 7):  194.487 msecs 4166.484 gflops
-fprop( 8):   84.618 msecs 4788.140 gflops
-bprop( 8):  194.349 msecs 4169.446 gflops
-fprop( 9):   85.509 msecs 4738.255 gflops
-bprop( 9):  195.857 msecs 4137.337 gflops
-fprop(10):   84.573 msecs 4790.691 gflops
-bprop(10):  194.188 msecs 4172.898 gflops
+fprop( 0):   83.490 msecs 4852.859 gflops
+bprop( 0):  193.019 msecs 4198.180 gflops
+fprop( 0):   83.539 msecs 4850.002 gflops
+bprop( 0):  196.319 msecs 4127.603 gflops
+fprop( 0):   85.502 msecs 4738.652 gflops
+bprop( 0):  195.626 msecs 4142.232 gflops
+fprop( 0):   85.348 msecs 4747.180 gflops
+bprop( 0):  195.981 msecs 4134.720 gflops
+fprop( 0):   86.265 msecs 4696.746 gflops
+bprop( 0):  197.418 msecs 4104.631 gflops
+fprop( 0):   85.406 msecs 4743.993 gflops
+bprop( 0):  195.936 msecs 4135.672 gflops
+fprop( 0):   86.068 msecs 4707.477 gflops
+bprop( 0):  197.844 msecs 4095.794 gflops
+fprop( 0):   86.119 msecs 4704.676 gflops
+bprop( 0):  195.630 msecs 4142.144 gflops
+fprop( 0):   84.546 msecs 4792.258 gflops
+bprop( 0):  195.190 msecs 4151.488 gflops
+fprop( 0):   86.349 msecs 4692.180 gflops
+bprop( 0):  196.671 msecs 4120.211 gflops
+fprop( 1):   86.200 msecs 4700.259 gflops
+bprop( 1):  197.586 msecs 4101.143 gflops
+fprop( 2):   86.084 msecs 4706.633 gflops
+bprop( 2):  198.540 msecs 4081.429 gflops
+fprop( 3):   86.065 msecs 4707.645 gflops
+bprop( 3):  197.947 msecs 4093.653 gflops
+fprop( 4):   85.926 msecs 4715.273 gflops
+bprop( 4):  196.197 msecs 4130.167 gflops
+fprop( 5):   85.465 msecs 4740.694 gflops
+bprop( 5):  196.229 msecs 4129.499 gflops
+fprop( 6):   85.463 msecs 4740.809 gflops
+bprop( 6):  196.139 msecs 4131.396 gflops
+fprop( 7):   86.234 msecs 4698.419 gflops
+bprop( 7):  197.124 msecs 4110.751 gflops
+fprop( 8):   86.140 msecs 4703.556 gflops
+bprop( 8):  198.087 msecs 4090.776 gflops
+fprop( 9):   85.920 msecs 4715.612 gflops
+bprop( 9):  198.573 msecs 4080.755 gflops
+fprop(10):   85.618 msecs 4732.248 gflops
+bprop(10):  195.911 msecs 4136.212 gflops
 ---------------------------------------------
 GoogLeNet1 (dtype=float16, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:   84.821 msecs 4776.701 gflops
-Avg(10) bprop:  194.867 msecs 4158.356 gflops
-Avg(10) total:  279.688 msecs 4345.881 gflops
+Avg(10) fprop:   85.911 msecs 4716.065 gflops
+Avg(10) bprop:  197.233 msecs 4108.473 gflops
+Avg(10) total:  283.145 msecs 4292.828 gflops
 
 
 ------------------------------------------------
@@ -473,34 +547,52 @@ Inception: NCK: (128, 832, 1024) DHW:(1, 7, 7) MPQ:(1, 7, 7)
 PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 7, 7) JTRS:(1, 1, 7, 7) MPQ:(1, 1, 1) op: avg 
 FullLayer: N, nIn, nOut: (128, 1024, 1000)
 4.087GB of 12.000GB Allocated (7.912GB Remaining)
-fprop( 0):   88.161 msecs 4595.714 gflops
-bprop( 0):  230.451 msecs 3516.267 gflops
-fprop( 1):   89.176 msecs 4543.417 gflops
-bprop( 1):  228.827 msecs 3541.223 gflops
-fprop( 2):   88.757 msecs 4564.857 gflops
-bprop( 2):  230.312 msecs 3518.393 gflops
-fprop( 3):   89.996 msecs 4502.008 gflops
-bprop( 3):  230.713 msecs 3512.272 gflops
-fprop( 4):   88.225 msecs 4592.408 gflops
-bprop( 4):  228.128 msecs 3552.080 gflops
-fprop( 5):   89.164 msecs 4544.043 gflops
-bprop( 5):  228.715 msecs 3542.967 gflops
-fprop( 6):   89.007 msecs 4552.041 gflops
-bprop( 6):  228.808 msecs 3541.525 gflops
-fprop( 7):   89.141 msecs 4545.193 gflops
-bprop( 7):  229.053 msecs 3537.725 gflops
-fprop( 8):   89.792 msecs 4512.275 gflops
-bprop( 8):  231.230 msecs 3504.417 gflops
-fprop( 9):   90.147 msecs 4494.491 gflops
-bprop( 9):  230.369 msecs 3517.518 gflops
-fprop(10):   89.217 msecs 4541.332 gflops
-bprop(10):  228.924 msecs 3539.718 gflops
+fprop( 0):   88.102 msecs 4598.812 gflops
+bprop( 0):  232.332 msecs 3487.798 gflops
+fprop( 0):   90.013 msecs 4501.188 gflops
+bprop( 0):  230.620 msecs 3513.691 gflops
+fprop( 0):   89.277 msecs 4538.259 gflops
+bprop( 0):  230.600 msecs 3514.004 gflops
+fprop( 0):   90.076 msecs 4498.016 gflops
+bprop( 0):  233.735 msecs 3466.864 gflops
+fprop( 0):   90.626 msecs 4470.722 gflops
+bprop( 0):  231.945 msecs 3493.618 gflops
+fprop( 0):   89.875 msecs 4508.060 gflops
+bprop( 0):  230.390 msecs 3517.205 gflops
+fprop( 0):   89.649 msecs 4519.442 gflops
+bprop( 0):  230.538 msecs 3514.940 gflops
+fprop( 0):   89.771 msecs 4513.304 gflops
+bprop( 0):  230.612 msecs 3513.815 gflops
+fprop( 0):   90.647 msecs 4469.713 gflops
+bprop( 0):  233.108 msecs 3476.184 gflops
+fprop( 0):   91.536 msecs 4426.263 gflops
+bprop( 0):  231.776 msecs 3496.164 gflops
+fprop( 1):   90.904 msecs 4457.074 gflops
+bprop( 1):  232.068 msecs 3491.768 gflops
+fprop( 2):   91.097 msecs 4447.606 gflops
+bprop( 2):  230.329 msecs 3518.128 gflops
+fprop( 3):   89.336 msecs 4535.294 gflops
+bprop( 3):  231.826 msecs 3495.408 gflops
+fprop( 4):   90.933 msecs 4455.620 gflops
+bprop( 4):  233.369 msecs 3472.310 gflops
+fprop( 5):   91.749 msecs 4415.987 gflops
+bprop( 5):  233.232 msecs 3474.338 gflops
+fprop( 6):   90.091 msecs 4497.250 gflops
+bprop( 6):  232.508 msecs 3485.155 gflops
+fprop( 7):   90.127 msecs 4495.459 gflops
+bprop( 7):  232.429 msecs 3486.353 gflops
+fprop( 8):   90.786 msecs 4462.859 gflops
+bprop( 8):  233.595 msecs 3468.946 gflops
+fprop( 9):   90.865 msecs 4458.984 gflops
+bprop( 9):  231.975 msecs 3493.170 gflops
+fprop(10):   90.061 msecs 4498.783 gflops
+bprop(10):  232.094 msecs 3491.382 gflops
 ---------------------------------------------
 GoogLeNet1 (dtype=float32, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:   89.262 msecs 4539.034 gflops
-Avg(10) bprop:  229.508 msecs 3530.718 gflops
-Avg(10) total:  318.770 msecs 3813.067 gflops
+Avg(10) fprop:   90.595 msecs 4472.260 gflops
+Avg(10) bprop:  232.343 msecs 3487.644 gflops
+Avg(10) total:  322.937 msecs 3763.862 gflops
 
 
 ------------------------------------------------
@@ -641,34 +733,52 @@ Inception: NCK: (128, 1024, 1024) DHW:(1, 7, 7) MPQ:(1, 7, 7)
 PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 7, 7) JTRS:(1, 1, 7, 7) MPQ:(1, 1, 1) op: avg 
 FullLayer: N, nIn, nOut: (128, 1024, 1000)
 2.466GB of 12.000GB Allocated (9.534GB Remaining)
-fprop( 0):  139.738 msecs 5057.881 gflops
-bprop( 0):  313.892 msecs 4503.327 gflops
-fprop( 1):  142.063 msecs 4975.122 gflops
-bprop( 1):  312.475 msecs 4523.751 gflops
-fprop( 2):  141.190 msecs 5005.866 gflops
-bprop( 2):  314.210 msecs 4498.762 gflops
-fprop( 3):  141.063 msecs 5010.372 gflops
-bprop( 3):  312.110 msecs 4529.035 gflops
-fprop( 4):  141.465 msecs 4996.154 gflops
-bprop( 4):  310.939 msecs 4546.099 gflops
-fprop( 5):  141.825 msecs 4983.455 gflops
-bprop( 5):  314.548 msecs 4493.930 gflops
-fprop( 6):  141.796 msecs 4984.463 gflops
-bprop( 6):  313.307 msecs 4511.732 gflops
-fprop( 7):  140.763 msecs 5021.050 gflops
-bprop( 7):  317.562 msecs 4451.283 gflops
-fprop( 8):  143.019 msecs 4941.853 gflops
-bprop( 8):  312.303 msecs 4526.243 gflops
-fprop( 9):  140.927 msecs 5015.213 gflops
-bprop( 9):  314.512 msecs 4494.441 gflops
-fprop(10):  142.064 msecs 4975.085 gflops
-bprop(10):  311.882 msecs 4532.352 gflops
+fprop( 0):  140.271 msecs 5038.681 gflops
+bprop( 0):  317.697 msecs 4449.389 gflops
+fprop( 0):  143.866 msecs 4912.763 gflops
+bprop( 0):  317.941 msecs 4445.978 gflops
+fprop( 0):  143.546 msecs 4923.696 gflops
+bprop( 0):  317.679 msecs 4449.647 gflops
+fprop( 0):  143.668 msecs 4919.520 gflops
+bprop( 0):  316.636 msecs 4464.296 gflops
+fprop( 0):  142.137 msecs 4972.506 gflops
+bprop( 0):  317.241 msecs 4455.780 gflops
+fprop( 0):  144.008 msecs 4907.907 gflops
+bprop( 0):  317.623 msecs 4450.421 gflops
+fprop( 0):  144.492 msecs 4891.490 gflops
+bprop( 0):  319.782 msecs 4420.380 gflops
+fprop( 0):  142.410 msecs 4962.996 gflops
+bprop( 0):  318.251 msecs 4441.644 gflops
+fprop( 0):  143.785 msecs 4915.525 gflops
+bprop( 0):  317.233 msecs 4455.895 gflops
+fprop( 0):  144.295 msecs 4898.154 gflops
+bprop( 0):  320.835 msecs 4405.876 gflops
+fprop( 1):  144.029 msecs 4907.209 gflops
+bprop( 1):  317.625 msecs 4450.393 gflops
+fprop( 2):  143.350 msecs 4930.449 gflops
+bprop( 2):  318.066 msecs 4444.231 gflops
+fprop( 3):  144.105 msecs 4904.594 gflops
+bprop( 3):  320.259 msecs 4413.794 gflops
+fprop( 4):  143.914 msecs 4911.120 gflops
+bprop( 4):  318.255 msecs 4441.586 gflops
+fprop( 5):  144.680 msecs 4885.120 gflops
+bprop( 5):  321.068 msecs 4402.673 gflops
+fprop( 6):  143.751 msecs 4916.682 gflops
+bprop( 6):  317.442 msecs 4452.962 gflops
+fprop( 7):  144.855 msecs 4879.214 gflops
+bprop( 7):  320.313 msecs 4413.045 gflops
+fprop( 8):  144.366 msecs 4895.758 gflops
+bprop( 8):  320.925 msecs 4404.640 gflops
+fprop( 9):  143.950 msecs 4909.896 gflops
+bprop( 9):  317.566 msecs 4451.226 gflops
+fprop(10):  144.794 msecs 4881.286 gflops
+bprop(10):  319.532 msecs 4423.837 gflops
 ---------------------------------------------
 GoogLeNet2 (dtype=float16, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:  141.617 msecs 4990.760 gflops
-Avg(10) bprop:  313.385 msecs 4510.614 gflops
-Avg(10) total:  455.002 msecs 4660.057 gflops
+Avg(10) fprop:  144.179 msecs 4902.082 gflops
+Avg(10) bprop:  319.105 msecs 4429.755 gflops
+Avg(10) total:  463.284 msecs 4576.748 gflops
 
 
 ------------------------------------------------
@@ -809,34 +919,52 @@ Inception: NCK: (128, 1024, 1024) DHW:(1, 7, 7) MPQ:(1, 7, 7)
 PoolLayer: NCK: (128, 1024, 1024) DHW:(1, 7, 7) JTRS:(1, 1, 7, 7) MPQ:(1, 1, 1) op: avg 
 FullLayer: N, nIn, nOut: (128, 1024, 1000)
 4.661GB of 12.000GB Allocated (7.339GB Remaining)
-fprop( 0):  154.333 msecs 4579.564 gflops
-bprop( 0):  365.594 msecs 3866.472 gflops
-fprop( 1):  149.076 msecs 4741.065 gflops
-bprop( 1):  357.219 msecs 3957.114 gflops
-fprop( 2):  149.742 msecs 4719.992 gflops
-bprop( 2):  358.822 msecs 3939.440 gflops
-fprop( 3):  149.475 msecs 4728.397 gflops
-bprop( 3):  357.674 msecs 3952.084 gflops
-fprop( 4):  149.451 msecs 4729.175 gflops
-bprop( 4):  360.786 msecs 3917.995 gflops
-fprop( 5):  146.832 msecs 4813.508 gflops
-bprop( 5):  362.973 msecs 3894.386 gflops
-fprop( 6):  150.113 msecs 4708.303 gflops
-bprop( 6):  361.703 msecs 3908.057 gflops
-fprop( 7):  150.129 msecs 4707.821 gflops
-bprop( 7):  360.075 msecs 3925.728 gflops
-fprop( 8):  149.853 msecs 4716.474 gflops
-bprop( 8):  358.448 msecs 3943.548 gflops
-fprop( 9):  150.130 msecs 4707.789 gflops
-bprop( 9):  361.063 msecs 3914.984 gflops
-fprop(10):  150.217 msecs 4705.061 gflops
-bprop(10):  359.872 msecs 3927.940 gflops
+fprop( 0):  156.996 msecs 4501.902 gflops
+bprop( 0):  370.215 msecs 3818.208 gflops
+fprop( 0):  150.582 msecs 4693.638 gflops
+bprop( 0):  365.739 msecs 3864.935 gflops
+fprop( 0):  150.539 msecs 4694.979 gflops
+bprop( 0):  367.033 msecs 3851.305 gflops
+fprop( 0):  153.659 msecs 4599.645 gflops
+bprop( 0):  366.415 msecs 3857.806 gflops
+fprop( 0):  152.404 msecs 4637.536 gflops
+bprop( 0):  364.377 msecs 3879.381 gflops
+fprop( 0):  152.471 msecs 4635.510 gflops
+bprop( 0):  364.441 msecs 3878.705 gflops
+fprop( 0):  153.401 msecs 4607.383 gflops
+bprop( 0):  365.869 msecs 3863.561 gflops
+fprop( 0):  153.842 msecs 4594.195 gflops
+bprop( 0):  365.406 msecs 3868.455 gflops
+fprop( 0):  152.651 msecs 4630.039 gflops
+bprop( 0):  368.009 msecs 3841.093 gflops
+fprop( 0):  152.612 msecs 4631.217 gflops
+bprop( 0):  367.432 msecs 3847.130 gflops
+fprop( 1):  154.029 msecs 4588.606 gflops
+bprop( 1):  367.923 msecs 3841.991 gflops
+fprop( 2):  153.932 msecs 4591.506 gflops
+bprop( 2):  365.427 msecs 3868.238 gflops
+fprop( 3):  155.113 msecs 4556.527 gflops
+bprop( 3):  368.009 msecs 3841.093 gflops
+fprop( 4):  155.274 msecs 4551.809 gflops
+bprop( 4):  368.370 msecs 3837.335 gflops
+fprop( 5):  154.228 msecs 4582.696 gflops
+bprop( 5):  365.198 msecs 3870.657 gflops
+fprop( 6):  153.714 msecs 4598.021 gflops
+bprop( 6):  365.611 msecs 3866.288 gflops
+fprop( 7):  155.171 msecs 4554.842 gflops
+bprop( 7):  365.911 msecs 3863.118 gflops
+fprop( 8):  153.433 msecs 4606.429 gflops
+bprop( 8):  368.926 msecs 3831.551 gflops
+fprop( 9):  153.702 msecs 4598.359 gflops
+bprop( 9):  371.898 msecs 3800.924 gflops
+fprop(10):  155.113 msecs 4556.528 gflops
+bprop(10):  364.034 msecs 3883.036 gflops
 ---------------------------------------------
 GoogLeNet2 (dtype=float32, N=128) Results:
 ---------------------------------------------
-Avg(10) fprop:  149.502 msecs 4727.562 gflops
-Avg(10) bprop:  359.864 msecs 3928.036 gflops
-Avg(10) total:  509.365 msecs 4162.701 gflops
+Avg(10) fprop:  154.371 msecs 4578.443 gflops
+Avg(10) bprop:  367.131 msecs 3850.284 gflops
+Avg(10) total:  521.502 msecs 4065.828 gflops
 
 
 ------------------------------------------------
@@ -860,34 +988,52 @@ FullLayer: N, nIn, nOut: (64, 25088, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 1000)
 2.724GB of 12.000GB Allocated (9.276GB Remaining)
-fprop( 0):  163.018 msecs 5974.586 gflops
-bprop( 0):  360.901 msecs 5397.406 gflops
-fprop( 1):  164.735 msecs 5912.305 gflops
-bprop( 1):  356.403 msecs 5465.515 gflops
-fprop( 2):  165.303 msecs 5891.979 gflops
-bprop( 2):  358.335 msecs 5436.043 gflops
-fprop( 3):  164.424 msecs 5923.500 gflops
-bprop( 3):  358.532 msecs 5433.062 gflops
-fprop( 4):  164.749 msecs 5911.792 gflops
-bprop( 4):  358.015 msecs 5440.910 gflops
-fprop( 5):  163.912 msecs 5942.003 gflops
-bprop( 5):  358.080 msecs 5439.929 gflops
-fprop( 6):  165.246 msecs 5894.023 gflops
-bprop( 6):  358.164 msecs 5438.639 gflops
-fprop( 7):  165.357 msecs 5890.083 gflops
-bprop( 7):  359.029 msecs 5425.546 gflops
-fprop( 8):  165.145 msecs 5897.643 gflops
-bprop( 8):  356.433 msecs 5465.060 gflops
-fprop( 9):  164.268 msecs 5929.111 gflops
-bprop( 9):  357.285 msecs 5452.028 gflops
-fprop(10):  165.422 msecs 5887.749 gflops
-bprop(10):  359.177 msecs 5423.304 gflops
+fprop( 0):  166.253 msecs 5858.339 gflops
+bprop( 0):  367.837 msecs 5295.623 gflops
+fprop( 0):  165.529 msecs 5883.960 gflops
+bprop( 0):  362.520 msecs 5373.302 gflops
+fprop( 0):  166.901 msecs 5835.585 gflops
+bprop( 0):  361.873 msecs 5382.896 gflops
+fprop( 0):  166.833 msecs 5837.951 gflops
+bprop( 0):  361.444 msecs 5389.286 gflops
+fprop( 0):  167.030 msecs 5831.078 gflops
+bprop( 0):  361.785 msecs 5384.206 gflops
+fprop( 0):  166.911 msecs 5835.227 gflops
+bprop( 0):  361.847 msecs 5383.293 gflops
+fprop( 0):  167.079 msecs 5829.361 gflops
+bprop( 0):  361.597 msecs 5387.012 gflops
+fprop( 0):  167.120 msecs 5827.934 gflops
+bprop( 0):  361.851 msecs 5383.231 gflops
+fprop( 0):  166.980 msecs 5832.830 gflops
+bprop( 0):  361.954 msecs 5381.694 gflops
+fprop( 0):  167.014 msecs 5831.614 gflops
+bprop( 0):  361.882 msecs 5382.775 gflops
+fprop( 1):  166.903 msecs 5835.514 gflops
+bprop( 1):  360.042 msecs 5410.271 gflops
+fprop( 2):  167.870 msecs 5801.875 gflops
+bprop( 2):  361.687 msecs 5385.670 gflops
+fprop( 3):  166.911 msecs 5835.226 gflops
+bprop( 3):  361.713 msecs 5385.289 gflops
+fprop( 4):  167.604 msecs 5811.092 gflops
+bprop( 4):  365.224 msecs 5333.514 gflops
+fprop( 5):  167.163 msecs 5826.434 gflops
+bprop( 5):  361.679 msecs 5385.791 gflops
+fprop( 6):  167.125 msecs 5827.755 gflops
+bprop( 6):  361.621 msecs 5386.647 gflops
+fprop( 7):  167.556 msecs 5812.762 gflops
+bprop( 7):  363.980 msecs 5351.745 gflops
+fprop( 8):  167.438 msecs 5816.849 gflops
+bprop( 8):  362.021 msecs 5380.704 gflops
+fprop( 9):  166.078 msecs 5864.478 gflops
+bprop( 9):  360.180 msecs 5408.209 gflops
+fprop(10):  169.214 msecs 5755.812 gflops
+bprop(10):  365.452 msecs 5330.182 gflops
 ---------------------------------------------
 VGG (dtype=float16, N=64) Results:
 ---------------------------------------------
-Avg(10) fprop:  164.856 msecs 5907.965 gflops
-Avg(10) bprop:  357.945 msecs 5441.968 gflops
-Avg(10) total:  522.801 msecs 5588.912 gflops
+Avg(10) fprop:  167.386 msecs 5818.657 gflops
+Avg(10) bprop:  362.360 msecs 5375.669 gflops
+Avg(10) total:  529.746 msecs 5515.642 gflops
 
 
 ------------------------------------------------
@@ -911,34 +1057,52 @@ FullLayer: N, nIn, nOut: (64, 25088, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 1000)
 4.824GB of 12.000GB Allocated (7.176GB Remaining)
-fprop( 0):  185.067 msecs 5262.748 gflops
-bprop( 0):  411.871 msecs 4729.456 gflops
-fprop( 1):  179.339 msecs 5430.845 gflops
-bprop( 1):  405.161 msecs 4807.785 gflops
-fprop( 2):  177.991 msecs 5471.992 gflops
-bprop( 2):  404.479 msecs 4815.892 gflops
-fprop( 3):  179.203 msecs 5434.972 gflops
-bprop( 3):  407.700 msecs 4777.839 gflops
-fprop( 4):  177.569 msecs 5484.993 gflops
-bprop( 4):  412.277 msecs 4724.804 gflops
-fprop( 5):  178.760 msecs 5448.452 gflops
-bprop( 5):  404.053 msecs 4820.969 gflops
-fprop( 6):  175.804 msecs 5540.041 gflops
-bprop( 6):  407.349 msecs 4781.958 gflops
-fprop( 7):  178.485 msecs 5456.830 gflops
-bprop( 7):  404.767 msecs 4812.468 gflops
-fprop( 8):  177.613 msecs 5483.635 gflops
-bprop( 8):  403.174 msecs 4831.475 gflops
-fprop( 9):  179.162 msecs 5436.214 gflops
-bprop( 9):  410.276 msecs 4747.847 gflops
-fprop(10):  178.812 msecs 5446.862 gflops
-bprop(10):  407.007 msecs 4785.977 gflops
+fprop( 0):  191.110 msecs 5096.348 gflops
+bprop( 0):  420.002 msecs 4637.902 gflops
+fprop( 0):  176.893 msecs 5505.949 gflops
+bprop( 0):  412.874 msecs 4717.973 gflops
+fprop( 0):  177.359 msecs 5491.486 gflops
+bprop( 0):  408.558 msecs 4767.816 gflops
+fprop( 0):  180.900 msecs 5383.993 gflops
+bprop( 0):  408.169 msecs 4772.349 gflops
+fprop( 0):  178.266 msecs 5463.537 gflops
+bprop( 0):  407.858 msecs 4775.991 gflops
+fprop( 0):  180.640 msecs 5391.746 gflops
+bprop( 0):  411.823 msecs 4730.009 gflops
+fprop( 0):  178.778 msecs 5447.890 gflops
+bprop( 0):  407.472 msecs 4780.516 gflops
+fprop( 0):  181.917 msecs 5353.900 gflops
+bprop( 0):  412.996 msecs 4716.581 gflops
+fprop( 0):  181.094 msecs 5378.209 gflops
+bprop( 0):  413.328 msecs 4712.784 gflops
+fprop( 0):  181.068 msecs 5379.000 gflops
+bprop( 0):  411.138 msecs 4737.890 gflops
+fprop( 1):  180.938 msecs 5382.867 gflops
+bprop( 1):  412.012 msecs 4727.846 gflops
+fprop( 2):  180.980 msecs 5381.618 gflops
+bprop( 2):  410.520 msecs 4745.029 gflops
+fprop( 3):  180.658 msecs 5391.195 gflops
+bprop( 3):  414.924 msecs 4694.663 gflops
+fprop( 4):  180.669 msecs 5390.858 gflops
+bprop( 4):  408.923 msecs 4763.553 gflops
+fprop( 5):  176.951 msecs 5504.133 gflops
+bprop( 5):  409.202 msecs 4760.311 gflops
+fprop( 6):  179.223 msecs 5434.381 gflops
+bprop( 6):  409.020 msecs 4762.420 gflops
+fprop( 7):  181.253 msecs 5373.500 gflops
+bprop( 7):  409.392 msecs 4758.096 gflops
+fprop( 8):  179.667 msecs 5420.939 gflops
+bprop( 8):  410.930 msecs 4740.287 gflops
+fprop( 9):  181.692 msecs 5360.508 gflops
+bprop( 9):  412.625 msecs 4720.818 gflops
+fprop(10):  179.593 msecs 5423.163 gflops
+bprop(10):  410.034 msecs 4750.646 gflops
 ---------------------------------------------
 VGG (dtype=float32, N=64) Results:
 ---------------------------------------------
-Avg(10) fprop:  178.274 msecs 5463.302 gflops
-Avg(10) bprop:  406.624 msecs 4790.483 gflops
-Avg(10) total:  584.898 msecs 4995.555 gflops
+Avg(10) fprop:  180.162 msecs 5406.029 gflops
+Avg(10) bprop:  410.758 msecs 4742.273 gflops
+Avg(10) total:  590.921 msecs 4944.642 gflops
 
 
 ------------------------------------------------
@@ -970,34 +1134,52 @@ FullLayer: N, nIn, nOut: (64, 25088, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 1000)
 3.686GB of 12.000GB Allocated (8.313GB Remaining)
-fprop( 0):  416.158 msecs 6038.346 gflops
-bprop( 0):  898.930 msecs 5590.880 gflops
-fprop( 1):  416.023 msecs 6040.308 gflops
-bprop( 1):  898.371 msecs 5594.360 gflops
-fprop( 2):  417.331 msecs 6021.367 gflops
-bprop( 2):  898.716 msecs 5592.212 gflops
-fprop( 3):  417.528 msecs 6018.531 gflops
-bprop( 3):  896.172 msecs 5608.084 gflops
-fprop( 4):  417.203 msecs 6023.214 gflops
-bprop( 4):  902.190 msecs 5570.675 gflops
-fprop( 5):  417.156 msecs 6023.894 gflops
-bprop( 5):  902.031 msecs 5571.655 gflops
-fprop( 6):  418.317 msecs 6007.172 gflops
-bprop( 6):  903.247 msecs 5564.158 gflops
-fprop( 7):  419.406 msecs 5991.581 gflops
-bprop( 7):  904.471 msecs 5556.624 gflops
-fprop( 8):  418.823 msecs 5999.916 gflops
-bprop( 8):  902.159 msecs 5570.865 gflops
-fprop( 9):  418.964 msecs 5997.893 gflops
-bprop( 9):  905.214 msecs 5552.066 gflops
-fprop(10):  419.477 msecs 5990.558 gflops
-bprop(10):  906.326 msecs 5545.254 gflops
+fprop( 0):  421.534 msecs 5961.336 gflops
+bprop( 0):  905.667 msecs 5549.292 gflops
+fprop( 0):  421.488 msecs 5961.987 gflops
+bprop( 0):  906.891 msecs 5541.798 gflops
+fprop( 0):  420.404 msecs 5977.352 gflops
+bprop( 0):  905.587 msecs 5549.781 gflops
+fprop( 0):  421.279 msecs 5964.944 gflops
+bprop( 0):  906.493 msecs 5544.233 gflops
+fprop( 0):  421.899 msecs 5956.170 gflops
+bprop( 0):  907.711 msecs 5536.790 gflops
+fprop( 0):  421.657 msecs 5959.599 gflops
+bprop( 0):  906.002 msecs 5547.235 gflops
+fprop( 0):  422.496 msecs 5947.755 gflops
+bprop( 0):  912.203 msecs 5509.529 gflops
+fprop( 0):  423.427 msecs 5934.680 gflops
+bprop( 0):  909.946 msecs 5523.195 gflops
+fprop( 0):  424.327 msecs 5922.091 gflops
+bprop( 0):  909.790 msecs 5524.140 gflops
+fprop( 0):  426.165 msecs 5896.548 gflops
+bprop( 0):  913.374 msecs 5502.464 gflops
+fprop( 1):  424.670 msecs 5917.307 gflops
+bprop( 1):  913.554 msecs 5501.378 gflops
+fprop( 2):  424.696 msecs 5916.951 gflops
+bprop( 2):  910.454 msecs 5520.114 gflops
+fprop( 3):  426.845 msecs 5887.156 gflops
+bprop( 3):  914.767 msecs 5494.086 gflops
+fprop( 4):  425.279 msecs 5908.830 gflops
+bprop( 4):  913.385 msecs 5502.395 gflops
+fprop( 5):  425.690 msecs 5903.129 gflops
+bprop( 5):  915.357 msecs 5490.546 gflops
+fprop( 6):  427.439 msecs 5878.975 gflops
+bprop( 6):  916.877 msecs 5481.440 gflops
+fprop( 7):  424.678 msecs 5917.192 gflops
+bprop( 7):  918.707 msecs 5470.522 gflops
+fprop( 8):  426.677 msecs 5889.473 gflops
+bprop( 8):  916.932 msecs 5481.116 gflops
+fprop( 9):  426.973 msecs 5885.391 gflops
+bprop( 9):  917.057 msecs 5480.363 gflops
+fprop(10):  426.054 msecs 5898.093 gflops
+bprop(10):  917.689 msecs 5476.590 gflops
 ---------------------------------------------
 VGG_E (dtype=float16, N=64) Results:
 ---------------------------------------------
-Avg(10) fprop:  418.023 msecs 6011.403 gflops
-Avg(10) bprop:  901.890 msecs 5572.530 gflops
-Avg(10) total: 1319.913 msecs 5711.524 gflops
+Avg(10) fprop:  425.900 msecs 5900.217 gflops
+Avg(10) bprop:  915.478 msecs 5489.818 gflops
+Avg(10) total: 1341.378 msecs 5620.124 gflops
 
 
 ------------------------------------------------
@@ -1029,33 +1211,51 @@ FullLayer: N, nIn, nOut: (64, 25088, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 4096)
 FullLayer: N, nIn, nOut: (64, 4096, 1000)
 6.692GB of 12.000GB Allocated (5.308GB Remaining)
-fprop( 0):  456.616 msecs 5503.321 gflops
-bprop( 0):  998.862 msecs 5031.535 gflops
-fprop( 1):  452.338 msecs 5555.371 gflops
-bprop( 1): 1000.713 msecs 5022.226 gflops
-fprop( 2):  454.157 msecs 5533.114 gflops
-bprop( 2): 1001.879 msecs 5016.385 gflops
-fprop( 3):  453.403 msecs 5542.324 gflops
-bprop( 3):  999.860 msecs 5026.511 gflops
-fprop( 4):  453.273 msecs 5543.914 gflops
-bprop( 4):  999.062 msecs 5030.529 gflops
-fprop( 5):  454.243 msecs 5532.066 gflops
-bprop( 5): 1001.882 msecs 5016.369 gflops
-fprop( 6):  453.253 msecs 5544.152 gflops
-bprop( 6): 1004.909 msecs 5001.259 gflops
-fprop( 7):  453.516 msecs 5540.934 gflops
-bprop( 7): 1000.244 msecs 5024.581 gflops
-fprop( 8):  452.752 msecs 5550.283 gflops
-bprop( 8): 1003.300 msecs 5009.278 gflops
-fprop( 9):  455.218 msecs 5520.219 gflops
-bprop( 9): 1003.111 msecs 5010.219 gflops
-fprop(10):  454.514 msecs 5528.775 gflops
-bprop(10): 1002.677 msecs 5012.388 gflops
+fprop( 0):  464.555 msecs 5409.272 gflops
+bprop( 0): 1012.725 msecs 4962.659 gflops
+fprop( 0):  461.692 msecs 5442.816 gflops
+bprop( 0): 1015.605 msecs 4948.584 gflops
+fprop( 0):  460.441 msecs 5457.608 gflops
+bprop( 0): 1020.568 msecs 4924.523 gflops
+fprop( 0):  461.390 msecs 5446.379 gflops
+bprop( 0): 1020.850 msecs 4923.159 gflops
+fprop( 0):  461.624 msecs 5443.613 gflops
+bprop( 0): 1017.391 msecs 4939.898 gflops
+fprop( 0):  462.662 msecs 5431.408 gflops
+bprop( 0): 1017.323 msecs 4940.231 gflops
+fprop( 0):  462.257 msecs 5436.160 gflops
+bprop( 0): 1021.082 msecs 4922.043 gflops
+fprop( 0):  462.518 msecs 5433.091 gflops
+bprop( 0): 1017.930 msecs 4937.284 gflops
+fprop( 0):  463.595 msecs 5420.478 gflops
+bprop( 0): 1019.530 msecs 4929.533 gflops
+fprop( 0):  464.842 msecs 5405.935 gflops
+bprop( 0): 1021.087 msecs 4922.019 gflops
+fprop( 1):  465.170 msecs 5402.115 gflops
+bprop( 1): 1021.846 msecs 4918.364 gflops
+fprop( 2):  462.888 msecs 5428.752 gflops
+bprop( 2): 1017.766 msecs 4938.079 gflops
+fprop( 3):  463.764 msecs 5418.492 gflops
+bprop( 3): 1019.369 msecs 4930.311 gflops
+fprop( 4):  463.784 msecs 5418.264 gflops
+bprop( 4): 1019.606 msecs 4929.167 gflops
+fprop( 5):  463.036 msecs 5427.012 gflops
+bprop( 5): 1020.728 msecs 4923.747 gflops
+fprop( 6):  463.332 msecs 5423.545 gflops
+bprop( 6): 1022.994 msecs 4912.840 gflops
+fprop( 7):  464.969 msecs 5404.459 gflops
+bprop( 7): 1023.605 msecs 4909.911 gflops
+fprop( 8):  465.520 msecs 5398.063 gflops
+bprop( 8): 1024.045 msecs 4907.800 gflops
+fprop( 9):  465.840 msecs 5394.348 gflops
+bprop( 9): 1022.546 msecs 4914.995 gflops
+fprop(10):  466.280 msecs 5389.254 gflops
+bprop(10): 1022.028 msecs 4917.487 gflops
 ---------------------------------------------
 VGG_E (dtype=float32, N=64) Results:
 ---------------------------------------------
-Avg(10) fprop:  453.667 msecs 5539.097 gflops
-Avg(10) bprop: 1001.764 msecs 5016.960 gflops
-Avg(10) total: 1455.430 msecs 5179.713 gflops
+Avg(10) fprop:  464.458 msecs 5410.396 gflops
+Avg(10) bprop: 1021.453 msecs 4920.252 gflops
+Avg(10) total: 1485.912 msecs 5073.459 gflops
 
 
