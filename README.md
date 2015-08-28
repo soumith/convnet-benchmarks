@@ -54,7 +54,7 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 | Torch-7 (native)         | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                |       1105        |  350                    |   755                    |
 | CL-nn (Torch)            | [SpatialConvolutionMM](https://github.com/hughperkins/clnn/blob/master/SpatialConvolutionMM.cl)                          |       3437        |  875                    |   2562                   |
 
-**[GoogleNet V1](http://research.google.com/pubs/pub43022.html)** - Input 32x3x224x224
+**[GoogleNet V1](http://research.google.com/pubs/pub43022.html)** - Input 128x3x224x224
 
 | Library                  | Class                                                                                                                    | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
