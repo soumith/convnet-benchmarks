@@ -34,16 +34,7 @@ function vgg_a(lib)
             features:add(SpatialMaxPooling(2,2,2,2))
          else
             local oChannels = v;
-	    if not padding then
-	       features:add(SpatialZeroPadding(1,1,1,1))
-	       if k >= 3 and lib[5] == 'fbfft' then -- fbfft runs out of memory at this point
-		  features:add(cudnn.SpatialConvolution(iChannels,oChannels,3,3,1,1))
-	       else
-		  features:add(SpatialConvolution(iChannels,oChannels,3,3,1,1))
-	       end
-	    else
-	       features:add(SpatialConvolution(iChannels,oChannels,3,3,1,1,1,1))
-	    end
+            features:add(SpatialConvolution(iChannels,oChannels,3,3,1,1,1,1))
             features:add(ReLU(true))
             iChannels = oChannels;
          end
