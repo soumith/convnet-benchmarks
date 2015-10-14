@@ -71,7 +71,7 @@ layers {
   }
 }
 layers {
-  name: "cpnv2/relu"
+  name: "conv2/relu"
   type: RELU
   bottom: "conv2/5x5_s1"
   top: "conv2/5x5_s1"
