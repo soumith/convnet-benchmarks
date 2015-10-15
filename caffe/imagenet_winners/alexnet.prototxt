@@ -10,23 +10,11 @@ layers {
   type: CONVOLUTION
   bottom: "data"
   top: "conv1/11x11_s4"
-  blobs_lr: 1
-  blobs_lr: 2 
-  weight_decay: 1
-  weight_decay: 0 
   convolution_param {
     num_output: 64
     kernel_size: 11
     stride: 4
     pad: 2
-    weight_filler {
-      type: "xavier"
-      std: 0.1
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.2
-    }
   }
 }
 layers {
@@ -51,27 +39,15 @@ layers {
   type: CONVOLUTION
   bottom: "pool1/3x3_s2"
   top: "conv2/5x5_s1"
-  blobs_lr: 1
-  blobs_lr: 2 
-  weight_decay: 1
-  weight_decay: 0 
   convolution_param {
     num_output: 192
     kernel_size: 5
     stride: 1
     pad: 2
-    weight_filler {
-      type: "xavier"
-      std: 0.1
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.2
-    }
   }
 }
 layers {
-  name: "cpnv2/relu"
+  name: "conv2/relu"
   type: RELU
   bottom: "conv2/5x5_s1"
   top: "conv2/5x5_s1"
@@ -92,23 +68,11 @@ layers {
   type: CONVOLUTION
   bottom: "pool2/3x3_s2"
   top: "conv3/3x3_s1"
-  blobs_lr: 1
-  blobs_lr: 2 
-  weight_decay: 1
-  weight_decay: 0 
   convolution_param {
     num_output: 384
     kernel_size: 3
     stride: 1
     pad: 1
-    weight_filler {
-      type: "xavier"
-      std: 0.1
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.2
-    }
   }
 }
 layers {
@@ -122,23 +86,11 @@ layers {
   type: CONVOLUTION
   bottom: "conv3/3x3_s1"
   top: "conv4/3x3_s1"
-  blobs_lr: 1
-  blobs_lr: 2 
-  weight_decay: 1
-  weight_decay: 0 
   convolution_param {
     num_output: 256
     kernel_size: 3
     stride: 1
     pad: 1
-    weight_filler {
-      type: "xavier"
-      std: 0.1
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.2
-    }
   }
 }
 layers {
@@ -152,23 +104,11 @@ layers {
   type: CONVOLUTION
   bottom: "conv4/3x3_s1"
   top: "conv5/3x3_s1"
-  blobs_lr: 1
-  blobs_lr: 2 
-  weight_decay: 1
-  weight_decay: 0 
   convolution_param {
     num_output: 256
     kernel_size: 3
     stride: 1
     pad: 1
-    weight_filler {
-      type: "xavier"
-      std: 0.1
-    }
-    bias_filler {
-      type: "constant"
-      value: 0.2
-    }
   }
 }
 layers {
