@@ -4,6 +4,7 @@ input_dim: 128
 input_dim: 3
 input_dim: 227
 input_dim: 227
+force_backward: true
 layer {
   name: "pack1"
   type: "IntelPack"
