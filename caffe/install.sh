@@ -1,6 +1,5 @@
 git clone https://github.com/BVLC/caffe.git
 cd caffe
-git checkout dev
 
 # Dependencies
 sudo apt-get install -y libprotobuf-dev libleveldb-dev libsnappy-dev libopencv-dev libboost-all-dev libhdf5-serial-dev 
