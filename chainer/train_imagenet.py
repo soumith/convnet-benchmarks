@@ -51,29 +51,30 @@ def train_loop():
     data = np.ndarray((args.batchsize, 3, 224, 224), dtype=np.float32)
     data.fill(33333)
     x = xp.asarray(data)
-    
+
     label = np.ndarray((args.batchsize), dtype=np.int32)
     label.fill(1)
     y = xp.asarray(label)
 
-    
-
-    while True:
+    for i in range(10):
+        print "Iteration", i
 
         optimizer.zero_grads()
+        start = time.clock()
         loss, accuracy = model.forward(x, y)
+        end = time.clock()
+        print "Forward step time elapsed:", end - start, "seconds"
+
+        start = time.clock()
         loss.backward()
+        end = time.clock()
+        print "Backward step time elapsed:", end - start, "seconds"
+
+        start = time.clock()
         optimizer.update()
+        end = time.clock()
+        print "Optimizer step time elapsed:", end - start, "seconds"
 
-        if not graph_generated:
-            with open('graph.dot', 'w') as o:
-                o.write(c.build_computational_graph((loss,), False).dump())
-            with open('graph.wo_split.dot', 'w') as o:
-                o.write(c.build_computational_graph((loss,), True).dump())
-            print('generated graph')
-            graph_generated = True
-
-        
-        del loss, accuracy, x, y
+        del loss, accuracy
 
 train_loop()
