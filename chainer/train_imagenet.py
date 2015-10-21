@@ -28,6 +28,9 @@ xp = cuda.cupy if args.gpu >= 0 else np
 if args.arch == 'nin':
     import nin
     model = nin.NIN()
+elif args.arch == 'alex':
+    import alex
+    model = alex.Alex()
 elif args.arch == 'alexbn':
     import alexbn
     model = alexbn.AlexBN()
