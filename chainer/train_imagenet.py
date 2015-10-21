@@ -50,7 +50,6 @@ optimizer.setup(model)
 
 def train_loop():
     # Trainer
-    graph_generated = False
     data = np.ndarray((args.batchsize, 3, 224, 224), dtype=np.float32)
     data.fill(33333)
     x = xp.asarray(data)
