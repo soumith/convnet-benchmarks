@@ -1,13 +1,9 @@
 #!/usr/bin/env python
 import argparse
-import datetime
-import random
-import sys
 import time
 
 import numpy as np
 
-from chainer import computational_graph as c
 from chainer import cuda
 from chainer import optimizers
 
@@ -50,6 +46,7 @@ if args.gpu >= 0:
 # Setup optimizer
 optimizer = optimizers.SGD(lr=0.01)
 optimizer.setup(model)
+
 
 def train_loop():
     # Trainer
