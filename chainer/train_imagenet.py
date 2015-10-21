@@ -25,7 +25,10 @@ args = parser.parse_args()
 xp = cuda.cupy if args.gpu >= 0 else np
 
 # Prepare model
-if args.arch == 'alexbn':
+if args.arch == 'nin':
+    import nin
+    model = nin.NIN()
+elif args.arch == 'alexbn':
     import alexbn
     model = alexbn.AlexBN()
 elif args.arch == 'googlenet':
