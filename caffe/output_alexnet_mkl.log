@@ -1,0 +1,333 @@
+I1022 01:08:19.787847  6102 caffe.cpp:301] Use CPU.
+I1022 01:08:19.789178  6102 upgrade_proto.cpp:618] Attempting to upgrade input file specified using deprecated V1LayerParameter: ./imagenet_winners/alexnet.prototxt
+I1022 01:08:19.789238  6102 upgrade_proto.cpp:626] Successfully upgraded file specified using deprecated V1LayerParameter
+I1022 01:08:19.789341  6102 net.cpp:50] Initializing net from parameters: 
+name: "alexnet"
+input: "data"
+input_dim: 128
+input_dim: 3
+input_dim: 224
+input_dim: 224
+force_backward: true
+state {
+  phase: TRAIN
+}
+layer {
+  name: "conv1"
+  type: "Convolution"
+  bottom: "data"
+  top: "conv1/11x11_s4"
+  convolution_param {
+    num_output: 64
+    pad: 2
+    kernel_size: 11
+    stride: 4
+  }
+}
+layer {
+  name: "conv1/relu"
+  type: "ReLU"
+  bottom: "conv1/11x11_s4"
+  top: "conv1/11x11_s4"
+}
+layer {
+  name: "pool1/3x3_s2"
+  type: "Pooling"
+  bottom: "conv1/11x11_s4"
+  top: "pool1/3x3_s2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "conv2/5x5_s1"
+  type: "Convolution"
+  bottom: "pool1/3x3_s2"
+  top: "conv2/5x5_s1"
+  convolution_param {
+    num_output: 192
+    pad: 2
+    kernel_size: 5
+    stride: 1
+  }
+}
+layer {
+  name: "conv2/relu"
+  type: "ReLU"
+  bottom: "conv2/5x5_s1"
+  top: "conv2/5x5_s1"
+}
+layer {
+  name: "pool2/3x3_s2"
+  type: "Pooling"
+  bottom: "conv2/5x5_s1"
+  top: "pool2/3x3_s2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "conv3/3x3_s1"
+  type: "Convolution"
+  bottom: "pool2/3x3_s2"
+  top: "conv3/3x3_s1"
+  convolution_param {
+    num_output: 384
+    pad: 1
+    kernel_size: 3
+    stride: 1
+  }
+}
+layer {
+  name: "conv3/relu"
+  type: "ReLU"
+  bottom: "conv3/3x3_s1"
+  top: "conv3/3x3_s1"
+}
+layer {
+  name: "conv4/3x3_s1"
+  type: "Convolution"
+  bottom: "conv3/3x3_s1"
+  top: "conv4/3x3_s1"
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+    stride: 1
+  }
+}
+layer {
+  name: "conv4/relu"
+  type: "ReLU"
+  bottom: "conv4/3x3_s1"
+  top: "conv4/3x3_s1"
+}
+layer {
+  name: "conv5/3x3_s1"
+  type: "Convolution"
+  bottom: "conv4/3x3_s1"
+  top: "conv5/3x3_s1"
+  convolution_param {
+    num_output: 256
+    pad: 1
+    kernel_size: 3
+    stride: 1
+  }
+}
+layer {
+  name: "conv5/relu"
+  type: "ReLU"
+  bottom: "conv5/3x3_s1"
+  top: "conv5/3x3_s1"
+}
+layer {
+  name: "pool5/3x3_s2"
+  type: "Pooling"
+  bottom: "conv5/3x3_s1"
+  top: "pool5/3x3_s2"
+  pooling_param {
+    pool: MAX
+    kernel_size: 3
+    stride: 2
+  }
+}
+layer {
+  name: "fc6"
+  type: "InnerProduct"
+  bottom: "pool5/3x3_s2"
+  top: "fc6"
+  inner_product_param {
+    num_output: 4096
+  }
+}
+layer {
+  name: "fc7"
+  type: "InnerProduct"
+  bottom: "fc6"
+  top: "fc7"
+  inner_product_param {
+    num_output: 4096
+  }
+}
+layer {
+  name: "fc8"
+  type: "InnerProduct"
+  bottom: "fc7"
+  top: "fc8"
+  inner_product_param {
+    num_output: 1000
+  }
+}
+I1022 01:08:19.789399  6102 net.cpp:435] Input 0 -> data
+I1022 01:08:19.789428  6102 layer_factory.hpp:76] Creating layer conv1
+I1022 01:08:19.789443  6102 net.cpp:110] Creating Layer conv1
+I1022 01:08:19.789448  6102 net.cpp:477] conv1 <- data
+I1022 01:08:19.789453  6102 net.cpp:433] conv1 -> conv1/11x11_s4
+I1022 01:08:19.789517  6102 net.cpp:155] Setting up conv1
+I1022 01:08:19.789535  6102 net.cpp:163] Top shape: 128 64 55 55 (24780800)
+I1022 01:08:19.789547  6102 layer_factory.hpp:76] Creating layer conv1/relu
+I1022 01:08:19.789553  6102 net.cpp:110] Creating Layer conv1/relu
+I1022 01:08:19.789557  6102 net.cpp:477] conv1/relu <- conv1/11x11_s4
+I1022 01:08:19.789561  6102 net.cpp:419] conv1/relu -> conv1/11x11_s4 (in-place)
+I1022 01:08:19.789574  6102 net.cpp:155] Setting up conv1/relu
+I1022 01:08:19.789578  6102 net.cpp:163] Top shape: 128 64 55 55 (24780800)
+I1022 01:08:19.789582  6102 layer_factory.hpp:76] Creating layer pool1/3x3_s2
+I1022 01:08:19.789587  6102 net.cpp:110] Creating Layer pool1/3x3_s2
+I1022 01:08:19.789589  6102 net.cpp:477] pool1/3x3_s2 <- conv1/11x11_s4
+I1022 01:08:19.789593  6102 net.cpp:433] pool1/3x3_s2 -> pool1/3x3_s2
+I1022 01:08:19.789605  6102 net.cpp:155] Setting up pool1/3x3_s2
+I1022 01:08:19.789610  6102 net.cpp:163] Top shape: 128 64 27 27 (5971968)
+I1022 01:08:19.789618  6102 layer_factory.hpp:76] Creating layer conv2/5x5_s1
+I1022 01:08:19.789624  6102 net.cpp:110] Creating Layer conv2/5x5_s1
+I1022 01:08:19.789628  6102 net.cpp:477] conv2/5x5_s1 <- pool1/3x3_s2
+I1022 01:08:19.789633  6102 net.cpp:433] conv2/5x5_s1 -> conv2/5x5_s1
+I1022 01:08:19.789816  6102 net.cpp:155] Setting up conv2/5x5_s1
+I1022 01:08:19.789825  6102 net.cpp:163] Top shape: 128 192 27 27 (17915904)
+I1022 01:08:19.789832  6102 layer_factory.hpp:76] Creating layer conv2/relu
+I1022 01:08:19.789839  6102 net.cpp:110] Creating Layer conv2/relu
+I1022 01:08:19.789842  6102 net.cpp:477] conv2/relu <- conv2/5x5_s1
+I1022 01:08:19.789846  6102 net.cpp:419] conv2/relu -> conv2/5x5_s1 (in-place)
+I1022 01:08:19.789851  6102 net.cpp:155] Setting up conv2/relu
+I1022 01:08:19.789855  6102 net.cpp:163] Top shape: 128 192 27 27 (17915904)
+I1022 01:08:19.789858  6102 layer_factory.hpp:76] Creating layer pool2/3x3_s2
+I1022 01:08:19.789862  6102 net.cpp:110] Creating Layer pool2/3x3_s2
+I1022 01:08:19.789865  6102 net.cpp:477] pool2/3x3_s2 <- conv2/5x5_s1
+I1022 01:08:19.789870  6102 net.cpp:433] pool2/3x3_s2 -> pool2/3x3_s2
+I1022 01:08:19.789876  6102 net.cpp:155] Setting up pool2/3x3_s2
+I1022 01:08:19.789880  6102 net.cpp:163] Top shape: 128 192 13 13 (4153344)
+I1022 01:08:19.789883  6102 layer_factory.hpp:76] Creating layer conv3/3x3_s1
+I1022 01:08:19.789888  6102 net.cpp:110] Creating Layer conv3/3x3_s1
+I1022 01:08:19.789891  6102 net.cpp:477] conv3/3x3_s1 <- pool2/3x3_s2
+I1022 01:08:19.789896  6102 net.cpp:433] conv3/3x3_s1 -> conv3/3x3_s1
+I1022 01:08:19.790810  6102 net.cpp:155] Setting up conv3/3x3_s1
+I1022 01:08:19.790820  6102 net.cpp:163] Top shape: 128 384 13 13 (8306688)
+I1022 01:08:19.790827  6102 layer_factory.hpp:76] Creating layer conv3/relu
+I1022 01:08:19.790832  6102 net.cpp:110] Creating Layer conv3/relu
+I1022 01:08:19.790835  6102 net.cpp:477] conv3/relu <- conv3/3x3_s1
+I1022 01:08:19.790839  6102 net.cpp:419] conv3/relu -> conv3/3x3_s1 (in-place)
+I1022 01:08:19.790845  6102 net.cpp:155] Setting up conv3/relu
+I1022 01:08:19.790848  6102 net.cpp:163] Top shape: 128 384 13 13 (8306688)
+I1022 01:08:19.790851  6102 layer_factory.hpp:76] Creating layer conv4/3x3_s1
+I1022 01:08:19.790858  6102 net.cpp:110] Creating Layer conv4/3x3_s1
+I1022 01:08:19.790860  6102 net.cpp:477] conv4/3x3_s1 <- conv3/3x3_s1
+I1022 01:08:19.790864  6102 net.cpp:433] conv4/3x3_s1 -> conv4/3x3_s1
+I1022 01:08:19.791949  6102 net.cpp:155] Setting up conv4/3x3_s1
+I1022 01:08:19.791957  6102 net.cpp:163] Top shape: 128 256 13 13 (5537792)
+I1022 01:08:19.791963  6102 layer_factory.hpp:76] Creating layer conv4/relu
+I1022 01:08:19.791968  6102 net.cpp:110] Creating Layer conv4/relu
+I1022 01:08:19.791971  6102 net.cpp:477] conv4/relu <- conv4/3x3_s1
+I1022 01:08:19.791975  6102 net.cpp:419] conv4/relu -> conv4/3x3_s1 (in-place)
+I1022 01:08:19.791980  6102 net.cpp:155] Setting up conv4/relu
+I1022 01:08:19.791985  6102 net.cpp:163] Top shape: 128 256 13 13 (5537792)
+I1022 01:08:19.791987  6102 layer_factory.hpp:76] Creating layer conv5/3x3_s1
+I1022 01:08:19.791991  6102 net.cpp:110] Creating Layer conv5/3x3_s1
+I1022 01:08:19.791995  6102 net.cpp:477] conv5/3x3_s1 <- conv4/3x3_s1
+I1022 01:08:19.791998  6102 net.cpp:433] conv5/3x3_s1 -> conv5/3x3_s1
+I1022 01:08:19.792898  6102 net.cpp:155] Setting up conv5/3x3_s1
+I1022 01:08:19.792911  6102 net.cpp:163] Top shape: 128 256 13 13 (5537792)
+I1022 01:08:19.792918  6102 layer_factory.hpp:76] Creating layer conv5/relu
+I1022 01:08:19.792923  6102 net.cpp:110] Creating Layer conv5/relu
+I1022 01:08:19.792927  6102 net.cpp:477] conv5/relu <- conv5/3x3_s1
+I1022 01:08:19.792930  6102 net.cpp:419] conv5/relu -> conv5/3x3_s1 (in-place)
+I1022 01:08:19.792935  6102 net.cpp:155] Setting up conv5/relu
+I1022 01:08:19.792939  6102 net.cpp:163] Top shape: 128 256 13 13 (5537792)
+I1022 01:08:19.792943  6102 layer_factory.hpp:76] Creating layer pool5/3x3_s2
+I1022 01:08:19.792948  6102 net.cpp:110] Creating Layer pool5/3x3_s2
+I1022 01:08:19.792950  6102 net.cpp:477] pool5/3x3_s2 <- conv5/3x3_s1
+I1022 01:08:19.792960  6102 net.cpp:433] pool5/3x3_s2 -> pool5/3x3_s2
+I1022 01:08:19.792968  6102 net.cpp:155] Setting up pool5/3x3_s2
+I1022 01:08:19.792973  6102 net.cpp:163] Top shape: 128 256 6 6 (1179648)
+I1022 01:08:19.792975  6102 layer_factory.hpp:76] Creating layer fc6
+I1022 01:08:19.792980  6102 net.cpp:110] Creating Layer fc6
+I1022 01:08:19.792984  6102 net.cpp:477] fc6 <- pool5/3x3_s2
+I1022 01:08:19.792987  6102 net.cpp:433] fc6 -> fc6
+I1022 01:08:20.057559  6102 net.cpp:155] Setting up fc6
+I1022 01:08:20.057588  6102 net.cpp:163] Top shape: 128 4096 (524288)
+I1022 01:08:20.057597  6102 layer_factory.hpp:76] Creating layer fc7
+I1022 01:08:20.057606  6102 net.cpp:110] Creating Layer fc7
+I1022 01:08:20.057610  6102 net.cpp:477] fc7 <- fc6
+I1022 01:08:20.057616  6102 net.cpp:433] fc7 -> fc7
+I1022 01:08:20.170421  6102 net.cpp:155] Setting up fc7
+I1022 01:08:20.170449  6102 net.cpp:163] Top shape: 128 4096 (524288)
+I1022 01:08:20.170459  6102 layer_factory.hpp:76] Creating layer fc8
+I1022 01:08:20.170465  6102 net.cpp:110] Creating Layer fc8
+I1022 01:08:20.170470  6102 net.cpp:477] fc8 <- fc7
+I1022 01:08:20.170476  6102 net.cpp:433] fc8 -> fc8
+I1022 01:08:20.196257  6102 net.cpp:155] Setting up fc8
+I1022 01:08:20.196280  6102 net.cpp:163] Top shape: 128 1000 (128000)
+I1022 01:08:20.196288  6102 net.cpp:240] fc8 does not need backward computation.
+I1022 01:08:20.196293  6102 net.cpp:240] fc7 does not need backward computation.
+I1022 01:08:20.196296  6102 net.cpp:240] fc6 does not need backward computation.
+I1022 01:08:20.196300  6102 net.cpp:240] pool5/3x3_s2 does not need backward computation.
+I1022 01:08:20.196303  6102 net.cpp:240] conv5/relu does not need backward computation.
+I1022 01:08:20.196306  6102 net.cpp:240] conv5/3x3_s1 does not need backward computation.
+I1022 01:08:20.196310  6102 net.cpp:240] conv4/relu does not need backward computation.
+I1022 01:08:20.196313  6102 net.cpp:240] conv4/3x3_s1 does not need backward computation.
+I1022 01:08:20.196316  6102 net.cpp:240] conv3/relu does not need backward computation.
+I1022 01:08:20.196319  6102 net.cpp:240] conv3/3x3_s1 does not need backward computation.
+I1022 01:08:20.196323  6102 net.cpp:240] pool2/3x3_s2 does not need backward computation.
+I1022 01:08:20.196326  6102 net.cpp:240] conv2/relu does not need backward computation.
+I1022 01:08:20.196329  6102 net.cpp:240] conv2/5x5_s1 does not need backward computation.
+I1022 01:08:20.196332  6102 net.cpp:240] pool1/3x3_s2 does not need backward computation.
+I1022 01:08:20.196336  6102 net.cpp:240] conv1/relu does not need backward computation.
+I1022 01:08:20.196339  6102 net.cpp:240] conv1 does not need backward computation.
+I1022 01:08:20.196343  6102 net.cpp:283] This network produces output fc8
+I1022 01:08:20.196358  6102 net.cpp:297] Network initialization done.
+I1022 01:08:20.196362  6102 net.cpp:298] Memory required for data: 546557952
+I1022 01:08:20.196430  6102 caffe.cpp:309] Performing Forward
+I1022 01:08:21.943169  6102 caffe.cpp:314] Initial loss: 0
+I1022 01:08:21.943212  6102 caffe.cpp:315] Performing Backward
+I1022 01:08:24.662355  6102 caffe.cpp:323] *** Benchmark begins ***
+I1022 01:08:24.662385  6102 caffe.cpp:324] Testing for 10 iterations.
+I1022 01:08:27.448784  6102 caffe.cpp:352] Iteration: 1 forward-backward time: 2786 ms.
+I1022 01:08:30.229830  6102 caffe.cpp:352] Iteration: 2 forward-backward time: 2780 ms.
+I1022 01:08:33.012552  6102 caffe.cpp:352] Iteration: 3 forward-backward time: 2782 ms.
+I1022 01:08:35.795159  6102 caffe.cpp:352] Iteration: 4 forward-backward time: 2782 ms.
+I1022 01:08:38.572041  6102 caffe.cpp:352] Iteration: 5 forward-backward time: 2776 ms.
+I1022 01:08:41.353075  6102 caffe.cpp:352] Iteration: 6 forward-backward time: 2780 ms.
+I1022 01:08:44.134975  6102 caffe.cpp:352] Iteration: 7 forward-backward time: 2781 ms.
+I1022 01:08:46.912865  6102 caffe.cpp:352] Iteration: 8 forward-backward time: 2777 ms.
+I1022 01:08:49.696748  6102 caffe.cpp:352] Iteration: 9 forward-backward time: 2783 ms.
+I1022 01:08:52.479735  6102 caffe.cpp:352] Iteration: 10 forward-backward time: 2782 ms.
+I1022 01:08:52.479778  6102 caffe.cpp:355] Average time per layer: 
+I1022 01:08:52.479781  6102 caffe.cpp:358]      conv1	forward: 150.364 ms.
+I1022 01:08:52.479786  6102 caffe.cpp:361]      conv1	backward: 333.447 ms.
+I1022 01:08:52.479790  6102 caffe.cpp:358] conv1/relu	forward: 21.3718 ms.
+I1022 01:08:52.479794  6102 caffe.cpp:361] conv1/relu	backward: 28.7745 ms.
+I1022 01:08:52.479797  6102 caffe.cpp:358] pool1/3x3_s2	forward: 86.969 ms.
+I1022 01:08:52.479801  6102 caffe.cpp:361] pool1/3x3_s2	backward: 46.6337 ms.
+I1022 01:08:52.479805  6102 caffe.cpp:358] conv2/5x5_s1	forward: 257.375 ms.
+I1022 01:08:52.479809  6102 caffe.cpp:361] conv2/5x5_s1	backward: 472.902 ms.
+I1022 01:08:52.479811  6102 caffe.cpp:358] conv2/relu	forward: 15.5212 ms.
+I1022 01:08:52.479815  6102 caffe.cpp:361] conv2/relu	backward: 20.8986 ms.
+I1022 01:08:52.479818  6102 caffe.cpp:358] pool2/3x3_s2	forward: 64.9493 ms.
+I1022 01:08:52.479822  6102 caffe.cpp:361] pool2/3x3_s2	backward: 35.7332 ms.
+I1022 01:08:52.479825  6102 caffe.cpp:358] conv3/3x3_s1	forward: 101.415 ms.
+I1022 01:08:52.479828  6102 caffe.cpp:361] conv3/3x3_s1	backward: 198.501 ms.
+I1022 01:08:52.479832  6102 caffe.cpp:358] conv3/relu	forward: 7.3132 ms.
+I1022 01:08:52.479835  6102 caffe.cpp:361] conv3/relu	backward: 9.7262 ms.
+I1022 01:08:52.479838  6102 caffe.cpp:358] conv4/3x3_s1	forward: 154.713 ms.
+I1022 01:08:52.479841  6102 caffe.cpp:361] conv4/3x3_s1	backward: 305.381 ms.
+I1022 01:08:52.479846  6102 caffe.cpp:358] conv4/relu	forward: 4.9425 ms.
+I1022 01:08:52.479848  6102 caffe.cpp:361] conv4/relu	backward: 6.5157 ms.
+I1022 01:08:52.479851  6102 caffe.cpp:358] conv5/3x3_s1	forward: 105.072 ms.
+I1022 01:08:52.479854  6102 caffe.cpp:361] conv5/3x3_s1	backward: 201.767 ms.
+I1022 01:08:52.479857  6102 caffe.cpp:358] conv5/relu	forward: 4.9396 ms.
+I1022 01:08:52.479861  6102 caffe.cpp:361] conv5/relu	backward: 6.4698 ms.
+I1022 01:08:52.479863  6102 caffe.cpp:358] pool5/3x3_s2	forward: 24.9629 ms.
+I1022 01:08:52.479867  6102 caffe.cpp:361] pool5/3x3_s2	backward: 14.9127 ms.
+I1022 01:08:52.479871  6102 caffe.cpp:358]        fc6	forward: 22.3755 ms.
+I1022 01:08:52.479873  6102 caffe.cpp:361]        fc6	backward: 39.6067 ms.
+I1022 01:08:52.479876  6102 caffe.cpp:358]        fc7	forward: 10.9101 ms.
+I1022 01:08:52.479881  6102 caffe.cpp:361]        fc7	backward: 18.8958 ms.
+I1022 01:08:52.479883  6102 caffe.cpp:358]        fc8	forward: 2.9977 ms.
+I1022 01:08:52.479887  6102 caffe.cpp:361]        fc8	backward: 5.2766 ms.
+I1022 01:08:52.479892  6102 caffe.cpp:366] Average Forward pass: 1036.22 ms.
+I1022 01:08:52.479895  6102 caffe.cpp:368] Average Backward pass: 1745.47 ms.
+I1022 01:08:52.479898  6102 caffe.cpp:370] Average Forward-Backward: 2781.7 ms.
+I1022 01:08:52.479902  6102 caffe.cpp:372] Total Time: 27817 ms.
+I1022 01:08:52.479905  6102 caffe.cpp:373] *** Benchmark ends ***
