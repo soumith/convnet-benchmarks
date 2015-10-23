@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(
     description=' convnet benchmarks on imagenet')
 parser.add_argument('--arch', '-a', default='alexbn',
                     help='Convnet architecture \
-                    (nin, alexbn, googlenet, googlenetbn)')
+                    (nin, alex, alexbn, googlenet, googlenetbn)')
 parser.add_argument('--batchsize', '-B', type=int, default=128,
                     help='minibatch size')
 parser.add_argument('--gpu', '-g', default=-1, type=int,
