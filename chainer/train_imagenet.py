@@ -1,13 +1,9 @@
 #!/usr/bin/env python
 import argparse
-import datetime
-import random
-import sys
 import time
 
 import numpy as np
 
-from chainer import computational_graph as c
 from chainer import cuda
 from chainer import optimizers
 
@@ -15,7 +11,7 @@ parser = argparse.ArgumentParser(
     description=' convnet benchmarks on imagenet')
 parser.add_argument('--arch', '-a', default='alexbn',
                     help='Convnet architecture \
-                    (nin, alexbn, googlenet, googlenetbn)')
+                    (nin, alex, alexbn, googlenet, googlenetbn)')
 parser.add_argument('--batchsize', '-B', type=int, default=128,
                     help='minibatch size')
 parser.add_argument('--gpu', '-g', default=-1, type=int,
@@ -25,7 +21,13 @@ args = parser.parse_args()
 xp = cuda.cupy if args.gpu >= 0 else np
 
 # Prepare model
-if args.arch == 'alexbn':
+if args.arch == 'nin':
+    import nin
+    model = nin.NIN()
+elif args.arch == 'alex':
+    import alex
+    model = alex.Alex()
+elif args.arch == 'alexbn':
     import alexbn
     model = alexbn.AlexBN()
 elif args.arch == 'googlenet':
@@ -45,9 +47,9 @@ if args.gpu >= 0:
 optimizer = optimizers.SGD(lr=0.01)
 optimizer.setup(model)
 
+
 def train_loop():
     # Trainer
-    graph_generated = False
     data = np.ndarray((args.batchsize, 3, 224, 224), dtype=np.float32)
     data.fill(33333)
     x = xp.asarray(data)
