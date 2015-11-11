@@ -1,0 +1,32 @@
+I tensorflow/core/common_runtime/local_device.cc:25] Local device intra op parallelism threads: 12
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:88] Found device 0 with properties: 
+name: GeForce GTX TITAN X
+major: 5 minor: 2 memoryClockRate (GHz) 1.076
+pciBusID 0000:06:00.0
+Total memory: 12.00GiB
+Free memory: 11.87GiB
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:112] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:122] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:643] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:06:00.0)
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:47] Setting region size to 12105628263
+I tensorflow/core/common_runtime/local_session.cc:45] Local session inter op parallelism threads: 12
+2015-11-11 02:41:13.520104: step 10, duration = 0.281
+2015-11-11 02:41:16.324401: step 20, duration = 0.281
+2015-11-11 02:41:19.126286: step 30, duration = 0.280
+2015-11-11 02:41:21.930940: step 40, duration = 0.280
+2015-11-11 02:41:24.736543: step 50, duration = 0.280
+2015-11-11 02:41:27.544120: step 60, duration = 0.282
+2015-11-11 02:41:30.355979: step 70, duration = 0.282
+2015-11-11 02:41:33.168017: step 80, duration = 0.281
+2015-11-11 02:41:35.979207: step 90, duration = 0.279
+2015-11-11 02:41:38.512379: Forward across 100 steps, 0.278 +/- 0.028 sec / batch
+2015-11-11 02:42:02.433017: step 10, duration = 1.129
+2015-11-11 02:42:13.744946: step 20, duration = 1.133
+2015-11-11 02:42:25.073917: step 30, duration = 1.132
+2015-11-11 02:42:36.406182: step 40, duration = 1.132
+2015-11-11 02:42:47.749931: step 50, duration = 1.135
+2015-11-11 02:42:59.089295: step 60, duration = 1.135
+2015-11-11 02:43:10.441433: step 70, duration = 1.131
+2015-11-11 02:43:21.798913: step 80, duration = 1.138
+2015-11-11 02:43:33.153364: step 90, duration = 1.138
+2015-11-11 02:43:43.388163: Forward-backward across 100 steps, 1.123 +/- 0.113 sec / batch
