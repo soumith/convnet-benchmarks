@@ -4,23 +4,23 @@ local function inception(depth_dim, input_size, config, lib)
    local SpatialMaxPooling = lib[2]
    local ReLU = lib[3]
 
-   local depth_concat = nn.DepthConcat(depth_dim)
+   local depth_concat = nn.Concat(depth_dim)
    local conv1 = nn.Sequential()
    conv1:add(SpatialConvolution(input_size, config[1][1], 1, 1)):add(ReLU(true))
    depth_concat:add(conv1)
 
    local conv3 = nn.Sequential()
    conv3:add(SpatialConvolution(input_size, config[2][1], 1, 1)):add(ReLU(true))
-   conv3:add(SpatialConvolution(config[2][1], config[2][2], 3, 3)):add(ReLU(true))
+   conv3:add(SpatialConvolution(config[2][1], config[2][2], 3, 3, 1, 1, 1, 1)):add(ReLU(true))
    depth_concat:add(conv3)
 
    local conv5 = nn.Sequential()
    conv5:add(SpatialConvolution(input_size, config[3][1], 1, 1)):add(ReLU(true))
-   conv5:add(SpatialConvolution(config[3][1], config[3][2], 5, 5)):add(ReLU(true))
+   conv5:add(SpatialConvolution(config[3][1], config[3][2], 5, 5, 1, 1, 2, 2)):add(ReLU(true))
    depth_concat:add(conv5)
 
    local pool = nn.Sequential()
-   pool:add(SpatialMaxPooling(config[4][1], config[4][1], 1, 1))
+   pool:add(SpatialMaxPooling(config[4][1], config[4][1], 1, 1, 1, 1))
    pool:add(SpatialConvolution(input_size, config[4][2], 1, 1)):add(ReLU(true))
    depth_concat:add(pool)
 
