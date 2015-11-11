@@ -10,25 +10,28 @@ I tensorflow/core/common_runtime/gpu/gpu_init.cc:122] 0:   Y
 I tensorflow/core/common_runtime/gpu/gpu_device.cc:643] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:06:00.0)
 I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:47] Setting region size to 12105628263
 I tensorflow/core/common_runtime/local_session.cc:45] Local session inter op parallelism threads: 12
-W tensorflow/core/common_runtime/gpu/pool_allocator.cc:227] PoolAllocator: After 3943 get requests, put_count=3533 evicted_count=1000 eviction_rate=0.283046 and unsatisfied allocation rate=0.382957
+W tensorflow/core/common_runtime/gpu/pool_allocator.cc:227] PoolAllocator: After 2862 get requests, put_count=2445 evicted_count=1000 eviction_rate=0.408998 and unsatisfied allocation rate=0.530049
 I tensorflow/core/common_runtime/gpu/pool_allocator.cc:239] Raising pool_size_limit_ from 100 to 110
-2015-11-11 02:43:45.971096: step 10, duration = 0.054
-2015-11-11 02:43:46.513428: step 20, duration = 0.054
-2015-11-11 02:43:47.055397: step 30, duration = 0.054
-2015-11-11 02:43:47.598592: step 40, duration = 0.054
-2015-11-11 02:43:48.141368: step 50, duration = 0.054
-2015-11-11 02:43:48.684856: step 60, duration = 0.055
-2015-11-11 02:43:49.228501: step 70, duration = 0.054
-2015-11-11 02:43:49.771171: step 80, duration = 0.054
-2015-11-11 02:43:50.314110: step 90, duration = 0.054
-2015-11-11 02:43:50.804181: Forward across 100 steps, 0.054 +/- 0.005 sec / batch
-2015-11-11 02:44:04.661176: step 10, duration = 0.619
-2015-11-11 02:44:10.864090: step 20, duration = 0.622
-2015-11-11 02:44:17.098148: step 30, duration = 0.625
-2015-11-11 02:44:23.288805: step 40, duration = 0.618
-2015-11-11 02:44:29.495444: step 50, duration = 0.620
-2015-11-11 02:44:35.686493: step 60, duration = 0.616
-2015-11-11 02:44:41.891741: step 70, duration = 0.620
-2015-11-11 02:44:48.088553: step 80, duration = 0.618
-2015-11-11 02:44:54.287020: step 90, duration = 0.620
-2015-11-11 02:44:59.854690: Forward-backward across 100 steps, 0.614 +/- 0.062 sec / batch
+W tensorflow/core/common_runtime/gpu/pool_allocator.cc:227] PoolAllocator: After 6237 get requests, put_count=6236 evicted_count=1000 eviction_rate=0.160359 and unsatisfied allocation rate=0.164181
+I tensorflow/core/common_runtime/gpu/pool_allocator.cc:239] Raising pool_size_limit_ from 256 to 281
+E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:623] Deallocating stream with pending work
+2015-11-11 15:27:40.631786: step 10, duration = 0.054
+2015-11-11 15:27:41.171899: step 20, duration = 0.054
+2015-11-11 15:27:41.712831: step 30, duration = 0.054
+2015-11-11 15:27:42.252970: step 40, duration = 0.054
+2015-11-11 15:27:42.794053: step 50, duration = 0.054
+2015-11-11 15:27:43.334228: step 60, duration = 0.054
+2015-11-11 15:27:43.875158: step 70, duration = 0.054
+2015-11-11 15:27:44.415573: step 80, duration = 0.054
+2015-11-11 15:27:44.956751: step 90, duration = 0.054
+2015-11-11 15:27:45.443141: Forward across 100 steps, 0.054 +/- 0.005 sec / batch
+2015-11-11 15:27:58.249311: step 10, duration = 0.596
+2015-11-11 15:28:04.211849: step 20, duration = 0.596
+2015-11-11 15:28:10.170966: step 30, duration = 0.595
+2015-11-11 15:28:16.128262: step 40, duration = 0.595
+2015-11-11 15:28:22.088285: step 50, duration = 0.595
+2015-11-11 15:28:28.044325: step 60, duration = 0.596
+2015-11-11 15:28:34.004426: step 70, duration = 0.596
+2015-11-11 15:28:39.957435: step 80, duration = 0.597
+2015-11-11 15:28:45.917973: step 90, duration = 0.597
+2015-11-11 15:28:51.275416: Forward-backward across 100 steps, 0.590 +/- 0.059 sec / batch

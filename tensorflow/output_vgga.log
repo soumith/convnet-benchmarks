@@ -10,23 +10,137 @@ I tensorflow/core/common_runtime/gpu/gpu_init.cc:122] 0:   Y
 I tensorflow/core/common_runtime/gpu/gpu_device.cc:643] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:06:00.0)
 I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:47] Setting region size to 12105628263
 I tensorflow/core/common_runtime/local_session.cc:45] Local session inter op parallelism threads: 12
-2015-11-11 02:41:13.520104: step 10, duration = 0.281
-2015-11-11 02:41:16.324401: step 20, duration = 0.281
-2015-11-11 02:41:19.126286: step 30, duration = 0.280
-2015-11-11 02:41:21.930940: step 40, duration = 0.280
-2015-11-11 02:41:24.736543: step 50, duration = 0.280
-2015-11-11 02:41:27.544120: step 60, duration = 0.282
-2015-11-11 02:41:30.355979: step 70, duration = 0.282
-2015-11-11 02:41:33.168017: step 80, duration = 0.281
-2015-11-11 02:41:35.979207: step 90, duration = 0.279
-2015-11-11 02:41:38.512379: Forward across 100 steps, 0.278 +/- 0.028 sec / batch
-2015-11-11 02:42:02.433017: step 10, duration = 1.129
-2015-11-11 02:42:13.744946: step 20, duration = 1.133
-2015-11-11 02:42:25.073917: step 30, duration = 1.132
-2015-11-11 02:42:36.406182: step 40, duration = 1.132
-2015-11-11 02:42:47.749931: step 50, duration = 1.135
-2015-11-11 02:42:59.089295: step 60, duration = 1.135
-2015-11-11 02:43:10.441433: step 70, duration = 1.131
-2015-11-11 02:43:21.798913: step 80, duration = 1.138
-2015-11-11 02:43:33.153364: step 90, duration = 1.138
-2015-11-11 02:43:43.388163: Forward-backward across 100 steps, 1.123 +/- 0.113 sec / batch
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 256 (256B) Pool: chunks: 64 free: 35 cumulative malloc: 53 cumulative freed: 24
+Number of chunks: 64, in_use chunks: 29
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 512 (512B) Pool: chunks: 8 free: 6 cumulative malloc: 2 cumulative freed: 0
+Number of chunks: 8, in_use chunks: 2
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 1024 (1.0KiB) Pool: chunks: 4 free: 0 cumulative malloc: 4 cumulative freed: 0
+Number of chunks: 4, in_use chunks: 3
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 2048 (2.0KiB) Pool: chunks: 8 free: 0 cumulative malloc: 8 cumulative freed: 0
+Number of chunks: 8, in_use chunks: 7
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 4096 (4.0KiB) Pool: chunks: 4 free: 2 cumulative malloc: 3 cumulative freed: 1
+Number of chunks: 4, in_use chunks: 2
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 8192 (8.0KiB) Pool: chunks: 8 free: 7 cumulative malloc: 115 cumulative freed: 114
+Number of chunks: 8, in_use chunks: 1
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 16384 (16.0KiB) Pool: chunks: 8 free: 4 cumulative malloc: 6 cumulative freed: 2
+Number of chunks: 8, in_use chunks: 4
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 131072 (128.0KiB) Pool: chunks: 16 free: 16 cumulative malloc: 338 cumulative freed: 338
+Number of chunks: 16, in_use chunks: 0
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 327680 (320.0KiB) Pool: chunks: 4 free: 3 cumulative malloc: 115 cumulative freed: 114
+Number of chunks: 4, in_use chunks: 1
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 557056 (544.0KiB) Pool: chunks: 18 free: 18 cumulative malloc: 670 cumulative freed: 670
+Number of chunks: 18, in_use chunks: 0
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 1310720 (1.25MiB) Pool: chunks: 4 free: 3 cumulative malloc: 115 cumulative freed: 114
+Number of chunks: 4, in_use chunks: 1
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 2621440 (2.50MiB) Pool: chunks: 4 free: 3 cumulative malloc: 115 cumulative freed: 114
+Number of chunks: 4, in_use chunks: 1
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 3407872 (3.25MiB) Pool: chunks: 3 free: 0 cumulative malloc: 113 cumulative freed: 110
+Number of chunks: 3, in_use chunks: 2
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 5242880 (5.00MiB) Pool: chunks: 4 free: 3 cumulative malloc: 115 cumulative freed: 114
+Number of chunks: 4, in_use chunks: 1
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 10485760 (10.00MiB) Pool: chunks: 12 free: 9 cumulative malloc: 345 cumulative freed: 342
+Number of chunks: 12, in_use chunks: 3
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 13631488 (13.00MiB) Pool: chunks: 21 free: 13 cumulative malloc: 780 cumulative freed: 772
+Number of chunks: 21, in_use chunks: 8
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 16777216 (16.00MiB) Pool: chunks: 4 free: 3 cumulative malloc: 5 cumulative freed: 4
+Number of chunks: 4, in_use chunks: 1
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 17825792 (17.00MiB) Pool: chunks: 6 free: 6 cumulative malloc: 222 cumulative freed: 222
+Number of chunks: 6, in_use chunks: 0
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 20971520 (20.00MiB) Pool: chunks: 4 free: 3 cumulative malloc: 115 cumulative freed: 114
+Number of chunks: 4, in_use chunks: 1
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 27262976 (26.00MiB) Pool: chunks: 3 free: 2 cumulative malloc: 111 cumulative freed: 110
+Number of chunks: 3, in_use chunks: 1
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 31457280 (30.00MiB) Pool: chunks: 3 free: 3 cumulative malloc: 111 cumulative freed: 111
+Number of chunks: 3, in_use chunks: 0
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 54525952 (52.00MiB) Pool: chunks: 21 free: 16 cumulative malloc: 777 cumulative freed: 772
+Number of chunks: 21, in_use chunks: 5
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 58720256 (56.00MiB) Pool: chunks: 3 free: 3 cumulative malloc: 111 cumulative freed: 111
+Number of chunks: 3, in_use chunks: 0
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 62914560 (60.00MiB) Pool: chunks: 3 free: 3 cumulative malloc: 111 cumulative freed: 111
+Number of chunks: 3, in_use chunks: 0
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 71303168 (68.00MiB) Pool: chunks: 4 free: 3 cumulative malloc: 5 cumulative freed: 4
+Number of chunks: 4, in_use chunks: 1
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 109051904 (104.00MiB) Pool: chunks: 25 free: 20 cumulative malloc: 888 cumulative freed: 883
+Number of chunks: 25, in_use chunks: 5
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 117440512 (112.00MiB) Pool: chunks: 3 free: 3 cumulative malloc: 111 cumulative freed: 111
+Number of chunks: 3, in_use chunks: 0
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 218103808 (208.00MiB) Pool: chunks: 9 free: 7 cumulative malloc: 333 cumulative freed: 331
+Number of chunks: 9, in_use chunks: 2
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:339] Chunk size: 436207616 (416.00MiB) Pool: chunks: 10 free: 7 cumulative malloc: 338 cumulative freed: 335
+Number of chunks: 10, in_use chunks: 3
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:345] Aggregate Region Memory: 12105628263 (11.27GiB)
+I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:347] Aggregate Chunk Memory: 12105605120 (11.27GiB)
+W tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:89] Out of GPU memory, see memory state dump above
+W tensorflow/core/kernels/pooling_ops_common.cc:168] Resource exhausted: OOM when allocating tensor with shapedim { size: 32 } dim { size: 512 } dim { size: 7 } dim { size: 7 }
+W tensorflow/core/common_runtime/executor.cc:1027] 0x31b62c0 Compute status: Resource exhausted: OOM when allocating tensor with shapedim { size: 32 } dim { size: 512 } dim { size: 7 } dim { size: 7 }
+	 [[Node: gradients/pool5_grad/MaxPoolGrad = MaxPoolGrad[ksize=[1, 2, 2, 1], padding="VALID", strides=[1, 2, 2, 1], _device="/job:localhost/replica:0/task:0/gpu:0"](conv8, pool5, gradients/Reshape_grad/Reshape)]]
+2015-11-11 15:27:02.120888: step 10, duration = 0.280
+2015-11-11 15:27:04.928492: step 20, duration = 0.280
+2015-11-11 15:27:07.733116: step 30, duration = 0.282
+2015-11-11 15:27:10.536204: step 40, duration = 0.279
+2015-11-11 15:27:13.341699: step 50, duration = 0.281
+2015-11-11 15:27:16.146858: step 60, duration = 0.281
+2015-11-11 15:27:18.952492: step 70, duration = 0.282
+2015-11-11 15:27:21.754468: step 80, duration = 0.281
+2015-11-11 15:27:24.559998: step 90, duration = 0.280
+2015-11-11 15:27:27.085941: Forward across 100 steps, 0.278 +/- 0.028 sec / batch
+Traceback (most recent call last):
+  File "benchmark_vgg.py", line 163, in <module>
+    tf.app.run()
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/platform/default/_app.py", line 11, in run
+    sys.exit(main(sys.argv))
+  File "benchmark_vgg.py", line 159, in main
+    run_benchmark()
+  File "benchmark_vgg.py", line 155, in run_benchmark
+    time_tensorflow_run(sess, grad, "Forward-backward")
+  File "benchmark_vgg.py", line 108, in time_tensorflow_run
+    _ = session.run(tf.group(*target))
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 345, in run
+    results = self._do_run(target_list, unique_fetch_targets, feed_dict_string)
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/client/session.py", line 419, in _do_run
+    e.code)
+tensorflow.python.framework.errors.ResourceExhaustedError: OOM when allocating tensor with shapedim { size: 32 } dim { size: 512 } dim { size: 7 } dim { size: 7 }
+	 [[Node: gradients/pool5_grad/MaxPoolGrad = MaxPoolGrad[ksize=[1, 2, 2, 1], padding="VALID", strides=[1, 2, 2, 1], _device="/job:localhost/replica:0/task:0/gpu:0"](conv8, pool5, gradients/Reshape_grad/Reshape)]]
+Caused by op u'gradients/pool5_grad/MaxPoolGrad', defined at:
+  File "benchmark_vgg.py", line 163, in <module>
+    tf.app.run()
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/platform/default/_app.py", line 11, in run
+    sys.exit(main(sys.argv))
+  File "benchmark_vgg.py", line 159, in main
+    run_benchmark()
+  File "benchmark_vgg.py", line 153, in run_benchmark
+    grad = tf.gradients(objective, parameters)
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/gradients.py", line 414, in gradients
+    in_grads = _AsList(grad_fn(op_wrapper, *out_grads))
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/nn_grad.py", line 188, in _MaxPoolGrad
+    padding=op.get_attr("padding"))
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/gen_nn_ops.py", line 434, in _max_pool_grad
+    strides=strides, padding=padding, name=name)
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/op_def_library.py", line 633, in apply_op
+    op_def=op_def)
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/framework/ops.py", line 1710, in create_op
+    original_op=self._default_original_op, op_def=op_def)
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/framework/ops.py", line 988, in __init__
+    self._traceback = _extract_stack()
+
+...which was originally created as op u'pool5', defined at:
+  File "benchmark_vgg.py", line 163, in <module>
+    tf.app.run()
+[elided 1 identical lines from previous traceback]
+  File "benchmark_vgg.py", line 159, in main
+    run_benchmark()
+  File "benchmark_vgg.py", line 138, in run_benchmark
+    last_layer = inference(images)
+  File "benchmark_vgg.py", line 91, in inference
+    pool8 = _mpool(conv8,  2, 2, 2, 2)
+  File "benchmark_vgg.py", line 63, in _mpool
+    name=name)
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/nn_ops.py", line 212, in max_pool
+    name=name)
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/gen_nn_ops.py", line 408, in _max_pool
+    strides=strides, padding=padding, name=name)
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/ops/op_def_library.py", line 633, in apply_op
+    op_def=op_def)
+  File "/home/awesomebox/anaconda/lib/python2.7/site-packages/tensorflow/python/framework/ops.py", line 1710, in create_op
+    original_op=self._default_original_op, op_def=op_def)
+

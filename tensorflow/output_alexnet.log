@@ -10,23 +10,24 @@ I tensorflow/core/common_runtime/gpu/gpu_init.cc:122] 0:   Y
 I tensorflow/core/common_runtime/gpu/gpu_device.cc:643] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:06:00.0)
 I tensorflow/core/common_runtime/gpu/gpu_region_allocator.cc:47] Setting region size to 12105628263
 I tensorflow/core/common_runtime/local_session.cc:45] Local session inter op parallelism threads: 12
-2015-11-11 02:37:12.022168: step 10, duration = 0.100
-2015-11-11 02:37:13.031500: step 20, duration = 0.101
-2015-11-11 02:37:14.045856: step 30, duration = 0.101
-2015-11-11 02:37:15.060434: step 40, duration = 0.102
-2015-11-11 02:37:16.074965: step 50, duration = 0.100
-2015-11-11 02:37:17.085094: step 60, duration = 0.102
-2015-11-11 02:37:18.102486: step 70, duration = 0.103
-2015-11-11 02:37:19.119526: step 80, duration = 0.101
-2015-11-11 02:37:20.137837: step 90, duration = 0.102
-2015-11-11 02:37:21.053641: Forward across 100 steps, 0.100 +/- 0.010 sec / batch
-2015-11-11 02:37:30.060886: step 10, duration = 0.424
-2015-11-11 02:37:34.287971: step 20, duration = 0.420
-2015-11-11 02:37:38.518084: step 30, duration = 0.422
-2015-11-11 02:37:42.748089: step 40, duration = 0.423
-2015-11-11 02:37:46.991102: step 50, duration = 0.423
-2015-11-11 02:37:51.231356: step 60, duration = 0.426
-2015-11-11 02:37:55.483857: step 70, duration = 0.426
-2015-11-11 02:37:59.728806: step 80, duration = 0.424
-2015-11-11 02:38:03.971591: step 90, duration = 0.424
-2015-11-11 02:38:07.783008: Forward-backward across 100 steps, 0.420 +/- 0.042 sec / batch
+E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:623] Deallocating stream with pending work
+2015-11-11 15:23:33.887810: step 10, duration = 0.098
+2015-11-11 15:23:34.873184: step 20, duration = 0.098
+2015-11-11 15:23:35.853456: step 30, duration = 0.097
+2015-11-11 15:23:36.836366: step 40, duration = 0.099
+2015-11-11 15:23:37.818184: step 50, duration = 0.099
+2015-11-11 15:23:38.797017: step 60, duration = 0.098
+2015-11-11 15:23:39.781363: step 70, duration = 0.099
+2015-11-11 15:23:40.768817: step 80, duration = 0.097
+2015-11-11 15:23:41.757569: step 90, duration = 0.098
+2015-11-11 15:23:42.646588: Forward across 100 steps, 0.096 +/- 0.014 sec / batch
+2015-11-11 15:23:50.325735: step 10, duration = 0.328
+2015-11-11 15:23:53.595119: step 20, duration = 0.327
+2015-11-11 15:23:56.866010: step 30, duration = 0.330
+2015-11-11 15:24:00.165723: step 40, duration = 0.330
+2015-11-11 15:24:03.465528: step 50, duration = 0.330
+2015-11-11 15:24:06.768809: step 60, duration = 0.330
+2015-11-11 15:24:10.073692: step 70, duration = 0.331
+2015-11-11 15:24:13.377987: step 80, duration = 0.330
+2015-11-11 15:24:16.682813: step 90, duration = 0.330
+2015-11-11 15:24:19.655484: Forward-backward across 100 steps, 0.326 +/- 0.033 sec / batch
