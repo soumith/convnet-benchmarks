@@ -8,7 +8,7 @@ import tensorflow as tf
 FLAGS = tf.app.flags.FLAGS
 
 # TODO: why is batch size 64 going OOM?
-tf.app.flags.DEFINE_integer('batch_size', 32,
+tf.app.flags.DEFINE_integer('batch_size', 64,
                             """Batch size.""")
 tf.app.flags.DEFINE_integer('num_batches', 100,
                             """Number of batches to run.""")
@@ -141,7 +141,9 @@ def run_benchmark():
     init = tf.initialize_all_variables()
 
     # Start running operations on the Graph.
-    sess = tf.Session('')
+    config = tf.ConfigProto()
+    config.gpu_options.allocator_type = 'BFC'
+    sess = tf.Session(config=config)
     sess.run(init)
 
     # Run the forward benchmark.
