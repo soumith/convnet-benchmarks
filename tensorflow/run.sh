@@ -13,9 +13,9 @@ bazel build -c opt --config=cuda //tensorflow/models/convnetbenchmarks:benchmark
 bazel build -c opt --config=cuda //tensorflow/models/convnetbenchmarks:benchmark_vgg
 bazel build -c opt --config=cuda //tensorflow/models/convnetbenchmarks:benchmark_googlenet
 
-bazel-bin/tensorflow/models/convnetbenchmarks/benchmark_alexnet   2>&1 | tee ~/code/convnet-benchmarks/output_alexnet.log
-bazel-bin/tensorflow/models/convnetbenchmarks/benchmark_overfeat  2>&1 | tee ~/code/convnet-benchmarks/output_overfeat.log
-bazel-bin/tensorflow/models/convnetbenchmarks/benchmark_vgg       2>&1 | tee ~/code/convnet-benchmarks/output_vgga.log
-bazel-bin/tensorflow/models/convnetbenchmarks/benchmark_googlenet 2>&1 | tee ~/code/convnet-benchmarks/output_googlenet.log
+bazel-bin/tensorflow/models/convnetbenchmarks/benchmark_alexnet   2>&1 | tee ~/code/convnet-benchmarks/tensorflow/output_alexnet.log
+bazel-bin/tensorflow/models/convnetbenchmarks/benchmark_overfeat  2>&1 | tee ~/code/convnet-benchmarks/tensorflow/output_overfeat.log
+bazel-bin/tensorflow/models/convnetbenchmarks/benchmark_vgg       2>&1 | tee ~/code/convnet-benchmarks/tensorflow/output_vgga.log
+bazel-bin/tensorflow/models/convnetbenchmarks/benchmark_googlenet 2>&1 | tee ~/code/convnet-benchmarks/tensorflow/output_googlenet.log
 
 cd ~/code/convnet-benchmarks/tensorflow
