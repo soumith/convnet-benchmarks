@@ -9,33 +9,24 @@ from chainer import optimizers
 
 parser = argparse.ArgumentParser(
     description=' convnet benchmarks on imagenet')
-parser.add_argument('--arch', '-a', default='alexbn',
+parser.add_argument('--arch', '-a', default='alex',
                     help='Convnet architecture \
                     (nin, alex, alexbn, googlenet, googlenetbn)')
 parser.add_argument('--batchsize', '-B', type=int, default=128,
                     help='minibatch size')
-parser.add_argument('--gpu', '-g', default=-1, type=int,
+parser.add_argument('--gpu', '-g', default=0, type=int,
                     help='GPU ID (negative value indicates CPU)')
 
 args = parser.parse_args()
 xp = cuda.cupy if args.gpu >= 0 else np
 
 # Prepare model
-if args.arch == 'nin':
-    import nin
-    model = nin.NIN()
-elif args.arch == 'alex':
+if args.arch == 'alex':
     import alex
     model = alex.Alex()
-elif args.arch == 'alexbn':
-    import alexbn
-    model = alexbn.AlexBN()
 elif args.arch == 'googlenet':
     import googlenet
     model = googlenet.GoogLeNet()
-elif args.arch == 'googlenetbn':
-    import googlenetbn
-    model = googlenetbn.GoogLeNetBN()
 else:
     raise ValueError('Invalid architecture name')
 
@@ -52,14 +43,14 @@ def train_loop():
     # Trainer
     data = np.ndarray((args.batchsize, 3, 224, 224), dtype=np.float32)
     data.fill(33333)
-    x = xp.asarray(data)
 
     label = np.ndarray((args.batchsize), dtype=np.int32)
     label.fill(1)
-    y = xp.asarray(label)
-
     for i in range(10):
         print "Iteration", i
+
+        x = xp.asarray(data)
+        y = xp.asarray(label)
 
         optimizer.zero_grads()
         start = time.clock()
