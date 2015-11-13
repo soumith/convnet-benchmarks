@@ -41,7 +41,7 @@ optimizer.setup(model)
 
 def train_loop():
     # Trainer
-    data = np.ndarray((args.batchsize, 3, 224, 224), dtype=np.float32)
+    data = np.ndarray((args.batchsize, 3, model.insize, model.insize), dtype=np.float32)
     data.fill(33333)
 
     label = np.ndarray((args.batchsize), dtype=np.int32)

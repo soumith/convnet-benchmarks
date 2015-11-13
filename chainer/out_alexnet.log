@@ -1,40 +1,40 @@
 Iteration 0
-Forward step time elapsed: 0.259138 seconds
-Backward step time elapsed: 0.039418 seconds
-Optimizer step time elapsed: 0.160873 seconds
+Forward step time elapsed: 0.257374 seconds
+Backward step time elapsed: 0.035508 seconds
+Optimizer step time elapsed: 0.170646 seconds
 Iteration 1
-Forward step time elapsed: 0.047985 seconds
-Backward step time elapsed: 0.003636 seconds
-Optimizer step time elapsed: 0.001258 seconds
-Iteration 2
-Forward step time elapsed: 0.045949 seconds
-Backward step time elapsed: 0.003876 seconds
-Optimizer step time elapsed: 0.001235 seconds
-Iteration 3
-Forward step time elapsed: 0.046021 seconds
-Backward step time elapsed: 0.003599 seconds
-Optimizer step time elapsed: 0.001249 seconds
-Iteration 4
-Forward step time elapsed: 0.046017 seconds
-Backward step time elapsed: 0.003658 seconds
-Optimizer step time elapsed: 0.001238 seconds
-Iteration 5
-Forward step time elapsed: 0.046012 seconds
-Backward step time elapsed: 0.003594 seconds
+Forward step time elapsed: 0.048528 seconds
+Backward step time elapsed: 0.003736 seconds
 Optimizer step time elapsed: 0.001243 seconds
+Iteration 2
+Forward step time elapsed: 0.046238 seconds
+Backward step time elapsed: 0.003988 seconds
+Optimizer step time elapsed: 0.001252 seconds
+Iteration 3
+Forward step time elapsed: 0.046329 seconds
+Backward step time elapsed: 0.003642 seconds
+Optimizer step time elapsed: 0.00126 seconds
+Iteration 4
+Forward step time elapsed: 0.046217 seconds
+Backward step time elapsed: 0.003732 seconds
+Optimizer step time elapsed: 0.001333 seconds
+Iteration 5
+Forward step time elapsed: 0.046335 seconds
+Backward step time elapsed: 0.003611 seconds
+Optimizer step time elapsed: 0.001244 seconds
 Iteration 6
-Forward step time elapsed: 0.045886 seconds
-Backward step time elapsed: 0.003676 seconds
-Optimizer step time elapsed: 0.001222 seconds
+Forward step time elapsed: 0.046251 seconds
+Backward step time elapsed: 0.003702 seconds
+Optimizer step time elapsed: 0.001237 seconds
 Iteration 7
-Forward step time elapsed: 0.046086 seconds
-Backward step time elapsed: 0.00359 seconds
-Optimizer step time elapsed: 0.001232 seconds
+Forward step time elapsed: 0.046336 seconds
+Backward step time elapsed: 0.003606 seconds
+Optimizer step time elapsed: 0.001236 seconds
 Iteration 8
-Forward step time elapsed: 0.045984 seconds
-Backward step time elapsed: 0.004172 seconds
-Optimizer step time elapsed: 0.001225 seconds
+Forward step time elapsed: 0.046257 seconds
+Backward step time elapsed: 0.004185 seconds
+Optimizer step time elapsed: 0.001234 seconds
 Iteration 9
-Forward step time elapsed: 0.045896 seconds
-Backward step time elapsed: 0.003585 seconds
-Optimizer step time elapsed: 0.001228 seconds
+Forward step time elapsed: 0.046348 seconds
+Backward step time elapsed: 0.003607 seconds
+Optimizer step time elapsed: 0.001257 seconds
