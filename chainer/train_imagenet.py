@@ -56,17 +56,26 @@ def train_loop():
         start = time.clock()
         loss, accuracy = model.forward(x, y)
         end = time.clock()
-        print "Forward step time elapsed:", end - start, "seconds"
+        print "Forward step time elapsed:", (end - start)*1000, " ms"
 
-        start = time.clock()
+
+        start = xp.cuda.Event()
+        end = xp.cuda.Event()
+        start.record()
         loss.backward()
-        end = time.clock()
-        print "Backward step time elapsed:", end - start, "seconds"
+        end.record()
+        end.synchronize()
+        print "Backward step time elapsed:", xp.cuda.get_elapsed_time(start, end), " ms"
 
-        start = time.clock()
+        start = xp.cuda.Event()
+        end = xp.cuda.Event()
+        start.record()
         optimizer.update()
-        end = time.clock()
-        print "Optimizer step time elapsed:", end - start, "seconds"
+        end.record()
+        end.synchronize()
+        print "Optimizer update time elapsed:", xp.cuda.get_elapsed_time(start, end), " ms"
+
+
 
         del loss, accuracy
 
