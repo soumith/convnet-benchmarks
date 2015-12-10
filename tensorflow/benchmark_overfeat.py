@@ -77,7 +77,7 @@ def loss(logits, labels):
 def inference(images):
     conv1 = _conv (images, 3, 96, 11, 11, 4, 4, 'VALID')
     pool1 = _mpool(conv1,  2, 2, 2, 2)
-    conv2 = _conv (pool1,  96, 256, 5, 5, 1, 1, 'SAME')
+    conv2 = _conv (pool1,  96, 256, 5, 5, 1, 1, 'VALID')
     pool2 = _mpool(conv2,  2, 2, 2, 2)
     conv3 = _conv (pool2,  256, 512, 3, 3, 1, 1, 'SAME')
     conv4 = _conv (conv3,  512, 1024, 3, 3, 1, 1, 'SAME')
@@ -117,13 +117,13 @@ def run_benchmark():
   global parameters
   with tf.Graph().as_default():
     # Generate some dummy images.
-    image_size = 224
+    image_size = 231
     # Note that our padding definition is slightly different the cuda-convnet.
     # In order to force the model to start with the same activations sizes,
     # we add 3 to the image_size and employ VALID padding above.
     images = tf.Variable(tf.random_normal([FLAGS.batch_size,
-                                           image_size + 3,
-                                           image_size + 3, 3],
+                                           image_size,
+                                           image_size, 3],
                                           dtype=tf.float32,
                                           stddev=1e-1))
 
