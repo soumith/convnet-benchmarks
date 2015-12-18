@@ -42,7 +42,7 @@ local function googlenet(lib)
    model:add(SpatialMaxPooling(3,3,2,2,1,1))
    model:add(inception(2, 192, {{ 64}, { 96,128}, {16, 32}, {3, 32}},lib)) -- 256
    model:add(inception(2, 256, {{128}, {128,192}, {32, 96}, {3, 64}},lib)) -- 480
-   model:add(SpatialMaxPooling(3,3,2,2))
+   model:add(SpatialMaxPooling(3,3,2,2,1,1))
    model:add(inception(2, 480, {{192}, { 96,208}, {16, 48}, {3, 64}},lib)) -- 4(a)
    model:add(inception(2, 512, {{160}, {112,224}, {24, 64}, {3, 64}},lib)) -- 4(b)
    model:add(inception(2, 512, {{128}, {128,256}, {24, 64}, {3, 64}},lib)) -- 4(c)
