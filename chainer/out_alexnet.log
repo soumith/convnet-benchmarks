@@ -1,40 +1,40 @@
 Iteration 0
-Forward step time elapsed: 347.648  ms
-Backward step time elapsed: 203.051010132  ms
-Optimizer update time elapsed: 10.1212158203  ms
+Forward step time elapsed: 338.853  ms
+Backward step time elapsed: 200.522750854  ms
+Optimizer update time elapsed: 9.31635189056  ms
 Iteration 1
-Forward step time elapsed: 48.526  ms
-Backward step time elapsed: 150.488067627  ms
-Optimizer update time elapsed: 3.58400011063  ms
+Forward step time elapsed: 48.968  ms
+Backward step time elapsed: 154.895324707  ms
+Optimizer update time elapsed: 2.94400000572  ms
 Iteration 2
-Forward step time elapsed: 46.087  ms
-Backward step time elapsed: 148.701187134  ms
-Optimizer update time elapsed: 3.61472010612  ms
+Forward step time elapsed: 46.213  ms
+Backward step time elapsed: 149.168121338  ms
+Optimizer update time elapsed: 2.93990397453  ms
 Iteration 3
-Forward step time elapsed: 46.02  ms
-Backward step time elapsed: 148.735992432  ms
-Optimizer update time elapsed: 3.59833598137  ms
+Forward step time elapsed: 46.353  ms
+Backward step time elapsed: 149.448699951  ms
+Optimizer update time elapsed: 2.94912004471  ms
 Iteration 4
-Forward step time elapsed: 45.834  ms
-Backward step time elapsed: 148.854812622  ms
-Optimizer update time elapsed: 3.59222388268  ms
+Forward step time elapsed: 46.238  ms
+Backward step time elapsed: 149.195770264  ms
+Optimizer update time elapsed: 2.93580794334  ms
 Iteration 5
-Forward step time elapsed: 45.938  ms
-Backward step time elapsed: 148.82611084  ms
-Optimizer update time elapsed: 3.58195209503  ms
+Forward step time elapsed: 46.402  ms
+Backward step time elapsed: 149.1015625  ms
+Optimizer update time elapsed: 2.94496011734  ms
 Iteration 6
-Forward step time elapsed: 45.896  ms
-Backward step time elapsed: 148.810745239  ms
-Optimizer update time elapsed: 3.58703994751  ms
+Forward step time elapsed: 46.313  ms
+Backward step time elapsed: 149.209091187  ms
+Optimizer update time elapsed: 2.95526409149  ms
 Iteration 7
-Forward step time elapsed: 45.961  ms
-Backward step time elapsed: 149.149688721  ms
-Optimizer update time elapsed: 3.59628796577  ms
+Forward step time elapsed: 46.338  ms
+Backward step time elapsed: 149.203079224  ms
+Optimizer update time elapsed: 2.94601607323  ms
 Iteration 8
-Forward step time elapsed: 45.875  ms
-Backward step time elapsed: 149.306335449  ms
-Optimizer update time elapsed: 3.58092808723  ms
+Forward step time elapsed: 46.134  ms
+Backward step time elapsed: 149.394424438  ms
+Optimizer update time elapsed: 2.94003200531  ms
 Iteration 9
-Forward step time elapsed: 45.886  ms
-Backward step time elapsed: 148.717575073  ms
-Optimizer update time elapsed: 3.59116792679  ms
+Forward step time elapsed: 46.299  ms
+Backward step time elapsed: 149.202941895  ms
+Optimizer update time elapsed: 2.93990397453  ms

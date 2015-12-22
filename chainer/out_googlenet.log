@@ -1,0 +1,40 @@
+Iteration 0
+Forward step time elapsed: 567.129  ms
+Backward step time elapsed: 575.731689453  ms
+Optimizer update time elapsed: 10.4929275513  ms
+Iteration 1
+Forward step time elapsed: 211.446  ms
+Backward step time elapsed: 550.833129883  ms
+Optimizer update time elapsed: 3.88915205002  ms
+Iteration 2
+Forward step time elapsed: 211.463  ms
+Backward step time elapsed: 554.499084473  ms
+Optimizer update time elapsed: 3.90972805023  ms
+Iteration 3
+Forward step time elapsed: 213.642  ms
+Backward step time elapsed: 555.826171875  ms
+Optimizer update time elapsed: 3.91987204552  ms
+Iteration 4
+Forward step time elapsed: 213.533  ms
+Backward step time elapsed: 556.585998535  ms
+Optimizer update time elapsed: 3.84313607216  ms
+Iteration 5
+Forward step time elapsed: 213.659  ms
+Backward step time elapsed: 555.014099121  ms
+Optimizer update time elapsed: 3.92188811302  ms
+Iteration 6
+Forward step time elapsed: 213.551  ms
+Backward step time elapsed: 556.556274414  ms
+Optimizer update time elapsed: 3.88812804222  ms
+Iteration 7
+Forward step time elapsed: 213.799  ms
+Backward step time elapsed: 557.107177734  ms
+Optimizer update time elapsed: 3.98332810402  ms
+Iteration 8
+Forward step time elapsed: 213.682  ms
+Backward step time elapsed: 557.058044434  ms
+Optimizer update time elapsed: 3.90348792076  ms
+Iteration 9
+Forward step time elapsed: 213.93  ms
+Backward step time elapsed: 555.785217285  ms
+Optimizer update time elapsed: 3.90960001945  ms
