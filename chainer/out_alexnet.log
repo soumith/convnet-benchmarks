@@ -1,40 +1,5 @@
-Iteration 0
-Forward step time elapsed: 338.853  ms
-Backward step time elapsed: 200.522750854  ms
-Optimizer update time elapsed: 9.31635189056  ms
-Iteration 1
-Forward step time elapsed: 48.968  ms
-Backward step time elapsed: 154.895324707  ms
-Optimizer update time elapsed: 2.94400000572  ms
-Iteration 2
-Forward step time elapsed: 46.213  ms
-Backward step time elapsed: 149.168121338  ms
-Optimizer update time elapsed: 2.93990397453  ms
-Iteration 3
-Forward step time elapsed: 46.353  ms
-Backward step time elapsed: 149.448699951  ms
-Optimizer update time elapsed: 2.94912004471  ms
-Iteration 4
-Forward step time elapsed: 46.238  ms
-Backward step time elapsed: 149.195770264  ms
-Optimizer update time elapsed: 2.93580794334  ms
-Iteration 5
-Forward step time elapsed: 46.402  ms
-Backward step time elapsed: 149.1015625  ms
-Optimizer update time elapsed: 2.94496011734  ms
-Iteration 6
-Forward step time elapsed: 46.313  ms
-Backward step time elapsed: 149.209091187  ms
-Optimizer update time elapsed: 2.95526409149  ms
-Iteration 7
-Forward step time elapsed: 46.338  ms
-Backward step time elapsed: 149.203079224  ms
-Optimizer update time elapsed: 2.94601607323  ms
-Iteration 8
-Forward step time elapsed: 46.134  ms
-Backward step time elapsed: 149.394424438  ms
-Optimizer update time elapsed: 2.94003200531  ms
-Iteration 9
-Forward step time elapsed: 46.299  ms
-Backward step time elapsed: 149.202941895  ms
-Optimizer update time elapsed: 2.93990397453  ms
+alexnet
+Average Forward:   40.734  ms
+Average Backward:  136.19462533  ms
+Average Total:     177.92862533  ms
+

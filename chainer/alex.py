@@ -3,16 +3,11 @@ import chainer.functions as F
 
 
 class Alex(chainer.FunctionSet):
-
-    """Single-GPU AlexNet OWT
-
-    """
-
-    insize = 227
+    insize = 224
 
     def __init__(self):
         super(Alex, self).__init__(
-            conv1=F.Convolution2D(3,  64, 11, stride=4),
+            conv1=F.Convolution2D(3,  64, 11, stride=4, pad=2),
             conv2=F.Convolution2D(64, 192,  5, pad=2),
             conv3=F.Convolution2D(192, 384,  3, pad=1),
             conv4=F.Convolution2D(384, 256,  3, pad=1),
