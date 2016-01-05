@@ -1,59 +1,62 @@
-I tensorflow/core/common_runtime/local_device.cc:25] Local device intra op parallelism threads: 12
-I tensorflow/core/common_runtime/gpu/gpu_init.cc:88] Found device 0 with properties: 
+I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcublas.so.7.0 locally
+I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcudnn.so.6.5 locally
+I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcufft.so.7.0 locally
+I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcuda.so locally
+I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcurand.so.7.0 locally
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:103] Found device 0 with properties: 
 name: GeForce GTX TITAN X
 major: 5 minor: 2 memoryClockRate (GHz) 1.076
 pciBusID 0000:06:00.0
 Total memory: 12.00GiB
 Free memory: 11.87GiB
-I tensorflow/core/common_runtime/gpu/gpu_init.cc:112] DMA: 0 
-I tensorflow/core/common_runtime/gpu/gpu_init.cc:122] 0:   Y 
-I tensorflow/core/common_runtime/gpu/gpu_device.cc:687] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:06:00.0)
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:27] Allocating 11.27GiB bytes.
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:37] GPU 0 memory begins at 0x1306c80000 extends to 0x15d8553a67
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 1.0KiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 2.0KiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 4.0KiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 8.0KiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 16.0KiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 32.0KiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 64.0KiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 128.0KiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 256.0KiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 512.0KiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 1.00MiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 2.00MiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 4.00MiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 8.00MiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 16.00MiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 32.00MiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 64.00MiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 128.00MiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 256.00MiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 512.00MiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 1.00GiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 2.00GiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 4.00GiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 8.00GiB
-I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:51] Creating bin of max chunk size 16.00GiB
-I tensorflow/core/common_runtime/direct_session.cc:45] Direct session inter op parallelism threads: 12
-E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:623] Deallocating stream with pending work
-2015-11-13 02:43:40.138706: step 10, duration = 0.551
-2015-11-13 02:43:45.813104: step 20, duration = 0.559
-2015-11-13 02:43:51.313935: step 30, duration = 0.672
-2015-11-13 02:43:56.709060: step 40, duration = 0.611
-2015-11-13 02:44:02.216180: step 50, duration = 0.447
-2015-11-13 02:44:07.654497: step 60, duration = 0.496
-2015-11-13 02:44:13.155428: step 70, duration = 0.482
-2015-11-13 02:44:18.720514: step 80, duration = 0.548
-2015-11-13 02:44:24.219659: step 90, duration = 0.542
-2015-11-13 02:44:29.173411: Forward across 100 steps, 0.545 +/- 0.080 sec / batch
-2015-11-13 02:45:08.619689: step 10, duration = 1.862
-2015-11-13 02:45:27.199715: step 20, duration = 1.868
-2015-11-13 02:45:45.777407: step 30, duration = 1.855
-2015-11-13 02:46:04.369313: step 40, duration = 1.856
-2015-11-13 02:46:22.941057: step 50, duration = 1.858
-2015-11-13 02:46:41.546290: step 60, duration = 1.874
-2015-11-13 02:47:00.147069: step 70, duration = 1.862
-2015-11-13 02:47:18.737262: step 80, duration = 1.865
-2015-11-13 02:47:37.320994: step 90, duration = 1.760
-2015-11-13 02:47:54.057622: Forward-backward across 100 steps, 1.840 +/- 0.186 sec / batch
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:127] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:137] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:702] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:06:00.0)
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:42] Allocating 11.27GiB bytes.
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:52] GPU 0 memory begins at 0x1306c80000 extends to 0x15d8553a67
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 32.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 64.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 128.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 256.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 512.0KiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 32.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 64.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 128.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 256.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 512.00MiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 2.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.00GiB
+I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.00GiB
+E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:624] Deallocating stream with pending work
+2016-01-05 03:38:46.310478: step 10, duration = 0.351
+2016-01-05 03:38:49.765562: step 20, duration = 0.350
+2016-01-05 03:38:53.261357: step 30, duration = 0.344
+2016-01-05 03:38:56.809264: step 40, duration = 0.350
+2016-01-05 03:39:00.268581: step 50, duration = 0.308
+2016-01-05 03:39:03.817041: step 60, duration = 0.350
+2016-01-05 03:39:07.276481: step 70, duration = 0.306
+2016-01-05 03:39:10.777978: step 80, duration = 0.306
+2016-01-05 03:39:14.288956: step 90, duration = 0.309
+2016-01-05 03:39:17.443806: Forward across 100 steps, 0.347 +/- 0.049 sec / batch
+2016-01-05 03:39:52.251545: step 10, duration = 1.663
+2016-01-05 03:40:08.949151: step 20, duration = 1.668
+2016-01-05 03:40:25.667750: step 30, duration = 1.666
+2016-01-05 03:40:42.388093: step 40, duration = 1.671
+2016-01-05 03:40:59.136861: step 50, duration = 1.686
+2016-01-05 03:41:15.877885: step 60, duration = 1.677
+2016-01-05 03:41:32.605105: step 70, duration = 1.669
+2016-01-05 03:41:49.351025: step 80, duration = 1.673
+2016-01-05 03:42:06.075205: step 90, duration = 1.667
+2016-01-05 03:42:21.164741: Forward-backward across 100 steps, 1.656 +/- 0.178 sec / batch
