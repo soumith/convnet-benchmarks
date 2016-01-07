@@ -9,7 +9,8 @@ Machine: `6-core Intel Core i7-5930K CPU @ 3.50GHz` + `NVIDIA Titan X` + `Ubuntu
 ##Imagenet Winners Benchmarking
 I pick some popular imagenet models, and I clock the time for a full forward + backward pass. I average my times over 10 runs. I ignored dropout and softmax layers.
 
-One small note: The CuDNN benchmarks are done using Torch bindings. One can also do the same via Caffe bindings or bindings of any other library. This note is here to clarify that **Caffe (native)** and **Torch (native)** are the convolution kernels which are present as a default fallback. Some of the frameworks like TensorFlow and Chainer are benchmarked with CuDNN, but it is not explicitly mentioned, and hence one might think that these frameworks as a whole are faster, than for example Caffe, which might not be the case.
+######One small note: 
+The CuDNN benchmarks are done using Torch bindings. One can also do the same via Caffe bindings or bindings of any other library. This note is here to clarify that **Caffe (native)** and **Torch (native)** are the convolution kernels which are present as a default fallback. Some of the frameworks like TensorFlow and Chainer are benchmarked with CuDNN, but it is not explicitly mentioned, and hence one might think that these frameworks as a whole are faster, than for example Caffe, which might not be the case.
 
 **[AlexNet (One Weird Trick paper)](https://code.google.com/p/cuda-convnet2/source/browse/layers/layers-imagenet-1gpu.cfg)** - Input 128x3x224x224
 
