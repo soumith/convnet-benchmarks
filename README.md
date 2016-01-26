@@ -9,15 +9,18 @@ Machine: `6-core Intel Core i7-5930K CPU @ 3.50GHz` + `NVIDIA Titan X` + `Ubuntu
 ##Imagenet Winners Benchmarking
 I pick some popular imagenet models, and I clock the time for a full forward + backward pass. I average my times over 10 runs. I ignored dropout and softmax layers.
 
+######One small note: 
+The CuDNN benchmarks are done using Torch bindings. One can also do the same via Caffe bindings or bindings of any other library. This note is here to clarify that **Caffe (native)** and **Torch (native)** are the convolution kernels which are present as a default fallback. Some of the frameworks like TensorFlow and Chainer are benchmarked with CuDNN, but it is not explicitly mentioned, and **hence one might think that these frameworks as a whole are faster, than for example Caffe, which might not be the case**.
+
 **[AlexNet (One Weird Trick paper)](https://code.google.com/p/cuda-convnet2/source/browse/layers/layers-imagenet-1gpu.cfg)** - Input 128x3x224x224
 
 | Library         | Class                                                                                                                | Time (ms)  | forward (ms) | backward (ms) |
 |:------------------------:|:-----------------------------------------------------------------------------------------------------------:| ----------:| ------------:| -------------:|
 | **Nervana-fp16**    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                    |   **92**   |  **29**      |    **62**     |
-| CuDNN[R3]-fp16      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)       |      96    |  30          |   66          |
-| CuDNN[R3]-fp32      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)       |      96    |  32          |   64          |
+| CuDNN[R3]-fp16 (Torch)     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)       |      96    |  30          |   66          |
+| CuDNN[R3]-fp32 (Torch)      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)       |      96    |  32          |   64          |
 | Nervana-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                    |      101   |  32          |    69         |
-| fbfft                    | [fbnn.SpatialConvolution](https://github.com/facebook/fbcunn/tree/master/src/fft)                           |      104   |  31          |    72         |
+| fbfft   (Torch)                  | [fbnn.SpatialConvolution](https://github.com/facebook/fbcunn/tree/master/src/fft)                           |      104   |  31          |    72         |
 | Chainer                 |  [Convolution2D](https://github.com/pfnet/chainer/blob/master/chainer/links/connection/convolution_2d.py)    |    177 | 40 | 136 |
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)        |      177   |  42          |   135         |
 | CuDNN[R2] *             | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)       |      231   |  70          |   161         |
@@ -31,9 +34,9 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 
 | Library                  | Class                                                                                                                    | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
-| **CuDNN[R3]-fp16**       | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |         **313**       |  **107**                    |  **206**             |
-| CuDNN[R3]-fp32       | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |         326       |  113                    |   213                    |
-| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                        |         342       |  114                    |   227                    |
+| **CuDNN[R3]-fp16**  (Torch)      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |         **313**       |  **107**                    |  **206**             |
+| CuDNN[R3]-fp32  (Torch)      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |         326       |  113                    |   213                    |
+| fbfft  (Torch)                   | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                        |         342       |  114                    |   227                    |
 | Nervana-fp16          | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |         355       |  112                    |   242                    |
 | Nervana-fp32            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |         398       |  124                    |   273                    |
 | Chainer                 |  [Convolution2D](https://github.com/pfnet/chainer/blob/master/chainer/links/connection/convolution_2d.py)    |    620 | 135 | 484 |
@@ -51,10 +54,10 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | **Nervana-fp16**    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |    **529**        |  **167**                |   **362**                |
 | Nervana-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        590        |  180                    |   410                    |
-| CuDNN[R3]-fp16      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       615         |  179                    |   436                    |
-| CuDNN[R3]-fp32      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       615         |  196                    |   418                    |
+| CuDNN[R3]-fp16  (Torch)     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       615         |  179                    |   436                    |
+| CuDNN[R3]-fp32  (Torch)     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       615         |  196                    |   418                    |
 | Chainer                 |  [Convolution2D](https://github.com/pfnet/chainer/blob/master/chainer/links/connection/convolution_2d.py)    |    885 | 251 | 632 |
-| fbfft                    | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                        |       1092        |  355                    |   737                    |
+| fbfft    (Torch)                 | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                        |       1092        |  355                    |   737                    |
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     |       1229        |  408                    |   821                    |
 | CuDNN[R2] *             | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       1099        |  342                    |   757                    |
 | Caffe                    | [ConvolutionLayer](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                             |       1068        |  323                    |   745                    |
@@ -70,8 +73,8 @@ I pick some popular imagenet models, and I clock the time for a full forward + b
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
 | **Nervana-fp16**    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |    **283**        |  **85**                 |   **197**                |
 | Nervana-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        322        |  90                     |   232                    |
-| CuDNN[R3]-fp32       | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       431         |  117                    |   313                    |
-| CuDNN[R3]-fp16       | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       501         |  109                    |   392                    |
+| CuDNN[R3]-fp32  (Torch)      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       431         |  117                    |   313                    |
+| CuDNN[R3]-fp16   (Torch)     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       501         |  109                    |   392                    |
 | Chainer                 |  [Convolution2D](https://github.com/pfnet/chainer/blob/master/chainer/links/connection/convolution_2d.py)              |    687            |               189      |   497                       |
 | TensorFlow               | [conv2d](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/nn.py)                               |      1084         |  246                    |   838                    |
 | Caffe                    | [ConvolutionLayer](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                             |       1935        |  786                    |   1148                   |
