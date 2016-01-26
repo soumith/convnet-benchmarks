@@ -3,15 +3,15 @@ I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library
 I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcufft.so.7.0 locally
 I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcuda.so locally
 I tensorflow/stream_executor/dso_loader.cc:101] successfully opened CUDA library libcurand.so.7.0 locally
-I tensorflow/core/common_runtime/gpu/gpu_init.cc:103] Found device 0 with properties: 
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:102] Found device 0 with properties: 
 name: GeForce GTX TITAN X
 major: 5 minor: 2 memoryClockRate (GHz) 1.076
 pciBusID 0000:06:00.0
 Total memory: 12.00GiB
 Free memory: 11.87GiB
-I tensorflow/core/common_runtime/gpu/gpu_init.cc:127] DMA: 0 
-I tensorflow/core/common_runtime/gpu/gpu_init.cc:137] 0:   Y 
-I tensorflow/core/common_runtime/gpu/gpu_device.cc:702] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:06:00.0)
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:126] DMA: 0 
+I tensorflow/core/common_runtime/gpu/gpu_init.cc:136] 0:   Y 
+I tensorflow/core/common_runtime/gpu/gpu_device.cc:680] Creating TensorFlow device (/gpu:0) -> (device: 0, name: GeForce GTX TITAN X, pci bus id: 0000:06:00.0)
 I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:42] Allocating 11.27GiB bytes.
 I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:52] GPU 0 memory begins at 0x1306c80000 extends to 0x15d8553a67
 I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 1.0KiB
@@ -39,24 +39,34 @@ I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of ma
 I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 4.00GiB
 I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 8.00GiB
 I tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:66] Creating bin of max chunk size 16.00GiB
+W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:120] Ran out of memory trying to allocate 285.19MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:120] Ran out of memory trying to allocate 190.12MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:120] Ran out of memory trying to allocate 285.19MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:120] Ran out of memory trying to allocate 190.12MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:120] Ran out of memory trying to allocate 6.2KiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:120] Ran out of memory trying to allocate 285.19MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:120] Ran out of memory trying to allocate 190.12MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:120] Ran out of memory trying to allocate 285.19MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:120] Ran out of memory trying to allocate 190.12MiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
+W tensorflow/core/common_runtime/gpu/gpu_bfc_allocator.cc:120] Ran out of memory trying to allocate 6.2KiB. The caller indicates that this is not a failure, but may mean that there could be performance gains if more memory is available.
 E tensorflow/stream_executor/cuda/cuda_gpu_executor.cc:624] Deallocating stream with pending work
-2016-01-05 03:36:00.684002: step 10, duration = 0.069
-2016-01-05 03:36:01.384236: step 20, duration = 0.068
-2016-01-05 03:36:02.089619: step 30, duration = 0.069
-2016-01-05 03:36:02.792272: step 40, duration = 0.070
-2016-01-05 03:36:03.498146: step 50, duration = 0.071
-2016-01-05 03:36:04.201954: step 60, duration = 0.069
-2016-01-05 03:36:04.880877: step 70, duration = 0.048
-2016-01-05 03:36:05.585254: step 80, duration = 0.046
-2016-01-05 03:36:06.289175: step 90, duration = 0.068
-2016-01-05 03:36:06.961007: Forward across 100 steps, 0.070 +/- 0.015 sec / batch
-2016-01-05 03:36:13.285336: step 10, duration = 0.293
-2016-01-05 03:36:16.216897: step 20, duration = 0.293
-2016-01-05 03:36:19.150253: step 30, duration = 0.294
-2016-01-05 03:36:22.084030: step 40, duration = 0.294
-2016-01-05 03:36:25.013033: step 50, duration = 0.293
-2016-01-05 03:36:27.974133: step 60, duration = 0.297
-2016-01-05 03:36:30.938718: step 70, duration = 0.295
-2016-01-05 03:36:33.900919: step 80, duration = 0.296
-2016-01-05 03:36:36.859325: step 90, duration = 0.296
-2016-01-05 03:36:39.520505: Forward-backward across 100 steps, 0.292 +/- 0.029 sec / batch
+2016-01-25 04:59:05.992691: step 10, duration = 0.069
+2016-01-25 04:59:06.653383: step 20, duration = 0.071
+2016-01-25 04:59:07.363218: step 30, duration = 0.070
+2016-01-25 04:59:08.098247: step 40, duration = 0.095
+2016-01-25 04:59:08.787165: step 50, duration = 0.070
+2016-01-25 04:59:09.501239: step 60, duration = 0.071
+2016-01-25 04:59:10.213252: step 70, duration = 0.071
+2016-01-25 04:59:10.926621: step 80, duration = 0.071
+2016-01-25 04:59:11.638691: step 90, duration = 0.072
+2016-01-25 04:59:12.282361: Forward across 100 steps, 0.070 +/- 0.010 sec / batch
+2016-01-25 04:59:18.491643: step 10, duration = 0.276
+2016-01-25 04:59:21.286711: step 20, duration = 0.280
+2016-01-25 04:59:24.070488: step 30, duration = 0.275
+2016-01-25 04:59:26.882084: step 40, duration = 0.282
+2016-01-25 04:59:29.683638: step 50, duration = 0.282
+2016-01-25 04:59:32.469597: step 60, duration = 0.278
+2016-01-25 04:59:35.280004: step 70, duration = 0.283
+2016-01-25 04:59:38.092115: step 80, duration = 0.278
+2016-01-25 04:59:40.890455: step 90, duration = 0.283
+2016-01-25 04:59:43.426946: Forward-backward across 100 steps, 0.277 +/- 0.028 sec / batch
