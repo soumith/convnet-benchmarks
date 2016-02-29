@@ -198,6 +198,12 @@ layers {
   }
 }
 layers {
+  name: "conv1/relu"
+  type: RELU
+  bottom: "fc6"
+  top: "fc6"
+}
+layers {
   name: "fc7"
   type: INNER_PRODUCT
   bottom: "fc6"
@@ -205,6 +211,12 @@ layers {
   inner_product_param {
     num_output: 4096
   }
+}
+layers {
+  name: "conv1/relu"
+  type: RELU
+  bottom: "fc7"
+  top: "fc7"
 }
 layers {
   name: "fc8"
