@@ -16,9 +16,9 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 
 | Library         | Class                                                                                                                | Time (ms)  | forward (ms) | backward (ms) |
 |:------------------------:|:-----------------------------------------------------------------------------------------------------------:| ----------:| ------------:| -------------:|
-| CuDNN[R4]-fp16 (Torch)     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)     |  **71**    |  **25**      |   **46**      |
+| **CuDNN[R4]-fp16 (Torch)**     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)     |  **71**    |  **25**      |   **46**      |
 | CuDNN[R4]-fp32 (Torch)      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)    |      81    |  27          |   53          |
-| **Nervana-fp16**    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                         |      92    |  29          |    62         |
+| Nervana-fp16    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                         |      92    |  29          |    62         |
 | Nervana-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                         |      101   |  32          |    69         |
 | fbfft   (Torch)                  | [fbnn.SpatialConvolution](https://github.com/facebook/fbcunn/tree/master/src/fft)                   |      104   |  31          |    72         |
 | TensorFlow               | [conv2d](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/nn.py)                  |      151   |  34          |   117         |
@@ -52,10 +52,10 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 
 | Library                  | Class                                                                                                                    | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
-| **Nervana-fp16**    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |    **529**        |  **167**                |   **362**                |
-| Nervana-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        590        |  180                    |   410                    |
-| CuDNN[R4]-fp16  (Torch)     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       471         |  140                    |   331                    |
+| **CuDNN[R4]-fp16  (Torch) ** | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)           |       **471**         |  **140**                    |   **331**                    |
 | CuDNN[R4]-fp32  (Torch)     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       529         |  162                    |   366                    |
+| Nervana-fp16    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |    529        |  167                |   362                |
+| Nervana-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        590        |  180                    |   410                    |
 | Chainer                 |  [Convolution2D](https://github.com/pfnet/chainer/blob/master/chainer/links/connection/convolution_2d.py)                   |    885 | 251 | 632 |
 | TensorFlow               | [conv2d](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/nn.py)                               |      982         |  191                    |   791                    |
 | fbfft    (Torch)                 | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                        |       1092        |  355                    |   737                    |
