@@ -16,10 +16,10 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 
 | Library         | Class                                                                                                                | Time (ms)  | forward (ms) | backward (ms) |
 |:------------------------:|:-----------------------------------------------------------------------------------------------------------:| ----------:| ------------:| -------------:|
-| **CuDNN[R4]-fp16 (Torch)**     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)     |  **71**    |  **25**      |   **46**      |
+| CuDNN[R4]-fp16 (Torch)     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)     |  71    |  25      |   46      |
+| Nervana-neon-fp16    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                        |      78    |  25          |    52         |
 | CuDNN[R4]-fp32 (Torch)      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)    |      81    |  27          |   53          |
-| Nervana-fp16    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                         |      92    |  29          |    62         |
-| Nervana-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                         |      101   |  32          |    69         |
+| Nervana-neon-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                    |      87   |  28          |    58         |
 | fbfft   (Torch)                  | [fbnn.SpatialConvolution](https://github.com/facebook/fbcunn/tree/master/src/fft)                   |      104   |  31          |    72         |
 | TensorFlow               | [conv2d](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/nn.py)                  |      151   |  34          |   117         |
 | Chainer                 |  [Convolution2D](https://github.com/pfnet/chainer/blob/master/chainer/links/connection/convolution_2d.py)    |      177   |  40          |   136         |
@@ -34,12 +34,12 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 
 | Library                  | Class                                                                                                                    | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
-| **CuDNN[R4]-fp16**  (Torch)      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)         |         **242**       |  **86**                    |  **156**             |
+| Nervana-neon-fp16          | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |         176       |  58                    |   118                    |
+| Nervana-neon-fp32            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                               |         211       |  69                    |   141                    |
+| CuDNN[R4]-fp16  (Torch)      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)         |         242       |  86                    |  156             |
 | CuDNN[R4]-fp32  (Torch)      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)             |         268       |  94                    |   174                    |
 | fbfft  (Torch)                   | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                             |         342       |  114                    |   227                    |
 | TensorFlow               | [conv2d](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/nn.py)                            |         349       |  101                    |   248                    |
-| Nervana-fp16          | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |         355       |  112                    |   242                    |
-| Nervana-fp32            | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                               |         398       |  124                    |   273                    |
 | Chainer                 |  [Convolution2D](https://github.com/pfnet/chainer/blob/master/chainer/links/connection/convolution_2d.py)              |         620       |  135                    |   484                    |
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                  |         723       |  176                    |   547                    |
 | CuDNN[R2] *             | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                  |         810       |  234                    |   576                    |
@@ -52,10 +52,10 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 
 | Library                  | Class                                                                                                                    | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
-| **CuDNN[R4]-fp16  (Torch) ** | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)           |       **471**         |  **140**                    |   **331**                    |
+| Nervana-neon-fp16    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |    254        |  82                |   171                |
+| Nervana-neon-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        320        |  103                    |   217                    |
+| CuDNN[R4]-fp16  (Torch)  | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)           |       471         |  140                    |   331                    |
 | CuDNN[R4]-fp32  (Torch)     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       529         |  162                    |   366                    |
-| Nervana-fp16    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |    529        |  167                |   362                |
-| Nervana-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        590        |  180                    |   410                    |
 | Chainer                 |  [Convolution2D](https://github.com/pfnet/chainer/blob/master/chainer/links/connection/convolution_2d.py)                   |    885 | 251 | 632 |
 | TensorFlow               | [conv2d](https://github.com/tensorflow/tensorflow/blob/master/tensorflow/python/ops/nn.py)                               |      982         |  191                    |   791                    |
 | fbfft    (Torch)                 | [SpatialConvolutionCuFFT](https://github.com/facebook/fbcunn/tree/master/src/fft)                                        |       1092        |  355                    |   737                    |
@@ -71,8 +71,8 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 
 | Library                  | Class                                                                                                                    | Time (ms)         | forward (ms)            | backward (ms)            |
 |:------------------------:|:------------------------------------------------------------------------------------------------------------------------:| -----------------:| -----------------------:| ------------------------:|
-| **Nervana-fp16**    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |    **283**        |  **85**                 |   **197**                |
-| Nervana-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        322        |  90                     |   232                    |
+| Nervana-neon-fp16    | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |    230        |  72                 |   157                |
+| Nervana-neon-fp32        | [ConvLayer](https://github.com/soumith/convnet-benchmarks/blob/master/nervana/README.md)                                 |        270        |  84                     |   186                    |
 | CuDNN[R4]-fp16   (Torch)     | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       462         |  112                    |   349                    |
 | CuDNN[R4]-fp32  (Torch)      | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       470         |  130                    |   340                    |
 | Chainer                 |  [Convolution2D](https://github.com/pfnet/chainer/blob/master/chainer/links/connection/convolution_2d.py)              |    687            |               189      |   497                       |
