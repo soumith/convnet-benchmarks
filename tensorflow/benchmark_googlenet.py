@@ -4,7 +4,6 @@ import time
 
 import tensorflow.python.platform
 import tensorflow as tf
-from tensorflow.python.ops import array_ops
 
 FLAGS = tf.app.flags.FLAGS
 
@@ -12,6 +11,14 @@ tf.app.flags.DEFINE_integer('batch_size', 128,
                             """Batch size.""")
 tf.app.flags.DEFINE_integer('num_batches', 100,
                             """Number of batches to run.""")
+tf.app.flags.DEFINE_boolean('forward_only', False,
+                            """Only run the forward pass.""")
+tf.app.flags.DEFINE_boolean('forward_backward_only', False,
+                            """Only run the forward-forward pass.""")
+tf.app.flags.DEFINE_string('data_format', 'NCHW',
+                           """The data format for Convnet operations.
+                           Can be either NHWC or NCHW.
+                           """)
 
 parameters = []
 
@@ -28,10 +35,17 @@ def _conv(inpOp, nIn, nOut, kH, kW, dH, dW, padType):
         kernel = tf.Variable(tf.truncated_normal([kH, kW, nIn, nOut],
                                                  dtype=tf.float32,
                                                  stddev=1e-1), name='weights')
-        conv = tf.nn.conv2d(inpOp, kernel, [1, dH, dW, 1], padding=padType)
+        if FLAGS.data_format == 'NCHW':
+          strides = [1, 1, dH, dW]
+        else:
+          strides = [1, dH, dW, 1]
+        conv = tf.nn.conv2d(inpOp, kernel, strides, padding=padType,
+                            data_format=FLAGS.data_format)
         biases = tf.Variable(tf.constant(0.0, shape=[nOut], dtype=tf.float32),
                              trainable=True, name='biases')
-        bias = tf.reshape(tf.nn.bias_add(conv, biases), conv.get_shape())
+        bias = tf.reshape(tf.nn.bias_add(conv, biases,
+                                         data_format=FLAGS.data_format),
+                          conv.get_shape())
         conv1 = tf.nn.relu(bias, name=scope)
         parameters += [kernel, biases]
         return conv1
@@ -56,10 +70,17 @@ def _mpool(inpOp, kH, kW, dH, dW, padding):
     global parameters
     name = 'pool' + str(pool_counter)
     pool_counter += 1
+    if FLAGS.data_format == 'NCHW':
+      ksize = [1, 1, kH, kW]
+      strides = [1, 1, dH, dW]
+    else:
+      ksize = [1, kH, kW, 1]
+      strides = [1, dH, dW, 1]
     return tf.nn.max_pool(inpOp,
-                          ksize=[1, kH, kW, 1],
-                          strides=[1, dH, dW, 1],
+                          ksize=ksize,
+                          strides=strides,
                           padding=padding,
+                          data_format=FLAGS.data_format,
                           name=name)
 
 def _apool(inpOp, kH, kW, dH, dW, padding):
@@ -67,10 +88,17 @@ def _apool(inpOp, kH, kW, dH, dW, padding):
     global parameters
     name = 'pool' + str(pool_counter)
     pool_counter += 1
+    if FLAGS.data_format == 'NCHW':
+      ksize = [1, 1, kH, kW]
+      strides = [1, 1, dH, dW]
+    else:
+      ksize = [1, kH, kW, 1]
+      strides = [1, dH, dW, 1]
     return tf.nn.avg_pool(inpOp,
-                          ksize=[1, kH, kW, 1],
-                          strides=[1, dH, dW, 1],
+                          ksize=ksize,
+                          strides=strides,
                           padding=padding,
+                          data_format=FLAGS.data_format,
                           name=name)
 
 def _inception(inp, inSize, o1s, o2s1, o2s2, o3s1, o3s2, o4s1, o4s2):
@@ -85,7 +113,11 @@ def _inception(inp, inSize, o1s, o2s1, o2s2, o3s1, o3s2, o4s1, o4s2):
     pool_ = _mpool(inp, o4s1, o4s1, 1, 1, 'SAME')
     pool = _conv(pool_, inSize, o4s2, 1, 1, 1, 1, 'SAME')
 
-    incept = array_ops.concat(3, [conv1, conv3, conv5, pool])
+    if FLAGS.data_format == 'NCHW':
+      channel_dim = 1
+    else:
+      channel_dim = 3
+    incept = tf.concat(channel_dim, [conv1, conv3, conv5, pool])
     return incept
 
 
@@ -155,9 +187,11 @@ def run_benchmark():
   with tf.Graph().as_default():
     # Generate some dummy images.
     image_size = 224
-    images = tf.Variable(tf.random_normal([FLAGS.batch_size,
-                                           image_size,
-                                           image_size, 3],
+    if FLAGS.data_format == 'NCHW':
+      image_shape = [FLAGS.batch_size, 3, image_size, image_size]
+    else:
+      image_shape = [FLAGS.batch_size, image_size, image_size, 3]
+    images = tf.Variable(tf.random_normal(image_shape,
                                           dtype=tf.float32,
                                           stddev=1e-1))
 
@@ -172,20 +206,30 @@ def run_benchmark():
     init = tf.initialize_all_variables()
 
     # Start running operations on the Graph.
-    config = tf.ConfigProto()
-    config.gpu_options.allocator_type = 'BFC'
-    sess = tf.Session(config=config)
+    sess = tf.Session('')
     sess.run(init)
 
-    # Run the forward benchmark.
-    time_tensorflow_run(sess, last_layer, "Forward")
+    run_forward = True
+    run_forward_backward = True
+    if FLAGS.forward_only and FLAGS.forward_backward_only:
+      raise ValueError("Cannot specify --forward_only and "
+                       "--forward_backward_only at the same time.")
+    if FLAGS.forward_only:
+      run_forward_backward = False
+    elif FLAGS.forward_backward_only:
+      run_forward = False
 
-    # Add a simple objective so we can calculate the backward pass.
-    objective = loss(last_layer, labels)
-    # Compute the gradient with respect to all the parameters.
-    grad = tf.gradients(objective, parameters)
-    # Run the backward benchmark.
-    time_tensorflow_run(sess, grad, "Forward-backward")
+    if run_forward:
+      # Run the forward benchmark.
+      time_tensorflow_run(sess, last_layer, "Forward")
+
+    if run_forward_backward:
+      # Add a simple objective so we can calculate the backward pass.
+      objective = loss(last_layer, labels)
+      # Compute the gradient with respect to all the parameters.
+      grad = tf.gradients(objective, parameters)
+      # Run the backward benchmark.
+      time_tensorflow_run(sess, grad, "Forward-backward")
 
 
 def main(_):
