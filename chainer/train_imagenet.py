@@ -63,10 +63,13 @@ def train_loop():
         y = xp.asarray(label)
 
         optimizer.zero_grads()
-        start = time.clock()
+        start = xp.cuda.Event()
+        end = xp.cuda.Event()
+        start.record()
         loss, accuracy = model.forward(x, y)
-        end = time.clock()
-        time_ = (end - start)*1000
+        end.record()
+        end.synchronize()
+        time_ = xp.cuda.get_elapsed_time(start, end)
         if i > 0:
             total_forward += time_
         # print "Forward step time elapsed:", time_, " ms"
