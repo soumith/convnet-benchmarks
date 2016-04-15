@@ -119,9 +119,10 @@ def time_tensorflow_run(session, target, info_string):
   total_duration_squared = 0.0
   if not isinstance(target, list):
     target = [target]
+  target_op = tf.group(*target)
   for i in xrange(FLAGS.num_batches + num_steps_burn_in):
     start_time = time.time()
-    _ = session.run(tf.group(*target))
+    _ = session.run(target_op)
     duration = time.time() - start_time
     if i > num_steps_burn_in:
       if not i % 10:
