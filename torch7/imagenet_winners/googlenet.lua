@@ -56,6 +56,7 @@ local function googlenet(lib)
    -- model:add(nn.Dropout(0.4))
    model:add(nn.Linear(1024,1000)):add(nn.ReLU(true))
    -- model:add(nn.LogSoftMax())
+   model:get(1).gradInput = nil
    return model,'GoogleNet', {128,3,224,224}
 end
 
