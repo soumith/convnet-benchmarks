@@ -98,9 +98,9 @@ def train_loop():
         # print "Optimizer update time elapsed:", time_, " ms"
 
         del loss, accuracy
-    print "Average Forward:  ", total_forward  / niter-1 , " ms"
-    print "Average Backward: ", total_backward / niter-1 , " ms"
-    print "Average Total:    ", (total_forward + total_backward) / niter-1 , " ms"
+    print "Average Forward:  ", total_forward  / (niter-1), " ms"
+    print "Average Backward: ", total_backward / (niter-1), " ms"
+    print "Average Total:    ", (total_forward + total_backward) / (niter-1), " ms"
     print ""
 
 train_loop()
