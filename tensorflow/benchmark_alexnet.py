@@ -1,3 +1,4 @@
+from builtins import range
 from datetime import datetime
 import math
 import time
@@ -120,7 +121,7 @@ def time_tensorflow_run(session, target, info_string):
   if not isinstance(target, list):
     target = [target]
   target_op = tf.group(*target)
-  for i in xrange(FLAGS.num_batches + num_steps_burn_in):
+  for i in range(FLAGS.num_batches + num_steps_burn_in):
     start_time = time.time()
     _ = session.run(target_op)
     duration = time.time() - start_time
