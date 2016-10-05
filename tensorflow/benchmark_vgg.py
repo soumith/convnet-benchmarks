@@ -131,7 +131,7 @@ def time_tensorflow_run(session, target, info_string):
     start_time = time.time()
     _ = session.run(target_op)
     duration = time.time() - start_time
-    if i > num_steps_burn_in:
+    if i >= num_steps_burn_in:
       if not i % 10:
         print ('%s: step %d, duration = %.3f' %
                (datetime.now(), i - num_steps_burn_in, duration))
