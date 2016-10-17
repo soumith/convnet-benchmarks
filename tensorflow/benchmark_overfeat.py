@@ -1,5 +1,7 @@
 from builtins import range
+from collections import namedtuple
 from datetime import datetime
+import csv
 import math
 import time
 
@@ -20,12 +22,20 @@ tf.app.flags.DEFINE_string('data_format', 'NCHW',
                            """The data format for Convnet operations.
                            Can be either NHWC or NCHW.
                            """)
+tf.app.flags.DEFINE_string('csv_file', '',
+                           """File to output timing information to in csv
+                           format. If not file is passed in, csv file will
+                           not be cteated.
+                           """)
 
 parameters = []
 
 conv_counter = 1
 pool_counter = 1
 affine_counter = 1
+
+TimingEntry = namedtuple(
+    'TimingEntry', ['info_string', 'timestamp', 'num_batches', 'mean', 'sd'])
 
 def _conv(inpOp, nIn, nOut, kH, kW, dH, dW, padType):
     global conv_counter
@@ -136,9 +146,19 @@ def time_tensorflow_run(session, target, info_string):
   sd = math.sqrt(vr)
   print ('%s: %s across %d steps, %.3f +/- %.3f sec / batch' %
          (datetime.now(), info_string, FLAGS.num_batches, mn, sd))
+  return TimingEntry(info_string, datetime.now(), FLAGS.num_batches, mn, sd)
+
+def store_data_in_csv(timing_entries):
+  with open(FLAGS.csv_file, 'wb') as csvfile:
+    writer = csv.writer(csvfile)
+    for timing_entry in timing_entries:
+      writer.writerow(
+          [timing_entry.info_string, timing_entry.timestamp,
+           timing_entry.num_batches, timing_entry.mean, timing_entry.sd])
 
 def run_benchmark():
   global parameters
+  timing_entries = []
   with tf.Graph().as_default():
     # Generate some dummy images.
     image_size = 231
@@ -179,7 +199,7 @@ def run_benchmark():
 
     if run_forward:
       # Run the forward benchmark.
-      time_tensorflow_run(sess, last_layer, "Forward")
+      timing_entries.append(time_tensorflow_run(sess, last_layer, "Forward"))
 
     if run_forward_backward:
       # Add a simple objective so we can calculate the backward pass.
@@ -187,7 +207,10 @@ def run_benchmark():
       # Compute the gradient with respect to all the parameters.
       grad = tf.gradients(objective, parameters)
       # Run the backward benchmark.
-      time_tensorflow_run(sess, grad, "Forward-backward")
+      timing_entries.append(time_tensorflow_run(sess, grad, "Forward-backward"))
+
+  if FLAGS.csv_file:
+    store_data_in_csv(timing_entries)
 
 
 def main(_):
