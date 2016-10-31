@@ -30,7 +30,7 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)        |      177   |  42          |   135         |
 | CuDNN[R2] *             | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)        |      231   |  70          |   161         |
 | Caffe (native)           | [ConvolutionLayer](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                |      324   | 121          |   203         |
-| Torch-7 (native)         | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                   |      342   | 132          |   210         |
+| Torch-7 (native)         | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/lib/THCUNN/SpatialConvolutionMM.cu)                   |      342   | 132          |   210         |
 | CL-nn (Torch)            | [SpatialConvolutionMM](https://github.com/hughperkins/clnn/blob/master/SpatialConvolutionMM.cl)             |      963   | 388          |   574         |
 | Caffe-CLGreenTea         | [ConvolutionLayer](https://github.com/naibaf7/caffe)                                                        |      1442   | 210          |   1232         |
 
@@ -48,7 +48,7 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                  |         723       |  176                    |   547                    |
 | CuDNN[R2] *             | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                  |         810       |  234                    |   576                    |
 | Caffe                    | [ConvolutionLayer](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                             |         823       |  355                    |   468                    |
-| Torch-7 (native)         | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                |         878       |  379                    |   499                    |
+| Torch-7 (native)         | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/lib/THCUNN/SpatialConvolutionMM.cu)                                |         878       |  379                    |   499                    |
 | CL-nn (Torch)            | [SpatialConvolutionMM](https://github.com/hughperkins/clnn/blob/master/SpatialConvolutionMM.cl)                          |         963       |  388                    |   574                    |
 | Caffe-CLGreenTea         | [ConvolutionLayer](https://github.com/naibaf7/caffe)                                                                     |      2857   | 616          |   2240         |
 
@@ -66,7 +66,7 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 | cudaconvnet2*            | [ConvLayer](https://github.com/soumith/cuda-convnet2.torch/blob/master/cudaconv3/src/filter_acts.cu)                     |       1229        |  408                    |   821                    |
 | CuDNN[R2] *             | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    |       1099        |  342                    |   757                    |
 | Caffe                    | [ConvolutionLayer](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                             |       1068        |  323                    |   745                    |
-| Torch-7 (native)         | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                |       1105        |  350                    |   755                    |
+| Torch-7 (native)         | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/lib/THCUNN/SpatialConvolutionMM.cu)                                |       1105        |  350                    |   755                    |
 | CL-nn (Torch)            | [SpatialConvolutionMM](https://github.com/hughperkins/clnn/blob/master/SpatialConvolutionMM.cl)                          |       3437        |  875                    |   2562                   |
 | Caffe-CLGreenTea         | [ConvolutionLayer](https://github.com/naibaf7/caffe)             |      5620   | 988          |   4632         |
 
@@ -98,7 +98,7 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 | CuDNN R2 *               | [cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                    | 1019              |  269                    | 750                      |
 | Theano                   | CorrMM                                                                                                                   | 1225              |  407                    | 818                      |
 | Caffe                    | [ConvolutionLayer](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                             | 1231              |  396                    |   835                    |
-| Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                | 1265              |  418                    | 877                      |
+| Torch-7                  | [SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/lib/THCUNN/SpatialConvolutionMM.cu)                                | 1265              |  418                    | 877                      |
 | DeepCL                   | [ConvolutionLayer](https://github.com/hughperkins/DeepCL/blob/master/src/ConvolutionalLayer.cpp)                         |  6280             |  2648                   | 3632                     |
 | _cherry-picking_****     | _best per layer_                                                                                                         | _235_             |  _79_                   |   _155_                  |
 
@@ -134,7 +134,7 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 | CuDNN R2                 |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                              | 56 | 143 |  53 |  6 | 11 | 269 |
 | Theano                   | CorrMM                                                                                                                            | 91 | 143 | 121 | 24 | 28 | 407 |
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 93 | 136 | 116 | 24 | 27 | 396 |
-| Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       | 94 | 149 | 123 | 24 | 28 | 418 |
+| Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/lib/THCUNN/SpatialConvolutionMM.cu)                                       | 94 | 149 | 123 | 24 | 28 | 418 |
 | DeepCL                   | [ConvolutionLayer](https://github.com/hughperkins/DeepCL/blob/master/src/ConvolutionalLayer.cpp)                                  | 738| 1241 | 518| 47 |104 |2648 |
 | _cherry-picking_****     | _best per layer_                                                                                                                  |_36_|_27_ |  _6_| _2_| _8_|  79 |
 
@@ -149,6 +149,6 @@ Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 | CuDNN R2                 |[cudnn.SpatialConvolution](https://github.com/soumith/cudnn.torch/blob/master/SpatialConvolution.lua)                              | 139 | 401 | 159 | 19 | 32 | 750   |
 | Theano                   | CorrMM                                                                                                                            | 179 | 405 | 174 | 29 | 31 | 818   |
 | Caffe                    | [ConvolutionLayer\<Dtype>](https://github.com/BVLC/caffe/blob/master/src/caffe/layers/conv_layer.cu)                              | 200 | 405 | 172 | 28 | 30 | 835   |
-| Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/SpatialConvolutionMM.cu)                                       | 206 | 432 | 178 | 29 | 32 | 877   |
+| Torch-7                  |[nn.SpatialConvolutionMM](https://github.com/torch/cunn/blob/master/lib/THCUNN/SpatialConvolutionMM.cu)                                       | 206 | 432 | 178 | 29 | 32 | 877   |
 | DeepCL                   | [ConvolutionLayer](https://github.com/hughperkins/DeepCL/blob/master/src/ConvolutionalLayer.cpp)                                  | 484 |2144 | 747 | 59 |198 |  3632 |
 | _cherry-picking_****     | _best per layer_                                                                                                                  | _76_| _45_| _12_|_4_ |_18_|_155_  |
