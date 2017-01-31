@@ -102,7 +102,7 @@ def loss(logits, labels):
     onehot_labels = tf.sparse_to_dense(
         concated, tf.stack([batch_size, 1000]), 1.0, 0.0)
     cross_entropy = tf.nn.softmax_cross_entropy_with_logits(
-        logits, onehot_labels, name='xentropy')
+        logits=logits, labels=onehot_labels, name='xentropy')
     loss = tf.reduce_mean(cross_entropy, name='xentropy_mean')
     return loss
 
