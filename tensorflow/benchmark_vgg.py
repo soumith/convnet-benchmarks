@@ -99,12 +99,11 @@ def loss(logits, labels):
     batch_size = tf.size(labels)
     labels = tf.expand_dims(labels, 1)
     indices = tf.expand_dims(tf.range(0, batch_size, 1), 1)
-    concated = tf.concat(1, [indices, labels])
+    concated = tf.concat([indices, labels], 1)
     onehot_labels = tf.sparse_to_dense(
-        concated, tf.pack([batch_size, 1000]), 1.0, 0.0)
-    cross_entropy = tf.nn.softmax_cross_entropy_with_logits(logits,
-                                                            onehot_labels,
-                                                            name='xentropy')
+        concated, tf.stack([batch_size, 1000]), 1.0, 0.0)
+    cross_entropy = tf.nn.softmax_cross_entropy_with_logits(
+        logits=logits, labels=onehot_labels, name='xentropy')
     loss = tf.reduce_mean(cross_entropy, name='xentropy_mean')
     return loss
 
