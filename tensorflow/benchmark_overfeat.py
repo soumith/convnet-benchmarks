@@ -180,7 +180,7 @@ def run_benchmark():
     last_layer = inference(images)
 
     # Build an initialization operation.
-    init = tf.initialize_all_variables()
+    init = tf.global_variables_initializer()
 
     # Start running operations on the Graph.
     sess = tf.Session('')
