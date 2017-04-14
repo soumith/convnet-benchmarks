@@ -6,14 +6,14 @@ A summary is provided in the section below.
 
 Machine: `6-core Intel Core i7-5930K CPU @ 3.50GHz` + `NVIDIA Titan X` + `Ubuntu 14.04 x86_64`
 
-##Imagenet Winners Benchmarking
+## Imagenet Winners Benchmarking
 I pick some popular imagenet models, and I clock the time for a full forward + backward pass. I average my times over 10 runs. I ignored dropout and softmax layers.
 
 ### Notation
 
 Input is described as `{batch_size}x{num_filters}x{filter_width}x{filter_height}`. Where `batch_size` is the number of images used in a minibatch, `num_filters` is the number of channels in an image, `filter_width` is the width of the image, and `filter_height` is the height of the image.
 
-######One small note: 
+###### One small note: 
 The CuDNN benchmarks are done using Torch bindings. One can also do the same via Caffe bindings or bindings of any other library. This note is here to clarify that **Caffe (native)** and **Torch (native)** are the convolution kernels which are present as a default fallback. Some of the frameworks like TensorFlow and Chainer are benchmarked with CuDNN, but it is not explicitly mentioned, and **hence one might think that these frameworks as a whole are faster, than for example Caffe, which might not be the case**.
 
 **[AlexNet (One Weird Trick paper)](https://github.com/akrizhevsky/cuda-convnet2/blob/master/layers/layers-imagenet-1gpu.cfg)** - Input 128x3x224x224
@@ -87,7 +87,7 @@ The CuDNN benchmarks are done using Torch bindings. One can also do the same via
 
 ## Layer-wise Benchmarking (Last Updated April 2015)
 
-###Spatial Convolution layer (3D input 3D output, densely connected)
+### Spatial Convolution layer (3D input 3D output, densely connected)
 ##### forward + backprop (wrt input and weights)
 
 | Original Library         | Class/Function Benchmarked                                                                                               | Time (ms)         | forward (ms)            | backward (ms)            |
@@ -122,7 +122,7 @@ This table is ___NOT UPDATED For TITAN-X___. These numbers below were on Titan B
 * L5 - Input: `13x13`   Batch-size `128`, Feature maps: `384->384`,  Kernel Size:   `3x3`,  Stride: `1x1`
 * The table is ranked according to the total time forward+backward calls for layers (L1 + L2 + L3 + L4 + L5)
 
-#####Breakdown
+##### Breakdown
 ###### forward
 Columns L1, L2, L3, L4, L5, Total are times in **milliseconds**
 
