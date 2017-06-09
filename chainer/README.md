@@ -1,4 +1,12 @@
-pip install chainer
+# Prepare
 
-git clone https://github.com/pfnet/chainer.git
+```
+pip install cupy
+pip install chainer
+```
+
+# Sources
+
+- [CuPy](https://github.com/cupy/cupy)
+- [Chainer](https://github.com/chainer/chainer)
 
